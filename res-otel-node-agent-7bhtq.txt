@@ -1,13 +1,3 @@
 [otel-node-agent-7bhtq]
-N=otel-node-agent-7bhtq
-crowdsec-capi-credentials-volume
-crowdsec-lapi-cscli-credentials-volume
-tls-ca
-tls-cert
-tls-key
-tls-key-password
-DISK:
-/dev/root               246.9G     47.4G    199.5G  19% /host
-RAM:
-Mem:          64299        7374        1488        4250       55438       51949
-CPU:8
+AZURE_CLIENT_ID=2cf28c59-71b1-4559-9dc3-21d7cd19d271
+AZURE_TENANT_ID=556bd7f1-c908-49e6-a91b-76ff0da5ff34
