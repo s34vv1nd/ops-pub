@@ -1,22 +1,3 @@
 [otel-node-agent-zvzxm]
-N=otel-node-agent-zvzxm
-overlay                 246.9G    169.3G     77.7G  69% /
-Mem:             63          47           1           4          15          11
-8
-=== AUDA-процессы на ноде:
-3787464 | postgres: sea-2-pg-cluster: audacity cc_audacity_crm 10.224.
-3827584 | postgres: sea-2-pg-cluster: cnpg_pooler_pgbouncer cc_audacit
-3942770 | postgres: sea-2-pg-cluster: cnpg_pooler_pgbouncer cc_audacit
-3986895 | postgres: sea-2-pg-cluster: audacity cc_audacity_crm 10.224.
-4017176 | postgres: sea-2-pg-cluster: cnpg_pooler_pgbouncer cc_audacit
-=== auda env-хвосты:
-AUDACITY_NATS_PORT_4222_TCP=tcp://10.0.17.207:4222
-AUDACITY_NATS_SERVICE_PORT=4222
-AUDACITY_SUPERSET_POSTGRESQL_PORT=tcp://10.0.11.90:5432
-AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT=5432
-AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL=5432
-AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
-CLICKHOUSE_USERNAME=audacity
-CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
-sh: can't open /host/proc/3729390/cmdline: no such file
-sh: can't open /host/proc/3988388/cmdline: no such file
+HOST=otel-node-agent-zvzxm
+pgroot=/host/proc/1090071
