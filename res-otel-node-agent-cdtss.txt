@@ -1,0 +1,5 @@
+[otel-node-agent-cdtss]
+N=otel-node-agent-cdtss
+client-ca-cert
+cluster-ca
+PODS=22
