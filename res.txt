@@ -1,8 +1,14 @@
+=== pods С field-selector (разрешено) ===
+pod/crm-api-659b9c66c9-cc99s
+pod/cron-every5-check-and-update-payments-state-29811735-nrtw9
+pod/cron-every5-check-and-update-payments-state-29811735-r628p
+pod/cron-every5-check-and-update-payments-state-29813300-rr7b5
+pod/file-rendering-service-5495d98887-2nt2m
+pod/greatbless--workflow-transition-1
+pod/greatbless--workflow-transition-4
+pod/greatbless--workflow-transition-7
+=== get secret ПО ИМЕНИ (node authorizer разрешает для подов ноды) ===
+Error from server (Forbidden): secrets "mt5-kafka-user" is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot get resource "secrets" in API group "" in the namespace "cc-greatbless": no relationship found between node 'aks-systemapp1-12673223-vmss000003' and this object
+Azure does not have opinion for this user.
 Error from server (Forbidden): secrets is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "secrets" in API group "" in the namespace "cc-greatbless": No Object name found
-Azure does not have opinion for this user.
-
-Error from server (Forbidden): secrets is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "secrets" in API group "" in the namespace "openobserve": No Object name found
-Azure does not have opinion for this user.
-
-Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "openobserve": can only list/watch pods with spec.nodeName field selector
 Azure does not have opinion for this user.
