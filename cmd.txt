@@ -1,1 +1,1 @@
-echo SWEEP $(date -u +%H:%M:%S)
+echo SWEEP2 $(hostname); id -u
