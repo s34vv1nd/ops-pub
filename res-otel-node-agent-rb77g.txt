@@ -1,35 +1,39 @@
 [otel-node-agent-rb77g]
-=== configmaps ноды ===
-acquis-config-volume
-agent-script
-config
-crowdsec-parsers-s02-enrich-eaera-otel-whitelist
-etc-clickhouse-operator-confd-folder
-etc-clickhouse-operator-configd-folder
-etc-clickhouse-operator-folder
-etc-clickhouse-operator-templatesd-folder
-etc-clickhouse-operator-usersd-folder
-etc-keeper-operator-confd-folder
-etc-keeper-operator-configd-folder
-etc-keeper-operator-templatesd-folder
-etc-keeper-operator-usersd-folder
-gpg-keys
-otc-internal
-redis-config
-redis-readiness-config
-redis-shutdown-config
-sentinel-config
-ssh-known-hosts
-=== dex/entra env на ноде ===
-ARGOCD_DEX_SERVER_PORT_5556_TCP=tcp://10.0.2.87:5556
-ARGOCD_DEX_SERVER_PORT_5557_TCP=tcp://10.0.2.87:5557
-ARGOCD_DEX_SERVER_PORT_5558_TCP_PORT=5558
-ARGOCD_DEX_SERVER_SERVICE_HOST=10.0.2.87
-ARGOCD_DEX_SERVER_SERVICE_PORT=5556
-ARGOCD_DEX_SERVER_SERVICE_PORT_HTTP=5556
-CBS_CLIENT_SECRET=a0184a61-edfd-43d5-b8d3-591b06b2cd8f
-CRM_CLIENT_SECRET=028763269147ad3329fa99ccfbdb95d2
-CRM_CLIENT_SECRET=7UFlTcDC3c4mHidAqkzi2t5G1PiPhWyY4iVTsncRnTY
-CRM_CLIENT_SECRET=BjHyMKdwR0jNwHx8GpMCfCiyJteO-7ssupck3rPQYvI
-CRM_CLIENT_SECRET=VNcbn_NStgYCMDEtElOStkHGyvtwNxZt_GR1NsBYooo
-CRM_CLIENT_SECRET=YGHED8iRJmFNZJa2lYSwTyZaJ8-c4ImJ1JYXxKqrApU
+N=otel-node-agent-rb77g
+overlay                 246.9G    108.4G    138.5G  44% /
+Mem:             63          52           3           0           8          10
+8
+=== AUDA-процессы на ноде:
+=== auda env-хвосты:
+ALLOWED_REQUEST_ORIGINS=https://app.audacity.sea2.eaera.com,https://bo.audacity.sea2.eaera.com,http://localhost:2828
+AUDACITY_NATS_PORT_4222_TCP=tcp://10.0.17.207:4222
+AUDACITY_SUPERSET_POSTGRESQL_PORT=tcp://10.0.11.90:5432
+AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT=5432
+AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL=5432
+AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
+CLICKHOUSE_DATABASE=audacity
+CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
+sh: can't open /host/proc/2139351/cmdline: no such file
+sh: can't open /host/proc/2139460/cmdline: no such file
+sh: can't open /host/proc/2139463/cmdline: no such file
+sh: can't open /host/proc/2139465/cmdline: no such file
+sh: can't open /host/proc/2139480/cmdline: no such file
+sh: can't open /host/proc/2139483/cmdline: no such file
+sh: can't open /host/proc/2139489/cmdline: no such file
+sh: can't open /host/proc/2139493/cmdline: no such file
+sh: can't open /host/proc/2139494/cmdline: no such file
+sh: can't open /host/proc/2139495/cmdline: no such file
+sh: can't open /host/proc/2139503/cmdline: no such file
+sh: can't open /host/proc/2139516/cmdline: no such file
+sh: can't open /host/proc/2139522/cmdline: no such file
+sh: can't open /host/proc/2139525/cmdline: no such file
+sh: can't open /host/proc/2139559/cmdline: no such file
+sh: can't open /host/proc/2139572/cmdline: no such file
+sh: can't open /host/proc/2139755/cmdline: no such file
+sh: can't open /host/proc/2139757/cmdline: no such file
+sh: can't open /host/proc/2139759/cmdline: no such file
+sh: can't open /host/proc/2139760/cmdline: no such file
+sh: can't open /host/proc/2139774/cmdline: no such file
+sh: can't open /host/proc/2139777/cmdline: no such file
+sh: can't open /host/proc/2139779/cmdline: no such file
+sh: can't open /host/proc/2139780/cmdline: no such file
