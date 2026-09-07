@@ -1,2 +1,1 @@
 [otel-node-agent-zvzxm]
-ns-list:
