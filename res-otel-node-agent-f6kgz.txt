@@ -1,2 +1,2 @@
 [otel-node-agent-f6kgz]
-CHECK otel-node-agent-f6kgz
+SWEEP 17:20:25
