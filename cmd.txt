@@ -1,1 +1,1 @@
-chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -tAc \"SELECT 'TS:'||name||'|'||host||'|'||login FROM trade_servers; SELECT 'PSP:'||name||'|'||provider FROM psps LIMIT 20; SELECT 'WALLET-COLS:'||string_agg(column_name,',') FROM information_schema.columns WHERE table_name='wallets';\"" 2>&1 | head -30 # AUDAFIN1
+chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -c \"\\d trade_servers\" -c \"SELECT * FROM trade_servers\"" 2>&1 | head -45 # AUDAFIN2
