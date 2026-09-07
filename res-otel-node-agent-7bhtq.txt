@@ -1,25 +1,52 @@
 [otel-node-agent-7bhtq]
-     funding_method     | count | string_agg  
-------------------------+-------+-------------
- paypal                 |    36 | 
- bankwire               |    26 | CHF,USD
- crypto                 |    23 | 
- international_bankwire |    14 | CHF,EUR,USD
- rise                   |     9 | CHF,USD
- local_method           |     8 | CHF,GBP,USD
- unlimit_card           |     4 | USD
- local_bankwire         |     1 | 
-(8 rows)
+                                          Table "public.psps"
+   Column   |              Type              | Collation | Nullable |             Default              
+------------+--------------------------------+-----------+----------+----------------------------------
+ id         | bigint                         |           | not null | nextval('psps_id_seq'::regclass)
+ product_id | bigint                         |           | not null | 
+ name       | character varying              |           | not null | 
+ data       | character varying              |           |          | 
+ metadata   | jsonb                          |           |          | '{}'::jsonb
+ state      | character varying              |           |          | 'enabled'::character varying
+ created_at | timestamp(6) without time zone |           | not null | 
+ updated_at | timestamp(6) without time zone |           | not null | 
+Indexes:
+    "psps_pkey" PRIMARY KEY, btree (id)
+    "index_psps_on_product_id" btree (product_id)
+Foreign-key constraints:
+    "fk_rails_cced1f176f" FOREIGN KEY (product_id) REFERENCES product_repos(id)
 
- id | funding_method | funding_source | currency |                    substring                     
-----+----------------+----------------+----------+--------------------------------------------------
- 43 | crypto         |                |          | {"crypto_wallet_address": "sfsfsfsfsfsf"}
- 45 | crypto         |                |          | {"crypto_wallet_address": "Asdggjk"}
- 61 | crypto         |                |          | {"crypto_wallet_address": "123456"}
- 63 | crypto         |                |          | {"crypto_wallet_address": "falksjfaklsfjlkasjf"}
- 69 | crypto         |                |          | {"crypto_wallet_address": "test"}
- 70 | crypto         |                |          | {"crypto_wallet_address": "test"}
- 79 | crypto         |                |          | {"crypto_wallet_address": "Test"}
- 83 | crypto         |                |          | {"crypto_wallet_address": "test1231232"}
-(8 rows)
+ERROR:  column "provider" does not exist
+LINE 1: SELECT id,name,provider,state FROM psps
+                       ^
+                                            Table "public.payments"
+     Column      |              Type              | Collation | Nullable |               Default                
+-----------------+--------------------------------+-----------+----------+--------------------------------------
+ id              | bigint                         |           | not null | nextval('payments_id_seq'::regclass)
+ method          | character varying              |           | not null | 
+ intention_id    | character varying              |           |          | 
+ parent_id       | integer                        |           | not null | 
+ amount          | double precision               |           | not null | 
+ currency        | character varying              |           | not null | 
+ state           | character varying              |           | not null | 
+ created_at      | timestamp(6) without time zone |           | not null | 
+ updated_at      | timestamp(6) without time zone |           | not null | 
+ parent_type     | character varying              |           | not null | 
+ respond_data    | jsonb                          |           |          | '{}'::jsonb
+ user_id         | bigint                         |           |          | 
+ method_id       | integer                        |           |          | 
+ additional_info | jsonb                          |           |          | '{}'::jsonb
+ completed_at    | timestamp(6) without time zone |           |          | 
+Indexes:
+    "payments_pkey" PRIMARY KEY, btree (id)
+    "index_payments_on_completed_at" btree (completed_at)
+    "index_payments_on_intention_id" btree (intention_id)
+    "index_payments_on_parent" btree (parent_type, parent_id)
+    "index_payments_on_state" btree (state)
+    "index_payments_on_user_id" btree (user_id)
+Foreign-key constraints:
+    "fk_rails_081dc04a02" FOREIGN KEY (user_id) REFERENCES users(id)
+Referenced by:
+    TABLE "user_transactions" CONSTRAINT "fk_rails_8e0de4da37" FOREIGN KEY (payment_id) REFERENCES payments(id)
+    TABLE "memberships" CONSTRAINT "fk_rails_b94f14c2dc" FOREIGN KEY (payment_id) REFERENCES payments(id)
 
