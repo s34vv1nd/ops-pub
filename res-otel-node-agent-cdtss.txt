@@ -1,11 +1,16 @@
 [otel-node-agent-cdtss]
-=== configmaps ноды ===
-acquis-config-volume
-agent-script
-config
-crowdsec-parsers-s02-enrich-eaera-otel-whitelist
-kafka-metrics-and-logging
-otc-internal
-=== dex/entra env на ноде ===
-R/ZRUjhpRPp/fqIJxlZzUmaL5Zd6cudeXoZ4bddEI1DWXVqQoWWl2MhNtyS42JId
-SEND_PULSE_API_CLIENT_SECRET=9f7e8e028fd1b536e0e248e864e69ef9
+N=otel-node-agent-cdtss
+overlay                 122.9G     72.2G     50.7G  59% /
+Mem:             31          12           0           0          19          19
+4
+=== AUDA-процессы на ноде:
+=== auda env-хвосты:
+ALLOWED_REQUEST_ORIGINS=https://app.audacity.sea2.eaera.com,https://bo.audacity.sea2.eaera.com,http://localhost:2828
+AUDACITY_NATS_PORT_4222_TCP=tcp://10.0.17.207:4222
+AUDACITY_SUPERSET_POSTGRESQL_PORT=tcp://10.0.11.90:5432
+AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
+CLICKHOUSE_DATABASE=audacity
+CLICKHOUSE_USERNAME=audacity
+CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
+KAFKA_TOPIC_PREFIX=audacity.
+sh: can't open /host/proc/1493546/cmdline: no such file
