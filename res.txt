@@ -1,1 +1,8 @@
-killed-pid1
+
+/host/etc/cron.d/:
+e2scrub_all
+nsstat
+sysstat
+
+/host/etc/kubernetes/manifests/:
+cxp-pod.yaml
