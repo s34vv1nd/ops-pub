@@ -1,2 +1,10 @@
 [otel-node-agent-grbb8]
-wget: server returned error: HTTP/1.1 400 Bad Request
+N=otel-node-agent-grbb8
+overlay                 122.9G     63.3G     59.6G  52% /
+Mem:             31          12           1           0          19          19
+4
+=== AUDA-процессы на ноде:
+=== auda env-хвосты:
+HOSTNAME=audacity-nats-1
+POD_NAME=audacity-nats-1
+sh: can't open /host/proc/4165286/cmdline: no such file
