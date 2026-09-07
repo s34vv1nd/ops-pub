@@ -1,1 +1,1 @@
-grep -a "cxp\|konnectivity-agent-sidecar" /host/var/log/syslog 2>/dev/null | tail -5; echo "=== error/warn kubelet после 15:44 ==="; grep -a kubelet /host/var/log/syslog 2>/dev/null | grep -aE e
+grep -ac "cxp-pod" /host/var/log/syslog 2>/dev/null; grep -a "konnectivity-agent-sidecar" /host/var/log/syslog 2>/dev/null | tail -2 | cut -c1-200; echo "==="; grep -a "invalid\|Failed to read\|manifest" /host/var/log/syslog 2>/dev/null | grep -a kubelet | tail -3 | cut -c1-220
