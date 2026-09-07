@@ -1,16 +1,12 @@
 [otel-node-agent-7bhtq]
-=== configmaps ноды ===
-acquis-config-volume
-agent-script
-appsec-acquis-config-volume
-crowdsec-appsec-configs-eaera-allow-monitoring
-crowdsec-appsec-configs-eaera-crs-alerting
-crowdsec-config-local-volume
-crowdsec-docker-start-script
-crowdsec-notifications-http-default
-crowdsec-parsers-s02-enrich-eaera-otel-whitelist
-crowdsec-profiles-volume
-otc-internal
-=== dex/entra env на ноде ===
-AZURE_AUTHORITY_HOST=https://login.microsoftonline.com/
-CBS_CLIENT_SECRET=a0184a61-edfd-43d5-b8d3-591b06b2cd8f
+N=otel-node-agent-7bhtq
+overlay                 246.9G     47.4G    199.6G  19% /
+Mem:             63           7           1           4          54          51
+8
+=== AUDA-процессы на ноде:
+670513 | postgres: sea-2-pg-cluster: audacity cc_audacity_crm 10.224.
+=== auda env-хвосты:
+AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT=5432
+AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL=5432
+AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
+sh: can't open /host/proc/710316/cmdline: no such file
