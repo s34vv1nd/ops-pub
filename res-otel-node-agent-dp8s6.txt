@@ -1,11 +1,1 @@
 [otel-node-agent-dp8s6]
-N=otel-node-agent-dp8s6
-argocd-repo-server-tls
-automation-config
-config-volume
-crowdsec-bouncer-key
-DISK:
-/dev/root               246.9G    122.5G    124.5G  50% /host
-RAM:
-Mem:          64299       43558       13201          32        7540       19983
-CPU:8
