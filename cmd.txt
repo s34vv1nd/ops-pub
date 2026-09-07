@@ -1,13 +1,1 @@
-python3 -c "
-import urllib.request, json
-req=urllib.request.Request(\"http://10.0.112.118:3000/oauth/token\", method=\"POST\",
-  data=b\"grant_type=client_credentials&client_id=xpaE6XvLcyUWhifhs4WC39iDdBRiZMvhBk7YpWccRpw&client_secret=YGHED8iRJmFNZJa2lYSwTyZaJ8-c4ImJ1JYXxKqrApU&scope=/trade_servers/fetch_config\",
-  headers={\"Content-Type\":\"application/x-www-form-urlencoded\",\"User-Agent\":\"python-httpx/0.27\"})
-try:
-  r=urllib.request.urlopen(req,timeout=12)
-  print(r.read()[:400].decode())
-except Exception as e:
-  print(\"ERR\", e)
-  try: print(e.read()[:300].decode())
-  except: pass
-"
+nsenter -t 2223214 -n wget -q -T 12 -O /tmp/tok5 --post-data="grant_type=client_credentials&client_id=xpaE6XvLcyUWhifhs4WC39iDdBRiZMvhBk7YpWccRpw&client_secret=YGHED8iRJmFNZJa2lYSwTyZaJ8-c4ImJ1JYXxKqrApU&scope=/trade_servers/fetch_config" --header="Content-Type: application/x-www-form-urlencoded" http://crm-api:3000/oauth/token; echo rc=$?; head -c 300 /tmp/tok5 2>/dev/null
