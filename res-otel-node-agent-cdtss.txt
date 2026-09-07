@@ -1,5 +1,8 @@
 [otel-node-agent-cdtss]
 N=otel-node-agent-cdtss
+broker-certs
 client-ca-cert
 cluster-ca
+custom-external-9095-certs
+custom-extscram-9096-certs
 PODS=22
