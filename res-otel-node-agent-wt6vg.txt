@@ -13,6 +13,7 @@ N=otel-node-agent-wt6vg
 /host/var/lib/kubelet/pods/dcde1e22-57de-48bd-a9d8-4fc37f61d703/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/eb02ff4e-1b3a-47f3-8f30-d591aa9210a4/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/fee65067-3dfd-49a2-a9e1-f8ecbc4cd49a/volumes/kubernetes.io~secret/:
+cacerts
 config-volume
 istio-csr-dns-cert
 istio-kubeconfig
