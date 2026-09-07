@@ -22,7 +22,4 @@ N=otel-node-agent-j8ffs
 argocd-dex-server-tls
 argocd-repo-server-tls
 automation-config
-cert
-config-volume
-crowdsec-bouncer-key
 PODS=170
