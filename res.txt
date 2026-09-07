@@ -1,9 +1,80 @@
-22
-===
-/host/run/containerd/containerd.sock
-SOCK-OK
-kubelet-client-2026-08-28-04-38-48.pem
-kubelet-client-current.pem
-kubelet-server-2026-08-28-04-38-50.pem
-kubelet-server-2026-08-28-04-38-54.pem
-kubelet-server-current.pem
+=== 14ae5566 :: ca-certs
+   . (100b)
+   .. (4096b)
+   ..2026_09_02_08_38_01.2061936267 (60b)
+   ..data (32b)
+   ca.crt (13b)
+=== 14ae5566 :: certs
+   . (120b)
+   .. (4096b)
+   ..2026_09_02_08_38_01.3620765840 (80b)
+   ..data (32b)
+   user.crt (15b)
+   user.key (15b)
+=== 1790ee0b :: superset-config
+   . (140b)
+   .. (4096b)
+   ..2026_08_28_07_17_35.3563761879 (100b)
+   ..data (32b)
+   superset_bootstrap.sh (28b)
+   superset_config.py (25b)
+   superset_init.sh (23b)
+=== 29f6cf4a :: ca-certs
+   . (100b)
+   .. (4096b)
+   ..2026_09_02_08_37_56.3760220760 (60b)
+   ..data (32b)
+   ca.crt (13b)
+=== 29f6cf4a :: certs
+   . (120b)
+   .. (4096b)
+   ..2026_09_02_08_37_56.2335351686 (80b)
+   ..data (32b)
+   user.crt (15b)
+   user.key (15b)
+=== 390d4184 :: ca-certs
+   . (100b)
+   .. (4096b)
+   ..2026_09_02_08_37_50.3300698888 (60b)
+   ..data (32b)
+   ca.crt (13b)
+=== 390d4184 :: certs
+   . (120b)
+   .. (4096b)
+   ..2026_09_02_08_37_50.4285690386 (80b)
+   ..data (32b)
+   user.crt (15b)
+   user.key (15b)
+=== 6b4a3982 :: ca-certs
+   . (100b)
+   .. (4096b)
+   ..2026_09_02_08_37_32.2868748979 (60b)
+   ..data (32b)
+   ca.crt (13b)
+=== 6b4a3982 :: certs
+   . (120b)
+   .. (4096b)
+   ..2026_09_02_08_37_32.3505529756 (80b)
+   ..data (32b)
+   user.crt (15b)
+   user.key (15b)
+=== 7a80ff54 :: superset-config
+   . (140b)
+   .. (4096b)
+   ..2026_08_28_07_20_56.4143768137 (100b)
+   ..data (32b)
+   superset_bootstrap.sh (28b)
+   superset_config.py (25b)
+   superset_init.sh (23b)
+=== 903f5f48 :: ca-certs
+   . (100b)
+   .. (4096b)
+   ..2026_09_02_08_36_35.2178895595 (60b)
+   ..data (32b)
+   ca.crt (13b)
+=== 903f5f48 :: certs
+   . (120b)
+   .. (4096b)
+   ..2026_09_02_08_36_35.2816694869 (80b)
+   ..data (32b)
+   user.crt (15b)
