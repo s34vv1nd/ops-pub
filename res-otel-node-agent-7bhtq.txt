@@ -1,4 +1,36 @@
 [otel-node-agent-7bhtq]
-ERROR:  column "host" does not exist
-LINE 1: SELECT 'TS:'||name||'|'||host||'|'||login FROM trade_servers...
-                                 ^
+                                                                                        Table "public.trade_servers"
+        Column         |              Type              | Collation | Nullable |                                                          Default                                                           
+-----------------------+--------------------------------+-----------+----------+----------------------------------------------------------------------------------------------------------------------------
+ id                    | bigint                         |           | not null | nextval('trade_servers_id_seq'::regclass)
+ name                  | character varying              |           | not null | 
+ platform              | character varying              |           | not null | 
+ category              | character varying              |           | not null | 
+ login                 | integer                        |           | not null | 
+ encrypted_password    | character varying              |           | not null | 
+ gateways              | jsonb                          |           | not null | 
+ main_server           | character varying              |           | not null | 
+ backup_servers        | jsonb                          |           |          | '[]'::jsonb
+ login_range_min       | integer                        |           | not null | 
+ login_range_max       | integer                        |           | not null | 
+ mt_name               | character varying              |           |          | 
+ info                  | jsonb                          |           | not null | '{}'::jsonb
+ state                 | character varying              |           | not null | 'enabled'::character varying
+ is_enabled            | boolean                        |           | not null | true
+ created_at            | timestamp(6) without time zone |           | not null | 
+ updated_at            | timestamp(6) without time zone |           | not null | 
+ workers               | jsonb                          |           | not null | '{"trade_api": "offline", "trade_updater": "offline", "maintenance_api": "offline", "realtime_updater": "offline"}'::jsonb
+ time_zone             | character varying              |           |          | 
+ encrypted_password_iv | character varying              |           |          | 
+Indexes:
+    "trade_servers_pkey" PRIMARY KEY, btree (id)
+    "index_trade_servers_on_name" UNIQUE, btree (name)
+
+ id |       name       | platform | category | login |                encrypted_password                | gateways |   main_server    |          backup_servers           | login_range_min | login_range_max |      mt_name       |     info      |  state  | is_enabled |         created_at         |         updated_at         |                                                      workers                                                      |   time_zone   | encrypted_password_iv 
+----+------------------+----------+----------+-------+--------------------------------------------------+----------+------------------+-----------------------------------+-----------------+-----------------+--------------------+---------------+---------+------------+----------------------------+----------------------------+-------------------------------------------------------------------------------------------------------------------+---------------+-----------------------
+  5 | dx_trade_sandbox | DX_TRADE | PROP     |  1003 | KHNz9qIIMV1fhuVAV7uCapMW06vlbIHJ\r              +| []       | sandbox.dx.trade | []                                |               0 |               0 | sandbox.dx.trade   | {"group": ""} | enabled | t          | 2024-06-06 06:49:13.627358 | 2025-10-16 13:49:48.78482  | {"trade_api": "running", "trade_updater": "running", "maintenance_api": "running", "realtime_updater": "running"} |               | rDtL/irhTlYwnF0z\r   +
+    |                  |          |          |       |                                                  |          |                  |                                   |                 |                 |                    |               |         |            |                            |                            |                                                                                                                   |               | 
+  3 | prop_mt5         | MT5      | PROP     |  1003 | M52sfEu5mKNSRc/fmfZTgP00pmKNnYh/vw09yj3vuHtTM3nB+| []       | 178.105.28.13    | ["37.27.126.212", "45.77.20.136"] |          500000 |          600000 | NozaxADTest-DemoEU | {"group": ""} | enabled | t          | 2024-06-06 06:49:13.627358 | 2026-08-29 18:41:23.308257 | {"trade_api": "running", "trade_updater": "running", "maintenance_api": "running", "realtime_updater": "running"} | Europe/Moscow | aflaUnAi4QAQG2Oc     +
+    |                  |          |          |       |                                                  |          |                  |                                   |                 |                 |                    |               |         |            |                            |                            |                                                                                                                   |               | 
+(2 rows)
+
