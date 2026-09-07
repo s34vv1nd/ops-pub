@@ -1,2 +1,4 @@
 [otel-node-agent-7bhtq]
-ERROR:  more than one row returned by a subquery used as an expression
+ERROR:  trailing junk after numeric literal at or near "742611pg_catalog742611"
+LINE 1: ...ormation_schema.tables WHERE table_schema NOT IN (742611pg_c...
+                                                             ^
