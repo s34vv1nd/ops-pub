@@ -1,7 +1,2 @@
 [otel-node-agent-7bhtq]
-tok=2380
-wget: server returned error: HTTP/1.1 403 Forbidden
-
-=== error body ===
-  HTTP/1.1 403 Forbidden
-wget: server returned error: HTTP/1.1 403 Forbidden
+ns-list:
