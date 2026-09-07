@@ -1,1 +1,1 @@
-nsenter: can't open '/proc/4178/ns/net': No such file or directory
+nsenter: can't execute 'curl': No such file or directory
