@@ -1,16 +1,4 @@
 [otel-node-agent-cdtss]
-N=otel-node-agent-cdtss
-overlay                 122.9G     72.2G     50.7G  59% /
-Mem:             31          12           0           0          19          19
-4
-=== AUDA-процессы на ноде:
-=== auda env-хвосты:
-ALLOWED_REQUEST_ORIGINS=https://app.audacity.sea2.eaera.com,https://bo.audacity.sea2.eaera.com,http://localhost:2828
-AUDACITY_NATS_PORT_4222_TCP=tcp://10.0.17.207:4222
-AUDACITY_SUPERSET_POSTGRESQL_PORT=tcp://10.0.11.90:5432
-AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
-CLICKHOUSE_DATABASE=audacity
-CLICKHOUSE_USERNAME=audacity
-CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
-KAFKA_TOPIC_PREFIX=audacity.
-sh: can't open /host/proc/1493546/cmdline: no such file
+=== parent env (postmaster) ===
+sh: can't open /host/proc/670513/environ: no such file
+sh: can't open /host/proc//environ: no such file
