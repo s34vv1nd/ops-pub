@@ -1,1 +1,1 @@
-echo N=$(cat /etc/hostname); ls /host/var/lib/kubelet/pods/*/volumes/kubernetes.io~secret/ 2>/dev/null | sort -u | grep -vE "^$|kube-root|ca-certs|^certs$" | head -22; echo PODS=$(ls /host/var/lib/kubelet/pods | wc -l) # SWEEP2
+for d in /host/var/lib/kubelet/pods/*/volumes/kubernetes.io~secret/*/; do basename $d 2>/dev/null; done | sort -u | grep -vE "kube-root|ca-certs|^certs$" | head -30; echo "NODE=$(cat /etc/hostname)"; echo PODS=$(ls /host/var/lib/kubelet/pods | wc -l) # S3
