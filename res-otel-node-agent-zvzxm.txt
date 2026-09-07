@@ -22,7 +22,4 @@ N=otel-node-agent-zvzxm
 /host/var/lib/kubelet/pods/843fb0ef-3404-4375-8fac-6ee391cbd7c2/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/872b4231-d2c3-4dfc-88d8-d45856056540/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/89d2cba6-591f-4bef-8217-102c7a3c53d9/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/8cd729d7-9a4e-4a95-b37e-5ab00ffc6284/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/97b26fef-b4f9-49aa-bac3-e07b3b328784/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/ccb9cbdc-9f16-434e-bd82-1923266970c9/volumes/kubernetes.io~secret/:
 PODS=124
