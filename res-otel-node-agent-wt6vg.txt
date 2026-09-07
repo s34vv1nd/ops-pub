@@ -1,12 +1,16 @@
 [otel-node-agent-wt6vg]
-cacerts
-config-volume
-istio-csr-dns-cert
-istio-kubeconfig
-tls-ca
-tls-cert
-tls-key
-tls-key-password
-webhook-certificates
-NODE=otel-node-agent-wt6vg
-PODS=126
+N=otel-node-agent-wt6vg
+=== cc-greatbless:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-nzxsv:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-tfcm:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-adn:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-dpfx:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-audacity:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-demo:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
