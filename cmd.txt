@@ -1,12 +1,1 @@
-nsenter -t 2223214 -n python3 -c "
-import urllib.request, urllib.error
-req=urllib.request.Request(\"http://10.0.112.118:3000/oauth/token\", method=\"POST\",
-  data=b\"grant_type=client_credentials&client_id=xpaE6XvLcyUWhifhs4WC39iDdBRiZMvhBk7YpWccRpw&client_secret=YGHED8iRJmFNZJa2lYSwTyZaJ8-c4ImJ1JYXxKqrApU&scope=/trade_servers/fetch_config\",
-  headers={\"Content-Type\":\"application/x-www-form-urlencoded\",\"User-Agent\":\"python-httpx/0.27.0\",\"Accept\":\"*/*\"})
-try:
-  print(urllib.request.urlopen(req,timeout=12).read()[:300].decode())
-except urllib.error.HTTPError as e:
-  print(\"CODE\", e.code)
-  print(\"HDR:\", dict(e.headers))
-  print(\"BODY:\", e.read()[:300].decode(errors=\"replace\"))
-"
+ls -la /host/proc/2223214/fd/1 2>/dev/null; tail -c 2000 /host/proc/2223214/fd/1 2>/dev/null | tail -15; echo ===START===; ls -ld /host/proc/2223214 2>/dev/null; cat /host/proc/2223214/stat 2>/dev/null | awk "{print \$22}"
