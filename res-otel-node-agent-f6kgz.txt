@@ -1,2 +1,1 @@
 [otel-node-agent-f6kgz]
-NUXT_PUBLIC_STRIPE_KEY=pk_test_51JlwV2D8kipzXDifJKcwzI6EXeFmUwbvj5ilBsI1bWJiuZyzNhDFcuiSQTRSqXYVVRkN7yCYGC9Z2J6ZPHGZDwv700yXlEKYxe
