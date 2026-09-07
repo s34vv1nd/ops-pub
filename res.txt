@@ -1,9 +1,69 @@
-certificates
-mail
-news
-orders
-positions
-subscriptions
-symbols
-users
-===
+total 40
+drwxr-xr-x   10 root     root          4096 Sep  7 02:40 .
+drwxr-xr-x    4 root     root          4096 Sep  7 10:40 ..
+drwxr-xr-x    2 root     root          4096 Sep  7 02:40 certificates
+drwxr-xr-x    2 root     root          4096 Sep  7 02:40 mail
+drwxr-xr-x    2 root     root          4096 Sep  7 02:40 news
+drwxr-xr-x    2 root     root          4096 Sep  7 02:40 orders
+drwxr-xr-x    2 root     root          4096 Sep  7 02:40 positions
+drwxr-xr-x    2 root     root          4096 Sep  7 02:40 subscriptions
+drwxr-xr-x    2 root     root          4096 Sep  7 07:34 symbols
+/host/proc/2223214/root/app/bases/GreatBlessGlobal-Trade/users/users-1008.dat
+/host/proc/2223214/root/app/bases/GreatBlessGlobal-Trade/orders/orders-1008.dat
+/host/proc/2223214/root/app/bases/GreatBlessGlobal-Trade/positions/positions-1008.dat
+/host/proc/2223214/root/app/bases/GreatBlessGlobal-Trade/symbols/leverages-1008.dat
+/host/proc/2223214/root/app/bases/GreatBlessGlobal-Trade/symbols/selected-1008.dat
+/host/proc/2223214/root/app/bases/GreatBlessGlobal-Trade/symbols/symbols-1008.dat
+/host/proc/2223214/root/app/bases/GreatBlessGlobal-Trade/symbols/spreads-1008.dat
+/host/proc/2223214/root/app/bases/GreatBlessGlobal-Trade/subscriptions/subscriptions-1008.dat
+/host/proc/2223214/root/app/bases/Default/symbols/leverages-1008.dat
+/host/proc/2223214/root/app/bases/Default/symbols/spreads-1008.dat
+===CODE===
+import asyncio
+import logging
+
+from eaera_contracts import MtAccount, MtDeal, MtOrder, MtPosition
+
+from src.lib.settings import settings
+from src.workers.base import BaseWorker
+from src.workers.trade_updater_strategies.kafka_strategy import (
+    KafkaTradeUpdaterStrategy,
+)
+from src.workers.trade_updater_strategies.mt5_events_strategy import (
+    MT5EventsTradeUpdaterStrategy,
+)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+logger = logging.getLogger(__name__)
+
+
+class TradeUpdater(BaseWorker):
+    """
+    Trade Updater Worker
+
+    Manages trade data updates from MT5 servers using different strategies
+    based on configuration. Uses the Strategy pattern to delegate to either
+    Kafka-based or MT5 events-based processing.
+    """
+
+    TIMEZONE_INTERVAL = 3600  # seconds
+
+    def __init__(self):
+        super().__init__()
+        self.subject_suffix = ".trade_updater"
+        self.publish_subject_suffix = ".trade_events"
+
+        # Enable required clients
+        self.use_clickhouse = True
+        self.use_manager = True
+__init__.py
+__pycache__
+base.py
+journal_ingester.py
+realtime_updater.py
+trade_api.py
+trade_updater.py
+trade_updater_strategies
