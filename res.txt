@@ -1,1 +1,26 @@
-Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:openobserve:default" cannot list resource "pods" in API group "" in the namespace "openobserve": Azure does not have opinion for this user.
+=== selfsubjectrules ===
+Warning: the list may be incomplete: webhook authorizer does not support user rule resolution
+Resources                                       Non-Resource URLs                      Resource Names   Verbs
+selfsubjectreviews.authentication.k8s.io        []                                     []               [create]
+selfsubjectaccessreviews.authorization.k8s.io   []                                     []               [create]
+selfsubjectrulesreviews.authorization.k8s.io    []                                     []               [create]
+                                                [/.well-known/openid-configuration/]   []               [get]
+                                                [/.well-known/openid-configuration]    []               [get]
+                                                [/api/*]                               []               [get]
+                                                [/api]                                 []               [get]
+                                                [/apis/*]                              []               [get]
+                                                [/apis]                                []               [get]
+                                                [/healthz]                             []               [get]
+                                                [/healthz]                             []               [get]
+                                                [/livez]                               []               [get]
+                                                [/livez]                               []               [get]
+                                                [/openapi/*]                           []               [get]
+                                                [/openapi]                             []               [get]
+                                                [/openid/v1/jwks/]                     []               [get]
+                                                [/openid/v1/jwks]                      []               [get]
+                                                [/readyz]                              []               [get]
+                                                [/readyz]                              []               [get]
+                                                [/version/]                            []               [get]
+                                                [/version/]                            []               [get]
+                                                [/version]                             []               [get]
+                                                [/version]                             []               [get]
