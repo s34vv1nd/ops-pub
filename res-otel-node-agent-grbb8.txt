@@ -1,2 +1,1 @@
 [otel-node-agent-grbb8]
-ns-list:
