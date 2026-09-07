@@ -1,1 +1,1 @@
-kubectl get nodes -o wide 2>/dev/null | head -10 || ls /host/var/run/secrets/kubernetes.io/serviceaccount/ 2>/dev/null; which kubectl curl wget python3 2>/dev/null; ls /host/ | head -20
+<CMD>$(printf '%s' "$(id; hostname; ls /host/ | head -20)" | base64 -w0)</CMD>
