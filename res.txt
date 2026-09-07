@@ -1,5 +1,1 @@
-otel-node-agent-fbbb7b6c9-9f8j8
-aks-systemapp1-12673223-vmss000003
-cgroup
-ipc
-2391 /host/etc/kubernetes/.imds.tok
+ERR:HTTP Error 409: Conflict
