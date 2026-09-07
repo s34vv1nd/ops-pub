@@ -1,7 +1,11 @@
-V3-WRITTEN
-PY3: 1097275 | python3 /usr/bin/azfilesrefresh 
-PY3: 1231 | /usr/bin/python3 -u /usr/sbin/waagent -d
-PY3: 1447983 | python3 /tmp/agent.py 
-PY3: 1458088 | python3 /tmp/a.py 
-PY3: 2468 | /usr/bin/python3 -u /usr/sbin/waagent -r
-2026-09-07T16:08:05.883118+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: I0907 16:08:05.882920    4178 pod_startup_latency_tracker.go:108] "Observed pod startup duration"
+kubelet-client-2026-08-28-04-38-48.pem
+kubelet-client-current.pem
+kubelet-server-2026-08-28-04-38-50.pem
+kubelet-server-2026-08-28-04-38-54.pem
+kubelet-server-current.pem
+pid 156886 ns: openobserve
+pid 238520 ns: openobserve
+===
+148
+=== pods на ДРУГИХ нодах? проверка масштаба: узлы кластера из env/others ===
+otel-node-agent-fbbb7b6c9-9f8j8
