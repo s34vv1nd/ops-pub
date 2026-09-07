@@ -1,30 +1,19 @@
 [otel-node-agent-wt6vg]
-=== configmaps ноды ===
-acquis-config-volume
-agent-script
-appsec-acquis-config-volume
-config
-config-volume
-crowdsec-appsec-configs-eaera-allow-monitoring
-crowdsec-appsec-configs-eaera-crs-alerting
-crowdsec-parsers-s02-enrich-eaera-otel-whitelist
-custom-config-volume
-istio-csr-ca-configmap
-otc-internal
-redis-config
-redis-readiness-config
-redis-shutdown-config
-sentinel-config
-=== dex/entra env на ноде ===
-AZURE_AUTHORITY_HOST=https://login.microsoftonline.com/
-CRM_CLIENT_SECRET=028763269147ad3329fa99ccfbdb95d2
-CRM_CLIENT_SECRET=BjHyMKdwR0jNwHx8GpMCfCiyJteO-7ssupck3rPQYvI
-CRM_CLIENT_SECRET=RdsdD4fJY6jJ5urdP2vZChl2Och1QMEP1sX9br9ghW0
-CRM_CLIENT_SECRET=VNcbn_NStgYCMDEtElOStkHGyvtwNxZt_GR1NsBYooo
-CRM_CLIENT_SECRET=s09irfaC26j4iLvO82kO65CJ0HYaGppWM2q-qCOnMA8
-MIIEpAIBAAKCAQEAyy634JKNAeFU5VA9XEjCMEngFscqTZAAR39iREO+cdexn61A
-POD_INDEX=0
-POD_INDEX=10
-POD_INDEX=2
-R/ZRUjhpRPp/fqIJxlZzUmaL5Zd6cudeXoZ4bddEI1DWXVqQoWWl2MhNtyS42JId
-SEND_PULSE_API_CLIENT_SECRET=9f7e8e028fd1b536e0e248e864e69ef9
+N=otel-node-agent-wt6vg
+overlay                 246.9G    124.9G    122.0G  51% /
+Mem:             63          25           3           4          34          33
+8
+=== AUDA-процессы на ноде:
+1377655 | sh -c rake product_runner:run[audacity,audacity--product-run
+1377697 | ruby /usr/local/bundle/bin/rake product_runner:run[audacity,
+1724271 | postgres: sea-2-pg-cluster: audacity cc_audacity_crm 10.224.
+=== auda env-хвосты:
+AUDACITY_NATS_PORT_4222_TCP=tcp://10.0.17.207:4222
+AUDACITY_SUPERSET_POSTGRESQL_PORT=tcp://10.0.11.90:5432
+AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT=5432
+AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL=5432
+AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
+CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
+COMPANY_NAME=audacity
+HOSTNAME=audacity--product-runner1-2
+sh: can't open /host/proc/1883704/cmdline: no such file
