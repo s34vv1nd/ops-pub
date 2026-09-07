@@ -1,5 +1,2 @@
 [otel-node-agent-rb77g]
-0
-otel-node-agent-rb77g
-aks-systemapp1-12673223-vmss000003
-===
+wget: server returned error: HTTP/1.1 403 Forbidden
