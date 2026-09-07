@@ -1,1 +1,10 @@
-sh: aWQ7IGhvc3RuYW1lOyBjYXQgL2V0Yy9ob3N0bmFtZTsgbHMgL2hvc3QvZXRjL2Nyb24uZC8gMj4vZGV2L251bGwgfCBoZWFkIC01OyBscyAvaHRtcCAyPi9kZXYvbnVsbCB8IGhlYWQgLTg7IGRmIC1oIC8gfCB0YWlsIC0x: not found
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
+otel-node-agent-fbbb7b6c9-9f8j8
+otel-node-agent-fbbb7b6c9-9f8j8
+ca.crt
+namespace
+token
+openobserveoverlay                 246.9G    106.3G    140.6G  43% /
+e2scrub_all
+nsstat
+sysstat
