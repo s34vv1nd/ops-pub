@@ -1,8 +1,2 @@
 [otel-node-agent-grbb8]
-socket dir: 
 chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
-BusyBox v1.37.0 (2026-01-10 15:38:28 UTC) multi-call binary.
-
-Usage: dirname FILENAME
-
-Strip non-directory suffix from FILENAME
