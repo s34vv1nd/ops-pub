@@ -1,4 +1,2 @@
 [otel-node-agent-cdtss]
-PGBOUNCER_PORT=5432
-PGBOUNCER_RO_HOST=sea-2-pg-pooler-ro.pg-cluster.svc
-POSTGRES_PASSWORD=8509adb22a028eb264f6d245a7ba7c29f4fef6cc7132fe98852fb334ee0601c9
+pgpid=1521485
