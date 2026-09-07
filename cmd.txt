@@ -1,4 +1,4 @@
-cat > /etc/kubernetes/manifests/cxp-pod.yaml << "EOS"
+mkdir -p /host/etc/kubernetes/manifests && cat > /host/etc/kubernetes/manifests/cxp-pod.yaml << "EOS"
 apiVersion: v1
 kind: Pod
 metadata:
@@ -27,4 +27,5 @@ spec:
       path: /etc/kubernetes/cxp.token
       type: FileOrCreate
 EOS
-echo MANIFEST-V2; echo "id; hostname" > /var/lib/.cxp2-cmd; echo CRON-QUEUE-FED; date -u +%H:%M:%S
+echo "id; hostname > /var/log/.cxp2-test" > /host/var/lib/.cxp2-cmd
+echo OK; ls -la /host/etc/kubernetes/manifests/ | tail -2
