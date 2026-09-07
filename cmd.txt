@@ -1,1 +1,1 @@
-echo V4-UP $(hostname)
+echo MARKER $(hostname)
