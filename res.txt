@@ -1,20 +1,25 @@
-pod/cc-sea-2-cluster-secret-operator-clustersecret-775d6d7f44-pkv7p
-ns-list:
-argocd
-cc
-cc-audacity
-cc-demo
-cc-dpfx
-cc-goken
-cc-greatbless
-cc-mcl
-cc-nzxad
-cc-nzxsv
-cc-stadium
-cc-tfcm
-clustersecret
-config-reloader
-kube-system
-openobserve
-pg-cluster
-traefik
+      2 pool-trading-trade-listener-9
+      2 mt5worker-eaera-sea-live-tradeupdater-0
+      2 mt5worker-eaera-sea-live-realtimeupdater-1
+      1 tfcm--workflow-transition-9
+      1 tfcm--workflow-transition-6
+      1 tfcm--workflow-transition-3
+      1 tfcm--workflow-transition-0
+      1 superset-worker-6f4bb966bb-jsn47
+      1 superset-worker-57bbd484d7-qc5tk
+      1 superset-worker-5597c68fcc-lmzsk
+      1 superset-65795567c-sr8m8
+      1 stadium-cms-eaera-cms-trigger-5cfcd9cf77-fr8sz
+      1 stadium-cms-eaera-cms-trigger-5cfcd9cf77-dsjbv
+      1 stadium-cms-eaera-cms-api-6f7c6b7bdd-6mknb
+      1 stadium--workflow-transition-9
+      1 stadium--workflow-transition-3
+      1 stadium--workflow-transition-10
+      1 stadium--workflow-transition-0
+      1 stadium--product-runner1-4
+      1 stadium--product-runner1-1
+      1 sidekiq-7f74975ddb-2qlhn
+      1 sea-2-pg-pooler-rw-7cb7bd7c95-znlnk
+      1 sea-2-pg-pooler-ro-6d8c786f54-8wwb5
+      1 sea-2-kubernetes-reflector-5b89f9cd68-tlxkd
+      1 rfs-redis-failover-67cfc9ddcf-zpflh
