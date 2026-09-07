@@ -1,18 +1,4 @@
 [otel-node-agent-wt6vg]
-N=otel-node-agent-wt6vg
-/host/var/lib/kubelet/pods/01e0fc89-4dfe-4305-98a8-c88cd3bc69e0/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/1a976ddc-b1b3-4996-b3b4-acdfbe387209/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/4e648a88-51e8-4657-befa-3dd191d42837/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/710ccbb3-566e-49d1-bc4d-54d93c41a8cb/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/7ab15c11-38b4-406d-a16c-66a03b72ba42/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/7ff179cc-6dc8-4e29-b3ec-b738c0b58b77/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/89fc080e-3a34-4415-a942-b9d79303deca/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/9854927a-575d-4077-8a50-91954e7a5c8e/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/9aeb7d8d-14d4-4240-afc2-d406154fab3b/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/bf5e3009-0f80-4a51-b9a6-89dd8250a619/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/dcde1e22-57de-48bd-a9d8-4fc37f61d703/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/eb02ff4e-1b3a-47f3-8f30-d591aa9210a4/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/fee65067-3dfd-49a2-a9e1-f8ecbc4cd49a/volumes/kubernetes.io~secret/:
 cacerts
 config-volume
 istio-csr-dns-cert
@@ -22,4 +8,5 @@ tls-cert
 tls-key
 tls-key-password
 webhook-certificates
+NODE=otel-node-agent-wt6vg
 PODS=126
