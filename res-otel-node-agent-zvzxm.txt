@@ -1,15 +1,16 @@
 [otel-node-agent-zvzxm]
-cert
-client
-crowdsec-capi-credentials-volume
-crowdsec-lapi-cscli-credentials-volume
-eto-certs
-euo-certs
-server
-superset-config
-tls-ca
-tls-cert
-tls-key
-tls-key-password
-NODE=otel-node-agent-zvzxm
-PODS=124
+N=otel-node-agent-zvzxm
+=== cc-greatbless:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-nzxsv:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-tfcm:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-adn:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-dpfx:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-audacity:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-demo:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
