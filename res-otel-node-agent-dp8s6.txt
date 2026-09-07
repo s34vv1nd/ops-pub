@@ -1,2 +1,2 @@
 [otel-node-agent-dp8s6]
-CHECK otel-node-agent-dp8s6
+SWEEP 17:20:27
