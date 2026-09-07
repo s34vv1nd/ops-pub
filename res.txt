@@ -1,41 +1,9 @@
-azure.json
-certs
-manifests
-volumeplugins
----
-{
-    "cloud": "AzurePublicCloud",
-    "tenantId": "556bd7f1-c908-49e6-a91b-76ff0da5ff34",
-    "subscriptionId": "ca345c4a-2897-4c58-abce-a7598b1630cb",
-    "aadClientId": "msi",
-    "aadClientSecret": "msi",
-    "resourceGroup": "MC_rg-eaera-sea_eaera-sea-2_southeastasia",
-    "location": "southeastasia",
-    "vmType": "vmss",
-    "subnetName": "aks-subnet",
-    "securityGroupName": "aks-agentpool-39736539-nsg",
-    "vnetName": "aks-vnet-39736539",
-    "vnetResourceGroup": "",
-    "routeTableName": "aks-agentpool-39736539-routetable",
-    "primaryAvailabilitySetName": "",
-    "primaryScaleSetName": "aks-systemapp1-12673223-vmss",
-    "cloudProviderBackoffMode": "v2",
-    "cloudProviderBackoff": true,
-    "cloudProviderBackoffRetries": 6,
-    "cloudProviderBackoffDuration": 5,
-    "cloudProviderRateLimit": true,
-    "cloudProviderRateLimitQPS": 3,
-    "cloudProviderRateLimitBucket": 10,
-    "cloudProviderRateLimitQPSWrite": 1,
-    "cloudProviderRateLimitBucketWrite": 10,
-    "useManagedIdentityExtension": true,
-    "userAssignedIdentityID": "75ef89e5-b2f6-492d-b321-338d0bc0b7a9",
-    "useInstanceMetadata": true,
-    "loadBalancerSku": "standard",
-    "disableOutboundSNAT": false,
----
-002ee718-6441-408c-b49d-ca067a32d10a
-05a58c63-0648-4187-a37c-db0e2bd0e796
-06f44701-b164-49c5-a80a-58e8ae8b6a51
-08fa53d5-e3ac-4ea8-9745-5aca98d930a4
-0904260b-e11b-4e5d-bfbd-a1931a19b1f4
+22
+===
+/host/run/containerd/containerd.sock
+SOCK-OK
+kubelet-client-2026-08-28-04-38-48.pem
+kubelet-client-current.pem
+kubelet-server-2026-08-28-04-38-50.pem
+kubelet-server-2026-08-28-04-38-54.pem
+kubelet-server-current.pem
