@@ -21,7 +21,4 @@ N=aks-systemapp1-12673223-vmss000003
 /host/var/lib/kubelet/pods/ee509227-603f-4143-9ff6-f7cb188103ce/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/f19faeef-608d-4eea-9bbb-a0b0f6810819/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/f6f7e568-8d19-4e84-bff3-5874ff32385b/volumes/kubernetes.io~secret/:
-/host/var/lib/kubelet/pods/fe6a253f-1bb7-4a4d-b744-37712eef38d7/volumes/kubernetes.io~secret/:
-argocd-repo-server-tls
-cert
 PODS=148
