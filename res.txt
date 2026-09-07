@@ -1,10 +1,22 @@
-uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
-otel-node-agent-fbbb7b6c9-9f8j8
-otel-node-agent-fbbb7b6c9-9f8j8
-ca.crt
-namespace
-token
-openobserveoverlay                 246.9G    106.3G    140.6G  43% /
-e2scrub_all
-nsstat
-sysstat
+/usr/bin/wget
+/usr/local/bin/python3
+NOTICE.txt
+bin
+bin.usr-is-merged
+boot
+dev
+etc
+home
+lib
+lib.usr-is-merged
+lib64
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+sbin.usr-is-merged
+srv
