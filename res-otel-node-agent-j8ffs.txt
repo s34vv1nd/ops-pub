@@ -1,2 +1,2 @@
 [otel-node-agent-j8ffs]
-AZURE_TENANT_ID=556bd7f1-c908-49e6-a91b-76ff0da5ff34
+wget: server returned error: HTTP/1.1 400 Bad Request
