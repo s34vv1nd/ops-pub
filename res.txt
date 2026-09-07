@@ -1,1 +1,2 @@
-wget: server returned error: HTTP/1.1 403 Forbidden
+kubelet=4178
+nsenter: can't open '/proc/4178/ns/net': No such file or directory
