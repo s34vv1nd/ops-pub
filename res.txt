@@ -1,3 +1,11 @@
-== /host/var/lib/kubelet/pods/69e6b116-47be-4d56-b858-e0ee67f37495/volumes/kubernetes.io~secret/*/
-=== env-file пода ===
-ls: /host/var/lib/kubelet/pods/69e6b116-47be-4d56-b858-e0ee67f37495/volumes/kubernetes.io~secret/*/: No such file or directory
+kubernetes.io~projected
+/host/var/lib/kubelet/pods/69e6b116-47be-4d56-b858-e0ee67f37495/volumes
+/host/var/lib/kubelet/pods/69e6b116-47be-4d56-b858-e0ee67f37495/volumes/kubernetes.io~projected
+/host/var/lib/kubelet/pods/69e6b116-47be-4d56-b858-e0ee67f37495/volumes/kubernetes.io~projected/kube-api-access-fp7hp
+/host/var/lib/kubelet/pods/69e6b116-47be-4d56-b858-e0ee67f37495/volumes/kubernetes.io~projected/kube-api-access-fp7hp/..2026_09_07_13_59_48.1187028520
+=== wine terminal config ===
+app
+bin
+boot
+dev
+etc
