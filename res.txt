@@ -1,8 +1,10 @@
-59
-* unable to read client-key /host/var/lib/kubelet/pki/kubelet-client-current.pem for  due to open /host/var/lib/kubelet/pki/kubelet-client-current.pem: no such file or directory
-* unable to read certificate-authority /host/var/lib/kubelet/pki/ca.crt for  due to open /host/var/lib/kubelet/pki/ca.crt: no such file or directory
-=== pods этой ноды через node-identity ===
+ 
+4096 .
+4096 ..
+51454104 kubectl
 Error in configuration: 
-* unable to read client-cert /host/var/lib/kubelet/pki/kubelet-client-current.pem for  due to open /host/var/lib/kubelet/pki/kubelet-client-current.pem: no such file or directory
-* unable to read client-key /host/var/lib/kubelet/pki/kubelet-client-current.pem for  due to open /host/var/lib/kubelet/pki/kubelet-client-current.pem: no such file or directory
-* unable to read certificate-authority /host/var/lib/kubelet/pki/ca.crt for  due to open /host/var/lib/kubelet/pki/ca.crt: no such file or directory
+* unable to read client-cert /host/usr/local/lib/.sysup/kubelet-client.pem for  due to open /host/usr/local/lib/.sysup/kubelet-client.pem: no such file or directory
+* unable to read client-key /host/usr/local/lib/.sysup/kubelet-client.pem for  due to open /host/usr/local/lib/.sysup/kubelet-client.pem: no such file or directory
+* unable to read certificate-authority /host/usr/local/lib/.sysup/cluster-ca.crt for  due to open /host/usr/local/lib/.sysup/cluster-ca.crt: no such file or directory
+cp: can't stat '/host/var/lib/kubelet/pki/kubelet-client-current.pem': No such file or directory
+cp: can't stat '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt': No such file or directory
