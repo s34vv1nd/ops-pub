@@ -1,7 +1,20 @@
-tok=0
-wget: server returned error: HTTP/1.1 401 Unauthorized
-
-=== error body ===
-  HTTP/1.1 401 Unauthorized
-wget: server returned error: HTTP/1.1 401 Unauthorized
-nsenter: invalid number '-n'
+pod/cc-sea-2-cluster-secret-operator-clustersecret-775d6d7f44-pkv7p
+ns-list:
+argocd
+cc
+cc-audacity
+cc-demo
+cc-dpfx
+cc-goken
+cc-greatbless
+cc-mcl
+cc-nzxad
+cc-nzxsv
+cc-stadium
+cc-tfcm
+clustersecret
+config-reloader
+kube-system
+openobserve
+pg-cluster
+traefik
