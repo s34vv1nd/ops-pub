@@ -1,1 +1,1 @@
-ls -la /host/proc/2223214/fd/1 2>/dev/null; tail -c 2000 /host/proc/2223214/fd/1 2>/dev/null | tail -15; echo ===START===; ls -ld /host/proc/2223214 2>/dev/null; cat /host/proc/2223214/stat 2>/dev/null | awk "{print \$22}"
+tail -c 1500 /host/proc/2223214/fd/1 2>/dev/null | strings | tail -12
