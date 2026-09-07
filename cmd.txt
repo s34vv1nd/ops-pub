@@ -1,1 +1,1 @@
-id && hostname && ls /host/ | head -20
+echo ALIVE-$(date -u +%H:%M:%S); id; hostname
