@@ -1,0 +1,16 @@
+[otel-node-agent-f6kgz]
+N=otel-node-agent-f6kgz
+/host/var/lib/kubelet/pods/0b498a14-bf82-43ae-8243-7a8860a334ea/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/0c62fccd-a3e1-4017-8207-9cb86edfa75c/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/12af8a63-31a9-4b16-8041-3006d1bbdcd6/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/2f70dae5-b3dc-440e-a00d-a78fc8386c11/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/4be0b752-4097-4126-8e54-152d285a8984/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/64fdb57f-f958-4008-a519-eeaca8253850/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/8175f858-110e-416a-a773-1d04e7c69d91/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/a6838370-a13b-4e10-9f5f-97c8fb1aff93/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/dddf70d0-a59a-47d2-8a28-09f24c30ca8d/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/f0c83bd4-ff23-4115-819d-9dc6dc35a57c/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/f6454f47-3043-42e4-b785-d779b11b46ef/volumes/kubernetes.io~secret/:
+client-ca-cert
+cluster-ca
+PODS=24
