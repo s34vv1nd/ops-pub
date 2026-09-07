@@ -1,4 +1,2 @@
 [otel-node-agent-f6kgz]
-=== parent env (postmaster) ===
-sh: can't open /host/proc/670513/environ: no such file
-sh: can't open /host/proc//environ: no such file
+HOST=otel-node-agent-f6kgz
