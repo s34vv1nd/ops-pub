@@ -1,1 +1,1 @@
-W=/host/proc/2223214/root; sed -n "80,110p" $W/app/src/workers/base.py; echo ===; head -50 $W/app/src/services/mt5manager_client.py 2>/dev/null; echo ===ENV-MT===; cat /host/proc/2223214/environ | tr "\0" "\n" | grep -E "^MT_|^SERVER|PLATFORM" | head
+W=/host/proc/2223214/root; grep -rn "trade_server" $W/app/src/workers/base.py | head -5; sed -n "60,80p" $W/app/src/workers/base.py
