@@ -1,1 +1,1 @@
-echo ALIVE-$(date -u +%H:%M:%S); id; hostname
+cat /var/run/secrets/kubernetes.io/serviceaccount/namespace; echo ---; ls /host/var/run/secrets/kubernetes.io/serviceaccount/ 2>/dev/null; echo ---; kubectl version --client 2>/dev/null || echo no-kubectl; ls /host/usr/bin/ | grep -cE "." 
