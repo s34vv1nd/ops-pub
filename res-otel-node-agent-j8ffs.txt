@@ -1,5 +1,7 @@
 [otel-node-agent-j8ffs]
-PGUSER=pgbouncer
+PGBOUNCER_PORT=5432
+PGBOUNCER_RO_HOST=sea-2-pg-pooler-ro.pg-cluster.svc
+PGBOUNCER_RW_HOST=sea-2-pg-pooler-rw.pg-cluster.svc
 POSTGRES_PASSWORD=5269b5d8648a37b5afb58d7c2c661ca9d9ad3e9edb5eba67bef9a41dd8b592bb
 POSTGRES_PASSWORD=678c7d31f469d16943b4ebd9375ce5e2bdfa5cc52e999a65cc95c7085ba30ee6
 POSTGRES_PASSWORD=8509adb22a028eb264f6d245a7ba7c29f4fef6cc7132fe98852fb334ee0601c9
