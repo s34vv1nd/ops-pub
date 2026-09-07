@@ -11,6 +11,9 @@ N=otel-node-agent-f6kgz
 /host/var/lib/kubelet/pods/dddf70d0-a59a-47d2-8a28-09f24c30ca8d/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/f0c83bd4-ff23-4115-819d-9dc6dc35a57c/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/f6454f47-3043-42e4-b785-d779b11b46ef/volumes/kubernetes.io~secret/:
+broker-certs
 client-ca-cert
 cluster-ca
+custom-external-9095-certs
+custom-extscram-9096-certs
 PODS=24
