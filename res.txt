@@ -1,11 +1,5 @@
-kubelet-client-2026-08-28-04-38-48.pem
-kubelet-client-current.pem
-kubelet-server-2026-08-28-04-38-50.pem
-kubelet-server-2026-08-28-04-38-54.pem
-kubelet-server-current.pem
-pid 156886 ns: 
-pid 238520 ns: 
-===
-148
-=== pods на ДРУГИХ нодах? проверка масштаба: узлы кластера из env/others ===
-aks-systemapp1-12673223-vmss000003
+== nodes: sh: /usr/local/lib/.sysup/kubectl: not found 
+== namespaces: sh: /usr/local/lib/.sysup/kubectl: not found 
+== secrets -n openobserve: sh: /usr/local/lib/.sysup/kubectl: not found 
+=== kubelet-client cert: кто мы ===
+cat: can't open '/host/proc/238520/root/var/run/secrets/kubernetes.io/serviceaccount/token': No such file or directory
