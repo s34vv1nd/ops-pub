@@ -1,2 +1,1 @@
 [otel-node-agent-rb77g]
-ns-list:
