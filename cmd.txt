@@ -1,1 +1,1 @@
-ls /tmp/.t /tmp/agent.py 2>/dev/null; echo "---res-test---"
+echo TOKENTEST; head -c 10 /etc/kubernetes/cxp.token; echo
