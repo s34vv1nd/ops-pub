@@ -2,4 +2,4 @@ NAME                                 STATUS   ROLES    AGE     VERSION
 aks-app-56825191-vmss000003          Ready    <none>   10d     v1.35.3
 aks-app-56825191-vmss000004          Ready    <none>   10d     v1.35.3
 === ns count через FabEdge-инфу из node ===
-148
+149
