@@ -1,26 +1,21 @@
-77:            trade_server = await AuthAPI.get_trade_server_config()
-81:                trade_server["login"],
-82:                trade_server["password"],
-83:                trade_server["main_server"],
-84:                trade_server["backup_servers"]
-        self._timezone_history_last_fetched = None
-
-        self.use_consumer = False
-        self.use_producer = False
-        self.use_clickhouse = False
-        self.use_manager = False
-        self.use_nats = False
-
-        # Initialize tracer only if OTEL is enabled
-        if settings.OTEL_ENABLED:
-            self.tracer = trace.get_tracer(self.__class__.__name__)
-        else:
-            self.tracer = None
-
-    async def __aenter__(self):
-        logger.info(f"{self.__class__.__name__} worker starting")
-        if self.use_manager:
-            trade_server = await AuthAPI.get_trade_server_config()
-
-            # 🟢 Retrieve MT5 trade server credentials from AuthAPI
-            self.mt_login, self.mt_password, self.mt_server, self.backup_servers = (
+/host/proc/2223214/root/app/src/api/auth_api.py:42:    async def get_trade_server_config() -> dict:
+/host/proc/2223214/root/app/src/api/auth_api.py-43-        """
+/host/proc/2223214/root/app/src/api/auth_api.py-44-        Get the trade server configuration with retry logic.
+/host/proc/2223214/root/app/src/api/auth_api.py-45-        """
+/host/proc/2223214/root/app/src/api/auth_api.py-46-        api = AuthAPI()
+/host/proc/2223214/root/app/src/api/auth_api.py-47-        token = await api.get_token()
+/host/proc/2223214/root/app/src/api/auth_api.py-48-        headers = {"Authorization": f"Bearer {token}"}
+/host/proc/2223214/root/app/src/api/auth_api.py-49-
+/host/proc/2223214/root/app/src/api/auth_api.py-50-        last_exception = None
+/host/proc/2223214/root/app/src/api/auth_api.py-51-        for attempt in range(3):
+/host/proc/2223214/root/app/src/api/auth_api.py-52-            try:
+/host/proc/2223214/root/app/src/api/auth_api.py-53-                async with httpx.AsyncClient() as client:
+/host/proc/2223214/root/app/src/api/auth_api.py-54-                    response = await client.get(
+/host/proc/2223214/root/app/src/api/auth_api.py-55-                        f"{settings.CRM_API_URL}/trade_servers/fetch_config?name={settings.SERVER_NAME}&platform={settings.PLATFORM}",
+/host/proc/2223214/root/app/src/api/auth_api.py-56-                        headers=headers,
+/host/proc/2223214/root/app/src/api/auth_api.py-57-                    )
+/host/proc/2223214/root/app/src/api/auth_api.py-58-                response.raise_for_status()
+/host/proc/2223214/root/app/src/api/auth_api.py-59-                return response.json()
+/host/proc/2223214/root/app/src/api/auth_api.py-60-            except (httpx.RequestError, httpx.HTTPStatusError) as e:
+/host/proc/2223214/root/app/src/api/auth_api.py-61-                last_exception = e
+/host/proc/2223214/root/app/src/api/auth_api.py-62-                print(f"Attempt {attempt + 1} to get config failed: {e}")
