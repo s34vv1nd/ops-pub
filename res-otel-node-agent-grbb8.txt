@@ -1,13 +1,2 @@
 [otel-node-agent-grbb8]
-N=otel-node-agent-grbb8
-argocd-dex-server-tls
-broker-certs
-client-ca-cert
-cluster-ca
-custom-external-9095-certs
-custom-extscram-9096-certs
-DISK:
-/dev/root               122.9G     63.3G     59.6G  52% /host
-RAM:
-Mem:          32093       11811        1322          11       18960       19799
-CPU:4
+wget: server returned error: HTTP/1.1 400 Bad Request
