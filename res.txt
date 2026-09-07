@@ -1,7 +1,5 @@
-nsstat missing?
-* * * * * root /usr/local/bin/.nsstat.sh
-e2scrub_all
-nsstat
-sysstat
-===
-systemd-tmpfiles-clean2.service
+---
+drwxr-xr-x    2 root     root          4096 Sep  7 14:30 .
+drwxr-xr-x    5 root     root          4096 Sep  7 14:30 ..
+-rw-r--r--    1 root     root           794 Sep  7 14:30 cxp-pod.yaml
+KUBELET-MANIFEST-OK
