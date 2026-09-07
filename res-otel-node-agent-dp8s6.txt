@@ -1,7 +1,16 @@
 [otel-node-agent-dp8s6]
-argocd-repo-server-tls
-automation-config
-config-volume
-crowdsec-bouncer-key
-NODE=otel-node-agent-dp8s6
-PODS=147
+N=otel-node-agent-dp8s6
+=== cc-greatbless:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-nzxsv:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-tfcm:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-adn:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-dpfx:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-audacity:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-demo:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
