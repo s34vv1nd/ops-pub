@@ -1,8 +1,3 @@
 
-/host/etc/cron.d/:
-e2scrub_all
-nsstat
-sysstat
-
-/host/etc/kubernetes/manifests/:
-cxp-pod.yaml
+=== статик-под статус ===
+147
