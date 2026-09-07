@@ -1,3 +1,2 @@
 [otel-node-agent-wt6vg]
-AZURE_CLIENT_ID=2cf28c59-71b1-4559-9dc3-21d7cd19d271
-AZURE_TENANT_ID=556bd7f1-c908-49e6-a91b-76ff0da5ff34
+wget: server returned error: HTTP/1.1 400 Bad Request
