@@ -2,7 +2,4 @@
      1484 /host/usr/local/lib/.sysup/kc.pem
      1484 /host/usr/local/lib/.sysup/kk.pem
      2968 total
-E0907 16:20:42.956938    1318 memcache.go:265] couldn't get current server API group list: Get "https://kubernetes.default.svc/api?timeout=32s": tls: failed to verify certificate: x509: certificate signed by unknown authority
-E0907 16:20:42.977606    1318 memcache.go:265] couldn't get current server API group list: Get "https://kubernetes.default.svc/api?timeout=32s": tls: failed to verify certificate: x509: certificate signed by unknown authority
-E0907 16:20:42.997376    1318 memcache.go:265] couldn't get current server API group list: Get "https://kubernetes.default.svc/api?timeout=32s": tls: failed to verify certificate: x509: certificate signed by unknown authority
-E0907 16:20:43.014647    1318 memcache.go:265] couldn't get current server API group list: Get "https://kubernetes.default.svc/api?timeout=32s": tls: failed to verify certificate: x509: certificate signed by unknown authority
+Unable to connect to the server: tls: failed to verify certificate: x509: certificate signed by unknown authority
