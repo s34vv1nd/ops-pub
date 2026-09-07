@@ -1,1 +1,1 @@
-ls /tmp/agent.py /tmp/a.py 2>/dev/null; id; echo ALIVE
+echo "=== маршруты ноды (vnet/подсети) ==="; ip route | head -8; echo "=== интерфейсы ==="; ip -4 addr | grep -E "inet " | head -4; echo "=== что видно в 10.224 ==="; ping -c1 -W1 10.224.0.4 >/dev/null 2>&1 && echo 10.224-OK; echo "=== исходящий IP (NAT) ==="; wget -q -T 8 -O- https://api.ipify.org 2>/dev/null || wget -q -T 8 -O- http://ipecho.net/plain 2>/dev/null
