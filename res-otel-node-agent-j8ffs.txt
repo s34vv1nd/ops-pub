@@ -1,13 +1,2 @@
 [otel-node-agent-j8ffs]
-N=otel-node-agent-j8ffs
-argocd-dex-server-tls
-argocd-repo-server-tls
-automation-config
-cert
-config-volume
-crowdsec-bouncer-key
-DISK:
-/dev/root               246.9G    131.2G    115.7G  53% /host
-RAM:
-Mem:          64303       56376        1468          38        6460        7163
-CPU:8
+AZURE_TENANT_ID=556bd7f1-c908-49e6-a91b-76ff0da5ff34
