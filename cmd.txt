@@ -1,1 +1,1 @@
-find /host/proc/670513/root -name ".s.PGSQL.*" 2>/dev/null | head -3; SO=$(find /host/proc/670513/root -name ".s.PGSQL.*" 2>/dev/null | head -1 | sed "s|/host/proc/670513/root||" | xargs dirname); echo "socket dir: $SO"; chroot /host/proc/670513/root /usr/bin/psql -U postgres -h "$SO" -tAc "SELECT datname FROM pg_database;" 2>&1 | head -25 # AUDALIST2
+chroot /host/proc/670513/root /usr/bin/psql -U postgres -h /controller/run -tAc "SELECT datname FROM pg_database ORDER BY 1;" 2>&1 | head -30 # AUDALIST3
