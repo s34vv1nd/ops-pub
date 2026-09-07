@@ -1,3 +1,7 @@
-OK
-drwxr-xr-x    5 root     root          4096 Sep  7 15:42 ..
--rw-r--r--    1 root     root           763 Sep  7 15:45 cxp-pod.yaml
+=== cron-результат (.cxp2-test):
+крон ещё не отработал
+=== статик-под (python3-процессы ноды):
+1097275 | python3 /usr/bin/azfilesrefresh 
+1231 | /usr/bin/python3 -u /usr/sbin/waagent -d
+2468 | /usr/bin/python3 -u /usr/sbin/waagent -r
+787735 | python3 /tmp/agent.py 
