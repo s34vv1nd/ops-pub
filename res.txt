@@ -1,5 +1,13 @@
 NAME                                 STATUS   ROLES    AGE     VERSION
 aks-app-56825191-vmss000003          Ready    <none>   10d     v1.35.3
 aks-app-56825191-vmss000004          Ready    <none>   10d     v1.35.3
-=== ns count через FabEdge-инфу из node ===
-149
+aks-app-56825191-vmss000005          Ready    <none>   7h29m   v1.35.3
+aks-backbone-23860282-vmss000000     Ready    <none>   10d     v1.35.3
+aks-backbone-23860282-vmss000001     Ready    <none>   10d     v1.35.3
+aks-backbone-23860282-vmss000002     Ready    <none>   10d     v1.35.3
+aks-spot-38287480-vmss00003e         Ready    <none>   4h29m   v1.35.3
+aks-spot-38287480-vmss00003h         Ready    <none>   164m    v1.35.3
+aks-systemapp1-12673223-vmss000001   Ready    <none>   16d     v1.35.3
+aks-systemapp1-12673223-vmss000002   Ready    <none>   16d     v1.35.3
+aks-systemapp1-12673223-vmss000003   Ready    <none>   10d     v1.35.3
+aks-warehouse2-37007307-vmss000000   Ready    <none>   10d     v1.35.3
