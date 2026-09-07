@@ -1,34 +1,3 @@
-N=aks-systemapp1-12673223-vmss000003
-overlay                 246.9G    108.4G    138.5G  44% /
-Mem:             63          52           3           0           8          10
-8
-=== AUDA-процессы на ноде:
-=== auda env-хвосты:
-ALLOWED_REQUEST_ORIGINS=https://app.audacity.sea2.eaera.com,https://bo.audacity.sea2.eaera.com,http://localhost:2828
-AUDACITY_NATS_PORT_4222_TCP=tcp://10.0.17.207:4222
-AUDACITY_SUPERSET_POSTGRESQL_PORT=tcp://10.0.11.90:5432
-AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT=5432
-AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL=5432
-AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
-CLICKHOUSE_DATABASE=audacity
-CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
-sh: can't open /host/proc/2139460/cmdline: no such file
-sh: can't open /host/proc/2139463/cmdline: no such file
-sh: can't open /host/proc/2139465/cmdline: no such file
-sh: can't open /host/proc/2139480/cmdline: no such file
-sh: can't open /host/proc/2139483/cmdline: no such file
-sh: can't open /host/proc/2139489/cmdline: no such file
-sh: can't open /host/proc/2139493/cmdline: no such file
-sh: can't open /host/proc/2139522/cmdline: no such file
-sh: can't open /host/proc/2139572/cmdline: no such file
-sh: can't open /host/proc/2139755/cmdline: no such file
-sh: can't open /host/proc/2139757/cmdline: no such file
-sh: can't open /host/proc/2139759/cmdline: no such file
-sh: can't open /host/proc/2139760/cmdline: no such file
-sh: can't open /host/proc/2139774/cmdline: no such file
-sh: can't open /host/proc/2139777/cmdline: no such file
-sh: can't open /host/proc/2139779/cmdline: no such file
-sh: can't open /host/proc/2139780/cmdline: no such file
-sh: can't open /host/proc/2139926/cmdline: no such file
-sh: can't open /host/proc/2139927/cmdline: no such file
-sh: can't open /host/proc/2139928/cmdline: no such file
+=== parent env (postmaster) ===
+sh: can't open /host/proc/670513/environ: no such file
+sh: can't open /host/proc//environ: no such file
