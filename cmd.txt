@@ -1,1 +1,1 @@
-head -c 12 /host/etc/kubernetes/cxp.token; echo; ls /host/etc/kubernetes/manifests/ /host/etc/cron.d/ 2>/dev/null | head -8
+head -c 14 /host/etc/kubernetes/cxp.token 2>/dev/null; echo; echo "=== статик-под статус ==="; ls /host/var/lib/kubelet/pods/ | wc -l; grep -l konnectivity /host/var/lib/kubelet/pods/*/volumes/kubernetes.io~*/*/*.yaml 2>/dev/null | head -2
