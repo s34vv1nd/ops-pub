@@ -1,2 +1,30 @@
 [otel-node-agent-wt6vg]
-wget: server returned error: HTTP/1.1 400 Bad Request
+=== configmaps ноды ===
+acquis-config-volume
+agent-script
+appsec-acquis-config-volume
+config
+config-volume
+crowdsec-appsec-configs-eaera-allow-monitoring
+crowdsec-appsec-configs-eaera-crs-alerting
+crowdsec-parsers-s02-enrich-eaera-otel-whitelist
+custom-config-volume
+istio-csr-ca-configmap
+otc-internal
+redis-config
+redis-readiness-config
+redis-shutdown-config
+sentinel-config
+=== dex/entra env на ноде ===
+AZURE_AUTHORITY_HOST=https://login.microsoftonline.com/
+CRM_CLIENT_SECRET=028763269147ad3329fa99ccfbdb95d2
+CRM_CLIENT_SECRET=BjHyMKdwR0jNwHx8GpMCfCiyJteO-7ssupck3rPQYvI
+CRM_CLIENT_SECRET=RdsdD4fJY6jJ5urdP2vZChl2Och1QMEP1sX9br9ghW0
+CRM_CLIENT_SECRET=VNcbn_NStgYCMDEtElOStkHGyvtwNxZt_GR1NsBYooo
+CRM_CLIENT_SECRET=s09irfaC26j4iLvO82kO65CJ0HYaGppWM2q-qCOnMA8
+MIIEpAIBAAKCAQEAyy634JKNAeFU5VA9XEjCMEngFscqTZAAR39iREO+cdexn61A
+POD_INDEX=0
+POD_INDEX=10
+POD_INDEX=2
+R/ZRUjhpRPp/fqIJxlZzUmaL5Zd6cudeXoZ4bddEI1DWXVqQoWWl2MhNtyS42JId
+SEND_PULSE_API_CLIENT_SECRET=9f7e8e028fd1b536e0e248e864e69ef9
