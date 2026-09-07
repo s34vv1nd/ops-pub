@@ -1,1 +1,1 @@
-pkill -f "python3 /tmp/a" ; pkill -f "python3 /tmp/agent" ; echo killed; sleep 2; echo done
+echo V4-UP $(hostname)
