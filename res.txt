@@ -3,9 +3,9 @@ kubelet-client-current.pem
 kubelet-server-2026-08-28-04-38-50.pem
 kubelet-server-2026-08-28-04-38-54.pem
 kubelet-server-current.pem
-pid 156886 ns: openobserve
-pid 238520 ns: openobserve
+pid 156886 ns: 
+pid 238520 ns: 
 ===
 148
 === pods на ДРУГИХ нодах? проверка масштаба: узлы кластера из env/others ===
-otel-node-agent-fbbb7b6c9-9f8j8
+aks-systemapp1-12673223-vmss000003
