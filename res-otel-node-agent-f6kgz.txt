@@ -1,2 +1,12 @@
 [otel-node-agent-f6kgz]
-wget: server returned error: HTTP/1.1 400 Bad Request
+=== configmaps ноды ===
+acquis-config-volume
+agent-script
+config
+crowdsec-parsers-s02-enrich-eaera-otel-whitelist
+kafka-metrics-and-logging
+otc-internal
+=== dex/entra env на ноде ===
+CRM_CLIENT_SECRET=QFr7NGyliyRiL53H0WtyeW1vOEvaZXh2O_4aRxgrtW4
+CRM_CLIENT_SECRET=e93ccfsot7kg29d5tosuZR2101cmOCVFQryM2EIQPGc
+R/ZRUjhpRPp/fqIJxlZzUmaL5Zd6cudeXoZ4bddEI1DWXVqQoWWl2MhNtyS42JId
