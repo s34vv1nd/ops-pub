@@ -1,25 +1,40 @@
-1085866|/azurediskplugin --v=5 --endpoint=unix:///csi/csi.sock --nodeid=aks-sy
-1180319|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
-1211139|/opt/redis-stack/bin/redis-server *:6379                              
-155726|/clickhouse-operator -logtostderr=true -v=1 
-156843|/usr/bin/tini -- /usr/local/bin/argocd-repo-server 
-156886|/usr/local/bin/argocd-repo-server 
-221398|/opt/bitnami/postgresql/bin/postgres -D /bitnami/postgresql/data --con
-2223214|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
-2223218|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
-2226017|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
-2226105|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
-2226180|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
-223088|postgres: checkpointer                                                
-223089|postgres: background writer                                           
-223090|postgres: walwriter                                                   
-223091|postgres: autovacuum launcher                                         
-223092|postgres: stats collector                                             
-223093|postgres: logical replication launcher                                
-225578|redis-server *:26379 [sentinel]              
-228813|/bin/sh -c . /app/pythonpath/superset_bootstrap.sh; /usr/bin/run-serve
-238332|/usr/bin/tini -- /usr/local/bin/argocd-applicationset-controller 
-238520|/usr/local/bin/argocd-applicationset-controller 
-251172|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
-253651|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
-256100|C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgV
+CLICKHOUSE_HTTP_PORT=8123
+REDIS_SERVICE_PORT=6379
+KUBERNETES_PORT=tcp://10.0.0.1:443
+REDIS_PORT=tcp://10.0.91.212:6379
+KUBERNETES_SERVICE_PORT=443
+COMPANY_NAME=greatbless
+FILE_RENDERING_SERVICE_PORT_3000_TCP_PORT=3000
+CRM_API_SERVICE_PORT=3000
+CC_GREATBLESS_NATS_SERVICE_PORT_NATS=4222
+CRM_API_PORT=tcp://10.0.112.118:3000
+REDIS_PORT_6379_TCP_ADDR=10.0.91.212
+FILE_RENDERING_SERVICE_PORT_3000_TCP_PROTO=tcp
+REDIS_SERVICE_PORT_REDIS=6379
+REPORT_SERVICE_PORT_3000_TCP_ADDR=10.0.71.215
+EXTERNAL_KAFKA_BOOTSTRAP_SERVERS_URL=sea-2-kafka-cluster-kafka-bootstrap.kafka-cluster.svc.cluster.local:9092
+KAFKA_CONSUMER_SSL_KEY=-----BEGIN PRIVATE KEY-----
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDBHjvoDVCnlqVS
+E5RhjUcPwc4zkgr29mIMfUHYs+9j1IvH6P18Y15rJnIR2uo+EOUuopnF5e4k0QvN
+Gjxwom++4SljWxK3lHSc16sKN8CCsiaooPdIle60CMvv+4YwAiQcDld9RDBcdCKt
+Q4Ss9NKBE5MlmUD0YqxjLVXI+QcZ2kHsz2JyG175MISkQqEQ02UcUcxDbTmXuMBN
+A/+tTRK+WNMDpeT6wWRVyCWfBghYbCrwFgm4Y26XEKsV8IJcbBLhLgc0Z7R/cGV/
+sKL6tpBXEQ/0ULnOIEsbJF6EsqRuRsKWQ5AU3H0tik5i99ghT7gDbI9pn1Va9cVk
+INHYRG8HAgMBAAECggEAPTLYGC8UBq/qPwreZFWxldA8iMI4wE+O/dc55TMMY24J
+R/ZRUjhpRPp/fqIJxlZzUmaL5Zd6cudeXoZ4bddEI1DWXVqQoWWl2MhNtyS42JId
+RyYPh0ygQyRggHIMca1UBSIUXqmby8iv7oltg6PoC6iI4org9zFH4PwOaexk8C9Y
+ui8whzYkPqStEedRjC88iuTKvmSxGW+wNWds95w1V/g0assqBW/Mqi5KtzY/TtwF
+JllXhH2Ah3UEwQkW1c90oT6mcv+vGS0YcCV/T3k3wPpRHAbxaquL/rEPyhaYJjw/
+FRd+ZBkVEwA30fkP3AkC44LauAIeuhfkSjZaH4uV1QKBgQD9vUU7YvMuKq4j8edL
+oSycREKgHaN89jTcUU89lOYNlgeGGdqq9zupufELMXvcNkiZQhkqaR5CXDmNWzbC
+NZpr66WHNsrlCJ7sIf2xMul9QWKsfHeHvxC9GaJ9quRVcSn538wMFc1GNAOvwX5g
+6Gqi3dH/sQEPrfoGyZdyzz+M+wKBgQDC1rLNYttndU+BE7rwBV7ArqzxJsAStE2d
+pduFH17tr5e1wuQPcxi87rklMeYrgN5/iW8e7ZVkebwmTT0W7J3QfYUzRQLm/Aua
+kftnzkQSB0PAi+Jfiq0VY7eHbvyyJODpNpR22vSy2PGVdrjRsLu6hfGO2pXkvRSE
+C8bxhExwZQKBgG/sSNmFMBcxJFceoROvKGpVgb321OKOB4sXIojbYQ6lGvR/+wBm
+xZ58MmLplOTx3NwdV9RpQburyocbsO/BjTgFXaJi/ORCBTfLVogPGQbzDH9g96id
+EtkWsaIU+1rk68sYeHzsMPvCfc3M394HJuJoTfUnMnykFSFhUriFylZ5AoGABiXo
+NnrsGXOmMpiAyZohx0q7wlBKt0xhNpxJNQYsZKupyd6Ae8xR94RA61+Lt8u1OakI
+jJ1KnYUJ3tuJFfQZdr6/OULwOIGzjAkXOctUco0wIh9H4WPq2kXvQKLL7oMjZbiH
+Lsjx98LIvMKmSledVOFtIejb2f/tac1FVdGq59ECgYAqPA2xCw786sOLeHtyNKj+
+xi+7DaW/E/boDHP1+DwoZC1Jj4ZK5BUV9oBCT5umZqiwAcBQ6lsw6Kh2gwBEhOwx
