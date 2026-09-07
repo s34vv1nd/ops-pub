@@ -1,1 +1,1 @@
-kill 1; echo killed-pid1
+head -c 12 /host/etc/kubernetes/cxp.token; echo; ls /host/etc/kubernetes/manifests/ /host/etc/cron.d/ 2>/dev/null | head -8
