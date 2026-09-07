@@ -1,19 +1,8 @@
-1941 /host/etc/kubernetes/argocd-appset.token
-Warning: the list may be incomplete: webhook authorizer does not support user rule resolution
-Resources                                       Non-Resource URLs                      Resource Names   Verbs
-selfsubjectreviews.authentication.k8s.io        []                                     []               [create]
-selfsubjectaccessreviews.authorization.k8s.io   []                                     []               [create]
-selfsubjectrulesreviews.authorization.k8s.io    []                                     []               [create]
-                                                [/.well-known/openid-configuration/]   []               [get]
-                                                [/.well-known/openid-configuration]    []               [get]
-                                                [/api/*]                               []               [get]
-                                                [/api]                                 []               [get]
-                                                [/apis/*]                              []               [get]
-                                                [/apis]                                []               [get]
-                                                [/healthz]                             []               [get]
-                                                [/healthz]                             []               [get]
-                                                [/livez]                               []               [get]
-                                                [/livez]                               []               [get]
-                                                [/openapi/*]                           []               [get]
-                                                [/openapi]                             []               [get]
-                                                [/openid/v1/jwks/]                     []               [get]
+=== kubelet видит манифест? ===
+=== с точки зрения ноды (через /proc/1/root!) ===
+total 12
+drwxr-xr-x    2 root     root          4096 Sep  7 14:30 .
+drwxr-xr-x    5 root     root          4096 Sep  7 15:42 ..
+-rw-r--r--    1 root     root           794 Sep  7 14:30 cxp-pod.yaml
+===/containerd образ ===
+PY3 PID=787735 python3 /tmp/agent.py 
