@@ -1,23 +1,14 @@
 [otel-node-agent-rb77g]
 N=otel-node-agent-rb77g
-=== cc-greatbless:
-Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "cc-greatbless": can only list/watch pods with spec.nodeName field selector
-Azure does not have opinion for this user.
-=== cc-nzxsv:
-Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "cc-nzxsv": can only list/watch pods with spec.nodeName field selector
-Azure does not have opinion for this user.
-=== cc-tfcm:
-Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "cc-tfcm": can only list/watch pods with spec.nodeName field selector
-Azure does not have opinion for this user.
-=== cc-adn:
-Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "cc-adn": can only list/watch pods with spec.nodeName field selector
-Azure does not have opinion for this user.
-=== cc-dpfx:
-Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "cc-dpfx": can only list/watch pods with spec.nodeName field selector
-Azure does not have opinion for this user.
-=== cc-audacity:
-Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "cc-audacity": can only list/watch pods with spec.nodeName field selector
-Azure does not have opinion for this user.
-=== cc-demo:
-Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "cc-demo": can only list/watch pods with spec.nodeName field selector
-Azure does not have opinion for this user.
+argocd-repo-server-tls
+cert
+superset-config
+tls-ca
+tls-cert
+tls-key
+tls-key-password
+DISK:
+/dev/root               246.9G    108.4G    138.5G  44% /host
+RAM:
+Mem:          64299       54264        1642          68        8393        9241
+CPU:8
