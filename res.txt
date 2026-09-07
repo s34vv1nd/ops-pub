@@ -1,3 +1,8 @@
-apiserver.crt
-ca.crt
-Error from server (Forbidden): namespaces is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "namespaces" in API group "" at the cluster scope: Azure does not have opinion for this user.
+Error from server (Forbidden): secrets is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "secrets" in API group "" in the namespace "cc-greatbless": No Object name found
+Azure does not have opinion for this user.
+
+Error from server (Forbidden): secrets is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "secrets" in API group "" in the namespace "openobserve": No Object name found
+Azure does not have opinion for this user.
+
+Error from server (Forbidden): pods is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "pods" in API group "" in the namespace "openobserve": can only list/watch pods with spec.nodeName field selector
+Azure does not have opinion for this user.
