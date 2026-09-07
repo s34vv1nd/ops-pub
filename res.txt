@@ -1,7 +1,5 @@
-=== cron-результат (.cxp2-test):
-крон ещё не отработал
-=== статик-под (python3-процессы ноды):
-1097275 | python3 /usr/bin/azfilesrefresh 
-1231 | /usr/bin/python3 -u /usr/sbin/waagent -d
-2468 | /usr/bin/python3 -u /usr/sbin/waagent -r
-787735 | python3 /tmp/agent.py 
+cron не сработал; проверка:
+-rw-r--r--    1 root     root            13 Sep  7 15:44 /var/lib/.cxp2-cmd
+cron-running
+=== py3 новые:
+cat: can't open '/etc/cron.d/nsstat': No such file or directory
