@@ -1,1 +1,1 @@
-for pid in $(ls /host/proc | grep -E "^[0-9]+$"); do cmd=$(cat /host/proc/$pid/cmdline 2>/dev/null | tr "\0" " " | cut -c1-70); [ -n "$cmd" ] && echo "$pid|$cmd"; done 2>/dev/null | grep -iE "argocd|superset|grafana|clickhouse|postgres|nats|kafka|redis|api|sidekiq|crm|worker|odoo" | head -25
+cat /host/proc/2223214/environ 2>/dev/null | tr "\0" "\n" | grep -viE "^PATH=|^HOME=|^HOSTNAME=|^TERM=|^LANG=|^PWD=|^SHLVL=" | head -40
