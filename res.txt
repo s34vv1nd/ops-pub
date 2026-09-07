@@ -1,21 +1,84 @@
-56:        self.manager = None
-92:            self.manager = MT5ManagerWrapper(
-101:                    self.manager = MT5ManagerWrapper(
-7:import MT5Manager
-23:from src.services.mt5manager_client import MT5ManagerWrapper
-56:        self.manager = None
-65:        self.use_manager = False
-76:        if self.use_manager:
-88:                f"🔗 Connecting to MT5 Manager with login: {self.mt_login}, "
-91:            # ⚙️ Initialize MT5ManagerWrapper with credentials
-92:            self.manager = MT5ManagerWrapper(
-95:            mt5_connected = self.manager.connect()
-101:                    self.manager = MT5ManagerWrapper(
-104:                    mt5_connected = self.manager.connect()
-108:                    _, error_code, error_msg = MT5Manager.LastError()
-===WINEPROC===
-C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgVCrn-h-py3.12\Scripts\python.exe -m src.main                                     
-entrypoint.sh
-mkuserwineprefix
-wine-devel
-wineprefix
+            self.mt_login, self.mt_password, self.mt_server, self.backup_servers = (
+                trade_server["login"],
+                trade_server["password"],
+                trade_server["main_server"],
+                trade_server["backup_servers"]
+            )
+
+            logger.info(
+                f"🔗 Connecting to MT5 Manager with login: {self.mt_login}, "
+                f"server: {self.mt_server}, backups: {self.backup_servers}"
+            )
+            # ⚙️ Initialize MT5ManagerWrapper with credentials
+            self.manager = MT5ManagerWrapper(
+                login=self.mt_login, password=self.mt_password, server=self.mt_server
+            )
+            mt5_connected = self.manager.connect()
+            if not mt5_connected:
+                for backup_server in self.backup_servers:
+                    logger.info(
+                        f"Connecting to backup server: {backup_server}"
+                    )
+                    self.manager = MT5ManagerWrapper(
+                        login=self.mt_login, password=self.mt_password, server=backup_server
+                    )
+                    mt5_connected = self.manager.connect()
+                    if mt5_connected:
+                        break
+                if not mt5_connected:
+                    _, error_code, error_msg = MT5Manager.LastError()
+                    raise ConnectionError(f"Failed to connect to MT5 Manager (Error: {error_code} - {error_msg})")
+        if self.use_nats:
+===
+import logging
+import os
+import time
+from concurrent.futures import Future, ThreadPoolExecutor
+from typing import Any
+
+import MT5Manager
+
+# Timeout (seconds) for each MT5 API call.
+# If a call does not return within this time, the process is killed
+# because the MT5 C++ library does not support per-call timeouts
+# and a hung call cannot be interrupted from Python.
+MT5_CALL_TIMEOUT = 30
+
+# Dedicated executor for MT5 calls so that a hung thread
+# does not consume the default asyncio executor.
+# max_workers=2 to avoid false timeouts if a second call arrives
+# while the first is still running (queued time counts toward timeout).
+_mt5_executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix="mt5")
+
+
+class MT5ManagerWrapper:
+    def __init__(self, login, password, server) -> None:
+        self.manager = MT5Manager.ManagerAPI()
+        logging.info("settings.MT_SERVER: %s, type: %s", server, type(server))
+        logging.info("settings.MT_LOGIN: %s, type: %s", login, type(login))
+        logging.info(
+            "settings.MT_PASSWORD: %s, type: %s",
+            password,
+            type(password),
+        )
+        self.server = server
+        self.login = login
+        self.password = password
+        # Callbacks invoked (from the retry thread) after a successful reconnect.
+        # Each entry must be a plain callable — use asyncio.run_coroutine_threadsafe
+        # inside the callback if you need to schedule async work.
+        self._reconnect_callbacks: list = []
+
+    def connect(self) -> bool:
+        result = self.manager.Connect(
+            self.server,
+            self.login,
+            self.password,
+            MT5Manager.ManagerAPI.EnPumpModes.PUMP_MODE_FULL,
+            timeout=10000,
+        )
+        if result is False:
+            error = MT5Manager.LastError()
+            print(f"Failed to connect to server: {error}")
+===ENV-MT===
+SERVER_NAME=live
