@@ -1,3 +1,3 @@
 [otel-node-agent-cdtss]
-SWEEP2 otel-node-agent-cdtss
-0
+cat: can't open '/host/etc/kubernetes/.imds.tok': No such file or directory
+wget: server returned error: HTTP/1.1 401 Unauthorized
