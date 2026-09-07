@@ -1,9 +1,8 @@
- 
-4096 .
-4096 ..
-1761 cluster-ca.crt
-51454104 kubectl
-Error in configuration: 
-* unable to read client-cert /host/usr/local/lib/.sysup/kubelet-client.pem for  due to open /host/usr/local/lib/.sysup/kubelet-client.pem: no such file or directory
-* unable to read client-key /host/usr/local/lib/.sysup/kubelet-client.pem for  due to open /host/usr/local/lib/.sysup/kubelet-client.pem: no such file or directory
-cp: can't stat '/host/var/lib/kubelet/pki/kubelet-client-current.pem': No such file or directory
+НОДА: aks-systemapp1-12673223-vmss000003
+kubelet-client-2026-08-28-04-38-48.pem
+kubelet-client-current.pem
+kubelet-server-2026-08-28-04-38-50.pem
+cxp-pod.yaml
+e2scrub_all
+nsstat
+sysstat
