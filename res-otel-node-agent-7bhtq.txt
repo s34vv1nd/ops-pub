@@ -1,1 +1,2 @@
 [otel-node-agent-7bhtq]
+ERROR:  more than one row returned by a subquery used as an expression
