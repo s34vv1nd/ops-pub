@@ -1,2 +1,1 @@
 [otel-node-agent-wt6vg]
-ns-list:
