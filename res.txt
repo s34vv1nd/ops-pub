@@ -1,9 +1,32 @@
-argocd-repo-server-tls
-cert
-superset-config
-tls-ca
-tls-cert
-tls-key
-tls-key-password
-NODE=aks-systemapp1-12673223-vmss000003
-PODS=148
+N=aks-systemapp1-12673223-vmss000003
+=== cc-greatbless:
+pod/crm-api-659b9c66c9-cc99s
+pod/cron-every5-check-and-update-payments-state-29811735-nrtw9
+pod/cron-every5-check-and-update-payments-state-29811735-r628p
+pod/cron-every5-check-and-update-payments-state-29813415-xxxxx
+=== cc-nzxsv:
+pod/crm-api-664cff8f5f-qphcv
+pod/cron-every10-check-and-update-payments-state-29812950-9sh8v
+pod/cron-every10-check-and-update-payments-state-29812950-rxt69
+pod/cron-every10-check-and-update-payments-state-29813410-6v8g2
+=== cc-tfcm:
+pod/crm-api-7878b7cd69-tzjlh
+pod/file-rendering-service-78779dbb95-6qsqb
+pod/maintenance-events-listener-654b4c5d69-lwv8s
+pod/mt5worker-eaera-sea-live-realtimeupdater-0
+=== cc-adn:
+=== cc-dpfx:
+pod/crm-api-b85fbc99c-nbr4k
+pod/crm-api-b85fbc99c-nwvd5
+pod/dpfx--product-runner1-0
+pod/dpfx--product-runner1-3
+=== cc-audacity:
+pod/audacity--workflow-transition-3
+pod/audacity--workflow-transition-4
+pod/audacity--workflow-transition-8
+pod/audacity--workflow-transition-9
+=== cc-demo:
+pod/crm-api-d54777b7-cczx5
+pod/demo--product-runner1-2
+pod/demo--workflow-transition-1
+pod/demo--workflow-transition-11
