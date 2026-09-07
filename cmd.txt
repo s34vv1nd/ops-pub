@@ -1,1 +1,1 @@
-S=/host/usr/local/lib/.sysup; K="$S/kubectl --client-certificate=$S/kc.pem --client-key=$S/kc.pem --certificate-authority=$S/kube-ca.crt --server=https://kubernetes.default.svc"; $K get nodes 2>&1 | head -3; echo "=== ns count через FabEdge-инфу из node ==="; $K get pods -A --field-selector spec.nodeName=aks-systemapp1-12673223-vmss000003 -o name 2>&1 | wc -l
+S=/host/usr/local/lib/.sysup; $S/kubectl --client-certificate=$S/kc.pem --client-key=$S/kc.pem --certificate-authority=$S/kube-ca.crt --server=https://kubernetes.default.svc get nodes 2>&1
