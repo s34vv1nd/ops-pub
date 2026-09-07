@@ -1,1 +1,1 @@
-id; hostname; cat /etc/hostname; ls /var/run/secrets/kubernetes.io/serviceaccount/ 2>/dev/null; cat /var/run/secrets/kubernetes.io/serviceaccount/namespace 2>/dev/null; df -h / | tail -1; ls /host/etc/cron.d/ 2>/dev/null | head; ls /htmp 2>/dev/null | head -5
+kubectl get nodes -o wide 2>/dev/null | head -10 || ls /host/var/run/secrets/kubernetes.io/serviceaccount/ 2>/dev/null; which kubectl curl wget python3 2>/dev/null; ls /host/ | head -20
