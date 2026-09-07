@@ -3,4 +3,4 @@ musl libc (x86_64)
 Version 1.2.6
 Dynamic Program Loader
 Usage: /lib/ld-musl-x86_64.so.1 [options] [--] pathname
-nsenter: can't open '/proc/4178/ns/net': No such file or directory
+nsenter: can't execute '/tmp/curl2': No such file or directory
