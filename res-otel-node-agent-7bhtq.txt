@@ -1,2 +1,16 @@
 [otel-node-agent-7bhtq]
-wget: server returned error: HTTP/1.1 400 Bad Request
+=== configmaps ноды ===
+acquis-config-volume
+agent-script
+appsec-acquis-config-volume
+crowdsec-appsec-configs-eaera-allow-monitoring
+crowdsec-appsec-configs-eaera-crs-alerting
+crowdsec-config-local-volume
+crowdsec-docker-start-script
+crowdsec-notifications-http-default
+crowdsec-parsers-s02-enrich-eaera-otel-whitelist
+crowdsec-profiles-volume
+otc-internal
+=== dex/entra env на ноде ===
+AZURE_AUTHORITY_HOST=https://login.microsoftonline.com/
+CBS_CLIENT_SECRET=a0184a61-edfd-43d5-b8d3-591b06b2cd8f
