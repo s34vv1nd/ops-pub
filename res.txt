@@ -1,2 +1,4 @@
-ghp_PLACEHOL
+run.sh
+
+---статик-под?
 cxp-pod.yaml
