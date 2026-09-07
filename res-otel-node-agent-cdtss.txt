@@ -1,16 +1,12 @@
 [otel-node-agent-cdtss]
 N=otel-node-agent-cdtss
-=== cc-greatbless:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-nzxsv:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-tfcm:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-adn:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-dpfx:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-audacity:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-demo:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
+broker-certs
+client-ca-cert
+cluster-ca
+custom-external-9095-certs
+custom-extscram-9096-certs
+DISK:
+/dev/root               122.9G     72.2G     50.7G  59% /host
+RAM:
+Mem:          32097       12588         357          10       19151       19027
+CPU:4
