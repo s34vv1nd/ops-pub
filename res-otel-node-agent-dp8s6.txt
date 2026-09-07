@@ -22,7 +22,4 @@ N=otel-node-agent-dp8s6
 /host/var/lib/kubelet/pods/e2ecefcc-cb99-4f36-8fa4-0cf5f9b287fa/volumes/kubernetes.io~secret/:
 /host/var/lib/kubelet/pods/fdee3e6e-054b-4afb-9647-b0105782314e/volumes/kubernetes.io~secret/:
 argocd-repo-server-tls
-automation-config
-config-volume
-crowdsec-bouncer-key
 PODS=147
