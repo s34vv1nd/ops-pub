@@ -1,0 +1,11 @@
+[otel-node-agent-grbb8]
+N=otel-node-agent-grbb8
+/host/var/lib/kubelet/pods/2bc08376-4ebf-4f2e-b166-360a804fb718/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/767e7c1c-bbbf-4308-b9fa-39cf3e9b8475/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/d6516904-a953-4dd5-84b6-0407064a850a/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/dd9d0693-4901-4b5b-bc37-f872038a5953/volumes/kubernetes.io~secret/:
+/host/var/lib/kubelet/pods/e9a20874-96a0-4fce-894b-aa8fa0f570a5/volumes/kubernetes.io~secret/:
+argocd-dex-server-tls
+client-ca-cert
+cluster-ca
+PODS=29
