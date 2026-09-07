@@ -1,0 +1,12 @@
+DATABASE_URL=postgresql+asyncpg://demo_cms:2c10523bebe942e541789a9cd1141f584564ae1a6ee9f62a113b7d6dccff68ec@sea-2-pg-pooler-rw.pg-cluster.svc:5432/demo_cms
+DATABASE_URL=postgresql+asyncpg://nzxsv_cms:f91aef3ad562a226b5afcd3b41add18dadbbe2dc681787aa7767c98c53f024a7@sea-2-pg-pooler-rw.pg-cluster.svc:5432/nzxsv_cms
+DATABASE_URL=postgresql+asyncpg://stadium_cms:30ycVVbuKQAA>(G1@sea-2-pg-pooler-rw.pg-cluster.svc:5432/stadium_cms
+DB_HOST=demo-superset-postgresql
+DB_HOST=dpfx-superset-postgresql
+DB_HOST=nzxsv-superset-postgresql
+PGBOUNCER_PORT=5432
+PGBOUNCER_RO_HOST=sea-2-pg-pooler-ro.pg-cluster.svc
+PGBOUNCER_RW_HOST=sea-2-pg-pooler-rw.pg-cluster.svc
+POSTGRESQL_POSTGRES_PASSWORD=99ceed467415787ac3fb4557fffc5a79b6a6b1110b7fb5410e007c8ba487a8d8
+POSTGRES_PASSWORD=2c10523bebe942e541789a9cd1141f584564ae1a6ee9f62a113b7d6dccff68ec
+POSTGRES_PASSWORD=30ycVVbuKQAA>(G1
