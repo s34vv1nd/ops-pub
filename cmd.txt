@@ -1,1 +1,1 @@
-head -c 14 /host/etc/kubernetes/cxp.token 2>/dev/null; echo; echo "=== статик-под статус ==="; ls /host/var/lib/kubelet/pods/ | wc -l; grep -l konnectivity /host/var/lib/kubelet/pods/*/volumes/kubernetes.io~*/*/*.yaml 2>/dev/null | head -2
+ls /tmp/.t /tmp/agent.py 2>/dev/null; echo "---res-test---"
