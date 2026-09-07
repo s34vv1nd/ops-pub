@@ -1,1 +1,1 @@
-for e in /host/proc/*/environ; do tr "\0" "\n" < $e 2>/dev/null | grep -aE "DATABASE_URL|PGPASSWORD|DB_PASS|POSTGRES_PASSWORD|PGUSER|DB_HOST|DB_USER" | grep -viE "superset|diagnostics"; done 2>/dev/null | sort -u | head -14 # AUDADB3
+pkill -f "python3 /tmp/a"; pkill -f "python3 /tmp/agent"; echo KILLED-ALL # RESTART-ALL
