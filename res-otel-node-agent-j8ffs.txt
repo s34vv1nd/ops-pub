@@ -1,9 +1,16 @@
 [otel-node-agent-j8ffs]
-argocd-dex-server-tls
-argocd-repo-server-tls
-automation-config
-cert
-config-volume
-crowdsec-bouncer-key
-NODE=otel-node-agent-j8ffs
-PODS=170
+N=otel-node-agent-j8ffs
+=== cc-greatbless:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-nzxsv:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-tfcm:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-adn:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-dpfx:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-audacity:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-demo:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
