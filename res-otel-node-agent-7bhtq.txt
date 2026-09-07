@@ -1,34 +1,4 @@
 [otel-node-agent-7bhtq]
-public.product_repos
-public.prop_account_histories
-public.prop_accounts
-public.psps
-public.purchases
-public.references
-public.referrals
-public.remotes
-public.report_filters
-public.reports
-public.role_assignments
-public.role_sets
-public.schema_migrations
-public.site_setting_hierarchies
-public.site_settings
-public.support_tickets
-public.swap_deals
-public.trade_servers
-public.user_authenticators
-public.user_devices
-public.user_profiles
-public.user_requests
-public.user_transactions
-public.user_widgets
-public.users
-public.users_oauth_applications
-public.voip_calls
-public.wallets
-public.webhook_endpoints
-public.webhook_events
-public.webhook_logs
-public.worker_api_calls
-public.workflow_histories
+ERROR:  column "host" does not exist
+LINE 1: SELECT 'TS:'||name||'|'||host||'|'||login FROM trade_servers...
+                                 ^
