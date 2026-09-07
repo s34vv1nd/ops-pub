@@ -1,2 +1,1 @@
 [otel-node-agent-dp8s6]
-ns-list:
