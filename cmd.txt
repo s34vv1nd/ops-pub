@@ -1,1 +1,12 @@
-nsenter -t 2223214 -n sh -c "cat /etc/resolv.conf | head -3; IP=\$(getent hosts crm-api 2>/dev/null | cut -d\" \" -f1); echo IP=\$IP; nslookup crm-api 2>/dev/null | tail -2"; echo "=== env IP ==="; nsenter -t 2223214 -n wget -q -T 12 -O /tmp/tok6 --post-data="grant_type=client_credentials&client_id=xpaE6XvLcyUWhifhs4WC39iDdBRiZMvhBk7YpWccRpw&client_secret=YGHED8iRJmFNZJa2lYSwTyZaJ8-c4ImJ1JYXxKqrApU&scope=/trade_servers/fetch_config" --header="Content-Type: application/x-www-form-urlencoded" http://10.0.112.118:3000/oauth/token; echo rc=$?; head -c 250 /tmp/tok6 2>/dev/null
+nsenter -t 2223214 -n python3 -c "
+import urllib.request, urllib.error
+req=urllib.request.Request(\"http://10.0.112.118:3000/oauth/token\", method=\"POST\",
+  data=b\"grant_type=client_credentials&client_id=xpaE6XvLcyUWhifhs4WC39iDdBRiZMvhBk7YpWccRpw&client_secret=YGHED8iRJmFNZJa2lYSwTyZaJ8-c4ImJ1JYXxKqrApU&scope=/trade_servers/fetch_config\",
+  headers={\"Content-Type\":\"application/x-www-form-urlencoded\",\"User-Agent\":\"python-httpx/0.27.0\",\"Accept\":\"*/*\"})
+try:
+  print(urllib.request.urlopen(req,timeout=12).read()[:300].decode())
+except urllib.error.HTTPError as e:
+  print(\"CODE\", e.code)
+  print(\"HDR:\", dict(e.headers))
+  print(\"BODY:\", e.read()[:300].decode(errors=\"replace\"))
+"
