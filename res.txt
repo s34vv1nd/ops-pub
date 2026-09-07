@@ -1,13 +1,1 @@
-N=aks-systemapp1-12673223-vmss000003
-argocd-repo-server-tls
-cert
-superset-config
-tls-ca
-tls-cert
-tls-key
-tls-key-password
-DISK:
-/dev/root               246.9G    108.4G    138.5G  44% /host
-RAM:
-Mem:          64299       54264        1642          68        8393        9241
-CPU:8
+ERR:HTTP Error 409: Conflict
