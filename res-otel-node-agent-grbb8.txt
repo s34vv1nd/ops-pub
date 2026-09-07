@@ -1,9 +1,16 @@
 [otel-node-agent-grbb8]
-argocd-dex-server-tls
-broker-certs
-client-ca-cert
-cluster-ca
-custom-external-9095-certs
-custom-extscram-9096-certs
-NODE=otel-node-agent-grbb8
-PODS=29
+N=otel-node-agent-grbb8
+=== cc-greatbless:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-nzxsv:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-tfcm:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-adn:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-dpfx:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-audacity:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-demo:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
