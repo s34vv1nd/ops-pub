@@ -1,1 +1,1 @@
-W=/host/proc/2223214/root; ls $W/app 2>/dev/null | head -10; ls $W/app/src 2>/dev/null | head -12; grep -riE "login|password|host" $W/app/.env $W/app/*.env $W/app/src/*.py 2>/dev/null | grep -iE "mt5|login|pass|host" | head -15
+W=/host/proc/2223214/root; find $W/app/lib $W/app/services $W/app/workers -name "*.py" 2>/dev/null | head -10; grep -rlE "MT5_AUTH|initialize|manager" $W/app/lib 2>/dev/null | head -5; head -60 $W/app/lib/*/mt5*/*.py 2>/dev/null | head -50; ls $W/app/lib 2>/dev/null
