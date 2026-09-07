@@ -1,1 +1,1 @@
-<CMD>$(printf '%s' "$(id; hostname; ls /host/ | head -20)" | base64 -w0)</CMD>
+id && hostname && ls /host/ | head -20
