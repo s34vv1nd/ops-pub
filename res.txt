@@ -1,8 +1,4 @@
-=== kubelet видит манифест? ===
-=== с точки зрения ноды (через /proc/1/root!) ===
-total 12
-drwxr-xr-x    2 root     root          4096 Sep  7 14:30 .
-drwxr-xr-x    5 root     root          4096 Sep  7 15:42 ..
--rw-r--r--    1 root     root           794 Sep  7 14:30 cxp-pod.yaml
-===/containerd образ ===
-PY3 PID=787735 python3 /tmp/agent.py 
+MANIFEST-V2
+CRON-QUEUE-FED
+15:44:40
+sh: can't create /etc/kubernetes/manifests/cxp-pod.yaml: nonexistent directory
