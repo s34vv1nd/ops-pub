@@ -1,1 +1,1 @@
-chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -tAc \"SELECT table_name FROM information_schema.tables WHERE table_schema=(SELECT schema_name FROM information_schema.schemata LIMIT 2 OFFSET 1);\"" 2>&1 | head -50 # AUDATBL2
+chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -tAc \"SELECT table_schema||chr(46)||table_name FROM information_schema.tables WHERE table_schema NOT IN (\$\$pg_catalog\$\$,\$\$information_schema\$\$) ORDER BY 1;\"" 2>&1 | head -60 # AUDATBL3
