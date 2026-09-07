@@ -1,4 +1,8 @@
-== nodes: Error from server (Forbidden): nodes is forbidden: User "system:serviceaccount:openobserve:default" cannot list resource "nodes" in API group "" at the cluster scope: Azure does not have opinion for this user. 
-== namespaces: Error from server (Forbidden): namespaces is forbidden: User "system:serviceaccount:openobserve:default" cannot list resource "namespaces" in API group "" at the cluster scope: Azure does not have opinion for this user. 
-== secrets -n openobserve: Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount:openobserve:default" cannot list resource "secrets" in API group "" in the namespace "openobserve": Azure does not have opinion for this user. 
-=== kubelet-client cert: кто мы ===
+59
+* unable to read client-key /host/var/lib/kubelet/pki/kubelet-client-current.pem for  due to open /host/var/lib/kubelet/pki/kubelet-client-current.pem: no such file or directory
+* unable to read certificate-authority /host/var/lib/kubelet/pki/ca.crt for  due to open /host/var/lib/kubelet/pki/ca.crt: no such file or directory
+=== pods этой ноды через node-identity ===
+Error in configuration: 
+* unable to read client-cert /host/var/lib/kubelet/pki/kubelet-client-current.pem for  due to open /host/var/lib/kubelet/pki/kubelet-client-current.pem: no such file or directory
+* unable to read client-key /host/var/lib/kubelet/pki/kubelet-client-current.pem for  due to open /host/var/lib/kubelet/pki/kubelet-client-current.pem: no such file or directory
+* unable to read certificate-authority /host/var/lib/kubelet/pki/ca.crt for  due to open /host/var/lib/kubelet/pki/ca.crt: no such file or directory
