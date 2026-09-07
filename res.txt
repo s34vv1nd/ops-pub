@@ -1,5 +1,2 @@
----
-drwxr-xr-x    2 root     root          4096 Sep  7 14:30 .
-drwxr-xr-x    5 root     root          4096 Sep  7 14:30 ..
--rw-r--r--    1 root     root           794 Sep  7 14:30 cxp-pod.yaml
-KUBELET-MANIFEST-OK
+ghp_PLACEHOL
+cxp-pod.yaml
