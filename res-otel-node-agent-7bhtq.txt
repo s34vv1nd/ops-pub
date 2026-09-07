@@ -1,2 +1,2 @@
 [otel-node-agent-7bhtq]
-CHECK otel-node-agent-7bhtq
+SWEEP 17:20:30
