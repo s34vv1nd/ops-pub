@@ -1,1 +1,1 @@
-hostname; cat /host/etc/hostname; ls -la /proc/4178/ns/net 2>&1 | head -1; wc -c /host/etc/kubernetes/.imds.tok 2>/dev/null
+hostname; cat /host/etc/hostname; ls -la /proc/4178/ 2>&1 | head -1
