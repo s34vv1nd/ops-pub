@@ -1,3 +1,5 @@
 [otel-node-agent-wt6vg]
-cat: can't open '/host/etc/kubernetes/.imds.tok': No such file or directory
-wget: server returned error: HTTP/1.1 401 Unauthorized
+0
+otel-node-agent-wt6vg
+aks-app-56825191-vmss000003
+===
