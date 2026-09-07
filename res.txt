@@ -1,24 +1,20 @@
-/host/proc/2223214/root/app/src/workers/trade_updater.py
-/host/proc/2223214/root/app/src/workers/trade_updater_strategies/mt5_events_strategy.py
-/host/proc/2223214/root/app/src/workers/trade_updater_strategies/helpers/backfill.py
-/host/proc/2223214/root/app/src/workers/trade_updater_strategies/helpers/message_handlers.py
-/host/proc/2223214/root/app/src/workers/trade_updater_strategies/base_strategy.py
-===SETTINGS===
-    # MT_SERVER: str
-    # MT_LOGIN: int
-    # MT_PASSWORD: str
-    SERVER_NAME: str
-    PLATFORM: str = "MT5"
-    TRADE_UPDATER_MODE: str = "mt5_events"  # kafka or mt5_events
-    SYNC_INTERVAL_SECONDS: int = 5  # Interval for periodic deal sync in MT5 Events mode
-    CLICKHOUSE_HOST: str
-    CLICKHOUSE_PASSWORD: str = ""
-    EXTERNAL_KAFKA_BOOTSTRAP_SERVERS_URL: str = ""
-    KAFKA_GROUP_ID: str = "mt5-workers"
-            "host": self.CLICKHOUSE_HOST,
-            "password": self.CLICKHOUSE_PASSWORD,
-            "bootstrap.servers": self.EXTERNAL_KAFKA_BOOTSTRAP_SERVERS_URL,
-            "group.id": f"{self.KAFKA_TOPIC_PREFIX}_{self.KAFKA_GROUP_ID}_{self.SERVER_NAME}_{self.WORKER_NAME}",
-            "bootstrap.servers": self.EXTERNAL_KAFKA_BOOTSTRAP_SERVERS_URL,
-            "servers": [self.NATS_CONNECTION],
-            "queue": f"{self.NATS_SUBJECT_PREFIX}worker.{self.SERVER_NAME}.api.trade",
+97:        self.worker.manager._reconnect_callbacks.append(self._schedule_resubscribe)
+163:            self.worker.manager._reconnect_callbacks.remove(self._schedule_resubscribe)
+254:            None, self.manager.PositionSubscribe, self.position_sink
+261:        result = await loop.run_in_executor(None, self.manager.UserSubscribe, self.user_sink)
+267:        result = await loop.run_in_executor(None, self.manager.OrderSubscribe, self.order_sink)
+278:                None, self.manager.PositionUnsubscribe, self.position_sink
+284:                None, self.manager.UserUnsubscribe, self.user_sink
+290:                None, self.manager.OrderUnsubscribe, self.order_sink
+366:                self.manager.DealRequestByGroup, 
+409:                                mt_account = await loop.run_in_executor(None, self.manager.UserAccountRequest, login)
+/host/proc/2223214/root/app/src/lib/api_clients/nats_client.py
+/host/proc/2223214/root/app/src/lib/api_clients/clickhouse_client.py
+/host/proc/2223214/root/app/src/lib/api_clients/kafka_client.py
+/host/proc/2223214/root/app/src/lib/settings.py
+/host/proc/2223214/root/app/src/lib/__init__.py
+/host/proc/2223214/root/app/src/lib/enums.py
+/host/proc/2223214/root/app/src/lib/metrics.py
+/host/proc/2223214/root/app/src/lib/helpers/__init__.py
+/host/proc/2223214/root/app/src/lib/helpers/common.py
+/host/proc/2223214/root/app/src/lib/to_contract.py
