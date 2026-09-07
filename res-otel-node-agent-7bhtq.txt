@@ -1,32 +1,25 @@
 [otel-node-agent-7bhtq]
-                                            Table "public.funding_sources"
-     Column     |              Type              | Collation | Nullable |                   Default                   
-----------------+--------------------------------+-----------+----------+---------------------------------------------
- id             | bigint                         |           | not null | nextval('funding_sources_id_seq'::regclass)
- funding_method | character varying              |           |          | 
- funding_id     | character varying              |           |          | 
- funding_data   | jsonb                          |           |          | '{}'::jsonb
- created_at     | timestamp(6) without time zone |           | not null | 
- updated_at     | timestamp(6) without time zone |           | not null | 
- funding_source | character varying              |           |          | 
- state          | character varying              |           | not null | 'enabled'::character varying
- currency       | character varying              |           |          | 
- user_id        | bigint                         |           |          | 
-Indexes:
-    "funding_sources_pkey" PRIMARY KEY, btree (id)
-    "funding_sources_user_id" btree (user_id)
-Foreign-key constraints:
-    "funding_sources_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
+     funding_method     | count | string_agg  
+------------------------+-------+-------------
+ paypal                 |    36 | 
+ bankwire               |    26 | CHF,USD
+ crypto                 |    23 | 
+ international_bankwire |    14 | CHF,EUR,USD
+ rise                   |     9 | CHF,USD
+ local_method           |     8 | CHF,GBP,USD
+ unlimit_card           |     4 | USD
+ local_bankwire         |     1 | 
+(8 rows)
 
- count 
--------
-   121
-(1 row)
-
- id  |     funding_method     | funding_id |                                                                                                         funding_data                                                                                                          |         created_at         |         updated_at         | funding_source |  state  | currency | user_id 
------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------+----------------------------+----------------+---------+----------+---------
- 149 | bankwire               | 123456     | {"country": "VN", "currency": "USD", "bank_name": "Test", "sort_code": "123456", "swift_bic": "1234", "bank_address": "123456", "account_number": "123456", "routing_number": "123456", "account_holder_name": "Tien"}        | 2025-06-17 03:58:33.170925 | 2025-06-17 03:58:33.170925 | Test           | enabled | USD      |     596
-  30 | international_bankwire | 123123     | {"country": "VN", "currency": "USD", "bank_name": "123", "sort_code": "", "swift_bic": "", "bank_address": "123", "account_number": "123123", "routing_number": "312", "account_holder_name": "Nhung"}                        | 2024-07-02 11:07:26.972378 | 2024-07-04 08:45:40.88316  | 123            | enabled | USD      |      77
- 117 | bankwire               | 123456789  | {"country": "VN", "currency": "USD", "bank_name": "Test Bank", "sort_code": "123", "swift_bic": "123456789", "bank_address": "123", "account_number": "123456789", "routing_number": "123", "account_holder_name": "Huy Ngo"} | 2024-12-30 08:54:12.192596 | 2024-12-30 08:54:12.192596 | Test Bank      | enabled | USD      |     633
-(3 rows)
+ id | funding_method | funding_source | currency |                    substring                     
+----+----------------+----------------+----------+--------------------------------------------------
+ 43 | crypto         |                |          | {"crypto_wallet_address": "sfsfsfsfsfsf"}
+ 45 | crypto         |                |          | {"crypto_wallet_address": "Asdggjk"}
+ 61 | crypto         |                |          | {"crypto_wallet_address": "123456"}
+ 63 | crypto         |                |          | {"crypto_wallet_address": "falksjfaklsfjlkasjf"}
+ 69 | crypto         |                |          | {"crypto_wallet_address": "test"}
+ 70 | crypto         |                |          | {"crypto_wallet_address": "test"}
+ 79 | crypto         |                |          | {"crypto_wallet_address": "Test"}
+ 83 | crypto         |                |          | {"crypto_wallet_address": "test1231232"}
+(8 rows)
 
