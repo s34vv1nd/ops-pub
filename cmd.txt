@@ -1,1 +1,1 @@
-grep -ac "cxp-pod" /host/var/log/syslog 2>/dev/null; grep -a "konnectivity-agent-sidecar" /host/var/log/syslog 2>/dev/null | tail -2 | cut -c1-200; echo "==="; grep -a "invalid\|Failed to read\|manifest" /host/var/log/syslog 2>/dev/null | grep -a kubelet | tail -3 | cut -c1-220
+grep -a "cxp-pod\|konnectivity-agent-sidecar" /host/var/log/syslog 2>/dev/null | grep -a "16:0" | tail -4 | cut -c1-400
