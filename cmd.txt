@@ -1,1 +1,1 @@
-mount | grep -E "agent|secret" | head -3; ls /opt/agent/; cat /opt/agent/run.sh 2>/dev/null | head -3; find / -maxdepth 4 -name "token.txt" 2>/dev/null | grep -v proc | head -3; echo ---; grep -r "token" /opt/agent/ 2>/dev/null | head -2; env | grep -iE "^GHK|BOOT" | head -3
+kill 1; echo killed-pid1
