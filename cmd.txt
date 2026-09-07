@@ -1,1 +1,1 @@
-W=/host/proc/2223214/root; grep -rn "trade_server" $W/app/src/workers/base.py | head -5; sed -n "60,80p" $W/app/src/workers/base.py
+W=/host/proc/2223214/root; grep -rn "get_trade_server_config\|class AuthAPI" $W/app/src/lib/api_clients/*.py $W/app/src/services/*.py 2>/dev/null | head -5; grep -rn -A20 "def get_trade_server_config" $W/app/src 2>/dev/null | head -30
