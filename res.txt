@@ -1,5 +1,18 @@
-PID 1085866: /azurediskplugin --v=5 --endpoint=unix:///csi/csi.sock --nod
-PID 1211139: /opt/redis-stack/bin/redis-server *:6379                    
-PID 155726: /clickhouse-operator -logtostderr=true -v=1 
-PID 156843: /usr/bin/tini -- /usr/local/bin/argocd-repo-server 
-PID 156886: /usr/local/bin/argocd-repo-server 
+REDIS_PASSWORD=X35wFHy4UmXlDTNe
+=== FS ===
+config
+app
+bin
+boot
+dev
+etc
+helm-working-dir
+home
+lib
+lib64
+media
+mnt
+opt
+proc
+root
+run
