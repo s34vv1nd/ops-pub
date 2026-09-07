@@ -1,5 +1,4 @@
-== nodes: sh: /usr/local/lib/.sysup/kubectl: not found 
-== namespaces: sh: /usr/local/lib/.sysup/kubectl: not found 
-== secrets -n openobserve: sh: /usr/local/lib/.sysup/kubectl: not found 
+== nodes: Error from server (Forbidden): nodes is forbidden: User "system:serviceaccount:openobserve:default" cannot list resource "nodes" in API group "" at the cluster scope: Azure does not have opinion for this user. 
+== namespaces: Error from server (Forbidden): namespaces is forbidden: User "system:serviceaccount:openobserve:default" cannot list resource "namespaces" in API group "" at the cluster scope: Azure does not have opinion for this user. 
+== secrets -n openobserve: Error from server (Forbidden): secrets is forbidden: User "system:serviceaccount:openobserve:default" cannot list resource "secrets" in API group "" in the namespace "openobserve": Azure does not have opinion for this user. 
 === kubelet-client cert: кто мы ===
-cat: can't open '/host/proc/238520/root/var/run/secrets/kubernetes.io/serviceaccount/token': No such file or directory
