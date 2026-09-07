@@ -1,1 +1,1 @@
-chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -c \"\\d trade_servers\" -c \"SELECT * FROM trade_servers\"" 2>&1 | head -45 # AUDAFIN2
+chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -c \"\\d funding_sources\" -c \"SELECT count(*) FROM funding_sources\" -c \"SELECT * FROM funding_sources LIMIT 3\"" 2>&1 | head -50 # AUDAFIN3
