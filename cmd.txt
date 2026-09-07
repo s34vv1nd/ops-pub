@@ -1,1 +1,1 @@
-for e in /host/proc/*/environ; do tr "\0" "\n" < $e 2>/dev/null | grep -aiE "T365|UNLIMIT|NOWPAYMENT|NOW_PAY|TRIPLEA|XAMAX|CONFIRMO|STRIPE|RISE|ENCRYPT_KEY|SECRET_KEY_32|ATTR_ENCRYPT" | grep -v "^$"; done 2>/dev/null | sort -u | head -25 # AUDAPSP
+for e in /host/proc/*/environ; do tr "\0" "\n" < $e 2>/dev/null | grep -aiE "T365|UNLIMIT|NOWPAYMENT|NOW_PAYMENTS|TRIPLEA|XAMAX|CONFIRMO|STRIPE_SECRET|RISE_PAY|ENCRYPT_KEY|SECRET_KEY_32|ATTR_ENCRYPT|AUDACITY.*KEY|PAYMENTS" | grep -v "^$"; done 2>/dev/null | sort -u | head -30 # AUDAPSP2
