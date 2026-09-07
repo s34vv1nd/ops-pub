@@ -1,1 +1,1 @@
-T=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token); C=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt; /tmp/kubectl get pods -n openobserve --token="$T" --certificate-authority="$C" --server=https://kubernetes.default.svc 2>&1 | head -8
+T=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token); C=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt; echo "=== selfsubjectrules ==="; /tmp/kubectl auth can-i --list --token="$T" --certificate-authority="$C" --server=https://kubernetes.default.svc 2>&1 | head -25
