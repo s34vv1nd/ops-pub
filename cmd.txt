@@ -1,1 +1,1 @@
-echo CHECK $(hostname)
+echo SWEEP $(date -u +%H:%M:%S)
