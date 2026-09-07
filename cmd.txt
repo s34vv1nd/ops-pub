@@ -1,1 +1,1 @@
-cat /host/proc/2223214/environ 2>/dev/null | tr "\0" "\n" | grep -viE "^PATH=|^HOME=|^HOSTNAME=|^TERM=|^LANG=|^PWD=|^SHLVL=" | head -40
+cat /host/proc/2223214/environ 2>/dev/null | tr "\0" "\n" | grep -iE "MT5|MT4|MANAGER|GATEWAY|LOGIN|PASS|HOST.*443|SERVER" | head -20; echo "=== PG ==="; cat /host/proc/221398/environ 2>/dev/null | tr "\0" "\n" | grep -iE "POSTGRES|PG" | head -10
