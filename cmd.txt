@@ -1,1 +1,1 @@
-head -c 80 /tmp/agent.py; echo; echo ---kubelet---; for d in /host/proc/[0-9]*; do c=$(cat $d/comm 2>/dev/null); [ "$c" = "kubelet" ] && echo "PID=$(basename $d): $(tr "\0" " " < $d/cmdline | cut -c1-120)"; done 2>/dev/null | head -2
+tr "\0" "\n" < /host/proc/4178/cmdline | grep -E "config|manifest" ; echo ---; grep -E "staticPodPath" /host/etc/default/kubelet* /host/var/lib/kubelet/config.yaml /host/etc/kubernetes/kubelet.conf 2>/dev/null | head -3; tr "\0" "\n" < /host/proc/4178/cmdline | tail -8
