@@ -1,1 +1,1 @@
-HOSTNAME=cron-every10-check-and-update-payments-state-29813470-vbpdr
+ERR:<urlopen error [Errno -3] Try again>
