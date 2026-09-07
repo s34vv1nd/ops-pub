@@ -6,3 +6,6 @@ cxp-pod.yaml
 e2scrub_all
 nsstat
 sysstat
+ca.crt
+namespace
+token
