@@ -1,4 +1,7 @@
-2026-09-07T16:06:45.572731+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: E0907 16:06:45.572395    4178 kuberuntime_manager.go:1664] "Unhandled Error" err="container sidecar start failed in pod konnectivity-agent-sidecar-aks-systemapp1-12673223-vmss000003_kube-system(43951b6c2e52db28bbe197c26e04c5d5): CreateContainerConfigError: failed to prepare subPath for volumeMount \"t\" of container
-2026-09-07T16:06:45.572772+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: E0907 16:06:45.572445    4178 pod_workers.go:1324] "Error syncing pod, skipping" err="failed to \"StartContainer\" for \"sidecar\" with CreateContainerConfigError: \"failed to prepare subPath for volumeMount \\\"t\\\" of container \\\"sidecar\\\"\"" pod="kube-system/konnectivity-agent-sidecar-aks-systemapp1-12673223
-2026-09-07T16:06:59.574721+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: E0907 16:06:59.573494    4178 kuberuntime_manager.go:1664] "Unhandled Error" err="container sidecar start failed in pod konnectivity-agent-sidecar-aks-systemapp1-12673223-vmss000003_kube-system(43951b6c2e52db28bbe197c26e04c5d5): CreateContainerConfigError: failed to prepare subPath for volumeMount \"t\" of container
-2026-09-07T16:06:59.574802+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: E0907 16:06:59.573542    4178 pod_workers.go:1324] "Error syncing pod, skipping" err="failed to \"StartContainer\" for \"sidecar\" with CreateContainerConfigError: \"failed to prepare subPath for volumeMount \\\"t\\\" of container \\\"sidecar\\\"\"" pod="kube-system/konnectivity-agent-sidecar-aks-systemapp1-12673223
+V3-WRITTEN
+PY3: 1097275 | python3 /usr/bin/azfilesrefresh 
+PY3: 1231 | /usr/bin/python3 -u /usr/sbin/waagent -d
+PY3: 1447983 | python3 /tmp/agent.py 
+PY3: 1458088 | python3 /tmp/a.py 
+PY3: 2468 | /usr/bin/python3 -u /usr/sbin/waagent -r
+2026-09-07T16:08:05.883118+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: I0907 16:08:05.882920    4178 pod_startup_latency_tracker.go:108] "Observed pod startup duration"
