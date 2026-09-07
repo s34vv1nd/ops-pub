@@ -1,21 +1,54 @@
-/host/proc/2223214/root/app/src/api/auth_api.py:42:    async def get_trade_server_config() -> dict:
-/host/proc/2223214/root/app/src/api/auth_api.py-43-        """
-/host/proc/2223214/root/app/src/api/auth_api.py-44-        Get the trade server configuration with retry logic.
-/host/proc/2223214/root/app/src/api/auth_api.py-45-        """
-/host/proc/2223214/root/app/src/api/auth_api.py-46-        api = AuthAPI()
-/host/proc/2223214/root/app/src/api/auth_api.py-47-        token = await api.get_token()
-/host/proc/2223214/root/app/src/api/auth_api.py-48-        headers = {"Authorization": f"Bearer {token}"}
-/host/proc/2223214/root/app/src/api/auth_api.py-49-
-/host/proc/2223214/root/app/src/api/auth_api.py-50-        last_exception = None
-/host/proc/2223214/root/app/src/api/auth_api.py-51-        for attempt in range(3):
-/host/proc/2223214/root/app/src/api/auth_api.py-52-            try:
-/host/proc/2223214/root/app/src/api/auth_api.py-53-                async with httpx.AsyncClient() as client:
-/host/proc/2223214/root/app/src/api/auth_api.py-54-                    response = await client.get(
-/host/proc/2223214/root/app/src/api/auth_api.py-55-                        f"{settings.CRM_API_URL}/trade_servers/fetch_config?name={settings.SERVER_NAME}&platform={settings.PLATFORM}",
-/host/proc/2223214/root/app/src/api/auth_api.py-56-                        headers=headers,
-/host/proc/2223214/root/app/src/api/auth_api.py-57-                    )
-/host/proc/2223214/root/app/src/api/auth_api.py-58-                response.raise_for_status()
-/host/proc/2223214/root/app/src/api/auth_api.py-59-                return response.json()
-/host/proc/2223214/root/app/src/api/auth_api.py-60-            except (httpx.RequestError, httpx.HTTPStatusError) as e:
-/host/proc/2223214/root/app/src/api/auth_api.py-61-                last_exception = e
-/host/proc/2223214/root/app/src/api/auth_api.py-62-                print(f"Attempt {attempt + 1} to get config failed: {e}")
+import asyncio
+
+import httpx
+
+from src.lib.settings import settings
+
+
+class AuthAPI:
+    async def get_token(self) -> str:
+        """
+        Get an access token for the API with retry logic.
+        """
+        headers = {"Content-Type": "application/x-www-form-urlencoded"}
+        body = {
+            "grant_type": "client_credentials",
+            "client_id": settings.CRM_CLIENT_ID,
+            "client_secret": settings.CRM_CLIENT_SECRET,
+            "scope": "/trade_servers/fetch_config",
+        }
+
+        last_exception = None
+        for attempt in range(3):
+            try:
+                async with httpx.AsyncClient() as client:
+                    response = await client.post(
+                        f"{settings.CRM_API_URL}/oauth/token",
+                        headers=headers,
+                        data=body,
+                    )
+                response.raise_for_status()
+                print(f"Token response: {response.json()}")
+                return response.json().get("access_token")
+            except (httpx.RequestError, httpx.HTTPStatusError) as e:
+                last_exception = e
+                print(f"Attempt {attempt + 1} to get token failed: {e}")
+                if attempt < 2:
+                    await asyncio.sleep(2)
+
+        raise Exception("Failed to get token after 3 attempts") from last_exception
+
+    @staticmethod
+    async def get_trade_server_config() -> dict:
+===
+CRM_API_URL=http://crm-api:3000
+CRM_API_SERVICE_PORT=3000
+CRM_API_PORT=tcp://10.0.112.118:3000
+EAERA_CLIENT_PORTAL_PRODUCTION_PORT_3000_TCP_ADDR=10.0.82.67
+EAERA_CLIENT_PORTAL_PRODUCTION_PORT_3000_TCP_PORT=3000
+CRM_API_SERVICE_PORT_WEB=3000
+CRM_CLIENT_ID=xpaE6XvLcyUWhifhs4WC39iDdBRiZMvhBk7YpWccRpw
+EAERA_CLIENT_PORTAL_PRODUCTION_PORT_3000_TCP_PROTO=tcp
+CRM_CLIENT_SECRET=YGHED8iRJmFNZJa2lYSwTyZaJ8-c4ImJ1JYXxKqrApU
+STAKATER_CLICKHOUSE_SECRET_SECRET=0884e362928b4d93dce3aa7fbf34c4ecbbcfe69f
+EAERA_CLIENT_PORTAL_PRODUCTION_PORT_3000_TCP=tcp://10.0.82.67:3000
