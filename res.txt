@@ -1,15 +1,9 @@
 === маршруты ноды (vnet/подсети) ===
-default via 10.224.0.1 dev eth0  src 10.224.4.243  metric 100 
-10.224.0.0/16 dev eth0 scope link  src 10.224.4.243  metric 100 
-10.224.0.1 dev eth0 scope link  src 10.224.4.243  metric 100 
-10.224.4.3 dev azvcaf346cbaef 
-10.224.4.4 dev azv7fd8e91fd38 
-10.224.4.7 dev azv14f828ca8f0 
-10.224.4.9 dev azvdeab45fc398 
-10.224.4.25 dev azv3bbaf940360 
+default via 169.254.1.1 dev eth0 
+169.254.1.1 dev eth0 scope link 
 === интерфейсы ===
     inet 127.0.0.1/8 scope host lo
-    inet 10.224.4.243/16 brd 10.224.255.255 scope global eth0
+    inet 10.224.5.207/16 scope global eth0
 === что видно в 10.224 ===
 10.224-OK
 === исходящий IP (NAT) ===
