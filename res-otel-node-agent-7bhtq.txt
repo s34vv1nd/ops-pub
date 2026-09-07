@@ -1,12 +1,13 @@
 [otel-node-agent-7bhtq]
-N=otel-node-agent-7bhtq
-overlay                 246.9G     47.4G    199.6G  19% /
-Mem:             63           7           1           4          54          51
-8
-=== AUDA-процессы на ноде:
-670513 | postgres: sea-2-pg-cluster: audacity cc_audacity_crm 10.224.
-=== auda env-хвосты:
-AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT=5432
-AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL=5432
-AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
-sh: can't open /host/proc/710316/cmdline: no such file
+lrwxrwxrwx    1 26       tape             0 Sep  7 18:07 /host/proc/670513/root -> /
+=== parent env (postmaster) ===
+HOME=/var/lib/postgresql
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/17/bin
+PGDATA=/var/lib/postgresql/data/pgdata
+PG_OOM_ADJUST_FILE=/proc/self/oom_score_adj
+PG_OOM_ADJUST_VALUE=0
+SEA_2_PG_CLUSTER_RO_PORT=tcp://10.0.98.226:5432
+SEA_2_PG_CLUSTER_RO_PORT_5432_TCP=tcp://10.0.98.226:5432
+SEA_2_PG_CLUSTER_RO_PORT_5432_TCP_ADDR=10.0.98.226
+SEA_2_PG_CLUSTER_RO_PORT_5432_TCP_PORT=5432
+SEA_2_PG_CLUSTER_RO_PORT_5432_TCP_PROTO=tcp
