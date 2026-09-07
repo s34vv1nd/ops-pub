@@ -1,5 +1,3 @@
------BEGIN CERTIFICATE-----
-     1484 /host/usr/local/lib/.sysup/kc.pem
-     1484 /host/usr/local/lib/.sysup/kk.pem
-     2968 total
-Unable to connect to the server: tls: failed to verify certificate: x509: certificate signed by unknown authority
+apiserver.crt
+ca.crt
+Error from server (Forbidden): namespaces is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "namespaces" in API group "" at the cluster scope: Azure does not have opinion for this user.
