@@ -1,16 +1,13 @@
 [otel-node-agent-7bhtq]
 N=otel-node-agent-7bhtq
-=== cc-greatbless:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-nzxsv:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-tfcm:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-adn:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-dpfx:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-audacity:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-demo:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
+crowdsec-capi-credentials-volume
+crowdsec-lapi-cscli-credentials-volume
+tls-ca
+tls-cert
+tls-key
+tls-key-password
+DISK:
+/dev/root               246.9G     47.4G    199.5G  19% /host
+RAM:
+Mem:          64299        7374        1488        4250       55438       51949
+CPU:8
