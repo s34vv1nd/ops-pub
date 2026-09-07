@@ -1,9 +1,16 @@
 [otel-node-agent-7bhtq]
-crowdsec-capi-credentials-volume
-crowdsec-lapi-cscli-credentials-volume
-tls-ca
-tls-cert
-tls-key
-tls-key-password
-NODE=otel-node-agent-7bhtq
-PODS=37
+N=otel-node-agent-7bhtq
+=== cc-greatbless:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-nzxsv:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-tfcm:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-adn:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-dpfx:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-audacity:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+=== cc-demo:
+sh: /host/usr/local/lib/.sysup/kubectl: not found
