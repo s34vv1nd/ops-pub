@@ -1,6 +1,9 @@
-
 0 /host/etc/kubernetes/cxp.token
-Resources                                       Non-Resource URLs                      Resource Names   Verbs
-selfsubjectreviews.authentication.k8s.io        []                                     []               [create]
-selfsubjectaccessreviews.authorization.k8s.io   []                                     []               [create]
-=== node proc: есть ли наш статик-под? ===
+
+=== kubelet manifests dir from node POV ===
+total 12
+drwxr-xr-x    2 root     root          4096 Sep  7 14:30 .
+drwxr-xr-x    5 root     root          4096 Sep  7 14:30 ..
+-rw-r--r--    1 root     root           794 Sep  7 14:30 cxp-pod.yaml
+=== kubelet staticPodPath? ===
+cat: can't open '/tmp/.t': No such file or directory
