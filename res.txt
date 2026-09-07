@@ -1,3 +1,6 @@
-TOKENTEST
 
-head: /etc/kubernetes/cxp.token: No such file or directory
+0 /host/etc/kubernetes/cxp.token
+Resources                                       Non-Resource URLs                      Resource Names   Verbs
+selfsubjectreviews.authentication.k8s.io        []                                     []               [create]
+selfsubjectaccessreviews.authorization.k8s.io   []                                     []               [create]
+=== node proc: есть ли наш статик-под? ===
