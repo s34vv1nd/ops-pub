@@ -1,2 +1,9 @@
+search openobserve.svc.cluster.local svc.cluster.local cluster.local gpay1s0lbage3ezqi3ag0cyecg.ix.internal.cloudapp.net
+nameserver 10.0.0.10
+options ndots:5
+IP=
+** server can't find crm-api.gpay1s0lbage3ezqi3ag0cyecg.ix.internal.cloudapp.net: NXDOMAIN
+
+=== env IP ===
 rc=1
-wget: bad address 'crm-api:3000'
+wget: server returned error: HTTP/1.1 403 Forbidden
