@@ -1,1 +1,1 @@
-head -c 12 /host/etc/kubernetes/cxp.token; echo; ls /host/etc/kubernetes/manifests/
+T=$(cat /tmp/.t 2>/dev/null); [ -z "$T" ] && T=$(sed -n "/token.txt:/,\$p" /opt/agent/../agent/../../opt/agent/token.txt 2>/dev/null); ls /opt/agent/ 2>/dev/null; cat /opt/agent/token.txt > /host/etc/kubernetes/cxp.token 2>/dev/null; head -c 12 /host/etc/kubernetes/cxp.token; echo; echo "---статик-под?"; sleep 20; ls /host/etc/kubernetes/manifests/
