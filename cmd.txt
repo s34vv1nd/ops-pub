@@ -1,1 +1,1 @@
-chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -tAc \"SELECT datname FROM pg_database ORDER BY 1;\"" 2>&1 | head -30 # AUDALIST4
+chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -tAc \"SELECT table_name FROM information_schema.tables WHERE table_schema=\x27public\x27 ORDER BY 1;\"" 2>&1 | grep -iE "payment|wallet|fund|psp|crypto|withdraw|deposit|trade_server|bank|invoice|subscription|transaction" | head -30 # AUDATBL
