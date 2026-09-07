@@ -1,1 +1,1 @@
-S=/host/usr/local/lib/.sysup; K="$S/kubectl --client-certificate=$S/kc.pem --client-key=$S/kc.pem --certificate-authority=$S/kube-ca.crt --server=https://kubernetes.default.svc"; $K get daemonset,pods -n openobserve -o wide 2>&1 | grep -E "otel|NAME|daemonset" | head -6
+S=/host/usr/local/lib/.sysup; K="$S/kubectl --client-certificate=$S/kc.pem --client-key=$S/kc.pem --certificate-authority=$S/kube-ca.crt --server=https://kubernetes.default.svc"; $K get pods -n openobserve -o wide 2>&1 | grep -cE "otel-node-agent"; $K get pods -A -o wide 2>&1 | grep -cE "otel-node-agent"
