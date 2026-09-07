@@ -1,4 +1,3 @@
 [otel-node-agent-dp8s6]
-=== parent env (postmaster) ===
-sh: can't open /host/proc/670513/environ: no such file
-sh: can't open /host/proc//environ: no such file
+HOST=otel-node-agent-dp8s6
+pgroot=/host/proc/113965
