@@ -1,16 +1,12 @@
 [otel-node-agent-f6kgz]
 N=otel-node-agent-f6kgz
-=== cc-greatbless:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-nzxsv:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-tfcm:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-adn:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-dpfx:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-audacity:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-=== cc-demo:
-sh: /host/usr/local/lib/.sysup/kubectl: not found
+broker-certs
+client-ca-cert
+cluster-ca
+custom-external-9095-certs
+custom-extscram-9096-certs
+DISK:
+/dev/root               122.9G     49.6G     73.3G  40% /host
+RAM:
+Mem:          32093       14332         329          11       17432       17230
+CPU:4
