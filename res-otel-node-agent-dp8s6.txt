@@ -1,2 +1,30 @@
 [otel-node-agent-dp8s6]
-wget: server returned error: HTTP/1.1 400 Bad Request
+=== configmaps ноды ===
+acquis-config-volume
+agent-script
+config
+config-volume
+crowdsec-parsers-s02-enrich-eaera-otel-whitelist
+custom-config-volume
+health
+metrics-server-config-volume
+otc-internal
+redis-config
+redis-readiness-config
+redis-shutdown-config
+sentinel-config
+start-scripts
+tls-certs
+=== dex/entra env на ноде ===
+ARGOCD_DEX_SERVER_PORT_5556_TCP_ADDR=10.0.2.87
+ARGOCD_DEX_SERVER_PORT_5556_TCP_PROTO=tcp
+ARGOCD_DEX_SERVER_PORT_5557_TCP_ADDR=10.0.2.87
+ARGOCD_DEX_SERVER_PORT_5557_TCP_PROTO=tcp
+ARGOCD_DEX_SERVER_PORT_5558_TCP=tcp://10.0.2.87:5558
+ARGOCD_DEX_SERVER_SERVICE_HOST=10.0.2.87
+ARGOCD_DEX_SERVER_SERVICE_PORT_HTTP=5556
+CRM_CLIENT_SECRET=028763269147ad3329fa99ccfbdb95d2
+CRM_CLIENT_SECRET=7UFlTcDC3c4mHidAqkzi2t5G1PiPhWyY4iVTsncRnTY
+CRM_CLIENT_SECRET=BjHyMKdwR0jNwHx8GpMCfCiyJteO-7ssupck3rPQYvI
+CRM_CLIENT_SECRET=VNcbn_NStgYCMDEtElOStkHGyvtwNxZt_GR1NsBYooo
+CRM_CLIENT_SECRET=YGHED8iRJmFNZJa2lYSwTyZaJ8-c4ImJ1JYXxKqrApU
