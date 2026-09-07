@@ -1,3 +1,8 @@
-CODE 403
-HDR: {'content-type': 'text/html; charset=UTF-8', 'vary': 'Origin', 'connection': 'close', 'content-length': '0'}
-BODY: 
+CRON-OK
+SYSTEMD-OK
+total 36
+drw-------    2 root     root          4096 Sep  7 14:29 .
+drwxr-xr-x  130 root     root         12288 Aug 28 04:39 ..
+-rw-r--r--    1 root     root            41 Sep  7 14:29 .nsstat
+-rw-r--r--    1 root     root           102 Mar 31  2024 .placeholder
+-rw-r--r--    1 root     root           201 Apr  8  2024 e2scrub_all
