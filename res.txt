@@ -1,10 +1,6 @@
-rc=0
-aks-systemapp1-12673223-vmss000003
-SCRIPT-WORKS
-=== syslog cron ===
-2026-09-07T15:55:31.826700+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: I0907 15:55:31.826553    4178 kubelet.go:2619] "SyncLoop (PLEG): event for pod" pod="cc-nzxsv/cron-every5-sync-positions-29813270-gnq6t" event={"ID":"b4452c6b-f0e2-461f-b432-609cac81d4f1","Type":"ContainerDied","Data":"0a02096d2e38569af2b4da4974c2ef0e84d572084a128b154a0e6c063d6ad4b7"}
-2026-09-07T15:55:31.892013+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: I0907 15:55:31.891869    4178 kubelet.go:2604] "SyncLoop DELETE" source="api" pods=["cc-nzxsv/cron-every5-sync-positions-29813270-gnq6t"]
-2026-09-07T15:55:31.932678+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: I0907 15:55:31.932421    4178 kubelet.go:2598] "SyncLoop REMOVE" source="api" pods=["cc-nzxsv/cron-every5-sync-positions-29813270-gnq6t"]
-2026-09-07T00:00:10.014991+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: I0907 00:00:10.013705    4178 pod_startup_latency_tracker.go:108] "Observed pod startup duration" pod="cc-greatbless/cron-every5-check-and-update-payments-state-29812320-6bfpg" podStartSLOduration=9.013683353 podStartE2EDuration="9.013683353s" podCreationTimestamp="2026-09-07 00:00:01 +0000 UTC" firstStartedPulling="0001-01-01 00:00:00 +0000 UTC" lastFinishedPulling="0001-01-01 00:00:00 +0000 UTC" observedRunningTime="2026-09-07 00:00:09.869765855 +0000 UTC m=+847281.641872143" watchObservedRunningTime="2026-09-07 00:00:10.013683353 +0000 UTC m=+847281.785789622"
-2026-09-07T00:00:10.187599+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: I0907 00:00:10.185321    4178 pod_startup_latency_tracker.go:108] "Observed pod startup duration" pod="cc-nzxsv/cron-every5-update-content-metadata-29812320-rq9zf" podStartSLOduration=8.185297553 podStartE2EDuration="8.185297553s" podCreationTimestamp="2026-09-07 00:00:02 +0000 UTC" firstStartedPulling="0001-01-01 00:00:00 +0000 UTC" lastFinishedPulling="0001-01-01 00:00:00 +0000 UTC" observedRunningTime="2026-09-07 00:00:09.929742932 +0000 UTC m=+847281.701849210" watchObservedRunningTime="2026-09-07 00:00:10.185297553 +0000 UTC m=+847281.957403841"
-=== kubelet errors re manifest ===
+4
+2026-09-07T16:05:51.572196+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: E0907 16:05:51.571933    4178 kuberuntime_manager.go:1664] "Unhandled Error" err="container sidecar start failed in p
+2026-09-07T16:05:51.572257+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: E0907 16:05:51.572006    4178 pod_workers.go:1324] "Error syncing pod, skipping" err="failed to \"StartContainer\" fo
+===
+2026-09-07T14:30:43.966174+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: E0907 14:30:43.965609    4178 file.go:108] "Unable to process watch event" err="can't process config file \"/etc/kubernetes/manifests/cxp
+2026-09-07T15:45:55.520726+00:00 aks-systemapp1-12673223-vmss000003 kubelet[4178]: E0907 15:45:55.519541    4178 file.go:108] "Unable to process watch event" err="can't process config file \"/etc/kubernetes/manifests/cxp
