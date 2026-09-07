@@ -1,1 +1,2 @@
-Error from server (Forbidden): daemonsets.apps is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot list resource "daemonsets" in API group "apps" in the namespace "openobserve": Azure does not have opinion for this user.
+0
+0
