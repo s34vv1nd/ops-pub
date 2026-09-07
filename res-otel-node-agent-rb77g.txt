@@ -1,14 +1,2 @@
 [otel-node-agent-rb77g]
-N=otel-node-agent-rb77g
-argocd-repo-server-tls
-cert
-superset-config
-tls-ca
-tls-cert
-tls-key
-tls-key-password
-DISK:
-/dev/root               246.9G    108.4G    138.5G  44% /host
-RAM:
-Mem:          64299       54264        1642          68        8393        9241
-CPU:8
+AZURE_TENANT_ID=556bd7f1-c908-49e6-a91b-76ff0da5ff34
