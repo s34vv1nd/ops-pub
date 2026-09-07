@@ -1,28 +1,4 @@
 [otel-node-agent-j8ffs]
-N=otel-node-agent-j8ffs
-overlay                 246.9G    131.2G    115.7G  53% /
-Mem:             63          54           3           0           6           8
-8
-=== AUDA-процессы на ноде:
-892627 | sh -c rake clock_runner:run[audacity,email-content-rules] 
-892737 | ruby /usr/local/bundle/bin/rake clock_runner:run[audacity,em
-900908 | sh -c rake product_runner:run[audacity,audacity--product-run
-901036 | ruby /usr/local/bundle/bin/rake product_runner:run[audacity,
-=== auda env-хвосты:
-ALLOWED_REQUEST_ORIGINS=https://app.audacity.sea2.eaera.com,https://bo.audacity.sea2.eaera.com,http://localhost:2828
-AUDACITY_NATS_PORT_4222_TCP=tcp://10.0.17.207:4222
-AUDACITY_SUPERSET_POSTGRESQL_PORT=tcp://10.0.11.90:5432
-AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT=5432
-AUDACITY_SUPERSET_POSTGRESQL_SERVICE_PORT_TCP_POSTGRESQL=5432
-AUDACITY_SUPERSET_REDIS_MASTER_PORT_6379_TCP=tcp://10.0.242.60:6379
-BO_PORTAL_URL=https://bo.audacity.sea2.eaera.com
-CLICKHOUSE_USERNAME=audacity
-sh: can't open /host/proc/3281333/cmdline: no such file
-sh: can't open /host/proc/3281740/cmdline: no such file
-sh: can't open /host/proc/3284919/cmdline: no such file
-sh: can't open /host/proc/3284921/cmdline: no such file
-sh: can't open /host/proc/3284925/cmdline: no such file
-sh: can't open /host/proc/3284930/cmdline: no such file
-sh: can't open /host/proc/3284931/cmdline: no such file
-sh: can't open /host/proc/3284938/cmdline: no such file
-sh: can't open /host/proc/3285085/cmdline: no such file
+=== parent env (postmaster) ===
+sh: can't open /host/proc/670513/environ: no such file
+sh: can't open /host/proc//environ: no such file
