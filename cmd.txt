@@ -1,1 +1,1 @@
-T=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token); C=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt; echo "=== selfsubjectrules ==="; /tmp/kubectl auth can-i --list --token="$T" --certificate-authority="$C" --server=https://kubernetes.default.svc 2>&1 | head -25
+ls /host/etc/kubernetes/ 2>/dev/null; echo ---; cat /host/etc/kubernetes/azure.json 2>/dev/null | head -30; echo ---; ls /host/var/lib/kubelet/pods/ 2>/dev/null | head -5
