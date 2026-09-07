@@ -1,2 +1,1 @@
 [otel-node-agent-7bhtq]
-ns-list:
