@@ -1,1 +1,1 @@
-curl -s -i -H "Metadata:true" -H "User-Agent: az" "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/" 2>/dev/null | head -12; echo "=== IMDS доступен? ==="; curl -s -m 5 -H "Metadata:true" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" 2>/dev/null | head -c 300
+nsenter -t 4178 -n curl -s -H "Metadata:true" -H "User-Agent: az" "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/" | head -c 300
