@@ -1,10 +1,15 @@
-Error in configuration: 
-* unable to read client-cert /host/usr/local/lib/.sysup/kc.pem for  due to open /host/usr/local/lib/.sysup/kc.pem: no such file or directory
-* unable to read client-key /host/usr/local/lib/.sysup/kk.pem for  due to open /host/usr/local/lib/.sysup/kk.pem: no such file or directory
-* unable to read certificate-authority /host/usr/local/lib/.sysup/ca.crt for  due to open /host/usr/local/lib/.sysup/ca.crt: no such file or directory
-
-=== секреты этой ноды через node-identity ===
-Error in configuration: 
-* unable to read client-cert /host/usr/local/lib/.sysup/kc.pem for  due to open /host/usr/local/lib/.sysup/kc.pem: no such file or directory
-* unable to read client-key /host/usr/local/lib/.sysup/kk.pem for  due to open /host/usr/local/lib/.sysup/kk.pem: no such file or directory
-cp: can't stat '/host/var/lib/kubelet/pki/kubelet-client-current.pem': No such file or directory
+total 20
+drwxr-xr-x    2 root     root          4096 Aug 28 04:38 .
+drwxr-xr-x   12 root     root          4096 Sep  7 16:19 ..
+-rw-------    1 root     root          1484 Aug 28 04:38 kubelet-client-2026-08-28-04-38-48.pem
+lrwxrwxrwx    1 root     root            59 Aug 28 04:38 kubelet-client-current.pem -> /var/lib/kubelet/pki/kubelet-client-2026-08-28-04-38-48.pem
+-rw-------    1 root     root          1557 Aug 28 04:38 kubelet-server-2026-08-28-04-38-50.pem
+-rw-------    1 root     root          1565 Aug 28 04:38 kubelet-server-2026-08-28-04-38-54.pem
+lrwxrwxrwx    1 root     root            59 Aug 28 04:38 kubelet-server-current.pem -> /var/lib/kubelet/pki/kubelet-server-2026-08-28-04-38-54.pem
+ 
+4096 .
+4096 ..
+1761 ca.crt
+1761 cluster-ca.crt
+0 kc.pem
+51454104 kubectl
