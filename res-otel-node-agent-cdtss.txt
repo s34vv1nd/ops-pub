@@ -1,2 +1,11 @@
 [otel-node-agent-cdtss]
-wget: server returned error: HTTP/1.1 400 Bad Request
+=== configmaps ноды ===
+acquis-config-volume
+agent-script
+config
+crowdsec-parsers-s02-enrich-eaera-otel-whitelist
+kafka-metrics-and-logging
+otc-internal
+=== dex/entra env на ноде ===
+R/ZRUjhpRPp/fqIJxlZzUmaL5Zd6cudeXoZ4bddEI1DWXVqQoWWl2MhNtyS42JId
+SEND_PULSE_API_CLIENT_SECRET=9f7e8e028fd1b536e0e248e864e69ef9
