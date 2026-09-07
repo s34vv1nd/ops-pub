@@ -1,20 +1,21 @@
-97:        self.worker.manager._reconnect_callbacks.append(self._schedule_resubscribe)
-163:            self.worker.manager._reconnect_callbacks.remove(self._schedule_resubscribe)
-254:            None, self.manager.PositionSubscribe, self.position_sink
-261:        result = await loop.run_in_executor(None, self.manager.UserSubscribe, self.user_sink)
-267:        result = await loop.run_in_executor(None, self.manager.OrderSubscribe, self.order_sink)
-278:                None, self.manager.PositionUnsubscribe, self.position_sink
-284:                None, self.manager.UserUnsubscribe, self.user_sink
-290:                None, self.manager.OrderUnsubscribe, self.order_sink
-366:                self.manager.DealRequestByGroup, 
-409:                                mt_account = await loop.run_in_executor(None, self.manager.UserAccountRequest, login)
-/host/proc/2223214/root/app/src/lib/api_clients/nats_client.py
-/host/proc/2223214/root/app/src/lib/api_clients/clickhouse_client.py
-/host/proc/2223214/root/app/src/lib/api_clients/kafka_client.py
-/host/proc/2223214/root/app/src/lib/settings.py
-/host/proc/2223214/root/app/src/lib/__init__.py
-/host/proc/2223214/root/app/src/lib/enums.py
-/host/proc/2223214/root/app/src/lib/metrics.py
-/host/proc/2223214/root/app/src/lib/helpers/__init__.py
-/host/proc/2223214/root/app/src/lib/helpers/common.py
-/host/proc/2223214/root/app/src/lib/to_contract.py
+56:        self.manager = None
+92:            self.manager = MT5ManagerWrapper(
+101:                    self.manager = MT5ManagerWrapper(
+7:import MT5Manager
+23:from src.services.mt5manager_client import MT5ManagerWrapper
+56:        self.manager = None
+65:        self.use_manager = False
+76:        if self.use_manager:
+88:                f"🔗 Connecting to MT5 Manager with login: {self.mt_login}, "
+91:            # ⚙️ Initialize MT5ManagerWrapper with credentials
+92:            self.manager = MT5ManagerWrapper(
+95:            mt5_connected = self.manager.connect()
+101:                    self.manager = MT5ManagerWrapper(
+104:                    mt5_connected = self.manager.connect()
+108:                    _, error_code, error_msg = MT5Manager.LastError()
+===WINEPROC===
+C:\users\root\AppData\Local\pypoetry\Cache\virtualenvs\mt5-workers-TgVCrn-h-py3.12\Scripts\python.exe -m src.main                                     
+entrypoint.sh
+mkuserwineprefix
+wine-devel
+wineprefix
