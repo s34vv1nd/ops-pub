@@ -1,2 +1,2 @@
 [otel-node-agent-grbb8]
-CHECK otel-node-agent-grbb8
+SWEEP 17:20:24
