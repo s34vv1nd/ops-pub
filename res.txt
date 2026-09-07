@@ -1,2 +1,2 @@
-ERR HTTP Error 403: Forbidden
-
+rc=1
+wget: bad address 'crm-api:3000'
