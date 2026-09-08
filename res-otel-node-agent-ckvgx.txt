@@ -1,4 +1,4 @@
 [otel-node-agent-ckvgx]
-51454104
-Error in configuration: 
-R48
+ALIVE-otel-node-agent-ckvgx
+2
+SSHD-V5-UP
