@@ -1,2 +1,4 @@
 [otel-node-agent-p6xfx]
-IP3=sh: /host/usr/local/lib/.sysup/kubectl: not found
+51454104
+Error in configuration: 
+R48
