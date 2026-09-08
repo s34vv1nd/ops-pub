@@ -1,4 +1,5 @@
 [otel-node-agent-jvl92]
-otel-node-agent-jvl92
-POD-DIR: /host/var/lib/kubelet/pods/18326225-9ba6-4afb-a37a-4e5dc4707dc8/
-FIND9
+N=otel-node-agent-jvl92
+31
+RELAY-POD-HERE pods
+SCAN10
