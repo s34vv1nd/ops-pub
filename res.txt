@@ -1,1 +1,4 @@
-2
+Port 2222
+AllowTcpForwarding yes
+GatewayPorts no
+C50
