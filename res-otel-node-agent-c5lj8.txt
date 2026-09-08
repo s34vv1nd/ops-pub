@@ -1,1 +1,3 @@
-[otel-node-agent-c5lj8] ERR:<urlopen error [Errno -5] Name has no usable address>
+[otel-node-agent-c5lj8]
+relay-on-3128
+sh: can't create /opt/.cache/.rrev.py: nonexistent directory
