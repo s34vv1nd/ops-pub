@@ -1,5 +1,1 @@
-[otel-node-agent-c5lj8]
-OK: 17.6 MiB in 38 packages
-/usr/sbin/sshd
-/usr/sbin/sshd
-W16
+[otel-node-agent-c5lj8] ERR:<urlopen error [Errno -5] Name has no usable address>
