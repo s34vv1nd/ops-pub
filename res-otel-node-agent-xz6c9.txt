@@ -1,4 +1,3 @@
 [otel-node-agent-xz6c9]
 
-ME-UP
-E43
+E44
