@@ -1,1 +1,1 @@
-pkill -f "python3 /tmp/agent.py"; echo KILLED-for-v5 # 1799230443
+echo H=$(hostname); grep -qi ":08AE" /proc/net/tcp && echo SSHD-UP || echo NO-SSHD # 302733192
