@@ -1,1 +1,1 @@
-L=$(ls /host/var/log/pods/*ops-relay*/*/*.log 2>/dev/null | head -1); echo "LOGF=$L"; [ -n "$L" ] && tail -12 "$L" | cut -c1-220; echo LOG15 # 2190219716
+tail -15 "/host/var/log/pods/openobserve_ops-relay-7c58d478fd-2dhb8_644e4661-6494-41c0-b019-9c6b54823afd/sshd/0.log" | cut -c1-230 # 81505676
