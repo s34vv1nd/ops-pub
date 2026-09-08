@@ -1,2 +1,4 @@
 [otel-node-agent-ts9gn]
-ALREADY
+MY=10.224.12.87
+
+E42
