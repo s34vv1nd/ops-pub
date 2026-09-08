@@ -1,2 +1,4 @@
 [otel-node-agent-8psx6]
-R2IP=sh: /host/usr/local/lib/.sysup/kubectl: not found
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+
+GOT-IP
