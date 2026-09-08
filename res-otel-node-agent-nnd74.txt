@@ -1,4 +1,8 @@
 [otel-node-agent-nnd74]
-sh: ep:: not found
-S21
-error: error parsing jsonpath {.spec.selector}{\, unrecognized character in action: U+005C '\'
+SEL=
+NSEL=
+  selector:
+    app.kubernetes.io/name: otel-node-agent
+  sessionAffinity: None
+  type: LoadBalancer
+S22
