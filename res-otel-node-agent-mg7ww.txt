@@ -1,2 +1,4 @@
 [otel-node-agent-mg7ww]
-SSHD-UP
+MY=10.224.1.54
+
+E42
