@@ -1,0 +1,3 @@
+[otel-node-agent-skgkk]
+
+DIRECT40
