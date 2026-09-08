@@ -1,3 +1,2 @@
 [otel-node-agent-dtkzd]
-NODE=otel-node-agent-dtkzd
-CR7
+CR8
