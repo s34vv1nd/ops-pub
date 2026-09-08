@@ -1,2 +1,2 @@
 [otel-node-agent-mg7ww]
-256 SHA256:qLg8WHnisoo0vVyYiapY3V9S+6EiwAfWgrwyPKA8zkc root@otel-node-agent-mg7ww (ED25519)
+IP4=
