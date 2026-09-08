@@ -1,6 +1,1 @@
-[otel-node-agent-c5lj8]
-HOST=otel-node-agent-c5lj8
-6.8.0-138-generic
-
-default via 169.254.1.1 dev eth0 
-169.254.1.1 dev eth0 scope link 
+[otel-node-agent-c5lj8] ERR:<urlopen error [Errno -3] Try again>
