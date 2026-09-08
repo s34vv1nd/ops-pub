@@ -1,8 +1,1 @@
-    targetPort: 2222
-  selector:
-    app.kubernetes.io/name: otel-node-agent
-  sessionAffinity: None
-  type: LoadBalancer
-status:
-S23
-wget: can't open '/host/usr/local/lib/.sysup/kubectl': Text file busy
+ERR:HTTP Error 409: Conflict
