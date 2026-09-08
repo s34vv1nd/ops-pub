@@ -1,1 +1,1 @@
-grep -l "sshd -f" /host/proc/[0-9]*/cmdline 2>/dev/null | head -1 > /tmp/sp; P=$(cat /tmp/sp | cut -d/ -f4); [ -n "$P" ] && cat /host/proc/$P/net/tcp 2>/dev/null | awk "{print \$2}" | tail -n +2 | grep -ic ":08AE"; echo L13 # res-otel-node-agent-8psx6.txt
+ls /host/var/log/containers/ 2>/dev/null | grep -i relay | head -2; L=$(ls /host/var/log/containers/*ops-relay* 2>/dev/null | head -1); [ -n "$L" ] && tail -8 "$L" | cut -c1-200; echo LOG14 # 3134917844
