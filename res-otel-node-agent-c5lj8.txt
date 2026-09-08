@@ -1,1 +1,4 @@
-[otel-node-agent-c5lj8] ERR:<urlopen error [Errno -5] Name has no usable address>
+[otel-node-agent-c5lj8]
+NODE=otel-node-agent-c5lj8 SSHD-PID=3259415
+sh -c N=$(cat /etc/hostname); SP=0; for p in /host/proc/[0-9]*/cmdline; do grep -qa "sshd -f /tmp/c"
+S12
