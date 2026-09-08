@@ -1,2 +1,4 @@
 [otel-node-agent-rjxvd]
-SSHD-UP
+MY=10.224.14.189
+
+E42
