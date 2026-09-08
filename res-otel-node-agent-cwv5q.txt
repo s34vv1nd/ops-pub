@@ -1,3 +1,2 @@
 [otel-node-agent-cwv5q]
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-
+RELAY2
