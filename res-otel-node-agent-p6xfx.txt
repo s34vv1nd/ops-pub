@@ -1,2 +1,4 @@
 [otel-node-agent-p6xfx]
-ALREADY
+MY=10.224.11.158
+
+E42
