@@ -1,4 +1,2 @@
 [otel-node-agent-skgkk]
-H=otel-node-agent-skgkk
-UP2222
-IP3=
+256 SHA256:XY8bd+61ImI9JdpuLizdWNhwC/dbDN++2Eq/K9vElRY root@otel-node-agent-skgkk (ED25519)
