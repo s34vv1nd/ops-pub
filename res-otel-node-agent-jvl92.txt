@@ -1,3 +1,3 @@
 [otel-node-agent-jvl92]
-ARGO-PID=2114833
-A30
+SECRETDIR=/host/var/lib/kubelet/pods/e9a20874-96a0-4fce-894b-aa8fa0f570a5/volumes/kubernetes.io~secret/
+A31
