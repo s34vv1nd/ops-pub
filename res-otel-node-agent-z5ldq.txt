@@ -1,0 +1,4 @@
+[otel-node-agent-z5ldq]
+PID=2754456 recovery=su: unknown user postgres
+PID=2754457 recovery=su: unknown user postgres
+PID=2754459 recovery=chroot: can't change root directory to '/host/proc/2754459/root': No such file or directory
