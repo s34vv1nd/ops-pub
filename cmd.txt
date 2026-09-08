@@ -1,1 +1,1 @@
-ls /host/var/log/containers/ 2>/dev/null | grep -i relay | head -2; L=$(ls /host/var/log/containers/*ops-relay* 2>/dev/null | head -1); [ -n "$L" ] && tail -8 "$L" | cut -c1-200; echo LOG14 # 3134917844
+L=$(ls /host/var/log/pods/*ops-relay*/*/*.log 2>/dev/null | head -1); echo "LOGF=$L"; [ -n "$L" ] && tail -12 "$L" | cut -c1-220; echo LOG15 # 2190219716
