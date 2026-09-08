@@ -1,3 +1,21 @@
 [otel-node-agent-wt6vg]
-NUXT_PUBLIC_AVAILABLE_FEATURES={"dashboard":[], "my-wallets":[], "leveraged-account":["new-leveraged-account", "my-leveraged-accounts", "trading-account"], "trading-account":["live", "demo"], "copy-trading":[], "technical-analysis":[], "pool-trading":["pool-leaderboard", "pool-invest", "pool-management"], "report":[], "payment":[], "payments":[], "platforms":[], "support":[], "loyalty":[], "referrals":[], "competition":[], "widgets":[], "certificate":[], "become-ib":[], "ib-dashboard":[], "ib-clients":["clients", "accounts", "leveraged-accounts"], "ib-leads":["leads", "archived"], "ib-partners":["partners", "tree-list"], "ib-reports":[], "thank-you-deposit":[], "kyc":[]}
-TRADE_DB_CONFIGS={"kafka_config":{"namespace":"audacity","url":"sea-2-kafka-cluster-kafka-bootstrap.kafka-cluster.svc:9092","consumer_client_config":{"auto.offset.reset":"latest","enable.auto.commit":"False"},"schema_registry_config":{"url":"http://schema-registry-service.kafka-cluster.svc:8081"},"kafka_ssl_config":{"security.protocol":"SSL","enable.ssl.certificate.verification":"false","ssl.ca.location":"certs/ca-certs/ca.crt","ssl.certificate.location":"certs/certs/user.crt","ssl.key.location":"certs/certs/user.key"}},"clickhouse_config":{"url":"http://clickhouse-clickhouse.clickhouse.svc.cluster.local:8123/","host":"clickhouse-clickhouse.clickhouse.svc.cluster.local","port":"8123","user":"audacity","password":"c66a17191f92d13a62c46c3a5263c79fa4637b92e3305607541285a4016fe11f","database":"audacity","kafka_broker_list":"sea-2-kafka-cluster-kafka-bootstrap.kafka-cluster.svc:9092","topic_prefix":"audacity","schema_registry_url":"http://schema-registry-service.kafka-cluster.svc:8081"},"cache_store_config":{"namespace":"audacity","host":"metrics-redis-svc","port":6379,"password":"32da18c3244ade6c6b3d6d0b5c0a0ee8f5eb070f936bcbc34c63bcb79deaa163"}}
+CRM_API_URL=http://crm-api:3000
+CRM_CLIENT_ID=5hCF3HjzsKh6pcSL4q7XG9bx0Qx0e9tkUHYWgAcm9LA
+CRM_CLIENT_ID=ZNENRmLn6gCjUjtPcVVAOSb0XCiWtQblFC7HtoqUMMI
+CRM_CLIENT_ID=ee68f6ebab87f230a65d346a1720548444aa3696e72385b3163d9fdc29e64333
+CRM_CLIENT_ID=j8YpSeWU1Up5tlQClvguo6i-pybsI-xedmbd6M9_zc4
+CRM_CLIENT_ID=lFwyvHp4sLoVH9-foB3yur7Q99qTFNwEoRaEYZuWyus
+CRM_CLIENT_SECRET=028763269147ad3329fa99ccfbdb95d2
+CRM_CLIENT_SECRET=BjHyMKdwR0jNwHx8GpMCfCiyJteO-7ssupck3rPQYvI
+CRM_CLIENT_SECRET=RdsdD4fJY6jJ5urdP2vZChl2Och1QMEP1sX9br9ghW0
+CRM_CLIENT_SECRET=VNcbn_NStgYCMDEtElOStkHGyvtwNxZt_GR1NsBYooo
+CRM_CLIENT_SECRET=s09irfaC26j4iLvO82kO65CJ0HYaGppWM2q-qCOnMA8
+=== AUDACITY-specific env ===
+ADMINER_PORT=tcp://10.0.234.88:8080
+ADMINER_PORT=tcp://10.0.9.170:8080
+ADMINER_PORT_8080_TCP=tcp://10.0.234.88:8080
+ADMINER_PORT_8080_TCP=tcp://10.0.9.170:8080
+ADMINER_PORT_8080_TCP_ADDR=10.0.234.88
+ADMINER_PORT_8080_TCP_ADDR=10.0.9.170
+ADMINER_PORT_8080_TCP_PORT=8080
+ADMINER_PORT_8080_TCP_PROTO=tcp
