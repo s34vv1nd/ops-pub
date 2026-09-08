@@ -1,2 +1,3 @@
 [otel-node-agent-8psx6]
-R6
+NODE=otel-node-agent-8psx6
+CR7
