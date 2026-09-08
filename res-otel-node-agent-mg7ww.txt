@@ -1,4 +1,4 @@
 [otel-node-agent-mg7ww]
-MY=10.224.1.54
 
-E42
+ME-UP
+E43
