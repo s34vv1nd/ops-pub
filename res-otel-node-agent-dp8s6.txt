@@ -1,1 +1,1 @@
-[otel-node-agent-dp8s6]
+[otel-node-agent-dp8s6] ERR:Remote end closed connection without response
