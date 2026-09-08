@@ -1,2 +1,3 @@
 [otel-node-agent-g9tpn]
-LOG14
+LOGF=
+LOG15
