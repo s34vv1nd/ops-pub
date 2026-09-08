@@ -1,3 +1,4 @@
 [otel-node-agent-g9tpn]
-otel-node-agent-g9tpn
-FIND9
+N=otel-node-agent-g9tpn
+33
+SCAN10
