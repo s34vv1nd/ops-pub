@@ -1,3 +1,2 @@
 [otel-node-agent-9fn9x]
-
-DIRECT40
+V5-NOT-YET
