@@ -1,0 +1,3 @@
+[otel-node-agent-mg7ww]
+
+DIRECT40
