@@ -1,2 +1,2 @@
 [otel-node-agent-xz6c9]
-IP4=
+IP4=[]
