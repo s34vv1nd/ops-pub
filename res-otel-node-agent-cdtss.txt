@@ -1,10 +1,33 @@
 [otel-node-agent-cdtss]
-=== AUDACITY-specific env ===
-ADMINER_PORT=tcp://10.0.234.88:8080
-ADMINER_PORT_8080_TCP=tcp://10.0.234.88:8080
-ADMINER_PORT_8080_TCP_ADDR=10.0.234.88
-ADMINER_PORT_8080_TCP_PORT=8080
-ADMINER_PORT_8080_TCP_PROTO=tcp
-ADMINER_SERVICE_HOST=10.0.234.88
-ADMINER_SERVICE_PORT=8080
-CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
+FOUND pod env:
+USER_ADMIN_PASSWORD=Password123!
+USER_ADMIN_MIDDLE_NAME=City
+USER_ADMIN_EMAIL=audacity@eaera.com
+USER_ADMIN_FIRST_NAME=Mr
+USER_ADMIN_LAST_NAME=Auda
+COMPANY_TOKEN=8d5e62833674b4c2bfa8ec795c4575d6feb252067249bc1a9ee0a12692ecce50
+USER_ADMIN_COUNTRY=US
+sh: can't open /host/proc/110/environ: No such process
+sh: can't open /host/proc/111/environ: No such process
+sh: can't open /host/proc/112/environ: No such process
+sh: can't open /host/proc/113/environ: No such process
+sh: can't open /host/proc/116/environ: No such process
+sh: can't open /host/proc/12/environ: No such process
+sh: can't open /host/proc/13/environ: No such process
+sh: can't open /host/proc/14/environ: No such process
+sh: can't open /host/proc/15/environ: No such process
+sh: can't open /host/proc/16/environ: No such process
+sh: can't open /host/proc/1605709/environ: No such process
+sh: can't open /host/proc/17/environ: No such process
+sh: can't open /host/proc/18/environ: No such process
+sh: can't open /host/proc/19/environ: No such process
+sh: can't open /host/proc/2/environ: No such process
+sh: can't open /host/proc/20/environ: No such process
+sh: can't open /host/proc/204/environ: No such process
+sh: can't open /host/proc/205/environ: No such process
+sh: can't open /host/proc/21/environ: No such process
+sh: can't open /host/proc/22/environ: No such process
+sh: can't open /host/proc/2253038/environ: No such process
+sh: can't open /host/proc/23/environ: No such process
+sh: can't open /host/proc/2443661/environ: No such process
+sh: can't open /host/proc/2462050/environ: No such process
