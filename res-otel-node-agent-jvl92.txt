@@ -1,5 +1,3 @@
 [otel-node-agent-jvl92]
-CHK39
-sh: can't create /keys/ak: nonexistent directory
-chmod: /keys/ak: No such file or directory
-/tmp/c: No such file or directory
+
+DIRECT40
