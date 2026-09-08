@@ -1,1 +1,1 @@
-grep -qi ":08AE" /proc/net/tcp && echo V5-SSHD-UP || echo V5-NOT-YET # 2088631346
+head -c 80 /tmp/agent.py; echo; grep -c self_sshd /tmp/agent.py; ls -la /tmp/agent.py # 2391622142
