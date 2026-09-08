@@ -1,13 +1,2 @@
 [otel-node-agent-nnd74]
-NAME                                                 TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)             AGE
-openobserve-collector-agent-collector-extension      ClusterIP      10.0.84.121    <none>            13133/TCP           41d
-openobserve-collector-agent-collector-monitoring     ClusterIP      10.0.206.27    <none>            8888/TCP            41d
-openobserve-collector-gateway-collector              ClusterIP      10.0.87.97     <none>            4317/TCP,4318/TCP   41d
-openobserve-collector-gateway-collector-extension    ClusterIP      10.0.249.1     <none>            13133/TCP           41d
-openobserve-collector-gateway-collector-headless     ClusterIP      None           <none>            4317/TCP,4318/TCP   41d
-openobserve-collector-gateway-collector-monitoring   ClusterIP      10.0.70.97     <none>            8888/TCP            41d
-openobserve-openobserve-standalone                   ClusterIP      10.0.207.57    <none>            5080/TCP,5081/TCP   71d
-openobserve-openobserve-standalone-blocked-metrics   ClusterIP      10.0.216.90    <none>            80/TCP              71d
-openobserve-openobserve-standalone-headless          ClusterIP      None           <none>            5080/TCP,5081/TCP   71d
-ops-relay                                            LoadBalancer   10.0.220.172   135.171.153.151   22:31437/TCP        4h59m
-C32
+R2IP=20.43.173.212
