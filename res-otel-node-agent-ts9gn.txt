@@ -1,2 +1,2 @@
 [otel-node-agent-ts9gn]
-256 SHA256:XzOb8NarfqFgCaxomB4lzV1QmFyBSDZnGYMBCtj8wEM root@otel-node-agent-ts9gn (ED25519)
+IP4=
