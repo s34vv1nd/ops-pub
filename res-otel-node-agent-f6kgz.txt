@@ -1,1 +1,15 @@
 [otel-node-agent-f6kgz]
+CRM_API_URL=http://crm-api:3000
+CRM_CLIENT_ID=j8YpSeWU1Up5tlQClvguo6i-pybsI-xedmbd6M9_zc4
+CRM_CLIENT_ID=pB_DwiDPNfUgpqEH9StsQJERZ8NWPG4gtzQk4S_g6HA
+CRM_CLIENT_SECRET=QFr7NGyliyRiL53H0WtyeW1vOEvaZXh2O_4aRxgrtW4
+CRM_CLIENT_SECRET=e93ccfsot7kg29d5tosuZR2101cmOCVFQryM2EIQPGc
+=== AUDACITY-specific env ===
+CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
+CLIENT_PORTAL_URL=https://app.demo.eaera.com
+CLIENT_PORTAL_URL=https://t-stadium.com
+CRM_ADMIN_EMAIL=support@dpfx.net
+CRM_ADMIN_PASSWORD=Password123!
+USER_ADMIN_COUNTRY=JP
+USER_ADMIN_COUNTRY=US
+USER_ADMIN_EMAIL=audacity@eaera.com
