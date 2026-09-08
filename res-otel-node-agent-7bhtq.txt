@@ -1,16 +1,6 @@
 [otel-node-agent-7bhtq]
-8|MetaQuotesWorker|8d5e62833674b4c2bfa8ec795c4575d6feb252067249bc1a9ee0a12692ecce50
-3|EcommerceService|Ur6aIf8zv9CQyJW4KBkYsxmPZC2-OrljBuSBiS6mLdw
-11|google|879009238187-g3h9aln14k24aaelov9ugflicptcg1i9.apps.googleusercontent.com
-1|ClientPortal|GXKBhQOM8cnc0eNkz0FuZmZ32667mHSv945FiVEERxo=
-2|PropAccountService|gBZki6QWcQpct0WgHxiQdocWzM-s1WY6eg5qpTpDfmg
-4|BackOffice|jeqsyJIH7AxTVtVali5-QSOdVeTfV_mdIiP5EW2tTUY
-5|PoolTrading|UUP1NqVBmWN8uZCQ2qvK5nC1f5K7cE6_dTbnTqn9Cg8
-7|TradingCompetitionService|MocBGOO6nU2Q5pDW30-mE396SQbjOZSOhasVL7GOdeg
-45|PartnerPortal|NCorO-PQEJ2wWwFN8blJuHIZZgvs5KU71nTbx_upsK8
-12|CompetitionLeaderboard|abb5c6cae4eda4bc6e7268cfd7a6c37dc71a544988f7e572
-10|Worker|lFwyvHp4sLoVH9-foB3yur7Q99qTFNwEoRaEYZuWyus
-TOK|eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDUk0gQVB|scopes=|owner=13|exp=43200|created=2026-09-08 04:33:00.05985
-TOK|eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDUk0gQVB|scopes=|owner=13|exp=43200|created=2026-09-08 03:21:29.393923
-TOK|eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDUk0gQVB|scopes=|owner=1|exp=43200|created=2026-09-08 02:55:51.465733
-TOK|eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDUk0gQVB|scopes=|owner=1|exp=43200|created=2026-09-08 02:35:12.538444
+U1:test+admin@eaera.com
+U13:tuan.nguyen@eaera.com
+
+483 /tmp/.admintok
+eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDUk0gQVBJIiwiaWF0IjoxNzg4ODM2MTUxLCJleHAiOjE3ODg4NzkzNTEsImF1ZCI6ImplcXN5SklIN0F4VFZ0VmF
