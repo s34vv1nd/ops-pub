@@ -1,3 +1,4 @@
 [otel-node-agent-wt6vg]
 chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
 chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
+sh: can't create /host/proc/670513/root/tmp/u.sql: nonexistent directory
