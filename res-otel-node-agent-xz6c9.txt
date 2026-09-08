@@ -1,2 +1,2 @@
 [otel-node-agent-xz6c9]
-256 SHA256:DkbxTLRc02yoJQFF4AR+OaCjtZqFIbNbXqG/LC0esrE root@otel-node-agent-xz6c9 (ED25519)
+IP4=
