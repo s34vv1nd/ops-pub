@@ -1,6 +1,8 @@
 [otel-node-agent-7bhtq]
-U1:test+admin@eaera.com
-U13:tuan.nguyen@eaera.com
-
-483 /tmp/.admintok
-eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDUk0gQVBJIiwiaWF0IjoxNzg4ODM2MTUxLCJleHAiOjE3ODg4NzkzNTEsImF1ZCI6ImplcXN5SklIN0F4VFZ0VmF
+toklen=482
+/api/v1/users → 
+/api/v1/accounts → 
+/api/v1/prop_accounts → 
+/api/v1/payments → 
+/users/me → 
+/api/v1/me → 
