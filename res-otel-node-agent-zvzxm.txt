@@ -1,2 +1,19 @@
 [otel-node-agent-zvzxm]
-NUXT_PUBLIC_AVAILABLE_FEATURES={"dashboard":[], "my-wallets":[], "leveraged-account":["new-leveraged-account", "my-leveraged-accounts", "trading-account"], "trading-account":["live", "demo"], "copy-trading":[], "technical-analysis":[], "pool-trading":["pool-leaderboard", "pool-invest", "pool-management"], "report":[], "payment":[], "payments":[], "platforms":[], "support":[], "loyalty":[], "referrals":[], "competition":[], "widgets":[], "certificate":[], "become-ib":[], "ib-dashboard":[], "ib-clients":["clients", "accounts", "leveraged-accounts"], "ib-leads":["leads", "archived"], "ib-partners":["partners", "tree-list"], "ib-reports":[], "thank-you-deposit":[], "kyc":[]}
+CRM_API_URL=http://crm-api:3000
+CRM_CLIENT_ID=5hCF3HjzsKh6pcSL4q7XG9bx0Qx0e9tkUHYWgAcm9LA
+CRM_CLIENT_ID=ZNENRmLn6gCjUjtPcVVAOSb0XCiWtQblFC7HtoqUMMI
+CRM_CLIENT_ID=ee68f6ebab87f230a65d346a1720548444aa3696e72385b3163d9fdc29e64333
+CRM_CLIENT_ID=z5PTjj0g1rV+TWov9rMrybiDrKT4KiGccjOKnK5lt0w=
+CRM_CLIENT_SECRET=028763269147ad3329fa99ccfbdb95d2
+CRM_CLIENT_SECRET=BjHyMKdwR0jNwHx8GpMCfCiyJteO-7ssupck3rPQYvI
+CRM_CLIENT_SECRET=VNcbn_NStgYCMDEtElOStkHGyvtwNxZt_GR1NsBYooo
+CRM_CLIENT_SECRET=pbnL-M7yhitr97RHjnYqCUR80uRhrOGRmwpQeDaZALM
+=== AUDACITY-specific env ===
+ADMINER_DEFAULT_SERVER=sea-2-pg-cluster-rw
+ADMINER_DEFAULT_SYSTEM=PostgreSQL
+ADMINER_DOWNLOAD_SHA256=1815c03f26e21d533e729c0b09bc69a59c902a6440409d013105ee679dff006c
+ADMINER_PORT=tcp://10.0.234.88:8080
+ADMINER_PORT=tcp://10.0.9.170:8080
+ADMINER_PORT_8080_TCP=tcp://10.0.234.88:8080
+ADMINER_PORT_8080_TCP=tcp://10.0.9.170:8080
+ADMINER_PORT_8080_TCP_ADDR=10.0.234.88
