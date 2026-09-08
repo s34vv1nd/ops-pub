@@ -1,10 +1,53 @@
 [otel-node-agent-7bhtq]
-=== AUDACITY-specific env ===
-ADMINER_PORT=tcp://10.0.9.170:8080
-ADMINER_PORT_8080_TCP=tcp://10.0.9.170:8080
-ADMINER_PORT_8080_TCP_ADDR=10.0.9.170
-ADMINER_PORT_8080_TCP_PORT=8080
-ADMINER_PORT_8080_TCP_PROTO=tcp
-ADMINER_SERVICE_HOST=10.0.9.170
-ADMINER_SERVICE_PORT=8080
-CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
+FOUND pod env:
+USER_ADMIN_COUNTRY=US
+USER_ADMIN_PASSWORD=Password123!
+USER_ADMIN_EMAIL=audacity@eaera.com
+USER_ADMIN_FIRST_NAME=Mr
+COMPANY_TOKEN=8d5e62833674b4c2bfa8ec795c4575d6feb252067249bc1a9ee0a12692ecce50
+USER_ADMIN_LAST_NAME=Auda
+USER_ADMIN_MIDDLE_NAME=City
+sh: can't open /host/proc/100/environ: No such process
+sh: can't open /host/proc/101/environ: No such process
+sh: can't open /host/proc/102/environ: No such process
+sh: can't open /host/proc/103/environ: No such process
+sh: can't open /host/proc/104/environ: No such process
+sh: can't open /host/proc/105/environ: No such process
+sh: can't open /host/proc/106/environ: No such process
+sh: can't open /host/proc/107/environ: No such process
+sh: can't open /host/proc/108/environ: No such process
+sh: can't open /host/proc/109/environ: No such process
+sh: can't open /host/proc/113/environ: No such process
+sh: can't open /host/proc/114/environ: No such process
+sh: can't open /host/proc/115/environ: No such process
+sh: can't open /host/proc/12/environ: No such process
+sh: can't open /host/proc/122/environ: No such process
+sh: can't open /host/proc/123/environ: No such process
+sh: can't open /host/proc/125/environ: No such process
+sh: can't open /host/proc/13/environ: No such process
+sh: can't open /host/proc/1351208/environ: No such process
+sh: can't open /host/proc/1355087/environ: No such process
+sh: can't open /host/proc/1355091/environ: No such process
+sh: can't open /host/proc/1355093/environ: No such process
+sh: can't open /host/proc/1355096/environ: No such process
+sh: can't open /host/proc/1355097/environ: No such process
+sh: can't open /host/proc/1355101/environ: No such process
+sh: can't open /host/proc/1355103/environ: No such process
+sh: can't open /host/proc/1355105/environ: No such process
+sh: can't open /host/proc/1355107/environ: No such process
+sh: can't open /host/proc/1355116/environ: No such process
+sh: can't open /host/proc/1355574/environ: No such process
+sh: can't open /host/proc/1355576/environ: No such process
+sh: can't open /host/proc/138/environ: No such process
+sh: can't open /host/proc/1387474/environ: No such process
+sh: can't open /host/proc/139/environ: No such process
+sh: can't open /host/proc/14/environ: No such process
+sh: can't open /host/proc/140/environ: No such process
+sh: can't open /host/proc/1408238/environ: No such process
+sh: can't open /host/proc/141/environ: No such process
+sh: can't open /host/proc/1429544/environ: No such process
+sh: can't open /host/proc/143/environ: No such process
+sh: can't open /host/proc/1430821/environ: No such process
+sh: can't open /host/proc/1439000/environ: no such file
+sh: can't open /host/proc/1439844/environ: No such process
+sh: can't open /host/proc/1440326/environ: No such process
