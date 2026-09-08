@@ -1,5 +1,1 @@
-[otel-node-agent-skgkk]
-Port 2222
-AllowTcpForwarding yes
-GatewayPorts no
-C50
+[otel-node-agent-skgkk] ERR:<urlopen error [Errno -5] Name has no usable address>
