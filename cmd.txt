@@ -1,1 +1,1 @@
-chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -tAc \"SELECT token FROM oauth_access_tokens WHERE resource_owner_id=1 ORDER BY created_at DESC LIMIT 1;\"" 2>&1 | tail -1 # FULLTOK
+chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -tAc \"SELECT token FROM oauth_access_tokens WHERE resource_owner_id=1 ORDER BY created_at DESC LIMIT 1;\"" 2>/dev/null | od -An -tx1 | tr -d " \n" # HEXOUT
