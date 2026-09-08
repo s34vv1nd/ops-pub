@@ -1,4 +1,2 @@
 [otel-node-agent-ckvgx]
-H=otel-node-agent-ckvgx
-UP2222
-IP3=
+256 SHA256:PVArYGqsoL0dQew9Agu4bro6Nye6BK4HpKLdqntEwBI root@otel-node-agent-ckvgx (ED25519)
