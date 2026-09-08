@@ -1,2 +1,2 @@
 [otel-node-agent-skgkk]
-IP4=
+IP4=[]
