@@ -1,4 +1,2 @@
 [otel-node-agent-z4wgb]
-H=otel-node-agent-z4wgb
-UP2222
-IP3=20.195.120.72
+256 SHA256:FD4wtxG6RUf9deuPbgzNMgdhDLcCWz+JGMRYoE/buO8 root@otel-node-agent-z4wgb (ED25519)
