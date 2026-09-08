@@ -1,0 +1,1 @@
+echo PING-$(hostname)-$(date +%H:%M:%S)
