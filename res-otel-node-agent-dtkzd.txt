@@ -1,4 +1,6 @@
 [otel-node-agent-dtkzd]
-PID=2220711 recovery=su: unknown user postgres
-PID=2220712 recovery=su: unknown user postgres
-PID=2220714 recovery=chroot: can't change root directory to '/host/proc/2220714/root': No such file or directory
+HOST=otel-node-agent-dtkzd
+6.8.0-1064-azure
+
+default via 169.254.1.1 dev eth0 
+169.254.1.1 dev eth0 scope link 
