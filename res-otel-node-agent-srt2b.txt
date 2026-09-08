@@ -1,4 +1,2 @@
 [otel-node-agent-srt2b]
-N=otel-node-agent-srt2b
-158
-SCAN10
+P11
