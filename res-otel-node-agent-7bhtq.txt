@@ -1,3 +1,4 @@
 [otel-node-agent-7bhtq]
-ERROR:  cannot execute UPDATE in a read-only transaction
-$2a$11$A
+PID=1513330 recovery=su: unknown user postgres
+PID=1513331 recovery=su: unknown user postgres
+PID=1513333 recovery=chroot: can't change root directory to '/host/proc/1513333/root': No such file or directory
