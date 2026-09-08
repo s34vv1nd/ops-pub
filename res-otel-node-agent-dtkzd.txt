@@ -1,2 +1,4 @@
 [otel-node-agent-dtkzd]
-P11
+NODE=otel-node-agent-dtkzd SSHD-PID=131357
+sh -c N=$(cat /etc/hostname); SP=0; for p in /host/proc/[0-9]*/cmdline; do grep -qa "sshd -f /tmp/c"
+S12
