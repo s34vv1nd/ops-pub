@@ -1,4 +1,4 @@
 [otel-node-agent-qpr9x]
-MY=10.224.11.213
 
-E42
+ME-UP
+E43
