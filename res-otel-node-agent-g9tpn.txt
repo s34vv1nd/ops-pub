@@ -1,3 +1,2 @@
 [otel-node-agent-g9tpn]
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-C32
+R2IP=sh: /host/usr/local/lib/.sysup/kubectl: not found
