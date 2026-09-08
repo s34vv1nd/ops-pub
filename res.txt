@@ -1,3 +1,5 @@
----
-135.171.153.15122
-R4
+STATE: 
+
+Error from server (Forbidden): pods "ops-relay-64876769b4-j6lmw" is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot get resource "pods" in API group "" in the namespace "openobserve": no relationship found between node 'aks-systemapp1-12673223-vmss000003' and this object
+Azure does not have opinion for this user.
+R5
