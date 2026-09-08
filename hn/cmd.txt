@@ -1,1 +1,1 @@
-echo PING-$(hostname)-$(date +%H:%M:%S)
+echo T8-\$(hostname)-\$(date +%H:%M:%S); ping -c1 -W1 192.168.3.135 >/dev/null 2>&1 && echo ADMIN-PC-135-UP || echo 135-down; ping -c1 -W1 192.168.3.152 >/dev/null 2>&1 && echo PC-152-UP || echo 152-down
