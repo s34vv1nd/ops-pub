@@ -1,6 +1,5 @@
 [otel-node-agent-srt2b]
-sh: /host/usr/local/lib/.sysup/kubectl: not found
+IP=sh: /host/usr/local/lib/.sysup/kubectl: not found
 
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-
-LB25
+EPS=sh: /host/usr/local/lib/.sysup/kubectl: not found
+LB26
