@@ -1,2 +1,5 @@
 [otel-node-agent-8psx6]
-A32
+CIP=
+
+C31
+wget: can't open '/host/usr/local/lib/.sysup/kubectl': No such file or directory
