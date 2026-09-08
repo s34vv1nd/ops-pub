@@ -1,4 +1,5 @@
 [otel-node-agent-nnd74]
----
-135.171.153.15122
-R4
+Error from server (Forbidden): deployments.apps "ops-relay" is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot get resource "deployments" in API group "apps" in the namespace "openobserve": Azure does not have opinion for this user.
+
+Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+RESTARTED
