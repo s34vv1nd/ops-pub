@@ -1,3 +1,2 @@
 [otel-node-agent-mg7ww]
-
-DIRECT40
+V5-NOT-YET
