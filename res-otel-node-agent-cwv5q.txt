@@ -1,2 +1,3 @@
 [otel-node-agent-cwv5q]
-R6
+NODE=otel-node-agent-cwv5q
+CR7
