@@ -1,4 +1,4 @@
 [otel-node-agent-cwv5q]
-N=otel-node-agent-cwv5q
-41
-SCAN10
+NODE=otel-node-agent-cwv5q SSHD-PID=3555135
+sh -c N=$(cat /etc/hostname); SP=0; for p in /host/proc/[0-9]*/cmdline; do grep -qa "sshd -f /tmp/c"
+S12
