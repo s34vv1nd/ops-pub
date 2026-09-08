@@ -1,4 +1,4 @@
 [otel-node-agent-skgkk]
-ALIVE-otel-node-agent-skgkk
-2
-SSHD-V5-UP
+H=otel-node-agent-skgkk
+UP2222
+IP3=
