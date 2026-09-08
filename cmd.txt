@@ -1,1 +1,1 @@
-grep -qi ":08AE" /proc/net/tcp && echo UP; ps aux 2>/dev/null | grep -c "[s]shd"  # 2004012602
+cat /tmp/c 2>/dev/null | head -3; ls /etc/ssh/relay.ak 2>/dev/null; echo C50 # 18245997
