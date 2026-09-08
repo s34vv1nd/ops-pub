@@ -1,3 +1,1 @@
 [otel-node-agent-skgkk]
-H=otel-node-agent-skgkk
-SSHD-UP
