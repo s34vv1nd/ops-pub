@@ -1,2 +1,3 @@
 [otel-node-agent-jvl92]
-R6
+NODE=otel-node-agent-jvl92
+CR7
