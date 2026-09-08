@@ -1,4 +1,3 @@
 [otel-node-agent-rjxvd]
 
-ME-UP
-E43
+E44
