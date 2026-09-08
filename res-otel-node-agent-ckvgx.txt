@@ -1,1 +1,2 @@
 [otel-node-agent-ckvgx]
+UP
