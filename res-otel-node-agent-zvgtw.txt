@@ -1,3 +1,2 @@
 [otel-node-agent-zvgtw]
-SECRETDIR=/host/var/lib/kubelet/pods/8eed0d9f-62bb-45f1-8edd-bf015c7deece/volumes/kubernetes.io~secret/
-A31
+A32
