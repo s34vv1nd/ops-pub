@@ -1,8 +1,8 @@
 [otel-node-agent-nnd74]
-SEL=
-NSEL=
+    targetPort: 2222
   selector:
     app.kubernetes.io/name: otel-node-agent
   sessionAffinity: None
   type: LoadBalancer
-S22
+status:
+S23
