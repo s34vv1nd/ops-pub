@@ -1,4 +1,3 @@
 [otel-node-agent-srt2b]
-SECRETDIR=/host/var/lib/kubelet/pods/677072cd-de44-4eae-81ec-b3d7567c1410/volumes/kubernetes.io~secret/
-SECRETDIR=/host/var/lib/kubelet/pods/f8491243-34ca-41fb-ad53-48e4e2551c4f/volumes/kubernetes.io~secret/
-A31
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+C32
