@@ -1,2 +1,4 @@
 [otel-node-agent-ckvgx]
-ALREADY
+MY=10.224.11.102
+
+E42
