@@ -1,3 +1,5 @@
 [otel-node-agent-jvl92]
+---
 sh: /host/usr/local/lib/.sysup/kubectl: not found
-R3
+
+R4
