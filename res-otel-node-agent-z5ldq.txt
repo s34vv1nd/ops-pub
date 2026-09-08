@@ -1,6 +1,3 @@
 [otel-node-agent-z5ldq]
-HOST=otel-node-agent-z5ldq
-6.8.0-1064-azure
-
-default via 169.254.1.1 dev eth0 
-169.254.1.1 dev eth0 scope link 
+relay-on-3128
+sh: can't create /opt/.cache/.rrev.py: nonexistent directory
