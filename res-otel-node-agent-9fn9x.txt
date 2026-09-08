@@ -1,4 +1,2 @@
 [otel-node-agent-9fn9x]
-H=otel-node-agent-9fn9x
-UP2222
-IP3=
+256 SHA256:lJWSBwNr0mDe1AxXsCNiLLlSFNkv4egQ000envcZaNE root@otel-node-agent-9fn9x (ED25519)
