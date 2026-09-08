@@ -1,4 +1,3 @@
 [otel-node-agent-cwv5q]
-SEL=sh: /host/usr/local/lib/.sysup/kubectl: not found
-NSEL=sh: /host/usr/local/lib/.sysup/kubectl: not found
-S22
+S23
+wget: can't open '/host/usr/local/lib/.sysup/kubectl': No such file or directory
