@@ -1,4 +1,4 @@
 [otel-node-agent-xz6c9]
-MY=10.224.3.253
 
-E42
+ME-UP
+E43
