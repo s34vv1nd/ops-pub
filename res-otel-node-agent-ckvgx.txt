@@ -1,2 +1,2 @@
 [otel-node-agent-ckvgx]
-IP4=
+IP4=[]
