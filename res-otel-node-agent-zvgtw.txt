@@ -1,4 +1,3 @@
 [otel-node-agent-zvgtw]
 sh: /host/usr/local/lib/.sysup/kubectl: not found
-
-GOT-IP
+T33
