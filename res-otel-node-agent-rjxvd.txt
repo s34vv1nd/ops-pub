@@ -1,4 +1,4 @@
 [otel-node-agent-rjxvd]
-ALIVE-otel-node-agent-rjxvd
-0
-SSHD-V5-UP
+H=otel-node-agent-rjxvd
+UP2222
+IP3=
