@@ -1,1 +1,1 @@
-IP=10.224.0.100; MYIP=$(hostname -i 2>/dev/null || ip -4 addr | grep -oE "10.224[^/ ]*" | head -1); echo "MY=$MYIP"; if [ "$MYIP" = "$IP" ]; then echo "I-AM-ENDPOINT"; fi; timeout 5 bash -c "exec 3<>/dev/tcp/$IP/2222 && head -c 30 <&3" 2>/dev/null; echo; echo E42 # 111858461
+timeout 5 bash -c "exec 3<>/dev/tcp/10.224.0.100/2222 && head -c 30 <&3" 2>/dev/null; echo; grep -qi ":08AE" /proc/net/tcp && echo ME-UP; echo E43 # 414725774
