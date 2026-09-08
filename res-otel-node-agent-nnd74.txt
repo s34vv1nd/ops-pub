@@ -1,8 +1,5 @@
 [otel-node-agent-nnd74]
-    targetPort: 2222
-  selector:
-    app.kubernetes.io/name: otel-node-agent
-  sessionAffinity: None
-  type: LoadBalancer
-status:
-S23
+135.171.153.151
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+
+LB25
