@@ -1,6 +1,2 @@
 [otel-node-agent-7bhtq]
-1|test+admin@eaera.com|$2a$11$h2GCMJhH0OBjMSb6Lm
-5|test+client@eaera.com|$2a$11$ARreRN7HT03UMLAbLv
-6|test+1@eaera.com|$2a$11$SoR9tjoJxlrJShKmp/
-ERROR:  syntax error at or near "\"
-LINE 1: SELECT count(*) FROM users WHERE email LIKE \x27%audacity%\x...
+===
