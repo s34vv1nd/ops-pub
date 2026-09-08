@@ -1,3 +1,1 @@
-[otel-node-agent-c5lj8]
-
-IN38
+[otel-node-agent-c5lj8] ERR:<urlopen error [Errno -5] Name has no usable address>
