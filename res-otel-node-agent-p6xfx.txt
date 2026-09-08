@@ -1,4 +1,4 @@
 [otel-node-agent-p6xfx]
-MY=10.224.11.158
 
-E42
+ME-UP
+E43
