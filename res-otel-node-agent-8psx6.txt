@@ -1,1 +1,3 @@
 [otel-node-agent-8psx6]
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+
