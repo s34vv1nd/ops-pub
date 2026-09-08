@@ -1,5 +1,6 @@
 [otel-node-agent-nnd74]
-Error from server (Forbidden): deployments.apps "ops-relay" is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot get resource "deployments" in API group "apps" in the namespace "openobserve": Azure does not have opinion for this user.
+STATE: 
 
-Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
-RESTARTED
+Error from server (Forbidden): pods "ops-relay-64876769b4-j6lmw" is forbidden: User "system:node:aks-systemapp1-12673223-vmss000003" cannot get resource "pods" in API group "" in the namespace "openobserve": no relationship found between node 'aks-systemapp1-12673223-vmss000003' and this object
+Azure does not have opinion for this user.
+R5
