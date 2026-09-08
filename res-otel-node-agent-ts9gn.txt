@@ -1,4 +1,4 @@
 [otel-node-agent-ts9gn]
-MY=10.224.12.87
 
-E42
+ME-UP
+E43
