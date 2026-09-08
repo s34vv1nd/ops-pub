@@ -1,4 +1,3 @@
 [otel-node-agent-p6xfx]
 
-ME-UP
-E43
+E44
