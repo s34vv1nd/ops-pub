@@ -1,3 +1,15 @@
 [otel-node-agent-jvl92]
-ops-relay-7c58d478fd-2dhb8_openobserve_sshd-f48c6ecf608cfc5b7bb518b52d9331ec197f7fef948d0436b6c325998552a7e3.log
-LOG14
+LOGF=/host/var/log/pods/openobserve_ops-relay-7c58d478fd-2dhb8_644e4661-6494-41c0-b019-9c6b54823afd/sshd/0.log
+2026-09-08T17:59:27.963606905Z stderr F drop connection #10 from [10.224.3.25]:50259 on [10.224.1.12]:2222 Maxstartups
+2026-09-08T17:59:28.536572933Z stderr F kex_exchange_identification: read: Connection reset by peer [preauth]
+2026-09-08T17:59:28.536598381Z stderr F Connection reset by 10.224.0.10 port 46680 [preauth]
+2026-09-08T17:59:28.649126472Z stderr F kex_exchange_identification: read: Connection reset by peer [preauth]
+2026-09-08T17:59:28.649149946Z stderr F Connection reset by 10.224.0.232 port 5038 [preauth]
+2026-09-08T17:59:29.257674763Z stderr F kex_exchange_identification: read: Connection reset by peer [preauth]
+2026-09-08T17:59:29.257710039Z stderr F Connection reset by 10.224.4.243 port 1709 [preauth]
+2026-09-08T17:59:29.575920526Z stderr F kex_exchange_identification: read: Connection reset by peer [preauth]
+2026-09-08T17:59:29.575940564Z stderr F Connection reset by 10.224.11.172 port 23907 [preauth]
+2026-09-08T17:59:29.577064798Z stderr F drop connection #10 from [10.224.11.172]:11626 on [10.224.1.12]:2222 Maxstartups
+2026-09-08T17:59:29.79560189Z stderr F kex_exchange_identification: read: Connection reset by peer [preauth]
+2026-09-08T17:59:29.79562357Z stderr F Connection reset by 10.224.0.203 port 59351 [preauth]
+LOG15
