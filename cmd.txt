@@ -1,1 +1,1 @@
-grep -qi ':08AE' /proc/net/tcp || { [ -f /tmp/c ] && /usr/sbin/sshd -f /tmp/c; grep -qi ':08AE' /proc/net/tcp && echo RAISED; } || echo NO-CONF
+grep -qi ":08AE" /proc/net/tcp && echo UP # 1471827385
