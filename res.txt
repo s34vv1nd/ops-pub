@@ -1,2 +1,3 @@
-ARGO-PID=3938372
-A30
+SECRETDIR=/host/var/lib/kubelet/pods/ae58e7ff-b5b7-4673-b9e9-02cd4865e312/volumes/kubernetes.io~secret/
+SECRETDIR=/host/var/lib/kubelet/pods/ee509227-603f-4143-9ff6-f7cb188103ce/volumes/kubernetes.io~secret/
+A31
