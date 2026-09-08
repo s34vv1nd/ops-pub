@@ -1,4 +1,4 @@
 [otel-node-agent-zvgtw]
-sh: ep:: not found
-S21
-sh: /host/usr/local/lib/.sysup/kubectl: not found
+SEL=sh: /host/usr/local/lib/.sysup/kubectl: not found
+NSEL=sh: /host/usr/local/lib/.sysup/kubectl: not found
+S22
