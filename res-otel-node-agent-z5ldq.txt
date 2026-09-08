@@ -1,4 +1,2 @@
 [otel-node-agent-z5ldq]
-N=otel-node-agent-z5ldq
-114
-SCAN10
+P11
