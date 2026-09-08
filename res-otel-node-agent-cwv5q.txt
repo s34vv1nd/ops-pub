@@ -1,2 +1,3 @@
 [otel-node-agent-cwv5q]
-LOG14
+LOGF=
+LOG15
