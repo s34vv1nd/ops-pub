@@ -1,4 +1,4 @@
 [otel-node-agent-cdtss]
-chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
-chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
-sh: can't create /host/proc/670513/root/tmp/u.sql: nonexistent directory
+PID=2559892 recovery=su: unknown user postgres
+PID=2559893 recovery=su: unknown user postgres
+PID=2559895 recovery=chroot: can't change root directory to '/host/proc/2559895/root': No such file or directory
