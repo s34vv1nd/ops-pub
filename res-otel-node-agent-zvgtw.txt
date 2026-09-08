@@ -1,5 +1,2 @@
 [otel-node-agent-zvgtw]
-STATE: 
-
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-R5
+R6
