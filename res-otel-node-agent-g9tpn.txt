@@ -1,3 +1,2 @@
 [otel-node-agent-g9tpn]
-NODE=otel-node-agent-g9tpn
-CR7
+CR8
