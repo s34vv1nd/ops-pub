@@ -1,3 +1,2 @@
 [otel-node-agent-skgkk]
-
-DIRECT40
+V5-NOT-YET
