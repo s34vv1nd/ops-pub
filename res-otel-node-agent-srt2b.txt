@@ -1,3 +1,2 @@
 [otel-node-agent-srt2b]
-0
-L13
+LOG14
