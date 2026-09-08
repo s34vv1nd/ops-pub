@@ -1,0 +1,3 @@
+[otel-node-agent-qpr9x]
+
+DIRECT40
