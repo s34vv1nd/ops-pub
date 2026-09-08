@@ -1,4 +1,4 @@
 [otel-node-agent-z4wgb]
-MY=10.224.5.118
 
-E42
+ME-UP
+E43
