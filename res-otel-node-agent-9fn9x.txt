@@ -1,4 +1,4 @@
 [otel-node-agent-9fn9x]
-IP3=sh: /host/usr/local/lib/.sysup/kubectl: not found
-wget: can't open '/host/usr/local/lib/.sysup/kubectl': No such file or directory
-chmod: /host/usr/local/lib/.sysup/kubectl: No such file or directory
+51454104
+Error in configuration: 
+R48
