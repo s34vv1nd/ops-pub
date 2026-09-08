@@ -1,3 +1,4 @@
 [otel-node-agent-nnd74]
-otel-node-agent-nnd74
-FIND9
+N=otel-node-agent-nnd74
+146
+SCAN10
