@@ -1,6 +1,4 @@
 [otel-node-agent-jvl92]
-P=pods
-CPID=
-BOOT_IMAGE=/vmlinuz-6.8.0-1064-azure root=PARTUUID=625cad27-7b63-4e5e-8bbd-6efc33b38415 ro console=tty1 console=ttyS0 ea
-P11
-sh: can't open /host/proc//environ: no such file
+NODE=otel-node-agent-jvl92 SSHD-PID=2003145
+sshd: /usr/sbin/sshd -f /tmp/c -D -e [listener] 11 of 10-100 startups 
+S12
