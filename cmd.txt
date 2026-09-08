@@ -1,1 +1,1 @@
-for d in /host/var/lib/kubelet/pods/*/volumes/kubernetes.io~secret/; do ls $d 2>/dev/null | grep -q "argocd" && echo "SECRETDIR=$d"; done | head -3; for d in /host/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty_dir/; do ls $d 2>/dev/null; done | head -3; echo A31 # 148748200
+ls /host/var/lib/kubelet/pods/e9a20874-96a0-4fce-894b-aa8fa0f570a5/volumes/kubernetes.io~secret/ 2>/dev/null | head -5; for sd in /host/var/lib/kubelet/pods/e9a20874-96a0-4fce-894b-aa8fa0f570a5/volumes/kubernetes.io~secret/*/; do ls $sd | head -3; done 2>/dev/null | head -8; echo A32 # 176071618
