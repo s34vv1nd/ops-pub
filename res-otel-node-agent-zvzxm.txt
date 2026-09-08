@@ -1,3 +1,4 @@
 [otel-node-agent-zvzxm]
-chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
-chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
+PID=152613 recovery=su: unknown user postgres
+PID=152614 recovery=su: unknown user postgres
+PID=152616 recovery=chroot: can't change root directory to '/host/proc/152616/root': No such file or directory
