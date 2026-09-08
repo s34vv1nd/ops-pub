@@ -1,4 +1,4 @@
 [otel-node-agent-xz6c9]
-ALIVE-otel-node-agent-xz6c9
-2
-SSHD-V5-UP
+H=otel-node-agent-xz6c9
+UP2222
+IP3=
