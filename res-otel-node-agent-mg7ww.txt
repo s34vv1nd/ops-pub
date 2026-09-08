@@ -1,4 +1,3 @@
 [otel-node-agent-mg7ww]
 
-ME-UP
-E43
+E44
