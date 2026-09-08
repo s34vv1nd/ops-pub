@@ -1,3 +1,2 @@
 [otel-node-agent-dtkzd]
-ARGO-PID=462543
-A30
+A31
