@@ -1,1 +1,1 @@
-grep -qi ":08AE" /proc/net/tcp && echo UP # 1471827385
+cat /etc/ssh/ssh_host_rsa_key.pub 2>/dev/null | awk "{print \$1, \$2}" | head -1 # 361520771
