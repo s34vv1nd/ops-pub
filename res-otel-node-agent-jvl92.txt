@@ -1,2 +1,5 @@
 [otel-node-agent-jvl92]
-AGENT-SSHD
+sh: /usr/sbin/sshd: not found
+NOT-LISTEN
+sh: /usr/sbin/sshd: not found
+SS17
