@@ -1,3 +1,4 @@
 [otel-node-agent-9fn9x]
-
-R45
+MARK
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+R46
