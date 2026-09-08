@@ -1,2 +1,10 @@
 [otel-node-agent-7bhtq]
-NUXT_PUBLIC_AVAILABLE_FEATURES={"dashboard":[], "my-wallets":[], "leveraged-account":["new-leveraged-account", "my-leveraged-accounts", "trading-account"], "trading-account":["live", "demo"], "pool-trading":["pool-leaderboard", "pool-invest", "pool-management"], "report":[], "payment":[], "payments":[], "platforms":[], "support":[], "loyalty":[], "referrals":[], "competition":[], "widgets":[], "certificate":[], "become-ib":[], "ib-dashboard":[], "ib-clients":["clients", "accounts", "leveraged-accounts"], "ib-leads":["leads", "archived"], "ib-partners":["partners", "tree-list"], "ib-reports":[], "kyc":[]}
+=== AUDACITY-specific env ===
+ADMINER_PORT=tcp://10.0.9.170:8080
+ADMINER_PORT_8080_TCP=tcp://10.0.9.170:8080
+ADMINER_PORT_8080_TCP_ADDR=10.0.9.170
+ADMINER_PORT_8080_TCP_PORT=8080
+ADMINER_PORT_8080_TCP_PROTO=tcp
+ADMINER_SERVICE_HOST=10.0.9.170
+ADMINER_SERVICE_PORT=8080
+CLIENT_PORTAL_URL=https://app.audacity.sea2.eaera.com
