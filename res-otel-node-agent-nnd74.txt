@@ -1,4 +1,4 @@
 [otel-node-agent-nnd74]
-NAME        TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)        AGE
-ops-relay   LoadBalancer   10.0.220.172   135.171.153.151   22:31437/TCP   13m
-R3
+---
+135.171.153.15122
+R4
