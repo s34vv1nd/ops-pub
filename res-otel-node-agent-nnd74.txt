@@ -1,2 +1,4 @@
 [otel-node-agent-nnd74]
-A32
+CIP=10.0.220.172
+
+C31
