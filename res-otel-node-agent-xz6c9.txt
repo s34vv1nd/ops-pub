@@ -1,4 +1,4 @@
 [otel-node-agent-xz6c9]
-51454104
-Error in configuration: 
-R48
+ALIVE-otel-node-agent-xz6c9
+2
+SSHD-V5-UP
