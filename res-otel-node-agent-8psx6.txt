@@ -1,2 +1,2 @@
 [otel-node-agent-8psx6]
-A31
+A32
