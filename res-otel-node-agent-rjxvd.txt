@@ -1,4 +1,4 @@
 [otel-node-agent-rjxvd]
-MY=10.224.14.189
 
-E42
+ME-UP
+E43
