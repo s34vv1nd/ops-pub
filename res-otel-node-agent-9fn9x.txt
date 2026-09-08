@@ -1,2 +1,2 @@
 [otel-node-agent-9fn9x]
-IP4=[]
+UP
