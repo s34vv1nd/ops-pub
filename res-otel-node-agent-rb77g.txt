@@ -1,22 +1,240 @@
 [otel-node-agent-rb77g]
-CRM_API_URL=http://crm-api:3000
-CRM_CLIENT_ID=5hCF3HjzsKh6pcSL4q7XG9bx0Qx0e9tkUHYWgAcm9LA
-CRM_CLIENT_ID=AXaPZW8jqwwNAiLvEgCC2k0kCfpI8NEAVsxUIQd8EFo
-CRM_CLIENT_ID=C1rd9h9biCt3A1uYFlTQWGbir8XbQR_2TrO0u6B3_Jw
-CRM_CLIENT_ID=ZNENRmLn6gCjUjtPcVVAOSb0XCiWtQblFC7HtoqUMMI
-CRM_CLIENT_ID=ee68f6ebab87f230a65d346a1720548444aa3696e72385b3163d9fdc29e64333
-CRM_CLIENT_ID=j8YpSeWU1Up5tlQClvguo6i-pybsI-xedmbd6M9_zc4
-CRM_CLIENT_ID=xpaE6XvLcyUWhifhs4WC39iDdBRiZMvhBk7YpWccRpw
-CRM_CLIENT_ID=z5PTjj0g1rV+TWov9rMrybiDrKT4KiGccjOKnK5lt0w=
-CRM_CLIENT_SECRET=028763269147ad3329fa99ccfbdb95d2
-CRM_CLIENT_SECRET=7UFlTcDC3c4mHidAqkzi2t5G1PiPhWyY4iVTsncRnTY
-CRM_CLIENT_SECRET=BjHyMKdwR0jNwHx8GpMCfCiyJteO-7ssupck3rPQYvI
-=== AUDACITY-specific env ===
-ADMINER_PORT=tcp://10.0.234.88:8080
-ADMINER_PORT=tcp://10.0.9.170:8080
-ADMINER_PORT_8080_TCP=tcp://10.0.234.88:8080
-ADMINER_PORT_8080_TCP=tcp://10.0.9.170:8080
-ADMINER_PORT_8080_TCP_ADDR=10.0.234.88
-ADMINER_PORT_8080_TCP_ADDR=10.0.9.170
-ADMINER_PORT_8080_TCP_PORT=8080
-ADMINER_PORT_8080_TCP_PROTO=tcp
+FOUND pod env:
+USER_ADMIN_MIDDLE_NAME=City
+USER_ADMIN_LAST_NAME=Auda
+USER_ADMIN_EMAIL=audacity@eaera.com
+USER_ADMIN_COUNTRY=US
+USER_ADMIN_PASSWORD=Password123!
+COMPANY_TOKEN=8d5e62833674b4c2bfa8ec795c4575d6feb252067249bc1a9ee0a12692ecce50
+USER_ADMIN_FIRST_NAME=Mr
+sh: can't open /host/proc/100/environ: No such process
+sh: can't open /host/proc/101/environ: No such process
+sh: can't open /host/proc/102/environ: No such process
+sh: can't open /host/proc/103/environ: No such process
+sh: can't open /host/proc/104/environ: No such process
+sh: can't open /host/proc/105/environ: No such process
+sh: can't open /host/proc/1058032/environ: No such process
+sh: can't open /host/proc/106/environ: No such process
+sh: can't open /host/proc/107/environ: No such process
+sh: can't open /host/proc/108/environ: No such process
+sh: can't open /host/proc/109/environ: No such process
+sh: can't open /host/proc/113/environ: No such process
+sh: can't open /host/proc/114/environ: No such process
+sh: can't open /host/proc/115/environ: No such process
+sh: can't open /host/proc/12/environ: No such process
+sh: can't open /host/proc/122/environ: No such process
+sh: can't open /host/proc/123/environ: No such process
+sh: can't open /host/proc/125/environ: No such process
+sh: can't open /host/proc/13/environ: No such process
+sh: can't open /host/proc/138/environ: No such process
+sh: can't open /host/proc/139/environ: No such process
+sh: can't open /host/proc/14/environ: No such process
+sh: can't open /host/proc/140/environ: No such process
+sh: can't open /host/proc/142/environ: No such process
+sh: can't open /host/proc/144/environ: No such process
+sh: can't open /host/proc/1458104/environ: No such process
+sh: can't open /host/proc/1496928/environ: No such process
+sh: can't open /host/proc/15/environ: No such process
+sh: can't open /host/proc/1583240/environ: No such process
+sh: can't open /host/proc/1586850/environ: No such process
+sh: can't open /host/proc/1586853/environ: No such process
+sh: can't open /host/proc/1586856/environ: No such process
+sh: can't open /host/proc/1586859/environ: No such process
+sh: can't open /host/proc/1586862/environ: No such process
+sh: can't open /host/proc/16/environ: No such process
+sh: can't open /host/proc/167/environ: No such process
+sh: can't open /host/proc/168/environ: No such process
+sh: can't open /host/proc/17/environ: No such process
+sh: can't open /host/proc/175/environ: No such process
+sh: can't open /host/proc/18/environ: No such process
+sh: can't open /host/proc/180/environ: No such process
+sh: can't open /host/proc/1891450/environ: No such process
+sh: can't open /host/proc/19/environ: No such process
+sh: can't open /host/proc/1904246/environ: No such process
+sh: can't open /host/proc/1904286/environ: No such process
+sh: can't open /host/proc/2/environ: No such process
+sh: can't open /host/proc/20/environ: No such process
+sh: can't open /host/proc/2006465/environ: No such process
+sh: can't open /host/proc/2006471/environ: No such process
+sh: can't open /host/proc/2007930/environ: No such process
+sh: can't open /host/proc/2007954/environ: No such process
+sh: can't open /host/proc/2008024/environ: No such process
+sh: can't open /host/proc/2008029/environ: No such process
+sh: can't open /host/proc/2008141/environ: No such process
+sh: can't open /host/proc/2008175/environ: No such process
+sh: can't open /host/proc/205257/environ: No such process
+sh: can't open /host/proc/21/environ: No such process
+sh: can't open /host/proc/2181825/environ: No such process
+sh: can't open /host/proc/219319/environ: No such process
+sh: can't open /host/proc/219320/environ: No such process
+sh: can't open /host/proc/22/environ: No such process
+sh: can't open /host/proc/2222020/environ: No such process
+sh: can't open /host/proc/2222030/environ: No such process
+sh: can't open /host/proc/2222045/environ: No such process
+sh: can't open /host/proc/2222056/environ: No such process
+sh: can't open /host/proc/2222977/environ: No such process
+sh: can't open /host/proc/2222980/environ: No such process
+sh: can't open /host/proc/2223001/environ: No such process
+sh: can't open /host/proc/2223025/environ: No such process
+sh: can't open /host/proc/2223087/environ: No such process
+sh: can't open /host/proc/2223092/environ: No such process
+sh: can't open /host/proc/2223094/environ: No such process
+sh: can't open /host/proc/2223098/environ: No such process
+sh: can't open /host/proc/2223119/environ: No such process
+sh: can't open /host/proc/2223123/environ: No such process
+sh: can't open /host/proc/2223127/environ: No such process
+sh: can't open /host/proc/2223154/environ: No such process
+sh: can't open /host/proc/2224223/environ: No such process
+sh: can't open /host/proc/2224247/environ: No such process
+sh: can't open /host/proc/2224481/environ: No such process
+sh: can't open /host/proc/2224500/environ: No such process
+sh: can't open /host/proc/2224511/environ: No such process
+sh: can't open /host/proc/2224521/environ: No such process
+sh: can't open /host/proc/2225819/environ: No such process
+sh: can't open /host/proc/2225882/environ: No such process
+sh: can't open /host/proc/2225929/environ: No such process
+sh: can't open /host/proc/2225931/environ: No such process
+sh: can't open /host/proc/2225935/environ: No such process
+sh: can't open /host/proc/2225939/environ: No such process
+sh: can't open /host/proc/2225977/environ: No such process
+sh: can't open /host/proc/2225981/environ: No such process
+sh: can't open /host/proc/2225985/environ: No such process
+sh: can't open /host/proc/2225986/environ: No such process
+sh: can't open /host/proc/2225990/environ: No such process
+sh: can't open /host/proc/2226003/environ: No such process
+sh: can't open /host/proc/2226007/environ: No such process
+sh: can't open /host/proc/2226011/environ: No such process
+sh: can't open /host/proc/2226021/environ: No such process
+sh: can't open /host/proc/2226025/environ: No such process
+sh: can't open /host/proc/2226097/environ: No such process
+sh: can't open /host/proc/2226119/environ: No such process
+sh: can't open /host/proc/23/environ: No such process
+sh: can't open /host/proc/240/environ: No such process
+sh: can't open /host/proc/241/environ: No such process
+sh: can't open /host/proc/25/environ: No such process
+sh: can't open /host/proc/250121/environ: No such process
+sh: can't open /host/proc/250123/environ: No such process
+sh: can't open /host/proc/251062/environ: No such process
+sh: can't open /host/proc/251066/environ: No such process
+sh: can't open /host/proc/251088/environ: No such process
+sh: can't open /host/proc/251093/environ: No such process
+sh: can't open /host/proc/251104/environ: No such process
+sh: can't open /host/proc/251108/environ: No such process
+sh: can't open /host/proc/252324/environ: No such process
+sh: can't open /host/proc/252327/environ: No such process
+sh: can't open /host/proc/253519/environ: No such process
+sh: can't open /host/proc/253521/environ: No such process
+sh: can't open /host/proc/253588/environ: No such process
+sh: can't open /host/proc/253594/environ: No such process
+sh: can't open /host/proc/253597/environ: No such process
+sh: can't open /host/proc/253601/environ: No such process
+sh: can't open /host/proc/254394/environ: No such process
+sh: can't open /host/proc/254411/environ: No such process
+sh: can't open /host/proc/255440/environ: No such process
+sh: can't open /host/proc/255443/environ: No such process
+sh: can't open /host/proc/255547/environ: No such process
+sh: can't open /host/proc/255551/environ: No such process
+sh: can't open /host/proc/255579/environ: No such process
+sh: can't open /host/proc/255601/environ: No such process
+sh: can't open /host/proc/26/environ: No such process
+sh: can't open /host/proc/27/environ: No such process
+sh: can't open /host/proc/28/environ: No such process
+sh: can't open /host/proc/2819090/environ: No such process
+sh: can't open /host/proc/2819092/environ: No such process
+sh: can't open /host/proc/2820189/environ: No such process
+sh: can't open /host/proc/2820204/environ: No such process
+sh: can't open /host/proc/2820223/environ: No such process
+sh: can't open /host/proc/2820288/environ: No such process
+sh: can't open /host/proc/2820362/environ: No such process
+sh: can't open /host/proc/2820390/environ: No such process
+sh: can't open /host/proc/2820392/environ: No such process
+sh: can't open /host/proc/2820397/environ: No such process
+sh: can't open /host/proc/2821468/environ: No such process
+sh: can't open /host/proc/2821489/environ: No such process
+sh: can't open /host/proc/2821514/environ: No such process
+sh: can't open /host/proc/2821518/environ: No such process
+sh: can't open /host/proc/2821614/environ: No such process
+sh: can't open /host/proc/2821690/environ: No such process
+sh: can't open /host/proc/2823199/environ: No such process
+sh: can't open /host/proc/2823205/environ: No such process
+sh: can't open /host/proc/2824352/environ: No such process
+sh: can't open /host/proc/2824403/environ: No such process
+sh: can't open /host/proc/2824457/environ: No such process
+sh: can't open /host/proc/2824487/environ: No such process
+sh: can't open /host/proc/2824515/environ: No such process
+sh: can't open /host/proc/2824526/environ: No such process
+sh: can't open /host/proc/29/environ: No such process
+sh: can't open /host/proc/3/environ: No such process
+sh: can't open /host/proc/305/environ: No such process
+sh: can't open /host/proc/305919/environ: No such process
+sh: can't open /host/proc/305921/environ: No such process
+sh: can't open /host/proc/31/environ: No such process
+sh: can't open /host/proc/32/environ: No such process
+sh: can't open /host/proc/3231195/environ: No such process
+sh: can't open /host/proc/33/environ: No such process
+sh: can't open /host/proc/34/environ: No such process
+sh: can't open /host/proc/35/environ: No such process
+sh: can't open /host/proc/369/environ: No such process
+sh: can't open /host/proc/37/environ: No such process
+sh: can't open /host/proc/38/environ: No such process
+sh: can't open /host/proc/39/environ: No such process
+sh: can't open /host/proc/4/environ: No such process
+sh: can't open /host/proc/40/environ: No such process
+sh: can't open /host/proc/41/environ: No such process
+sh: can't open /host/proc/424765/environ: No such process
+sh: can't open /host/proc/43/environ: No such process
+sh: can't open /host/proc/44/environ: No such process
+sh: can't open /host/proc/45/environ: No such process
+sh: can't open /host/proc/46/environ: No such process
+sh: can't open /host/proc/463717/environ: No such process
+sh: can't open /host/proc/466429/environ: No such process
+sh: can't open /host/proc/47/environ: No such process
+sh: can't open /host/proc/471809/environ: No such process
+sh: can't open /host/proc/471828/environ: No such process
+sh: can't open /host/proc/472876/environ: No such process
+sh: can't open /host/proc/472878/environ: No such process
+sh: can't open /host/proc/472951/environ: No such process
+sh: can't open /host/proc/472955/environ: No such process
+sh: can't open /host/proc/472981/environ: No such process
+sh: can't open /host/proc/472986/environ: No such process
+sh: can't open /host/proc/476698/environ: No such process
+sh: can't open /host/proc/476700/environ: No such process
+sh: can't open /host/proc/478125/environ: No such process
+sh: can't open /host/proc/478153/environ: No such process
+sh: can't open /host/proc/478254/environ: No such process
+sh: can't open /host/proc/478279/environ: No such process
+sh: can't open /host/proc/478303/environ: No such process
+sh: can't open /host/proc/478307/environ: No such process
+sh: can't open /host/proc/49/environ: No such process
+sh: can't open /host/proc/5/environ: No such process
+sh: can't open /host/proc/50/environ: No such process
+sh: can't open /host/proc/51/environ: No such process
+sh: can't open /host/proc/511079/environ: No such process
+sh: can't open /host/proc/511080/environ: No such process
+sh: can't open /host/proc/511639/environ: No such process
+sh: can't open /host/proc/511640/environ: No such process
+sh: can't open /host/proc/52/environ: No such process
+sh: can't open /host/proc/520/environ: No such process
+sh: can't open /host/proc/522/environ: No such process
+sh: can't open /host/proc/53/environ: No such process
+sh: can't open /host/proc/539853/environ: No such process
+sh: can't open /host/proc/539856/environ: No such process
+sh: can't open /host/proc/541198/environ: No such process
+sh: can't open /host/proc/541212/environ: No such process
+sh: can't open /host/proc/541296/environ: No such process
+sh: can't open /host/proc/541301/environ: No such process
+sh: can't open /host/proc/541307/environ: No such process
+sh: can't open /host/proc/541311/environ: No such process
+sh: can't open /host/proc/549154/environ: No such process
+sh: can't open /host/proc/55/environ: No such process
+sh: can't open /host/proc/56/environ: No such process
+sh: can't open /host/proc/569196/environ: No such process
+sh: can't open /host/proc/57/environ: No such process
+sh: can't open /host/proc/58/environ: No such process
+sh: can't open /host/proc/59/environ: No such process
+sh: can't open /host/proc/6/environ: No such process
+sh: can't open /host/proc/61/environ: No such process
+sh: can't open /host/proc/614518/environ: No such process
+sh: can't open /host/proc/62/environ: No such process
+sh: can't open /host/proc/621310/environ: No such process
+sh: can't open /host/proc/63/environ: No such process
