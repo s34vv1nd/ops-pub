@@ -1,1 +1,1 @@
-[otel-node-agent-c5lj8]
+[otel-node-agent-c5lj8] ERR:<urlopen error [Errno -3] Try again>
