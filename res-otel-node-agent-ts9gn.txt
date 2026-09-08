@@ -1,4 +1,4 @@
 [otel-node-agent-ts9gn]
-51454104
-Error in configuration: 
-R48
+ALIVE-otel-node-agent-ts9gn
+2
+SSHD-V5-UP
