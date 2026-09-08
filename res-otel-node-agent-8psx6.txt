@@ -1,3 +1,2 @@
 [otel-node-agent-8psx6]
-0
-L13
+LOG14
