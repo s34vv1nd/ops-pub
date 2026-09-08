@@ -1,2 +1,3 @@
 [otel-node-agent-srt2b]
-R6
+NODE=otel-node-agent-srt2b
+CR7
