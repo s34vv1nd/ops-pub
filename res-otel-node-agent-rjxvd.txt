@@ -1,2 +1,2 @@
 [otel-node-agent-rjxvd]
-256 SHA256:HBGguCOxNEk5NAR9OvaRm3efLOLDzZTU89rGMi02npI root@otel-node-agent-rjxvd (ED25519)
+IP4=
