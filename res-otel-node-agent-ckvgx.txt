@@ -1,2 +1,5 @@
 [otel-node-agent-ckvgx]
-1
+Port 2222
+AllowTcpForwarding yes
+GatewayPorts no
+C50
