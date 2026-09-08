@@ -1,3 +1,2 @@
 [otel-node-agent-p6xfx]
-
-DIRECT40
+V5-NOT-YET
