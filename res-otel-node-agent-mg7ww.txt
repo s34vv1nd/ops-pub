@@ -1,4 +1,4 @@
 [otel-node-agent-mg7ww]
-ALIVE-otel-node-agent-mg7ww
-0
-SSHD-V5-UP
+H=otel-node-agent-mg7ww
+UP2222
+IP3=
