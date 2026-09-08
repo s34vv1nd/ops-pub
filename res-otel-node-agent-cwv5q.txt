@@ -1,3 +1,2 @@
 [otel-node-agent-cwv5q]
-0
-L13
+LOG14
