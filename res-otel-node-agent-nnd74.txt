@@ -1,3 +1,5 @@
 [otel-node-agent-nnd74]
-tail: can't open '/host/var/log/pods/openobserve_ops-relay-7c58d478fd-2dhb8_644e4661-6494-41c0-b019-9c6b54823afd/sshd/0.log': No such file or directory
-tail: no files
+sh: /usr/sbin/sshd: not found
+NOT-LISTEN
+sh: /usr/sbin/sshd: not found
+SS17
