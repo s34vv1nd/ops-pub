@@ -1,4 +1,2 @@
 [otel-node-agent-g9tpn]
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-EP
-sh: /host/usr/local/lib/.sysup/kubectl: not found
+LB19
