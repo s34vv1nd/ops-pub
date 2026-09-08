@@ -1,2 +1,2 @@
 [otel-node-agent-z4wgb]
-256 SHA256:FD4wtxG6RUf9deuPbgzNMgdhDLcCWz+JGMRYoE/buO8 root@otel-node-agent-z4wgb (ED25519)
+IP4=20.198.151.193
