@@ -1,4 +1,2 @@
 [otel-node-agent-dtkzd]
-N=otel-node-agent-dtkzd
-95
-SCAN10
+P11
