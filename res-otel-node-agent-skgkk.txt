@@ -1,4 +1,4 @@
 [otel-node-agent-skgkk]
-MY=10.42.155.190
 
-E42
+ME-UP
+E43
