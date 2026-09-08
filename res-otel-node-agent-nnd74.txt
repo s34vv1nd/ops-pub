@@ -1,5 +1,5 @@
 [otel-node-agent-nnd74]
 IP=135.171.153.151
-
-EPS=Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice10.224.0.100:2222
-LB26
+EPS=10.224.0.100
+LB27
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
