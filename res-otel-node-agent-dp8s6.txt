@@ -1,4 +1,6 @@
 [otel-node-agent-dp8s6]
-chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
-chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
-sh: can't create /host/proc/670513/root/tmp/u.sql: nonexistent directory
+== /host/proc/1882703/root/etc/pgbouncer/userlist.txt
+== /host/proc/1882721/root/etc/pgbouncer/userlist.txt
+== /host/proc/1890668/root/etc/pgbouncer/userlist.txt
+== /host/proc/1890711/root/etc/pgbouncer/userlist.txt
+===
