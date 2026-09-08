@@ -1,5 +1,4 @@
 [otel-node-agent-8psx6]
-sh: /usr/sbin/sshd: not found
-NOT-LISTEN
-sh: /usr/sbin/sshd: not found
-SS17
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+EP
+sh: /host/usr/local/lib/.sysup/kubectl: not found
