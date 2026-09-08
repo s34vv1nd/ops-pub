@@ -1,2 +1,4 @@
 [otel-node-agent-xz6c9]
-ALREADY
+MY=10.224.3.253
+
+E42
