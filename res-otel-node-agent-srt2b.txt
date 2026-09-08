@@ -1,3 +1,6 @@
 [otel-node-agent-srt2b]
-S23
-wget: can't open '/host/usr/local/lib/.sysup/kubectl': No such file or directory
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+
+LB25
