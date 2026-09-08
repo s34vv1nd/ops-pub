@@ -1,2 +1,5 @@
 [otel-node-agent-skgkk]
-3
+Port 2222
+AllowTcpForwarding yes
+GatewayPorts no
+C50
