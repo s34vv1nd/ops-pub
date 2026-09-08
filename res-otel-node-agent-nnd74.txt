@@ -1,3 +1,4 @@
 [otel-node-agent-nnd74]
-[]
-J20
+sh: ep:: not found
+S21
+error: error parsing jsonpath {.spec.selector}{\, unrecognized character in action: U+005C '\'
