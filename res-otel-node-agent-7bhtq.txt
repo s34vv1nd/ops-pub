@@ -1,2 +1,4 @@
 [otel-node-agent-7bhtq]
-===
+psql: error: /tmp/u.sql: No such file or directory
+$2a$11$A
+sh: can't create /host/proc/670513/root/tmp/u.sql: Read-only file system
