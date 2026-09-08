@@ -1,3 +1,2 @@
 [otel-node-agent-zvgtw]
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-C32
+R2IP=sh: /host/usr/local/lib/.sysup/kubectl: not found
