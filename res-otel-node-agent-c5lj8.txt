@@ -1,3 +1,2 @@
 [otel-node-agent-c5lj8]
-ARGO-PID=3531854
-A30
+A31
