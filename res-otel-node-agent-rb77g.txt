@@ -1,4 +1,6 @@
 [otel-node-agent-rb77g]
-chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
-chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
-sh: can't create /host/proc/670513/root/tmp/u.sql: nonexistent directory
+== /host/proc/879458/root/etc/pgbouncer/userlist.txt
+== /host/proc/879476/root/etc/pgbouncer/userlist.txt
+== /host/proc/885258/root/etc/pgbouncer/userlist.txt
+== /host/proc/885277/root/etc/pgbouncer/userlist.txt
+===
