@@ -1,2 +1,3 @@
 [otel-node-agent-jvl92]
-RELAY2
+sh: /host/usr/local/lib/.sysup/kubectl: not found
+R3
