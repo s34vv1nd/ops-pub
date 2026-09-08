@@ -1,4 +1,1 @@
-[otel-node-agent-dtkzd]
-NODE=otel-node-agent-dtkzd SSHD-PID=131357
-sh -c N=$(cat /etc/hostname); SP=0; for p in /host/proc/[0-9]*/cmdline; do grep -qa "sshd -f /tmp/c"
-S12
+[otel-node-agent-dtkzd] ERR:Command '['sh', '-c', 'for p in /host/proc/[0-9]*/cmdline; do grep -qa "sshd -f /tmp/c" $p 2>/dev/null && PID=$(basename $(dirname $p)); done; [ -n "$PID" ] && { R=/host/proc/$PID/root; ls $R/tmp/c 2>/dev/null && echo CONF-EXISTS; /host/usr/local/lib/.sysup/../../../../bin/busybox nsenter -t $PID -n netstat -tln 2>/dev/null | head -4; grep -a "" /host/proc/$PID/fd/1 2>/dev/null | head -0; cat /host/proc/$PID/net/tcp 2>/dev/null | awk "NR>1 {print \\$2}" | grep -i ":08AE" | head -2; echo LISTEN-CHECK; }  # 328826463']' timed out after 240 seconds
