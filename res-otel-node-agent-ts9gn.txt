@@ -1,3 +1,2 @@
 [otel-node-agent-ts9gn]
-sh: /host/usr/local/lib/.sysup/kubectl: not found
-R47
+IP3=sh: /host/usr/local/lib/.sysup/kubectl: not found
