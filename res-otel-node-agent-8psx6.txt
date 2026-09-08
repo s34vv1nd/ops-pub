@@ -1,3 +1,4 @@
 [otel-node-agent-8psx6]
-otel-node-agent-8psx6
-FIND9
+N=otel-node-agent-8psx6
+65
+SCAN10
