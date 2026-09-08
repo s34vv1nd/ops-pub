@@ -1,2 +1,5 @@
 [otel-node-agent-c5lj8]
-AGENT-SSHD
+OK: 17.6 MiB in 38 packages
+/usr/sbin/sshd
+/usr/sbin/sshd
+W16
