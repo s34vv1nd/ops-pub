@@ -1,4 +1,6 @@
 [otel-node-agent-srt2b]
-PID=594802 recovery=su: unknown user postgres
-PID=594803 recovery=su: unknown user postgres
-PID=594805 recovery=chroot: can't change root directory to '/host/proc/594805/root': No such file or directory
+HOST=otel-node-agent-srt2b
+6.8.0-1064-azure
+
+default via 169.254.1.1 dev eth0 
+169.254.1.1 dev eth0 scope link 
