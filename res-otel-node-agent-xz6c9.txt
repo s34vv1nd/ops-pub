@@ -1,1 +1,2 @@
 [otel-node-agent-xz6c9]
+UP
