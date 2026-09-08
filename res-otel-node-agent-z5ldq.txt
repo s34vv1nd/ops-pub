@@ -1,2 +1,4 @@
 [otel-node-agent-z5ldq]
-J20
+sh: ep:: not found
+S21
+sh: /host/usr/local/lib/.sysup/kubectl: not found
