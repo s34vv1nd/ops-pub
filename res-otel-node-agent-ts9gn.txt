@@ -1,4 +1,4 @@
 [otel-node-agent-ts9gn]
-ALIVE-otel-node-agent-ts9gn
-2
-SSHD-V5-UP
+H=otel-node-agent-ts9gn
+UP2222
+IP3=
