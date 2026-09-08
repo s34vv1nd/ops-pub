@@ -1,2 +1,5 @@
 [otel-node-agent-cdtss]
 chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
+
+91 /tmp/.admintok
+chroot: can't change root directory to '/host/proc/670513/root': No such file or directory
