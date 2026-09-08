@@ -1,5 +1,3 @@
 [otel-node-agent-z5ldq]
-OK: 17.6 MiB in 38 packages
-/usr/sbin/sshd
-/usr/sbin/sshd
-W16
+LISTENING-2222
+SS17
