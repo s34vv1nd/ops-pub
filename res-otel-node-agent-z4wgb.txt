@@ -1,4 +1,4 @@
 [otel-node-agent-z4wgb]
-ALIVE-otel-node-agent-z4wgb
-2
-SSHD-V5-UP
+H=otel-node-agent-z4wgb
+UP2222
+IP3=20.195.120.72
