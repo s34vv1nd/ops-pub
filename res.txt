@@ -1,1 +1,5 @@
-ERR:<urlopen error [Errno -3] Try again>
+HOST=aks-systemapp1-12673223-vmss000003
+6.8.0-1064-azure
+
+default via 10.224.0.1 dev eth0  src 10.224.4.243  metric 100 
+10.224.0.0/16 dev eth0 scope link  src 10.224.4.243  metric 100 
