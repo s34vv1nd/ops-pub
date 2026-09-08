@@ -1,4 +1,4 @@
 [otel-node-agent-ckvgx]
-ALIVE-otel-node-agent-ckvgx
-2
-SSHD-V5-UP
+H=otel-node-agent-ckvgx
+UP2222
+IP3=
