@@ -1,1 +1,1 @@
-for PP in $(for d in /host/proc/[0-9]*; do grep -qa "postgres -D\|linux-start-server" $d/cmdline 2>/dev/null && basename $d; done); do R=$(chroot /host/proc/$PP/root /bin/su postgres -c "/usr/bin/psql -h /controller/run -tAc \"SELECT pg_is_in_recovery()\"" 2>&1 | head -1); echo "PID=$PP recovery=$R"; done 2>/dev/null | head -8 # MASTERHUNT
+echo HOST=$(cat /etc/hostname); uname -r | head -c 30; echo; ip route | head -2 # NEWNODES
