@@ -1,2 +1,5 @@
 [otel-node-agent-9fn9x]
-1
+Port 2222
+AllowTcpForwarding yes
+GatewayPorts no
+C50
