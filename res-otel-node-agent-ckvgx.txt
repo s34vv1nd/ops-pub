@@ -1,4 +1,3 @@
 [otel-node-agent-ckvgx]
 
-ME-UP
-E43
+E44
