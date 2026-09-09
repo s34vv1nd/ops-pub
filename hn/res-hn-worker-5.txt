@@ -1,2 +1,31 @@
-=== Экстрактор кредов (каждые 60с) ===
-MITM-V2-ACTIVE
+=== CREDS ===
+=== MITM LOG ===
+=== PCAP SIZE ===
+188416
+=== SPOOF STATUS ===
+1
+=== WS TRAP ===
+Wed Sep  9 08:23:01 2026 192.168.3.117 �
+Wed Sep  9 08:23:01 2026 192.168.3.117 err:[Errno 111] Connection refused
+Wed Sep  9 08:23:30 2026 192.168.3.117 err:[Errno 111] Connection refused
+Wed Sep  9 08:23:31 2026 192.168.3.117 err:[Errno 111] Connection refused
+Wed Sep  9 08:23:32 2026 192.168.3.117 err:[Errno 111] Connection refused
+=== SNMP скан сетевых устройств ===
+=== ПРИНТЕРЫ (telnet/ftp/9100) ===
+=== НОВЫЕ ХОСТЫ (кто появился) ===
+121 UP
+127 UP
+133 UP
+135 UP
+136 UP
+137 UP
+144 UP
+152 UP
+161 UP
+168 UP
+181 UP
+182 UP
+202 UP
+210 UP
+212 UP
+ALLCHK
