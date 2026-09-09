@@ -1,7 +1,2 @@
-=== MITM SETUP ===
-GW_MAC=0c:82:47:30:08:1e
-MY_MAC=00:e0:4f:29:1e:10
-VICTIM=192.168.3.135 VMAC=80:05:88:76:c0:4b
-VICTIM=192.168.3.152 VMAC=00:17:61:10:f5:ea
-tcpdump started
-MITM-ACTIVE
+=== Экстрактор кредов (каждые 60с) ===
+MITM-V2-ACTIVE
