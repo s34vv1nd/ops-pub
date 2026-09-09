@@ -1,5 +1,8 @@
-=== TYPE ACTION INVOKE ===
-{"error":"HTTPException","detail":"Authentication required"}
-HTTP:401
+=== REGISTER ===
+{"id":2,"email":"ops.maint2@eaera.io","emailVerified":false,"firstName":null,"lastName":null,"phone":null,"state":"active","createdAt":"2026-09-09T17:05:15.440279Z"}
+HTTP:201
+=== LOGIN ===
+jwt_len=0
+
 === EXECUTIONS ===
 {"items":[],"total":0,"page":1,"perPage":50}
