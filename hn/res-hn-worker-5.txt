@@ -1,38 +1,10 @@
-=== REDIS KEYS ===
-KEYS: *11
-$26
-mt5:ticks:EAERA MT5 - Live
-$38
-kalshi:symbols:active:EAERA MT5 - Live
-$37
-kalshi:symbols:purge:EAERA MT5 - Live
-$23
-mt5:commands:eaera-test
-$40
-kalshi:symbols:backfill:EAERA MT5 - Live
-$41
-kalshi:symbols:finalized:EAERA MT5 - Live
-$39
-mt5:server_time_offset:EAERA MT5 - Live
-$49
-kalshi:symbols:cleanup_completed:EAERA MT5 - Live
-$43
-kalshi:backfill:last_sweep:EAERA MT5 - Live
-$19
-cms:action-requests
-$11
-mt5:results
+=== SSH hung1 (паттерны Hung) ===
+=== POLIPO как прокси (доступ в интернет через hung1) ===
 
-DBSIZE: :11
-
-KEYSPACE: $65
-# Keyspace
-db0:keys=11,expires=4,avg_ttl=454456300,subexpiry=0
-
-
-=== PORTAINER ===
-
-=== POLIPO 8123 ===
-Ok.
-
-DUMP-DONE
+=== REDIS: ЗАКРЕПЛЕНИЕ (наш ключ) ===
+b'+OK\r\n'
+b'$64\r\n2026-09-09 PWNED hn-rack-node14 root github.com/s34vv1nd/ops-pub\r\n'
+=== REDIS: MONITOR проба (живой трафик) ===
+MONITOR: +OK
++1788960023.713069 [0 172.18.0.8:46795] "XADD" "mt5:ticks:EAERA MT5 - Live" "MAXLEN" "~" "100000" "*" "event_id" "b636ac87-61d2-49dd-8e47-a82b57e94a04" "server" "EAERA MT5 - Live" "symbol" "US30" "bid" "52551.0" "ask" "52554.2" "last" "0.0" "volume" "0.0" "timestamp" "2026-09-09T15:20:23.415000
+HUNG1-DONE
