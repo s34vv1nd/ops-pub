@@ -1,5 +1,5 @@
 python3 - <<'PYEOF'
-import socket, time
+import socket, time, uuid
 def R(*a):
     o="*%d\r\n"%len(a)
     for x in a: o+="$%d\r\n%s\r\n"%(len(x.encode()),x)
@@ -9,7 +9,15 @@ def c(*a):
     s.sendall(R(*a)); time.sleep(0.6)
     try: return s.recv(200000).decode(errors="replace").strip()
     except Exception: return "TO"
-print("RES1:", c("GET","cms:action-result:e07981b4-6169-4435-81a5-df9c31b0ad73")[:1500])
-print("RES2:", c("GET","cms:action-result:8ba91140-51e4-4c26-9718-6daaff0cecd2")[:1500])
-print("TTL1:", c("TTL","cms:action-result:e07981b4-6169-4435-81a5-df9c31b0ad73"))
-PYEOF # S12
+rid=str(uuid.uuid4())
+print("XADD:", c("XADD","cms:action-requests","*",
+  "request_id",rid,
+  "content_uuid","cc487c59-cf0c-4521-b41d-4e0ecec9bce0",
+  "action","refresh",
+  "params","{}",
+  "timeout_seconds","25",
+  "user_id","1"))
+print("rid:",rid)
+time.sleep(25)
+print("RES:", c("GET","cms:action-result:"+rid)[:1200])
+PYEOF # S13
