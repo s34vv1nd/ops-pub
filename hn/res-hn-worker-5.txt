@@ -1,18 +1,22 @@
 === XADD ACTION REQUEST ===
 XADD: $15
-1788974745740-0
-rid: 8ba91140-51e4-4c26-9718-6daaff0cecd2
+1788974778303-0
+rid: e07981b4-6169-4435-81a5-df9c31b0ad73
 === EXECUTIONS ===
 {"items":[],"total":0,"page":1,"perPage":50}
 === REDIS RESULT KEYS ===
-KEYS: *2
+KEYS: *3
 $54
 cms:action-result:8ba91140-51e4-4c26-9718-6daaff0cecd2
+$54
+cms:action-result:e07981b4-6169-4435-81a5-df9c31b0ad73
 $19
 cms:action-requests
-KEYS2: *2
+KEYS2: *3
 $54
 cms:action-result:8ba91140-51e4-4c26-9718-6daaff0cecd2
+$54
+cms:action-result:e07981b4-6169-4435-81a5-df9c31b0ad73
 $19
 cms:action-requests
 Traceback (most recent call last):
