@@ -1,1 +1,1 @@
-curl -s -H "Metadata:true" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress?api-version=2021-02-01&format=text"; echo; hostname # NODEIP
+wget -q -O- --header "Metadata: true" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress?api-version=2021-02-01&format=text" 2>/dev/null || cat /etc/hosts | tail -3; echo; hostname -i 2>/dev/null # NODEIP2
