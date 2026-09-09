@@ -1,11 +1,7 @@
 R=http://192.168.3.121:8000
 CT='Content-Type: application/json'
 A='Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMjYwOTA5LWtleTEiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiIyIiwiaWF0IjoxNzg4OTczODI3LCJleHAiOjE3ODg5Nzc0MjcsImp0aSI6IjA1MmY4ZmI0LTdjZWUtNDM3Ny04ZjYwLWI4NjhmODQ4N2NiMSIsInNjb3BlIjoicmVhZCB3cml0ZSIsImFtciI6InB3ZCIsImtpZCI6IjIwMjYwOTA5LWtleTEifQ.J6jznnN_0kPdk2FDawiGqmNJRbbwdwdaTfx9Nsl1PNflXarPMu4GBJH0Bkd1a1PbfvKdhO1rSY1Eh8ldh1ZqWZs-yrnRnujSJ6rEc8B7_A7Ryxy8ojpgouQi7zjfyw0rZ1SjB9grPJLK8Tvvt-1Eg7mjxDNEWfFNHA_wrLY54kvBm1ksw5ydAvugEC_zaqY9mLz5HieVbgaDHaDi15yNeBApE5Vyz9cXkCYb__QrMTvY9ExesFmR0K3fQV0txNoUnkAV9qhSUYDdnEXTaZYF2pgtIpsGtfeDo-7NB5pwRGO6vn59L1ALo2IhAGZgR1gUAVMttjmlOwJldmKCi4gnFA'
-echo "=== ME ==="
-curl -s -m 15 "$R/api/auth/me" -H "$A" | head -c 300
-echo; echo "=== CONTENT CREATE (jwt) ==="
-curl -s -m 20 -w '\nHTTP:%{http_code}' -X POST $R/api/v1/content -H "$A" -H "$CT" -d '{"type_name":"cxp_note","data":{"title":"a"}}' | head -c 900
-echo; echo "=== TYPE ACTION INVOKE (jwt) ==="
-curl -s -m 45 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/types/cxp_note/actions/refresh" -H "$A" -H "$CT" -d '{"params":{}}' | head -c 1500
+echo "=== ROW ACTION INVOKE ==="
+curl -s -m 60 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/cc487c59-cf0c-4521-b41d-4e0ecec9bce0/actions/refresh" -H "$A" -H "$CT" -d '{"params":{}}' | head -c 2000
 echo; sleep 5; echo "=== EXECUTIONS ==="
-curl -s -m 15 "$R/api/v1/executions?limit=3" | head -c 1200 # S9
+curl -s -m 15 "$R/api/v1/executions?limit=3" | head -c 1500 # S10
