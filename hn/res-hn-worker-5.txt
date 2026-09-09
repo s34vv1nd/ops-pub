@@ -159,7 +159,7 @@ GET,POST /api/v1/notifications/contact-lists
 GET /api/v1/notifications/contact-lists/{list_id}
 
 === REDIS QUEUE INTEL ===
-KEYS: *14
+KEYS: *13
 $8
 pwn:cron
 $7
@@ -178,8 +178,6 @@ $41
 kalshi:symbols:finalized:EAERA MT5 - Live
 $39
 mt5:server_time_offset:EAERA MT5 - Live
-$49
-kalshi:symbols:cleanup_completed:EAERA MT5 - Live
 $43
 kalshi:backfill:last_sweep:EAERA MT5 - Live
 $10
