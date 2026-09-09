@@ -1,7 +1,7 @@
 === ME ===
 {"id":2,"email":"ops.maint2@eaera.io","emailVerified":false,"firstName":null,"lastName":null,"phone":null,"state":"active","createdAt":"2026-09-09T17:05:15.440279Z"}
 === CONTENT CREATE (jwt) ===
-{"id":13506,"uuid":"08b2cc2c-20f2-4ebd-bf27-1bf9778981fc","typeName":"cxp_note","slug":"a-18","status":"draft","data":{"title":"a"},"metadata":null,"parentId":null,"sortOrder":0,"version":1,"publishedAt":null,"createdBy":2,"updatedBy":2,"createdAt":"2026-09-09T17:19:49.486473+00:00","updatedAt":"2026-09-09T17:19:49.486473+00:00"}
+{"id":13507,"uuid":"58cbc55d-bce5-4d51-87dc-2cbe87b25d54","typeName":"cxp_note","slug":"a-19","status":"draft","data":{"title":"a"},"metadata":null,"parentId":null,"sortOrder":0,"version":1,"publishedAt":null,"createdBy":2,"updatedBy":2,"createdAt":"2026-09-09T17:20:04.952232+00:00","updatedAt":"2026-09-09T17:20:04.952232+00:00"}
 HTTP:201
 === TYPE ACTION INVOKE (jwt) ===
 {"error":"HTTPException","detail":{"error":"permission_denied","message":"Type-scoped actions must declare a permission/scope"}}
