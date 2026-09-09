@@ -1,5 +1,1 @@
-[otel-node-agent-qpr9x]
-Port 2222
-AllowTcpForwarding yes
-GatewayPorts no
-C50
+[otel-node-agent-qpr9x] ERR:Remote end closed connection without response
