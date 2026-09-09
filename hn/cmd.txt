@@ -1,23 +1,25 @@
+R=192.168.3.121
+echo "=== CMS HEALTH ==="
+curl -s -m 10 "http://$R:8000/api/v1/health" | head -c 400; echo
+curl -s -m 10 -o /dev/null -w 'rules:%{http_code}\n' "http://$R:8000/api/v1/rules?limit=1"
+echo "=== REDIS uptime/stream ==="
 python3 - <<'PYEOF'
-import socket, time, uuid
+import socket, time
 def R(*a):
     o="*%d\r\n"%len(a)
     for x in a: o+="$%d\r\n%s\r\n"%(len(x.encode()),x)
     return o.encode()
 s=socket.create_connection(("192.168.3.121",6379),8); s.settimeout(4)
 def c(*a):
-    s.sendall(R(*a)); time.sleep(0.6)
+    s.sendall(R(*a)); time.sleep(0.5)
     try: return s.recv(200000).decode(errors="replace").strip()
     except Exception: return "TO"
-rid=str(uuid.uuid4())
-print("XADD:", c("XADD","cms:action-requests","*",
-  "request_id",rid,
-  "content_uuid","cc487c59-cf0c-4521-b41d-4e0ecec9bce0",
-  "action","refresh",
-  "params","{}",
-  "timeout_seconds","25",
-  "user_id","1"))
-print("rid:",rid)
-time.sleep(25)
-print("RES:", c("GET","cms:action-result:"+rid)[:1200])
-PYEOF # S13
+print("uptime:", c("INFO","server")[:200])
+i=c("INFO","server").find("uptime_in_seconds")
+print("uptime_line:", c("INFO","server")[i:i+30] if i>=0 else "?")
+print("XLEN:", c("XLEN","cms:action-requests"))
+print("anchor:", c("TTL","cxp:anchor"), c("GET","cxp:anchor")[:60])
+PYEOF
+echo "=== CT + PACK CHECK ==="
+curl -s -m 10 "http://$R:8000/api/v1/content-types/name/cxp_note" | head -c 300; echo
+curl -s -m 10 "http://$R:8000/api/v1/packs/cxp-helper" | head -c 400 # S14
