@@ -1,10 +1,10 @@
 === REINSTALL PACK ===
-{"success":true,"packName":"cxp-helper","version":"1.1.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:15:19.552183+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
+{"success":true,"packName":"cxp-helper","version":"1.1.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:16:02.769399+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
 === XADD refresh2 ===
 XADD: $15
-1788977719875-0
+1788977762862-0
 RES: $186
-{"request_id": "119227c3-b5a0-43b6-a680-6c8439cd4195", "success": true, "data": {"ok": true, "v": 2}, "error": null, "completed_at": "2026-09-09T18:15:19.878517+00:00", "duration_ms": 3}
+{"request_id": "bc4db268-f2d2-41dc-bdcb-ef5f14b3de2c", "success": true, "data": {"ok": true, "v": 2}, "error": null, "completed_at": "2026-09-09T18:16:02.866288+00:00", "duration_ms": 3}
 Traceback (most recent call last):
   File "<stdin>", line 17, in <module>
 NameError: name 'PYEOF' is not defined
