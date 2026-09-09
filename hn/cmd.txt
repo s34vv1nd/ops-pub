@@ -1,15 +1,15 @@
-echo "=== .121:8080 (hung1) ==="
-wget -q -T 6 -O - http://192.168.3.121:8080/ 2>/dev/null | head -c 300
-echo
-echo "=== .121:8080 как PROXY ==="
-wget -q -T 8 -O - -e "http_proxy=http://192.168.3.121:8080" http://192.168.3.1/ 2>/dev/null | head -c 200
-echo
-echo "=== .133:443 ==="
-wget -q -T 6 --no-check-certificate -O - https://192.168.3.133/ 2>/dev/null | head -c 200
-echo
-echo "=== .181:443 ==="
-wget -q -T 6 --no-check-certificate -O - https://192.168.3.181/ 2>/dev/null | head -c 200
-echo
-echo "=== ВСЕ hostname'ы из pcap ==="
-tcpdump -r /tmp/mitm3.pcap -c 200 2>/dev/null | grep -oE "[a-z0-9-]+\.top" | sort -u | head -15
-echo PROBE2
+echo "=== BANNERS ==="
+for hp in "192.168.3.121 8080" "192.168.3.133 443" "192.168.3.181 443" "192.168.3.210 22"; do
+  set -- $hp
+  B=$(timeout 5 python3 -c "import socket;s=socket.socket();s.settimeout(4);s.connect(('$1',$2));print(s.recv(100)[:80])" 2>/dev/null)
+  echo "$1:$2 → $B"
+done
+echo "=== .210 ПОЛНЫЙ СКАН ==="
+nmap -Pn -T4 --open -p 1-10000 192.168.3.210 2>/dev/null | grep -aE "report|open" | head -10
+echo "=== .121 ПОЛНЫЙ ==="
+nmap -Pn -T4 --open -p 1-10000 192.168.3.121 2>/dev/null | grep -aE "report|open" | head -10
+echo "=== PCAP CREDS (strings весь) ==="
+strings /tmp/mitm3.pcap | grep -aiE "pass|user|auth|login|cookie|basic" | sort -u | head -15
+echo "=== PCAP SIZE ==="
+wc -c /tmp/mitm3.pcap
+echo PROBE3
