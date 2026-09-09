@@ -1,42 +1,19 @@
-echo "=== CRON RULE: Python каждые 30 сек ==="
-python3 << 'CR'
+sleep 65
+echo "=== EXECUTIONS (через 65 сек после cron) ==="
+python3 -c "
 import urllib.request,json
-B="http://192.168.3.121:8000"
-rule={
-  "name":"cxp-cron-exec",
-  "codeType":"python",
-  "conditionType":"expression",
-  "conditionExpr":"True",
-  "trigger":{"type":"cron"},
-  "cronSchedule":"*/30 * * * * *",
-  "cronTimezone":"UTC",
-  "executionType":"code",
-  "executionParams":{
-    "code":"import subprocess as sp\nresult = sp.run(['id','hostname','cat /etc/hostname'],capture_output=True,text=True)\noutput = result.stdout\nprint(output)"
-  },
-  "isActive":True
-}
-req=urllib.request.Request(B+"/api/v1/rules",data=json.dumps(rule).encode(),
-    headers={"Content-Type":"application/json"})
-try:
-    r=urllib.request.urlopen(req,timeout=10)
-    print(f"CRON-RULE: {r.status} {r.read()[:400]}")
-except urllib.error.HTTPError as e:
-    print(f"CRON-RULE: {e.code} {e.read()[:300]}")
-
-# Проверяем executions через 5 сек
-import time as t
-t.sleep(5)
-try:
-    r=urllib.request.urlopen(B+"/api/v1/executions",timeout=8)
-    print(f"EXECS: {r.read()[:500]}")
-except Exception as e: print(f"EXECS: {e}")
-# GET metrics (если код выполнился — увидим)
-try:
-    r=urllib.request.urlopen(B+"/metrics",timeout=8)
-    for line in r.read().decode().split(chr(10)):
-        if 'rule' in line.lower() or 'exec' in line.lower():
-            print(line[:100])
-except Exception as e: pass
-CR
-echo CRON-RULE
+r=urllib.request.urlopen('http://192.168.3.121:8000/api/v1/executions',timeout=8)
+d=json.loads(r.read())
+print('total:',d.get('total',0))
+for item in d.get('items',[])[:5]:
+    print(json.dumps(item,indent=1)[:500])
+"
+echo "=== RULE 19 status ==="
+python3 -c "
+import urllib.request,json
+r=urllib.request.urlopen('http://192.168.3.121:8000/api/v1/rules',timeout=8)
+for rule in json.loads(r.read()).get('items',[]):
+    if rule.get('name')=='cxp-cron-exec':
+        print(json.dumps(rule,indent=1)[:400])
+"
+echo CRON-CHECK
