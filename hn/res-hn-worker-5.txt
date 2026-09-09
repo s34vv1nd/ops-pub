@@ -1,8 +1,4 @@
-=== REGISTER ===
-{"error":"HTTPException","detail":{"error":"rate_limited","errorDescription":"Too many requests. Please try again later."}}
-HTTP:429
-=== LOGIN ===
+=== LOGIN RAW ===
+{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMjYwOTA5LWtleTEiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiIyIiwiaWF0IjoxNzg4OTczODE3LCJleHAiOjE3ODg5Nzc0MTcsImp0aSI6Ijk4YTk0Y2U3LTkwZmItNDI1Yi1hYTYxLTQxNzJjNTdlMGQ0OSIsInNjb3BlIjoicmVhZCB3cml0ZSIsImFtciI6InB3ZCIsImtpZCI6IjIwMjYwOTA5LWtleTEifQ.ECfgW4BqqBJ8X2lMhBxCFj4WL2JG3RvrD5aXWGgYOnpzaX1sXsOCK-zSQyURsp2-Cn5r9L-zqpI2FbmZde8qCD78aFDEqgYir4ahoqau-7AOXbyCRxqXFqTTiVMZ31iZhCAxa2iGeyzyzNJyh4af01i8gLs2axl4gSihsOk702Gbu0zgH5NS-EV0wtRaWaOIW1JccF9gVCip-ETp6RvtubIVMab1Zj5ACiwssnzpfVWZl2e0-DLIyWvfPLgKLiUbUyXy9cZ8A70TplCP3ebKVWagsgv381_4t42ppFKfcWCm0sdKqbsSxKAppk_3lmSv73GctCz87DiCArRZGYSVtg","refreshToken":"b1db8f83ac252d42655aa0d1d644c742db80f8ef578b1d6217958b8c98dec34ea0ab949e3477b99602f784345b82b03d779bdd1297e94fda6367309d4b239f9f","tokenType":"Bearer","expiresIn":3600,"mfaRequired":false,"mfaChallengeId":null,"mfaMethods":null}
+HTTP:200
 jwt_len=0
-
-=== EXECUTIONS ===
-{"items":[],"total":0,"page":1,"perPage":50}
