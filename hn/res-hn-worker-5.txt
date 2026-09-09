@@ -1,36 +1,29 @@
-=== НОВЫЕ ХОСТЫ: полный скан ===
-Nmap scan report for hung1.top (192.168.3.121)
-8080/tcp open  http-proxy
-Nmap scan report for 192.168.3.133
-443/tcp open  https
-Nmap scan report for 192.168.3.181
-443/tcp open  https
-=== PCAP анализ (что ловим) ===
-11:53:00.049220 IP proto-2 > Ruijie.top: ICMP echo request, id 32652, seq 1, length 64
-11:53:00.050739 IP Ruijie.top > proto-2: ICMP echo reply, id 32652, seq 1, length 64
-11:53:00.052777 IP proto-2 > 192.168.3.152: ICMP echo request, id 32653, seq 1, length 64
-11:53:00.053160 IP 192.168.3.152 > proto-2: ICMP echo reply, id 32653, seq 1, length 64
-11:53:00.055422 IP proto-2 > quanvnm.top: ICMP echo request, id 32654, seq 1, length 64
-11:53:00.055535 IP quanvnm.top > proto-2: ICMP echo reply, id 32654, seq 1, length 64
-11:53:00.057417 IP proto-2 > duc-b550mpro4.top: ICMP echo request, id 32655, seq 1, length 64
-11:53:00.057534 IP duc-b550mpro4.top > proto-2: ICMP echo reply, id 32655, seq 1, length 64
-11:53:00.058821 ARP, Request who-has 192.168.3.152 tell proto-2, length 28
-11:53:00.058855 ARP, Request who-has Ruijie.top tell proto-2, length 28
-11:53:00.059087 ARP, Reply 192.168.3.152 is-at 00:17:61:10:f5:ea (oui Unknown), length 46
-11:53:00.060363 ARP, Reply Ruijie.top is-at 80:05:88:76:c0:4b (oui Unknown), length 46
-11:53:00.218567 ARP, Request who-has proto-2 tell 192.168.3.152, length 46
-11:53:00.218577 ARP, Reply proto-2 is-at 00:e0:4f:29:1e:10 (oui Unknown), length 28
-11:53:00.271086 ARP, Request who-has proto-2 tell duc-b550mpro4.top, length 46
-11:53:00.271096 ARP, Reply proto-2 is-at 00:e0:4f:29:1e:10 (oui Unknown), length 28
-11:53:00.445281 ARP, Request who-has proto-2 tell quanvnm.top, length 46
-11:53:00.445292 ARP, Reply proto-2 is-at 00:e0:4f:29:1e:10 (oui Unknown), length 28
-11:53:05.069934 IP proto-2 > Ruijie.top: ICMP echo request, id 32774, seq 1, length 64
-11:53:05.071392 IP Ruijie.top > proto-2: ICMP echo reply, id 32774, seq 1, length 64
-=== ARP таблица (кто через нас) ===
-192.168.3.16 dev enp7s0 lladdr fc:9d:05:65:9b:f5 REACHABLE 
-192.168.3.76 dev enp7s0 lladdr a8:a1:59:2e:7e:d9 REACHABLE 
-192.168.3.135 dev enp7s0 lladdr 80:05:88:76:c0:4b REACHABLE 
-10.42.102.162 dev cali34754f7a57d lladdr 4e:d5:c2:7b:0c:16 REACHABLE 
-10.42.102.135 dev cali2863a2a9da6 lladdr 0a:db:63:62:0f:9d REACHABLE 
-192.168.3.210 dev enp7s0 lladdr b6:89:b4:b9:1e:16 REACHABLE 
-NEWSCAN
+=== .121:8080 (hung1) ===
+<!doctype html>
+<html class="bg-base-200 text-base-content">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web
+=== .121:8080 как PROXY ===
+<!doctype html>
+<html class="bg-base-200 text-base-content">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit
+=== .133:443 ===
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Conten
+=== .181:443 ===
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Conten
+=== ВСЕ hostname'ы из pcap ===
+duc-b550mpro4.top
+quanvnm.top
+uijie.top
+PROBE2
