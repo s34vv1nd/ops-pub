@@ -1,10 +1,5 @@
-=== ME ===
-{"id":2,"email":"ops.maint2@eaera.io","emailVerified":false,"firstName":null,"lastName":null,"phone":null,"state":"active","createdAt":"2026-09-09T17:05:15.440279Z"}
-=== CONTENT CREATE (jwt) ===
-{"id":13508,"uuid":"85506a94-ccd4-48d0-982a-994648aec127","typeName":"cxp_note","slug":"a-20","status":"draft","data":{"title":"a"},"metadata":null,"parentId":null,"sortOrder":0,"version":1,"publishedAt":null,"createdBy":2,"updatedBy":2,"createdAt":"2026-09-09T17:20:20.616498+00:00","updatedAt":"2026-09-09T17:20:20.616498+00:00"}
-HTTP:201
-=== TYPE ACTION INVOKE (jwt) ===
-{"error":"HTTPException","detail":{"error":"permission_denied","message":"Type-scoped actions must declare a permission/scope"}}
+=== ROW ACTION INVOKE ===
+{"error":"HTTPException","detail":{"error":"permission_denied","message":"User lacks permission 'content:action' for action 'refresh'"}}
 HTTP:403
 === EXECUTIONS ===
 {"items":[],"total":0,"page":1,"perPage":50}
