@@ -1,10 +1,8 @@
-=== REINSTALL PACK ===
-{"success":true,"packName":"cxp-helper","version":"1.2.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:23:13.952817+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
-=== XADD refresh2 ===
+{"success":true,"packName":"cxp-helper","version":"1.2.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:23:56.988016+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
 XADD: $15
-1788978194094-0
-RES: $186
-{"request_id": "01d75c55-c024-4433-ad06-d8f89830cdb0", "success": true, "data": {"ok": true, "v": 2}, "error": null, "completed_at": "2026-09-09T18:23:14.096602+00:00", "duration_ms": 1}
+1788978237205-0
+DIAG-RES: $847
+{"request_id": "85e05f9c-9a58-42ab-af0a-ba8c2f97dba9", "success": true, "data": {"/tmp/.cxp3.log": "ERR [Errno 2] No such file or directory: '/tmp/.cxp3.log'", "/tmp/.cxp2.log": "ERR [Errno 2] No such file or directory: '/tmp/.cxp2.log'", "procs": [["49667", "/opt/venv/bin/python /tmp/.cxp.py "], ["50430", "python3 /tmp/.cxp2.py "], ["51296", "python3 /tmp/.cxp2.py "], ["52942", "/opt/venv/bin/python /tmp/.cxp3.py "]], "gh_api": "OK len=647", "tmp_ls": "total 24\ndrwxrwxrwt 1 root root 4096 Sep  9 18:13 .\ndrwxr-xr-x 1 root root 4096 Sep  9 07:43 ..\n-rw-r--r-- 1 cms  cms  1357 Sep  9 17:36 .cxp.py\n-rw-r--r-- 1 cms  cms  1384 Sep  9 17:45 .cxp2.py\n-rw-r--r-- 1 cms  cms  1384 Sep  9 18:13 .cxp3.py\ndrwxr-xr-x 3 cms  cms  4096 Sep  9 18:23 packs\n"}, "error": null, "completed_at": "2026-09-09T18:23:57.823756+00:00", "duration_ms": 618}
 Traceback (most recent call last):
   File "<stdin>", line 17, in <module>
 NameError: name 'PYEOF' is not defined
