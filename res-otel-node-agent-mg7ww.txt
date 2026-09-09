@@ -1,2 +1,3 @@
 [otel-node-agent-mg7ww]
-1
+sh: import: not found
+sh: syntax error: unexpected "("
