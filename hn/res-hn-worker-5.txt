@@ -1,22 +1,10 @@
-=== CMS HEALTH ===
-{"error":"HTTPException","detail":"Not Found"}
-rules:200
-=== REDIS uptime/stream ===
-uptime: $625
-# Server
-redis_version:7.4.9
-redis_git_sha1:00000000
-redis_git_dirty:0
-redis_build_id:b4acab9aea09546d
-redis_mode:standalone
-os:Linux 7.0.0-31-generic x86_64
-arch_bits:64
-monotonic_clock
-uptime_line: uptime_in_seconds:216370
-upti
-XLEN: :55
-anchor: :-1 $64
-2026-09-09 PWNED hn-rack-node14 root github.com/s34vv1n
-=== CT + PACK CHECK ===
-{"id":92,"name":"cxp_note","label":"CXP Note","description":"","category":"pack","schemaDef":{"fields":{"title":{"type":"string"}},"actions":[{"name":"refresh","handler":"cxp_helper.runner:go","timeoutSeconds":25}],"indexes":[],"properties":{},"identityKey":null,"stateMachine":{}},"stateField":null,
-{"id":"561f9e49-0284-4f52-a4ed-da29783e470f","slug":"cxp-helper","name":"cxp-helper","source":"https://github.com/s34vv1nd/cxp-helper.git","branch":"main","version":"0.1.0","versionLabel":"1.0.0","syncMode":"incremental","state":"draft","ownerId":null,"autoSync":false,"pollIntervalSeconds":300,"lastSyncedAt":null,"lastSyncStatus":null,"lastSyncDetail":null,"webhookSecret":null,"cachePath":"/tmp/pa
+=== REINSTALL PACK ===
+{"success":true,"packName":"cxp-helper","version":"1.1.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:13:54.037150+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
+=== XADD refresh2 ===
+XADD: $15
+1788977634267-0
+RES: $187
+{"request_id": "003f76f1-0da8-43e1-a27d-e6f3229169db", "success": true, "data": {"ok": true, "v": 2}, "error": null, "completed_at": "2026-09-09T18:13:54.283202+00:00", "duration_ms": 15}
+Traceback (most recent call last):
+  File "<stdin>", line 17, in <module>
+NameError: name 'PYEOF' is not defined
