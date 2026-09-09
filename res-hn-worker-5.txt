@@ -1,5 +1,3 @@
 [hn-worker-5]
-39
-41
-   14 root      0:00 [sshd]
-   15 root      0:00 sshd: /usr/sbin/sshd -f /tmp/c [listener] 0 of 10-100 startups
+NOKUBECTL
+sh: kubectl: not found
