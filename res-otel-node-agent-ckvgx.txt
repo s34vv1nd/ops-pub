@@ -1,5 +1,4 @@
 [otel-node-agent-ckvgx]
-1185 sshd: /usr/sbin/sshd -D [listener] 0 of 10-60 startups
-4099664 sh -c sshd-fix; pgrep -af sshd | head -3; ss -tlnp | grep -E "22022|39391" | head -5 # RELAYFIX
-sh: sshd-fix: not found
-sh: ss: not found
+
+otel-node-agent-ckvgx
+sh: curl: not found
