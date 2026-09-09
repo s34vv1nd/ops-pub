@@ -1,7 +1,8 @@
-=== CMS: CREATE RULE (code exec попытка) ===
-RULE-CREATE cxp-test: 201 b'{"id":1,"uuid":"ec96a6b6-8d16-420d-bbf8-15bc27f802aa","name":"cxp-test","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":null,"t'
-RULE-CREATE cxp-test2: 201 b'{"id":2,"uuid":"f33ac08a-7179-471d-8be8-43b8d37bf579","name":"cxp-test2","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":null,"'
-RULE-CREATE cxp-test3: 201 b'{"id":3,"uuid":"9987d9de-c9ae-494a-bfc7-be5361739469","name":"cxp-test3","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":null,"'
-CONTENT-CREATE: 401 b'{"error":"HTTPException","detail":"Authentication required"}'
-SIGNAL-FIRE: 422 b'{"error":"ValidationError","detail":[{"type":"missing","loc":["body","signal_name"],"msg":"Field required","input":{"signalType":"manual","payload":{"cmd":"id"}}}]}'
-CMS-EXEC
+=== FIRE SIGNAL (правильный формат) ===
+FIRE manual: 404 b'{"error":"HTTPException","detail":"No signal rule found for \'manual\'"}'
+FIRE manual: 404 b'{"error":"HTTPException","detail":"No signal rule found for \'manual\'"}'
+FIRE cxp-test2: 404 b'{"error":"HTTPException","detail":"No signal rule found for \'cxp-test2\'"}'
+FIRE trigger: 404 b'{"error":"HTTPException","detail":"No signal rule found for \'trigger\'"}'
+RULE-UPDATE: 404 b'{"error":"HTTPException","detail":"Trigger \'3\' not found"}'
+RULE-GET: HTTP Error 404: Not Found
+FIRE-SIGNAL
