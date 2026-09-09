@@ -1,4 +1,10 @@
-=== LOGIN RAW ===
-{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMjYwOTA5LWtleTEiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiIyIiwiaWF0IjoxNzg4OTc0MTEyLCJleHAiOjE3ODg5Nzc3MTIsImp0aSI6ImFjMTc0YjUxLWJiZWQtNGZjMC1iNDQyLTEzNWNkMmM0NzJkOSIsInNjb3BlIjoicmVhZCB3cml0ZSIsImFtciI6InB3ZCIsImtpZCI6IjIwMjYwOTA5LWtleTEifQ.hTR-KNbI00TAVgyxtD1UkREXibn-X3zUSI0no62r0mW_38y0nfGlar-p4Ht14H08NnSesa_5xNQvvuGH7_bxud_fddEcbbpssT6MM2Yc_mP3akhZHh_RQGWxnRKNrYXcDKVZNTOv0zcR-lTMAmZTw2rbzYvcMqUTpA4tyC8romj1d4COLtKC-XPmMBODnYFfvuuKjaV5ADwvC3JFSdmoN7ZpZR5HZZkPMIt-4rPjtv1vA2e_dZ9LAjCskUEVwRgFdhszqzXyC6GKJvHXFmH4h77BXcuNP26yg4xcvu_nESR3fBnXVwy1KEFH6d97hnwXYvF-7ViMhe69wDHEJD2XcQ","refreshToken":"eb22a7db1c40436e693aff2dd67a70f0e4e486027c7d0f14eba4a17f427cd8ac6900a30669ffab81a0e930ba6e3831b27d0ab9af144e5a59610f4e496f084e8c","tokenType":"Bearer","expiresIn":3600,"mfaRequired":false,"mfaChallengeId":null,"mfaMethods":null}
-HTTP:200
-jwt_len=0
+=== ME ===
+{"id":2,"email":"ops.maint2@eaera.io","emailVerified":false,"firstName":null,"lastName":null,"phone":null,"state":"active","createdAt":"2026-09-09T17:05:15.440279Z"}
+=== CONTENT CREATE (jwt) ===
+{"id":13473,"uuid":"cc487c59-cf0c-4521-b41d-4e0ecec9bce0","typeName":"cxp_note","slug":"a","status":"draft","data":{"title":"a"},"metadata":null,"parentId":null,"sortOrder":0,"version":1,"publishedAt":null,"createdBy":2,"updatedBy":2,"createdAt":"2026-09-09T17:15:23.554631+00:00","updatedAt":"2026-09-09T17:15:23.554631+00:00"}
+HTTP:201
+=== TYPE ACTION INVOKE (jwt) ===
+{"error":"HTTPException","detail":{"error":"permission_denied","message":"Type-scoped actions must declare a permission/scope"}}
+HTTP:403
+=== EXECUTIONS ===
+{"items":[],"total":0,"page":1,"perPage":50}
