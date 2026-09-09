@@ -3,7 +3,7 @@
 STATUS: 
 ADMIN-CHECK: 
 === 3. PG connection string leak (из Redis mt5:commands) ===
-*11
+*12
 $26
 mt5:ticks:EAERA MT5 - Live
 $38
@@ -18,6 +18,8 @@ $41
 kalshi:symbols:finalized:EAERA MT5 - Live
 $39
 mt5:server_time_offset:EAERA MT5 - Live
+$49
+kalshi:symbols:cleanup_completed:EAERA MT5 - Live
 $43
 kalshi:backfill:last_sweep:EAERA MT5 - Live
 $10
