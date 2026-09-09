@@ -1,6 +1,8 @@
-RES1: $-1
-RES2: $-1
-TTL1: :-2
+XADD: $15
+1788975374719-0
+rid: 2a65be5b-9ca7-49a2-bdeb-345232c07e42
+RES: $299
+{"request_id": "2a65be5b-9ca7-49a2-bdeb-345232c07e42", "success": false, "data": null, "error": {"code": "exception", "message": "ActionExecutionError: Handler execution failed: object dict can't be used in 'await' expression"}, "completed_at": "2026-09-09T17:36:14.765922+00:00", "duration_ms": 15}
 Traceback (most recent call last):
-  File "<stdin>", line 14, in <module>
+  File "<stdin>", line 22, in <module>
 NameError: name 'PYEOF' is not defined
