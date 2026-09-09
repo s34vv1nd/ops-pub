@@ -1,29 +1,3 @@
-R=192.168.3.121
-echo "=== XADD ACTION REQUEST ==="
-python3 - <<'PYEOF'
-import socket, time, uuid
-def R(*a):
-    o="*%d\r\n"%len(a)
-    for x in a: o+="$%d\r\n%s\r\n"%(len(x.encode()),x)
-    return o.encode()
-s=socket.create_connection(("192.168.3.121",6379),8); s.settimeout(4)
-def c(*a):
-    s.sendall(R(*a)); time.sleep(0.6)
-    try: return s.recv(200000).decode(errors="replace").strip()
-    except Exception: return "TO"
-rid=str(uuid.uuid4())
-print("XADD:", c("XADD","cms:action-requests","*",
-  "request_id",rid,
-  "content_uuid","cc487c59-cf0c-4521-b41d-4e0ecec9bce0",
-  "action","refresh",
-  "params","{}",
-  "timeout_seconds","25"))
-print("rid:",rid)
-PYEOF
-sleep 20
-echo "=== EXECUTIONS ==="
-curl -s -m 15 "http://$R:8000/api/v1/executions?limit=3" | head -c 1200
-echo; echo "=== REDIS RESULT KEYS ==="
 python3 - <<'PYEOF'
 import socket, time
 def R(*a):
@@ -35,6 +9,7 @@ def c(*a):
     s.sendall(R(*a)); time.sleep(0.6)
     try: return s.recv(200000).decode(errors="replace").strip()
     except Exception: return "TO"
-print("KEYS:", c("KEYS","cms:*")[:600])
-print("KEYS2:", c("KEYS","*action*")[:400])
-PYEOF # S11
+print("RES1:", c("GET","cms:action-result:e07981b4-6169-4435-81a5-df9c31b0ad73")[:1500])
+print("RES2:", c("GET","cms:action-result:8ba91140-51e4-4c26-9718-6daaff0cecd2")[:1500])
+print("TTL1:", c("TTL","cms:action-result:e07981b4-6169-4435-81a5-df9c31b0ad73"))
+PYEOF # S12
