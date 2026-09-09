@@ -1,6 +1,2 @@
-192.168.3.126 NO-WS:HTTP/1.1 400 Bad Request
-Connection: close
-Content-Type: t
-192.168.3.198 NO-WS:HTTP/1.1 400 Bad Request
-Connection: close
-Content-Type: t
+192.168.3.126 ERR [Errno 111] Connection refused
+192.168.3.198 ERR timed out
