@@ -1,9 +1,8 @@
 R=http://192.168.3.121:8000
 K='X-API-Key: dummy-dev-token-for-testing'
 CT='Content-Type: application/json'
-echo "=== CT SCHEMA ==="
-curl -s -m 15 "$R/api/v1/content-types/name/cxp_note" | head -c 2500
-echo; echo "=== CONTENT POST RAW ==="
-curl -s -m 20 -w '\nHTTP:%{http_code}' -X POST $R/api/v1/content -H "$K" -H "$CT" -d '{"type_name":"cxp_note","data":{"title":"a"}}' | head -c 1200
-echo; echo "=== CONTENTS LIST cxp_note ==="
-curl -s -m 15 "$R/api/v1/contents/?type_name=cxp_note" | head -c 800 # S5
+echo "=== TYPE ACTION INVOKE ==="
+curl -s -m 40 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/types/cxp_note/actions/refresh" -H "$K" -H "$CT" -d '{"params":{}}' | head -c 1500
+echo; sleep 10
+echo "=== EXECUTIONS ==="
+curl -s -m 15 "$R/api/v1/executions?limit=3" | head -c 1500 # S6
