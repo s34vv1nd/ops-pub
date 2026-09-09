@@ -1,1 +1,20 @@
-echo T9; hostname; ping -c1 -W1 192.168.3.135 >/dev/null 2>&1 && echo PC135-UP || echo PC135-DOWN; ping -c1 -W1 192.168.3.152 >/dev/null 2>&1 && echo PC152-UP || echo PC152-DOWN
+cat > /tmp/wsp.py << 'EOF'
+import socket
+def ws(host,port,path,proto):
+    s=socket.socket();s.settimeout(5);s.connect((host,port))
+    h={"Upgrade":"websocket","Connection":"Upgrade","Sec-WebSocket-Key":"dGhlIHNhbXBsZSBub25jZQ==","Sec-WebSocket-Version":"13"}
+    if proto:h["Sec-WebSocket-Protocol"]=proto
+    req="GET "+path+" HTTP/1.1\r\nHost: "+host+"\r\n"+"".join(k+": "+v+"\r\n" for k,v in h.items())+"\r\n"
+    s.sendall(req.encode())
+    try:return s.recv(400).decode(errors="replace")[:200]
+    except:return "no-reply"
+import time
+out=[]
+for host,port in [("192.168.3.126",15611),("192.168.3.198",15611),("192.168.3.1",5556)]:
+    for p in ["/","/ubus","/ws"]:
+        r=ws(host,port,p,"ubus-json")
+        out.append(f"{host}:{port} {p} -> {r[:90]}")
+open("/tmp/ws.out","w").write("\n".join(out))
+print("done")
+EOF
+python3 /tmp/wsp.py > /dev/null 2>&1; cat /tmp/ws.out
