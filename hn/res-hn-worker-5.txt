@@ -1,1 +1,26 @@
-TRAP-ARMED
+Wed Sep  9 07:47:25 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:25 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:31 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:35 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:35 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:41 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:46 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:46 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:51 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:56 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:47:56 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+Wed Sep  9 07:48:01 2026 | 192.168.3.126 OFF:[Errno 113] No route to host | 192.168.3.198 OFF:[Errno 113] No route to host
+
+-rw-r--r-- 1 root root 1802 Sep  9 07:47 /opt/.cache/.wslogin.py
+TRAP-RUNNING
+     12 32408/tcp open  unknown
+     12 32386/tcp open  unknown
+     12 32379/tcp open  unknown
+     12 31995/tcp open  unknown
+     12 31854/tcp open  unknown
+     12 31291/tcp open  unknown
+     12 31093/tcp open  unknown
+     12 31092/tcp open  unknown
+     12 31091/tcp open  unknown
+     12 31090/tcp open  unknown
+NMAP2
