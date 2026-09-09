@@ -1,0 +1,1 @@
+id; hostname; uname -a; docker ps --format '{{.Names}} {{.Image}}' 2>/dev/null | head -20
