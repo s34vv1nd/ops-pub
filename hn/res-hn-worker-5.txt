@@ -1,78 +1,9 @@
-UP:1
-UP:5
-UP:4
-UP:10
-UP:11
-UP:3
-UP:2
-UP:13
-UP:15
-UP:14
-UP:16
-UP:22
-UP:23
-UP:21
-UP:24
-UP:25
-UP:27
-UP:30
-UP:31
-UP:32
-UP:50
-UP:51
-UP:76
-UP:86
-UP:89
-UP:108
-WS:108
-UP:117
-UP:118
-WS:117
-UP:127
-UP:136
-UP:137
-UP:144
-UP:152
-UP:161
-UP:168
-UP:182
-UP:183
-UP:202
-UP:213
-UP:226
-UP:243
-UP:252
-UP:227
-UP:225
----LAN2-NMAP---
-Nmap scan report for 192.168.3.3
-Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
-30030/tcp open  unknown
-30080/tcp open  unknown
-30175/tcp open  unknown
-30379/tcp open  unknown
-30432/tcp open  unknown
-30433/tcp open  unknown
-30443/tcp open  unknown
-30679/tcp open  unknown
-30937/tcp open  unknown
-31090/tcp open  unknown
-31091/tcp open  unknown
-31092/tcp open  unknown
-31093/tcp open  unknown
-31291/tcp open  unknown
-31854/tcp open  unknown
-31995/tcp open  unknown
-32379/tcp open  unknown
-32386/tcp open  unknown
-32408/tcp open  unknown
-55432/tcp open  unknown
-Nmap scan report for 192.168.3.4
-Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
-30030/tcp open  unknown
-30080/tcp open  unknown
-30175/tcp open  unknown
-30379/tcp open  unknown
-30432/tcp open  unknown
-30433/tcp open  unknown
-DONE2
+=== NATS изнутри: VIP 32408 ===
+192.168.3.3 BANNER: b'INFO {"server_id":"NANYKU5WZ2X3U7LQNKZF2NJHQFCIQRLCOBYBKDCCWBOG2HPK3QYDF2K4","se'
+192.168.3.4 BANNER: b'INFO {"server_id":"NANYKU5WZ2X3U7LQNKZF2NJHQFCIQRLCOBYBKDCCWBOG2HPK3QYDF2K4","se'
+192.168.3.5 BANNER: b'INFO {"server_id":"NANYKU5WZ2X3U7LQNKZF2NJHQFCIQRLCOBYBKDCCWBOG2HPK3QYDF2K4","se'
+14.224.174.84 ERR timed out
+=== sweep WS:15611 по /24 (быстрый) ===
+WSHOST:192.168.3.108
+WSHOST:192.168.3.117
+NATSCHK-DONE
