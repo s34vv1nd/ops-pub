@@ -1,21 +1,36 @@
-=== REDIS RCE ===
-DIR: *2
-$3
-dir
-$5
-/data
+=== REDIS KEYS ===
+KEYS: *10
+$26
+mt5:ticks:EAERA MT5 - Live
+$38
+kalshi:symbols:active:EAERA MT5 - Live
+$37
+kalshi:symbols:purge:EAERA MT5 - Live
+$23
+mt5:commands:eaera-test
+$40
+kalshi:symbols:backfill:EAERA MT5 - Live
+$41
+kalshi:symbols:finalized:EAERA MT5 - Live
+$39
+mt5:server_time_offset:EAERA MT5 - Live
+$43
+kalshi:backfill:last_sweep:EAERA MT5 - Live
+$19
+cms:action-requests
+$11
+mt5:results
 
-DBFILE: *2
-$10
-dbfilename
-$8
-dump.rdb
+DBSIZE: :10
 
-DIR-SET: -ERR CONFIG SET failed (possibly related to argument 'dir') - can't set protected config
+KEYSPACE: $65
+# Keyspace
+db0:keys=10,expires=3,avg_ttl=404087783,subexpiry=0
 
-DB-SET: -ERR CONFIG SET failed (possibly related to argument 'dbfilename') - can't set protected config
 
-KEY-SET: -ERR Protocol error: unbalanced quotes in request
+=== PORTAINER ===
 
-SAVE: 
-REDIS-RCE-DONE
+=== POLIPO 8123 ===
+Ok.
+
+DUMP-DONE
