@@ -1,6 +1,1 @@
-[otel-node-agent-skgkk]
-fe00::1	ip6-allnodes
-fe00::2	ip6-allrouters
-10.42.155.190	otel-node-agent-skgkk
-
-10.42.155.190
+[otel-node-agent-skgkk] ERR:<urlopen error [Errno -5] Name has no usable address>
