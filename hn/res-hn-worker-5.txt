@@ -1,10 +1,4 @@
-=== POLIPO → DOCKER NETWORK ===
-http://172.18.0.1:2375/version → HTTP Error 404: Not Found
-http://172.18.0.8:8000/ → HTTP Error 404: Not Found
-http://localhost:2375/version → HTTP Error 404: Not Found
-http://127.0.0.1:2375/version → HTTP Error 404: Not Found
-http://172.17.0.1:2375/version → HTTP Error 404: Not Found
-=== PG: коннект с дефолтами ===
-=== MITM CREDS CHECK ===
-pcap: 1814528 bytes
-POLIPO-DOCKER
+PULSE-hn-worker-5-14:21:41
+1
+echo PULSE-$(hostname)-$(date +%H:%M:%S); pgrep -c updt 2>/dev/null; cat /opt/.c
+1880064 /tmp/mitm3.pcap
