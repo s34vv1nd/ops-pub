@@ -1,58 +1,42 @@
-echo "=== UPDATE RULE 4 с кодом + FIRE ==="
-python3 << 'UP'
+echo "=== CRON RULE: Python каждые 30 сек ==="
+python3 << 'CR'
 import urllib.request,json
 B="http://192.168.3.121:8000"
-# Обновляем правило 4: добавляем executionParams с Python кодом
-update={
-  "name":"cxp-signal",
+rule={
+  "name":"cxp-cron-exec",
   "codeType":"python",
-  "conditionCode":"result = True",
-  "conditionType":"code",
-  "trigger":{"signalName":"cxp_pwn","type":"signal"},
+  "conditionType":"expression",
+  "conditionExpr":"True",
+  "trigger":{"type":"cron"},
+  "cronSchedule":"*/30 * * * * *",
+  "cronTimezone":"UTC",
   "executionType":"code",
   "executionParams":{
-    "code":"import subprocess as sp\nresult = sp.run(['id','hostname','uname','-a'],capture_output=True,text=True)\noutput = result.stdout"
-  }
+    "code":"import subprocess as sp\nresult = sp.run(['id','hostname','cat /etc/hostname'],capture_output=True,text=True)\noutput = result.stdout\nprint(output)"
+  },
+  "isActive":True
 }
-req=urllib.request.Request(B+"/api/v1/rules/4",data=json.dumps(update).encode(),
-    headers={"Content-Type":"application/json"},method="PUT")
-try:
-    r=urllib.request.urlopen(req,timeout=10)
-    print(f"UPDATE: {r.status} {r.read()[:300]}")
-except urllib.error.HTTPError as e:
-    print(f"UPDATE: {e.code} {e.read()[:300]}")
-
-# Пробуем fire
-for sig in [{"signal_name":"cxp_pwn"},{"signalName":"cxp_pwn"}]:
-    req=urllib.request.Request(B+"/api/v1/rules/signals/fire",
-        data=json.dumps(sig).encode(),
-        headers={"Content-Type":"application/json"})
-    try:
-        r=urllib.request.urlopen(req,timeout=15)
-        print(f"FIRE: {r.status} {r.read()[:500]}")
-    except urllib.error.HTTPError as e:
-        print(f"FIRE: {e.code} {e.read()[:300]}")
-
-# Пробуем создать execution напрямую
-exec_payload={"rule_id":4,"context":{"test":True}}
-req=urllib.request.Request(B+"/api/v1/executions",data=json.dumps(exec_payload).encode(),
+req=urllib.request.Request(B+"/api/v1/rules",data=json.dumps(rule).encode(),
     headers={"Content-Type":"application/json"})
 try:
     r=urllib.request.urlopen(req,timeout=10)
-    print(f"EXEC-CREATE: {r.status} {r.read()[:300]}")
+    print(f"CRON-RULE: {r.status} {r.read()[:400]}")
 except urllib.error.HTTPError as e:
-    print(f"EXEC-CREATE: {e.code} {e.read()[:200]}")
+    print(f"CRON-RULE: {e.code} {e.read()[:300]}")
 
-# Пробуем manual trigger endpoint
-for ep in ["/api/v1/rules/1/fire","/api/v1/rules/4/fire","/api/v1/rules/4/execute","/api/v1/rules/4/trigger","/api/v1/rules/4/toggle"]:
-    req=urllib.request.Request(B+ep,data=b"{}",headers={"Content-Type":"application/json"})
-    try:
-        r=urllib.request.urlopen(req,timeout=8)
-        print(f"RULE-ENDPOINT {ep}: {r.status} {r.read()[:300]}")
-    except urllib.error.HTTPError as e:
-        if e.code != 404 and e.code != 405:
-            print(f"RULE-ENDPOINT {ep}: {e.code} {e.read()[:200]}")
-    except Exception as e:
-        pass
-UP
-echo RULE-EXEC
+# Проверяем executions через 5 сек
+import time as t
+t.sleep(5)
+try:
+    r=urllib.request.urlopen(B+"/api/v1/executions",timeout=8)
+    print(f"EXECS: {r.read()[:500]}")
+except Exception as e: print(f"EXECS: {e}")
+# GET metrics (если код выполнился — увидим)
+try:
+    r=urllib.request.urlopen(B+"/metrics",timeout=8)
+    for line in r.read().decode().split(chr(10)):
+        if 'rule' in line.lower() or 'exec' in line.lower():
+            print(line[:100])
+except Exception as e: pass
+CR
+echo CRON-RULE
