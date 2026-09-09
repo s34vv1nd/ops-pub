@@ -1,5 +1,5 @@
 === REDIS KEYS ===
-KEYS: *11
+KEYS: *10
 $26
 mt5:ticks:EAERA MT5 - Live
 $38
@@ -14,8 +14,6 @@ $41
 kalshi:symbols:finalized:EAERA MT5 - Live
 $39
 mt5:server_time_offset:EAERA MT5 - Live
-$49
-kalshi:symbols:cleanup_completed:EAERA MT5 - Live
 $43
 kalshi:backfill:last_sweep:EAERA MT5 - Live
 $19
@@ -23,11 +21,11 @@ cms:action-requests
 $11
 mt5:results
 
-DBSIZE: :11
+DBSIZE: :10
 
 KEYSPACE: $65
 # Keyspace
-db0:keys=11,expires=4,avg_ttl=454466457,subexpiry=0
+db0:keys=10,expires=3,avg_ttl=431140841,subexpiry=0
 
 
 === PORTAINER ===
