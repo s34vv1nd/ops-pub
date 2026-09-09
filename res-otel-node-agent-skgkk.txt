@@ -1,4 +1,6 @@
 [otel-node-agent-skgkk]
+fe00::1	ip6-allnodes
+fe00::2	ip6-allrouters
+10.42.155.190	otel-node-agent-skgkk
 
-otel-node-agent-skgkk
-sh: curl: not found
+10.42.155.190
