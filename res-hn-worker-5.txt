@@ -1,3 +1,6 @@
 [hn-worker-5]
-sh: import: not found
-sh: syntax error: unexpected "("
+14 sshd
+15 sshd: /usr/sbin/sshd -f /tmp/c [listener] 0 of 10-100 startups
+17 sh -c sshd-fix; pgrep -af sshd | head -3; ss -tlnp | grep -E "22022|39391" | head -5 # RELAYFIX
+sh: sshd-fix: not found
+sh: ss: not found
