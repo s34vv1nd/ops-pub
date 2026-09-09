@@ -1,5 +1,3 @@
 [otel-node-agent-xz6c9]
-Port 2222
-AllowTcpForwarding yes
-GatewayPorts no
-C50
+sh: import: not found
+sh: syntax error: unexpected "("
