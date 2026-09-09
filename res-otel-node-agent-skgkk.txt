@@ -1,3 +1,1 @@
-[otel-node-agent-skgkk]
-===MITM2===
-wc: /tmp/mitm3.pcap: No such file or directory
+[otel-node-agent-skgkk] ERR:<urlopen error [Errno -5] Name has no usable address>
