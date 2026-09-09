@@ -1,20 +1,24 @@
 R=192.168.3.121
-echo "=== OPENAPI PATHS ==="
+echo "=== CONTENT-TYPES (actions registry) ==="
+curl -s -m 15 http://$R:8000/api/v1/content-types | head -c 7000
+echo; echo "=== MCP TOOLS ==="
+curl -s -m 15 http://$R:8000/api/v1/llm/mcp/tools | head -c 2500
+echo; echo "=== STREAMS LIST ==="
+curl -s -m 15 http://$R:8000/api/v1/streams | head -c 1500
+echo; echo "=== OPENAPI SCHEMAS (dangerous endpoints) ==="
 curl -s -m 15 http://$R:8000/openapi.json | python3 -c "
 import sys,json
 d=json.load(sys.stdin)
-for p,ms in sorted(d.get('paths',{}).items()):
-    for m in ms: print(m.upper(),p)
-" | grep -Ei 'exec|run|action|signal|webhook|task|job|queue|worker|script|code|test|import|upload|render|template|debug|eval|proxy|command|shell|process|system|fire|trigger' 
-echo; echo "=== ALL PATHS (tail) ==="
-curl -s -m 15 http://$R:8000/openapi.json | python3 -c "
-import sys,json
-d=json.load(sys.stdin)
-ps=[p for p in sorted(d.get('paths',{}).items())]
-print('TOTAL',len(ps))
-for p,ms in ps: print(','.join(m.upper() for m in ms),p)
-" | head -120
-echo; echo "=== REDIS QUEUE INTEL ==="
+for p in ['/api/v1/webhooks/pack-deploy','/api/v1/streams/fire/{name}','/api/v1/rules/signals/fire','/api/v1/content/types/{type_name}/actions/{action_name}','/api/v1/llm/mcp/call','/api/v1/content/{content_uuid}/actions/{action_name}']:
+    node=d['paths'].get(p,{})
+    for m,op in node.items():
+        print('---',m.upper(),p)
+        rb=op.get('requestBody',{}).get('content',{})
+        print(json.dumps(rb)[:900])
+        for prm in op.get('parameters',[]):
+            print(' param:',prm.get('name'),prm.get('required'),json.dumps(prm.get('schema'))[:200])
+"
+echo; echo "=== REDIS ACTION STREAM ==="
 python3 - <<'PYEOF'
 import socket,time
 def R(*a):
@@ -26,19 +30,9 @@ def c(*a):
     s.sendall(R(*a)); time.sleep(0.6)
     try: return s.recv(200000).decode(errors="replace").strip()
     except Exception: return "TO"
-print("KEYS:", c("KEYS","*")[:800])
-print("TYPE-ar:", c("TYPE","cms:action-requests"))
-print("XRANGE-ar:", c("XRANGE","cms:action-requests","-","+","+","COUNT","8")[:2500])
-print("XINFO-ar:", c("XINFO","GROUPS","cms:action-requests")[:600])
-PYEOF
-echo; echo "=== SYSTEM RULES (non-ours) ==="
-curl -s -m 10 "http://$R:8000/api/v1/rules?limit=100" | python3 -c "
-import sys,json
-d=json.load(sys.stdin)
-ours={'cxp-cron-exec','cxp-cron5'}
-for r in d.get('items',[]):
-    if r['name'] not in ours:
-        print(r['id'],'|',r['name'],'|',r['executionType'],'|',r.get('cronSchedule'),'| active=',r['isActive'],'| lastFired=',r['lastFiredAt'],'| next=',r['nextTriggerAt'])
-" 2>&1 | head -40
-echo; echo "=== EXECUTIONS ==="
-curl -s -m 10 "http://$R:8000/api/v1/executions?limit=5" | head -c 1200 # S2
+print("XLEN-ar:", c("XLEN","cms:action-requests"))
+print("XRANGE-ar:", c("XRANGE","cms:action-requests","-","+")[:2000])
+print("XLEN-cmd:", c("XLEN","mt5:commands:eaera-test"))
+print("XRANGE-cmd:", c("XRANGE","mt5:commands:eaera-test","-","+","COUNT","2")[:1200])
+print("XRANGE-res:", c("XRANGE","mt5:results","-","+","COUNT","2")[:1500])
+PYEOF # S3
