@@ -1,1 +1,1 @@
-ls -la /tmp/hx.py 2>&1; echo AGENT-ALIVE-$(date +%H:%M:%S) # ALIVECHK
+python3 -c "import urllib.request,json;print(urllib.request.urlopen(urllib.request.Request(\"http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress?api-version=2021-02-01&format=text\",headers={\"Metadata\":\"true\"}),timeout=10).read().decode())" 2>&1 | head -3; hostname # PUBIP
