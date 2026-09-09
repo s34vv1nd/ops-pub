@@ -1,6 +1,6 @@
 === REGISTER ===
-{"id":2,"email":"ops.maint2@eaera.io","emailVerified":false,"firstName":null,"lastName":null,"phone":null,"state":"active","createdAt":"2026-09-09T17:05:15.440279Z"}
-HTTP:201
+{"error":"HTTPException","detail":"Email 'ops.maint2@eaera.io' is already registered"}
+HTTP:400
 === LOGIN ===
 jwt_len=0
 
