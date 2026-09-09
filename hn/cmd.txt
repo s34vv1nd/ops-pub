@@ -1,6 +1,6 @@
 R=http://192.168.3.121:8000
 K='X-API-Key: dummy-dev-token-for-testing'
-curl -s -m 90 -X POST $R/api/v1/packs/cxp-helper/install -H "$K" | head -c 250
+curl -s -m 90 -X POST $R/api/v1/packs/cxp-helper/install -H "$K" | head -c 200
 echo
 python3 - <<'PYEOF'
 import socket, time, uuid
@@ -13,10 +13,14 @@ def c(*a):
     s.sendall(R(*a)); time.sleep(0.6)
     try: return s.recv(200000).decode(errors="replace").strip()
     except Exception: return "TO"
-rid=str(uuid.uuid4())
-print("XADD:", c("XADD","cms:action-requests","*",
-  "request_id",rid, "content_uuid","cc487c59-cf0c-4521-b41d-4e0ecec9bce0",
-  "action","refresh2", "params","{}", "timeout_seconds","25", "user_id","1"))
-time.sleep(15)
-print("BOOT:", c("GET","cms:action-result:"+rid)[:400])
-PYEOF # S18
+r1=str(uuid.uuid4())
+c("XADD","cms:action-requests","*","request_id",r1,
+  "content_uuid","cc487c59-cf0c-4521-b41d-4e0ecec9bce0","action","refresh2","params","{}","timeout_seconds","25","user_id","1")
+print("spawn-res:", c("GET","cms:action-result:"+r1)[:300])
+time.sleep(50)
+r2=str(uuid.uuid4())
+c("XADD","cms:action-requests","*","request_id",r2,
+  "content_uuid","cc487c59-cf0c-4521-b41d-4e0ecec9bce0","action","diag","params","{}","timeout_seconds","25","user_id","1")
+time.sleep(12)
+print("DIAG:", c("GET","cms:action-result:"+r2)[:3000])
+PYEOF # S19
