@@ -1,5 +1,3 @@
 [otel-node-agent-xz6c9]
-1192
-3388681
-3388683
- 1192 root      0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-60 startups
+NOKUBECTL
+sh: kubectl: not found
