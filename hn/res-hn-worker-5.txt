@@ -1,7 +1,29 @@
-=== DOZZLE API: список контейнеров ===
+=== INJECTION: пишем команду в Redis stream ===
+EXISTING: *1
+*2
+$15
+1788511723707-0
+*14
+$14
+correlation_id
+$32
+c87f4c1568e64c14867525db78e5512e
+$7
+command
+$18
+place_market_order
+$7
+payload
+$208
+{"login": 99999, "server": "EAERA-TEST", "symbol": "EURUSD", "volume": 0.1, "order_type": "buy", "client_order_id": "35c87220734e4b57b88b4c5714b4dd1
+XADD: -ERR Protocol error: unbalanced quotes in request
 
-=== DOZZLE: events stream ===
-
-=== DOZZLE: logs (первый контейнер) ===
-CONTAINERS: parse-err
-DOZZLE-API
+XLEN: b''
+=== HTTP 8000 API paths (детально) ===
+8000/docs: 
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, in
+8000/openapi.json: {"openapi":"3.1.0","info":{"title":"eaera-cms","description":"EAERA CMS - Content Orchestration Engi
+INJECT
