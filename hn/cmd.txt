@@ -1,13 +1,38 @@
-echo "=== NATS изнутри: VIP 32408 ==="
-python3 -c "
-import socket
-for ip in ['192.168.3.3','192.168.3.4','192.168.3.5','14.224.174.84']:
+cat > /tmp/w108.py << 'EOF'
+import socket,os,json,time,base64,struct
+def attempt(host):
+    s=socket.socket();s.settimeout(7);s.connect((host,15611))
+    key=base64.b64encode(os.urandom(16)).decode()
+    req="GET / HTTP/1.1\r\nHost: "+host+":15611\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: "+key+"\r\nSec-WebSocket-Version: 13\r\n\r\n"
+    s.sendall(req.encode())
+    hdr=b""
     try:
-        s=socket.socket();s.settimeout(3);s.connect((ip,32408))
-        print(ip,'BANNER:',s.recv(120)[:80])
-        s.close()
-    except Exception as e: print(ip,'ERR',str(e)[:40])
-"
-echo "=== sweep WS:15611 по /24 (быстрый) ==="
-for i in $(seq 1 254); do (timeout 0.5 bash -c "echo >/dev/tcp/192.168.3.$i/15611" 2>/dev/null && echo "WSHOST:192.168.3.$i") & done; wait
-echo NATSCHK-DONE
+        while b"\r\n\r\n" not in hdr: hdr+=s.recv(1024)
+    except: pass
+    if b"101" not in hdr.split(b"\r\n")[0]: s.close(); return host+" BAD"
+    # login
+    p=json.dumps({"jsonrpc":"2.0","id":1,"method":"call","params":["00000000000000000000000000000000","session","login",{"username":"root","password":""}]}).encode()
+    m=os.urandom(4); h=b"\x81"+bytes([0x80|len(p)])
+    s.sendall(h+m+bytes(b^m[i%4] for i,b in enumerate(p)))
+    out=b""; end=time.time()+4
+    while time.time()<end:
+        try:
+            s.settimeout(1); d=s.recv(4096)
+            if d: out+=d
+        except: pass
+    s.close()
+    txt=""
+    if len(out)>2:
+        ln=out[1]&0x7f; off=2
+        if out[1]&0x80: mk=out[off:off+4]; off+=4
+        else: mk=None
+        data=out[off:off+ln]
+        if mk: data=bytes(b^mk[i%4] for i,b in enumerate(data))
+        txt=data.decode(errors="replace")
+    return host+" RESP:"+txt[:300]
+for h in ["192.168.3.108","192.168.3.117"]:
+    try: print(attempt(h))
+    except Exception as e: print(h,"ERR",str(e)[:50])
+
+EOF
+python3 /tmp/w108.py
