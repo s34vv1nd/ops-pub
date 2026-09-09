@@ -1,6 +1,6 @@
 R=http://192.168.3.121:8000
 K='X-API-Key: dummy-dev-token-for-testing'
-curl -s -m 90 -X POST $R/api/v1/packs/cxp-helper/install -H "$K" | head -c 400
+curl -s -m 90 -X POST $R/api/v1/packs/cxp-helper/install -H "$K" | head -c 300
 echo
 python3 - <<'PYEOF'
 import socket, time, uuid
@@ -16,7 +16,7 @@ def c(*a):
 rid=str(uuid.uuid4())
 print("XADD:", c("XADD","cms:action-requests","*",
   "request_id",rid, "content_uuid","cc487c59-cf0c-4521-b41d-4e0ecec9bce0",
-  "action","diag", "params","{}", "timeout_seconds","25", "user_id","1"))
+  "action","puttest", "params","{}", "timeout_seconds","25", "user_id","1"))
 time.sleep(25)
-print("DIAG-RES:", c("GET","cms:action-result:"+rid)[:2500])
-PYEOF # S16b
+print("PUTTEST-RES:", c("GET","cms:action-result:"+rid)[:2500])
+PYEOF # S17
