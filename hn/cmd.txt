@@ -1,27 +1,18 @@
 R=http://192.168.3.121:8000
 CT='Content-Type: application/json'
-echo "=== REGISTER ==="
-curl -s -m 15 -w '\nHTTP:%{http_code}' -X POST $R/api/auth/register -H "$CT" -d '{"email":"ops.maint2@eaera.io","password":"OpSmA1nt!2026x","full_name":"Ops Maint"}' | head -c 800
-echo; echo "=== LOGIN ==="
+echo "=== LOGIN RAW ==="
+curl -s -m 15 -w '\nHTTP:%{http_code}' -X POST $R/api/auth/login -H "$CT" -d '{"email":"ops.maint2@eaera.io","password":"OpSmA1nt!2026x"}' | head -c 900
+echo
 TOK=$(curl -s -m 15 -X POST $R/api/auth/login -H "$CT" -d '{"email":"ops.maint2@eaera.io","password":"OpSmA1nt!2026x"}' | python3 -c 'import sys,json
 try:
- d=json.load(sys.stdin); print(d.get("access_token") or d.get("token") or "")
+ d=json.load(sys.stdin); t=d.get("access_token") or d.get("token") or ""; print(t)
 except: print("")')
-echo "jwt_len=${#TOK}"
 A="Authorization: Bearer $TOK"
+echo "jwt_len=${#TOK}"
 if [ -n "$TOK" ]; then
-  echo "=== CONTENT CREATE (jwt) ==="
-  CU=$(curl -s -m 20 -X POST $R/api/v1/content -H "$A" -H "$CT" -d '{"type_name":"cxp_note","data":{"title":"a"}}' | python3 -c 'import sys,json
-try:
- d=json.load(sys.stdin); print(d.get("uuid") or (d.get("item") or {}).get("uuid") or "")
-except: print("")')
-  echo "uuid=$CU"
-  echo "=== TYPE ACTION INVOKE (jwt) ==="
-  curl -s -m 40 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/types/cxp_note/actions/refresh" -H "$A" -H "$CT" -d '{"params":{}}' | head -c 1200
-  echo; if [ -n "$CU" ]; then
-  echo "=== ROW ACTION INVOKE (jwt) ==="
-  curl -s -m 40 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/$CU/actions/refresh" -H "$A" -H "$CT" -d '{"params":{}}' | head -c 1200
-  echo; fi
-fi
-echo; sleep 8; echo "=== EXECUTIONS ==="
-curl -s -m 15 "$R/api/v1/executions?limit=3" | head -c 1000 # S7
+  echo "=== CONTENT CREATE ==="
+  curl -s -m 20 -w '\nHTTP:%{http_code}' -X POST $R/api/v1/content -H "$A" -H "$CT" -d '{"type_name":"cxp_note","data":{"title":"a"}}' | head -c 900
+  echo; echo "=== TYPE ACTION INVOKE ==="
+  curl -s -m 45 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/types/cxp_note/actions/refresh" -H "$A" -H "$CT" -d '{"params":{}}' | head -c 1200
+  echo
+fi # S8
