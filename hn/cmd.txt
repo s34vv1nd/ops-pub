@@ -1,18 +1,11 @@
 R=http://192.168.3.121:8000
 CT='Content-Type: application/json'
-echo "=== LOGIN RAW ==="
-curl -s -m 15 -w '\nHTTP:%{http_code}' -X POST $R/api/auth/login -H "$CT" -d '{"email":"ops.maint2@eaera.io","password":"OpSmA1nt!2026x"}' | head -c 900
-echo
-TOK=$(curl -s -m 15 -X POST $R/api/auth/login -H "$CT" -d '{"email":"ops.maint2@eaera.io","password":"OpSmA1nt!2026x"}' | python3 -c 'import sys,json
-try:
- d=json.load(sys.stdin); t=d.get("access_token") or d.get("token") or ""; print(t)
-except: print("")')
-A="Authorization: Bearer $TOK"
-echo "jwt_len=${#TOK}"
-if [ -n "$TOK" ]; then
-  echo "=== CONTENT CREATE ==="
-  curl -s -m 20 -w '\nHTTP:%{http_code}' -X POST $R/api/v1/content -H "$A" -H "$CT" -d '{"type_name":"cxp_note","data":{"title":"a"}}' | head -c 900
-  echo; echo "=== TYPE ACTION INVOKE ==="
-  curl -s -m 45 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/types/cxp_note/actions/refresh" -H "$A" -H "$CT" -d '{"params":{}}' | head -c 1200
-  echo
-fi # S8
+A='Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMjYwOTA5LWtleTEiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiIyIiwiaWF0IjoxNzg4OTczODI3LCJleHAiOjE3ODg5Nzc0MjcsImp0aSI6IjA1MmY4ZmI0LTdjZWUtNDM3Ny04ZjYwLWI4NjhmODQ4N2NiMSIsInNjb3BlIjoicmVhZCB3cml0ZSIsImFtciI6InB3ZCIsImtpZCI6IjIwMjYwOTA5LWtleTEifQ.J6jznnN_0kPdk2FDawiGqmNJRbbwdwdaTfx9Nsl1PNflXarPMu4GBJH0Bkd1a1PbfvKdhO1rSY1Eh8ldh1ZqWZs-yrnRnujSJ6rEc8B7_A7Ryxy8ojpgouQi7zjfyw0rZ1SjB9grPJLK8Tvvt-1Eg7mjxDNEWfFNHA_wrLY54kvBm1ksw5ydAvugEC_zaqY9mLz5HieVbgaDHaDi15yNeBApE5Vyz9cXkCYb__QrMTvY9ExesFmR0K3fQV0txNoUnkAV9qhSUYDdnEXTaZYF2pgtIpsGtfeDo-7NB5pwRGO6vn59L1ALo2IhAGZgR1gUAVMttjmlOwJldmKCi4gnFA'
+echo "=== ME ==="
+curl -s -m 15 "$R/api/auth/me" -H "$A" | head -c 300
+echo; echo "=== CONTENT CREATE (jwt) ==="
+curl -s -m 20 -w '\nHTTP:%{http_code}' -X POST $R/api/v1/content -H "$A" -H "$CT" -d '{"type_name":"cxp_note","data":{"title":"a"}}' | head -c 900
+echo; echo "=== TYPE ACTION INVOKE (jwt) ==="
+curl -s -m 45 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/types/cxp_note/actions/refresh" -H "$A" -H "$CT" -d '{"params":{}}' | head -c 1500
+echo; sleep 5; echo "=== EXECUTIONS ==="
+curl -s -m 15 "$R/api/v1/executions?limit=3" | head -c 1200 # S9
