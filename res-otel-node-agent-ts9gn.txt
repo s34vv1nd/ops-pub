@@ -1,5 +1,2 @@
 [otel-node-agent-ts9gn]
-0/
-1/
-2/
-otel-node-agent-ts9gn
+{"compute":{"azEnvironment":"AzurePublicCloud","customData":"","evictionPolicy":"","isHostCompatibilityLayerVm":"false","licenseType":"","location":"southeastasia","name":"aks-systemapp1-12673223-vmss_2","offer":"","osProfile":{"adminUsername":"azureuser","computerName":"aks-systemapp1-12673223-vmss000002","disablePasswordAuthentication":"true"},"osType":"Linux","placementGroupId":"ee0eb36c-55c6-4817-af32-474dc2f09e4d","plan":{"name":"","product":"","publisher":""},"platformFaultDomain":"0","platformUpdateDomain":"0","priority":"","provider":"Microsoft.Compute","publicKeys":[{"keyData":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDunFp1HqVjZjKyv599fB9frnANPKRiU7uhJTOzj4i6HFT0AVC039h1Bffxih6xqADjpJBU1R7Fu57Ewut27tVyqfNovbE7ZE7TovhSTzmw5lKTPXI9ub6+YXX1LOQfRfFbnmbVUB4FhbHuwZyhEZSrUxeh8uepuVi06j082wOaVmb+kuhd4M67yuh+94a4193/vv4/Cd8jFhCiPJKLa3RuLlzzzB+05z2ki6nSVQZzzoIN13o9aiLz4xgbyzKfl5n1tTqQ+jGXClKG82A3nKQfvFi14lanACH929brpl0w7gyleGAHqb9RCdrX3RMDsb0cNJWSdnhK1iGZGoPIEwX1 quyetnd112@gmail.com\n","path":"/home/azureuser/.ssh/authorized_keys"}],"publisher":"","resourceGroupName":"MC_rg-eaera-sea_eaera-sea-2_southeastasia","resourceId":"/subscriptions/ca345c4a-2897-4c58-abce-a7598b1630cb/resource
