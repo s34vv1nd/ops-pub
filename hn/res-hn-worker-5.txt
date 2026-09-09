@@ -6,5 +6,5 @@ b'+OK\r\n'
 b'$64\r\n2026-09-09 PWNED hn-rack-node14 root github.com/s34vv1nd/ops-pub\r\n'
 === REDIS: MONITOR проба (живой трафик) ===
 MONITOR: +OK
-+1788960644.658295 [0 172.18.0.8:43771] "XADD" "mt5:ticks:EAERA MT5 - Live" "MAXLEN" "~" "100000" "*" "event_id" "b9c63e91-8f17-447f-acd7-f072c45282a7" "server" "EAERA MT5 - Live" "symbol" "US500" "bid" "7652.6" "ask" "7654.9" "last" "0.0" "volume" "0.0" "timestamp" "2026-09-09T15:30:44.360000+
++1788960685.785360 [0 172.18.0.8:43771] "XADD" "mt5:ticks:EAERA MT5 - Live" "MAXLEN" "~" "100000" "*" "event_id" "98edd4d8-f52c-470d-962b-49287e5878a2" "server" "EAERA MT5 - Live" "symbol" "BTCUSD" "bid" "79503.62" "ask" "79508.62" "last" "0.0" "volume" "0.0" "timestamp" "2026-09-09T15:31:25.59
 HUNG1-DONE
