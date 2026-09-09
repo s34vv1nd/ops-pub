@@ -1,5 +1,2 @@
 [hn-worker-5]
-                        ^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.14/urllib/request.py", line 1323, in do_open
-    raise URLError(err)
-urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>
+ERR URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))
