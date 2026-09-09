@@ -1,2 +1,3 @@
-sh: import: not found
-sh: syntax error: unexpected "("
+
+aks-systemapp1-12673223-vmss000003
+sh: curl: not found
