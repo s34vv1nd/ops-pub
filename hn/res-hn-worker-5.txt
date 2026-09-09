@@ -1,8 +1,8 @@
 XADD: $15
-1788976440578-0
-rid: 897e5530-9e60-472a-a147-5e6806ce8a97
+1788976477623-0
+rid: 22d6ca4b-c5b6-4722-801f-229f218efa03
 RES: $298
-{"request_id": "897e5530-9e60-472a-a147-5e6806ce8a97", "success": false, "data": null, "error": {"code": "exception", "message": "ActionExecutionError: Handler execution failed: object dict can't be used in 'await' expression"}, "completed_at": "2026-09-09T17:54:00.580409+00:00", "duration_ms": 1}
+{"request_id": "22d6ca4b-c5b6-4722-801f-229f218efa03", "success": false, "data": null, "error": {"code": "exception", "message": "ActionExecutionError: Handler execution failed: object dict can't be used in 'await' expression"}, "completed_at": "2026-09-09T17:54:37.625834+00:00", "duration_ms": 2}
 Traceback (most recent call last):
   File "<stdin>", line 22, in <module>
 NameError: name 'PYEOF' is not defined
