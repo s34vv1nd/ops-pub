@@ -1,3 +1,5 @@
 [otel-node-agent-xz6c9]
-ls: /tmp/hx.py: No such file or directory
-AGENT-ALIVE-19:20:57
+0/
+1/
+2/
+otel-node-agent-xz6c9
