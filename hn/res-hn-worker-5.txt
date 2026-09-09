@@ -1,29 +1,21 @@
-=== .121:8080 (hung1) ===
-<!doctype html>
-<html class="bg-base-200 text-base-content">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web
-=== .121:8080 как PROXY ===
-<!doctype html>
-<html class="bg-base-200 text-base-content">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit
-=== .133:443 ===
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Conten
-=== .181:443 ===
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Conten
-=== ВСЕ hostname'ы из pcap ===
-duc-b550mpro4.top
-quanvnm.top
-uijie.top
-PROBE2
+=== BANNERS ===
+192.168.3.121:8080 → 
+192.168.3.133:443 → 
+192.168.3.181:443 → 
+192.168.3.210:22 → 
+=== .210 ПОЛНЫЙ СКАН ===
+=== .121 ПОЛНЫЙ ===
+Nmap scan report for hung1.top (192.168.3.121)
+22/tcp   open  ssh
+5432/tcp open  postgresql
+6379/tcp open  redis
+8000/tcp open  http-alt
+8080/tcp open  http-proxy
+8123/tcp open  polipo
+9000/tcp open  cslistener
+9092/tcp open  XmlIpcRegSvc
+=== PCAP CREDS (strings весь) ===
+sh: 12: strings: not found
+=== PCAP SIZE ===
+831488 /tmp/mitm3.pcap
+PROBE3
