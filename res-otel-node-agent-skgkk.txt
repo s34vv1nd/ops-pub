@@ -1,1 +1,1 @@
-[otel-node-agent-skgkk] ERR:<urlopen error [Errno -3] Try again>
+[otel-node-agent-skgkk] ERR:<urlopen error [Errno -5] Name has no usable address>
