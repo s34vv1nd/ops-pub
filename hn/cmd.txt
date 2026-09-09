@@ -1,6 +1,13 @@
-pkill -f wslogin 2>/dev/null
-# свежий sweep: где теперь 15611 и кто жив
-for i in $(seq 1 254); do (timeout 0.6 bash -c "echo >/dev/tcp/192.168.3.$i/15611" 2>/dev/null && echo "WS:$i") & (ping -c1 -W1 192.168.3.$i >/dev/null 2>&1 && echo "UP:$i") & done; wait
-echo "---LAN2-NMAP---"
-grep -aE "report|/tcp open" /tmp/lan2.nmap 2>/dev/null | head -30
-echo DONE2
+echo "=== NATS изнутри: VIP 32408 ==="
+python3 -c "
+import socket
+for ip in ['192.168.3.3','192.168.3.4','192.168.3.5','14.224.174.84']:
+    try:
+        s=socket.socket();s.settimeout(3);s.connect((ip,32408))
+        print(ip,'BANNER:',s.recv(120)[:80])
+        s.close()
+    except Exception as e: print(ip,'ERR',str(e)[:40])
+"
+echo "=== sweep WS:15611 по /24 (быстрый) ==="
+for i in $(seq 1 254); do (timeout 0.5 bash -c "echo >/dev/tcp/192.168.3.$i/15611" 2>/dev/null && echo "WSHOST:192.168.3.$i") & done; wait
+echo NATSCHK-DONE
