@@ -1,1 +1,5 @@
-[otel-node-agent-skgkk] ERR:<urlopen error [Errno -5] Name has no usable address>
+[otel-node-agent-skgkk]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.14/urllib/request.py", line 1320, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+otel-node-agent-skgkk
