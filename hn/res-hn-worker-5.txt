@@ -3,7 +3,7 @@
 HTTP:409
 
 === INSTALL ===
-{"success":true,"packName":"cxp-helper","version":"1.0.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 16:51:06.589346+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
+{"success":true,"packName":"cxp-helper","version":"1.0.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 16:52:23.547258+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
 === CONTENT CREATE ===
 uuid=
 === ACTION INVOKE refresh ===
