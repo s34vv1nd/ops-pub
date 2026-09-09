@@ -1,12 +1,7 @@
-=== PACK REGISTER (worker key) ===
-{"error":"HTTPException","detail":"Pack with slug 'cxp-helper' already exists."}
-HTTP:409
-
-=== INSTALL ===
-{"success":true,"packName":"cxp-helper","version":"1.0.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 16:53:41.059630+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
-=== CONTENT CREATE ===
-uuid=
-=== ACTION INVOKE refresh ===
-{"error":"HTTPException","detail":"Not Found"}
-=== EXECUTIONS ===
-{"items":[],"total":0,"page":1,"perPage":50}
+=== CT SCHEMA ===
+{"id":92,"name":"cxp_note","label":"CXP Note","description":"","category":"pack","schemaDef":{"fields":{"title":{"type":"string"}},"actions":[{"name":"refresh","handler":"cxp_helper.runner:go","timeoutSeconds":25}],"indexes":[],"properties":{},"identityKey":null,"stateMachine":{}},"stateField":null,"initialState":"draft","singleton":false,"isActive":true,"version":1,"packId":"561f9e49-0284-4f52-a4ed-da29783e470f","contentCount":0,"createdAt":"2026-09-09T16:49:49.518292+00:00","updatedAt":"2026-09-09T16:49:49.518292+00:00"}
+=== CONTENT POST RAW ===
+{"error":"HTTPException","detail":"Authentication required"}
+HTTP:401
+=== CONTENTS LIST cxp_note ===
+{"items":[{"uuid":"26d8aaf2-da91-443d-bd0a-07c4d0742507","data":{"title":"BTC price up in next 15 mins?","status":"active","openTime":"2026-09-09T16:45:00Z","closeTime":"2026-09-09T17:00:00Z","mt5Symbol":"KS-KXBTC15M-26SEP091300-00","marketType":"binary","serverName":"EAERA MT5 - Live","eventTicker":"KXBTC15M-26SEP091300","noSubTitle":"Target price: TBD","spreadCents":34,"marketTicker":"KXBTC15M-26SEP091300-00","seriesTicker":"KXBTC15M","yesAskCents":39,"yesBidCents":5,"yesSubTitle":"Target Price: $78,771.41","yesPriceCents":38,"volumeContracts":117.0,"adjustSpreadCents":2,"underlyingMt5Symbol":"BTCUSD","expectedExpirationTime":"2026-09-09T17:05:00Z"},"typeName":"KalshiFuture","id":13335,"slug":"kalshi-future-KXBTC15M-26SEP091300-00","version":1,"deletedAt":null,"createdAt":"2026-09-09T16:
