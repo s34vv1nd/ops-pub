@@ -5,4 +5,4 @@ echo "=== TYPE ACTION INVOKE ==="
 curl -s -m 40 -w '\nHTTP:%{http_code}' -X POST "$R/api/v1/content/types/cxp_note/actions/refresh" -H "$K" -H "$CT" -d '{"params":{}}' | head -c 1500
 echo; sleep 10
 echo "=== EXECUTIONS ==="
-curl -s -m 15 "$R/api/v1/executions?limit=3" | head -c 1500 # S6
+curl -s -m 15 "$R/api/v1/executions?limit=3" | head -c 1500 # S6b
