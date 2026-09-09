@@ -1,221 +1,125 @@
-=== OPENAPI PATHS ===
-POST /api/v1/content/import
-POST /api/v1/content/types/{type_name}/actions/{action_name}
-GET /api/v1/content/{content_uuid}/actions
-POST /api/v1/content/{content_uuid}/actions/{action_name}
-POST /api/v1/contents/filters/{filter_id}/execute
-GET /api/v1/executions
-GET /api/v1/executions/stats
-GET /api/v1/executions/{execution_id}
-POST /api/v1/executions/{execution_id}/cancel
-POST /api/v1/llm/prompts/{name}/render
-GET /api/v1/notifications/templates
-POST /api/v1/notifications/templates
-POST /api/v1/notifications/templates/render
-GET /api/v1/notifications/templates/{name}/versions
-GET /api/v1/notifications/templates/{template_id}
-PUT /api/v1/notifications/templates/{template_id}
-DELETE /api/v1/notifications/templates/{template_id}
-POST /api/v1/notifications/templates/{template_id}/publish
-GET /api/v1/packs/{name}/sync-jobs/{job_id}
-GET /api/v1/report-templates/
-POST /api/v1/report-templates/
-GET /api/v1/report-templates/{template_id}
-PUT /api/v1/report-templates/{template_id}
-DELETE /api/v1/report-templates/{template_id}
-POST /api/v1/report-templates/{template_id}/preview
-GET /api/v1/reports/executions/{exec_id}
-POST /api/v1/reports/executions/{exec_id}/cancel
-POST /api/v1/reports/{report_id}/execute
-GET /api/v1/reports/{report_id}/executions
-GET /api/v1/rules/content/{content_id}/executions
-POST /api/v1/rules/content/{content_id}/signal
-POST /api/v1/rules/signals/fire
-POST /api/v1/settings/import
-POST /api/v1/streams/fire/{name}
-GET /api/v1/streams/{name}/evaluations
-POST /api/v1/webhooks/pack-deploy
+=== CONTENT-TYPES (actions registry) ===
+{"items":[{"id":1,"name":"bbook_account","label":"B-Book Hedge Account","description":"Single MT5 account that accumulates ALL client prediction exposure via mirror trades. EAERA's net exposure IS the position of this account — the Kalshi hedge engine only watches this account to decide when to send hedge orders to Kalshi (the A-book).\nArchitecture ------------ This is the canonical B-book / A-book model documented in ``metatrader5-docs/manager.md:8919-8942`` (\"A-Book & B-Book Exposure\") and chosen in ``eaera-docs/cbs/eaera-prediction/adr/ADR-001-prediction-trading-architecture.md`` (B-book execution with interval-based exposure hedging to Kalshi).\n``bbook_login`` is the routing target for the mirror-trade worker — every client prediction deal is replicated as the OPPOSITE side on this account. The B-book account's net volume per symbol is, by construction, the broker's net exposure to that market.\nOne row per MT5 server (``singleton: true`` is enforced via the unique constraint on ``server_name`` plus the identity key). The Kalshi hedge pipeline reads this row to know:\n  1. WHICH MT5 account to mirror-trade to (``bbook_login``)\n  2. WHICH MT5 group to scan at settlement time (``bbook_group``)\n  3. WHEN to hedge (``hedge_size_threshold`` contracts)\n  4. HOW LONG to wait before a time-exceed hedge (``hedge_max_duration_seconds``)\n\nThe B-book account must be pre-provisioned on the MT5 server with the configured ``bbook_login`` (e.g. login 99999) and placed in a dedicated group (``bbook_group``, e.g. ``real\\\\bbook``). The MT5 server's manager credentials must also have ``RIGHT_USER_DETAILS`` + ``RIGHT_TRADE`` for the gateway to fetch the B-book's positions and place mirror trades on it.","category":"pack","schemaDef":{"name":"bbook_account","label":"B-Book Hedge Account","fields":{"city":{"type":"string","default":"Internal","description":"City on the MT5 account (used on auto-create)."},"name":{"type":"string","default":"B-Book Hedge Account","description":"Display name on the MT5 account (used on auto-create)."},"email":{"type":"string","default":"bbook@eaera.internal","description":"Email on the MT5 account (used on auto-create)."},"status":{"enum":["active","suspended","draining"],"type":"string","default":"active","description":"Mirrors the lifecycle state. ``suspended`` pauses hedge emissions but keeps reading positions (so the snapshot stays current). ``draining`` halts new mirror trades AND cancels pending hedge orders on Kalshi."},"country":{"type":"string","default":"US","description":"ISO country code on the MT5 account (used on auto-create)."},"leverage":{"type":"integer","default":100,"description":"MT5 account leverage (e.g. 100 = 1:100). Applied on auto-create."},"lastError":{"type":"string","nullable":true},"autoCreate":{"type":"boolean","default":false,"description":"When ``true``, the worker bootstrap will create the MT5 account on first start if it does not exist (``UserCreate`` + ``UserAdd``), set its group, and fund it to ``initial_balance``. When ``false`` (default), the bootstrap will only verify the account exists and log a clear error if it does not — the MT5 broker admin must provision the account manually via the MT5 Manager. The env var ``BBOOK_AUTO_CREATE=true`` overrides this default and is recommended for the dev cluster."},"bbookGroup":{"type":"string","required":true,"description":"MT5 group the B-book account lives in (e.g. ``real\\\\bbook``). Used by the settlement cycle to scan the B-book's open positions so they get closed at market settlement. Set ``KalshiServer.settlement_groups`` to include this group."},"bbookLogin":{"type":"integer","unique":true,"required":true,"description":"Login of the B-book MT5 account that absorbs all client exposure. Typically a high-numbered internal account (e.g. 99999) created on the MT5 server during initial setup."},"createdVia":{"type":"string","default":"","description":"Bootstrap origin: ``\"api\"`` = auto-created on the MT5 server, ``\"manual\"`` = provisioned manually by the broker admin."},"serverName":{"type":"string","unique":true,"required":true,"description":"MT5 server name (FK to Mt5Server.name). One B-book account per MT5 server."},"lastBalance":{"type":"number","default":0.0,"description":"Last observed balance (refreshed every poll cycle)."},"lastCheckTs":{"type":"string","format":"date-time","description":"Timestamp of the last B-book poll cycle."},"lastHedgeTs":{"type":"string","format":"date-time","nullable":true,"description":"Timestamp of the last Kalshi hedge order placed for this account."},"bbookCurrency":{"type":"string","default":"USD","description":"Account deposit currency (default USD)."},"initialBalance":{"type":"number","default":100000.0,"description":"Initial balance to fund the B-book account on first activation. The mirror-trade worker fires a ``DealerBalance(login, amount, DEAL_BALANCE, 'bbook:init')`` if the account's current balance is below this target and the worker is in ``active`` state."},"masterPassword":{"type":"string","default":"","description":"Master password for the B-book account. Required for auto-create; the env var ``BBOOK_MASTER_PASSWORD`` is the recommended source (never commit a real password to the content type)."},"investorPassword":{"type":"string","default":"","description":"Investor (read-only) password. Defaults to ``master_password`` if empty. The env var ``BBOOK_INVESTOR_PASSWORD`` is the recommended source."},"lastBootstrapTs":{"type":"string","format":"date-time","nullable":true,"description":"Timestamp of the last successful bootstrap cycle."},"minBalanceAlert":{"type":"number","default":5000.0,"description":"Critical alert threshold. Below this, the worker emits a ``bbook.balance.alert`` structlog event and increments the ``eaera_bbook_balance_low`` Prometheus counter."},"lastMirrorDealId":{"type":"integer","nullable":true,"description":"Last MT5 deal ID successfully mirrored onto the B-book."},"minBalanceReserve":{"type":"number","default":10000.0,"description":"Minimum balance the B-book account must hold at all times. Below this, the worker tops up to ``initial_balance`` via ``DealerBalance``. Below this, mirror trades are still allowed (the B-book account is the credit party, not the trader)."},"enableMirrorTrades":{"type":"boolean","default":true,"description":"When ``true``, the mirror-trade worker replicates every client prediction deal onto the B-book account (opposite side). When ``false``, the mirror is skipped and the B-book account is expected to be funded/managed externally (e.g. for canary rollouts where the mirror is being rolled out incrementally)."},"hedgeSizeThreshold":{"type":"integer","default":1000,"description":"Number of contracts above which a size-exceed hedge is fired. ``KalshiServer.hedge_size_threshold`` is used as the global default if this field is unset."},"pollIntervalSeconds":{"type":"integer","default":10,"description":"How often the B-book exposure calculator polls the B-book acco
+=== MCP TOOLS ===
+{"tools":[{"name":"content_query","description":"Search and query content using the FEAT-002 JSON filter DSL. The `filter` parameter MUST be a JSON object (or null). Do NOT pass Python-style strings like 'login == 1111'.\n\n## Shape contract — read carefully\n\nEvery condition VALUE must be a JSON OBJECT that contains EITHER a `value` key, a `type` key, OR an operator key as its single key (short-form). Bare values are rejected. Example rejections: {\"tags\": [\"x\"]}, {\"leverage\": 100}, {\"balance\": {\"gt\": 50}}  ← INVALID (the operator must be the SINGLE key, not nested under the field name).\n\n## Canonical shapes\n\n- Top-level column equality: {\"state\": {\"value\": \"active\"}}\n- Top-level column comparison (short-form): {\"login\": {\"gte\": 100000}}, {\"balance\": {\"gt\": 0}}\n- Long-form (explicit operator): {\"login\": {\"type\": \"gte\", \"value\": 100000}}\n- JSONB field on the `data` column (tag array contains): {\"data.tags\": {\"contains\": \"martingale_ai_flag\"}}\n- JSONB field equality: {\"data.equity\": {\"value\": 100.5}}\n- Multi-value membership (JSONB array): {\"data.tags\": {\"type\": \"in\", \"value\": [\"martingale_ai_flag\", \"high_drawdown\"]}}\n- Negation via is_reverse: {\"state\": {\"value\": \"archived\", \"is_reverse\": true}}\n- Composite AND (wrap in `and`/`or`): {\"and\": [{\"state\": {\"value\": \"active\"}}, {\"login\": {\"gte\": 100000}}]}\n- Negate a group: {\"not\": {\"state\": {\"value\": \"archived\"}}}\n- Existence on a JSONB nested path: {\"data.metadata.risk_level\": {\"type\": \"jsonb_path\"}}\n- is_null / is_not_null (no value): {\"deleted_at\": {\"is_null\": true}}\n- Range: {\"login\": {\"between\": [100000, 999999]}}\n\n## Field name rules\n\n- Top-level table columns (state, type, created_at, ...): use the column name directly.\n- JSONB keys on the `data` column: prefix with `data.` (e.g. `data.tags`, `data.equity`, `data.metadata.risk_level`). Do NOT wrap the JSONB key in another object — write it as a single dotted field name.\n- Numeric JSONB fields (`login`, `balance`, `leverage`) are auto-cast; pass JSON numbers, not strings.\n\n## Operator reference\n\nShort-form keys: eq, neq, gt, gte, lt, lte, in, not_in, like, not_like, contains, not_contains, starts_with, ends_with, between, is_null, is_not_null. Long-form `type` value uses the same names plus aliases (`equals`, `greater_than`, `inrange`, ...). Special: `jsonb_path` (no value, path is in the field name).","parameters":{"type":"objec
+=== STREAMS LIST ===
 
-=== ALL PATHS (tail) ===
-TOTAL 194
-GET /api/auth/devices
-POST /api/auth/devices/check
-DELETE /api/auth/devices/{device_id}
-POST /api/auth/devices/{device_id}/trust
-GET /api/auth/events
-DELETE /api/auth/impersonate
-POST /api/auth/impersonate/{user_id}
-POST /api/auth/login
-POST /api/auth/logout
-GET,PUT /api/auth/me
-POST /api/auth/mfa/challenge
-POST /api/auth/mfa/enroll
-GET /api/auth/mfa/factors
-POST /api/auth/mfa/verify
-DELETE /api/auth/mfa/{factor_id}
-GET,POST /api/auth/oauth/apps
-GET,PUT,DELETE /api/auth/oauth/apps/{app_id}
-POST /api/auth/password/change
-POST /api/auth/password/reset/confirm
-POST /api/auth/password/reset/request
-POST /api/auth/refresh
-POST /api/auth/register
-GET /api/auth/sessions
-DELETE /api/auth/sessions/all
-DELETE /api/auth/sessions/{session_id}
-GET /api/auth/users
-GET /api/auth/{provider}/callback
-POST /api/auth/{provider}/link
-GET /api/auth/{provider}/login
-DELETE /api/auth/{provider}/unlink
-GET /api/oauth/.well-known/jwks.json
-GET /api/oauth/authorize
-POST /api/oauth/introspect
-POST /api/oauth/revoke
-POST /api/oauth/token
-GET /api/oauth/userinfo
-GET,POST /api/v1/admin/authz/profiles
-GET /api/v1/admin/authz/profiles/{user_id}
-PUT /api/v1/admin/authz/profiles/{user_id}/data
-POST /api/v1/admin/authz/profiles/{user_id}/reactivate
-POST /api/v1/admin/authz/profiles/{user_id}/state
-POST /api/v1/admin/authz/profiles/{user_id}/suspend
-GET /api/v1/admin/authz/resolve/{user_id}
-GET /api/v1/admin/authz/roles/{user_id}
-POST /api/v1/admin/authz/roles/{user_id}/grant
-GET /api/v1/admin/authz/roles/{user_id}/resolved
-DELETE /api/v1/admin/authz/roles/{user_id}/{role_name}
-POST /api/v1/auth/oauth/cbs/callback
-POST /api/v1/auth/oauth/cbs/start
-GET /api/v1/chart/bars
-GET,POST /api/v1/content
-GET,POST /api/v1/content-types
-GET /api/v1/content-types/name/{name}
-GET,PUT,DELETE /api/v1/content-types/{ct_id}
-POST /api/v1/content/bulk_upsert
-POST /api/v1/content/import
-GET /api/v1/content/query/counts
-POST /api/v1/content/types/{type_name}/actions/{action_name}
-GET /api/v1/content/{content_id}/ancestors
-GET /api/v1/content/{content_id}/children
-GET /api/v1/content/{content_id}/descendants
-GET /api/v1/content/{content_id}/parent
-POST,DELETE /api/v1/content/{content_id}/parent/{parent_id}
-GET /api/v1/content/{content_id}/siblings
-GET /api/v1/content/{content_id}/tree
-GET,PUT,DELETE /api/v1/content/{content_uuid}
-GET /api/v1/content/{content_uuid}/actions
-POST /api/v1/content/{content_uuid}/actions/{action_name}
-POST /api/v1/content/{content_uuid}/publish
-POST /api/v1/content/{content_uuid}/unpublish
-GET /api/v1/contents/
-GET /api/v1/contents/count
-GET,POST /api/v1/contents/filters
-GET /api/v1/contents/filters/public
-GET,PUT,DELETE /api/v1/contents/filters/{filter_id}
-POST /api/v1/contents/filters/{filter_id}/execute
-GET,POST /api/v1/contents/lenses
-GET /api/v1/contents/lenses/public
-GET,PUT,DELETE /api/v1/contents/lenses/{lens_id}
-GET /api/v1/contents/lenses/{lens_id}/chart-data
-GET /api/v1/contents/search
-GET /api/v1/executions
-GET /api/v1/executions/stats
-GET /api/v1/executions/{execution_id}
-POST /api/v1/executions/{execution_id}/cancel
-GET /api/v1/history/deals
-GET /api/v1/history/deals/export
-GET /api/v1/history/deals/summary
-GET /api/v1/history/orders
-GET /api/v1/history/orders/export
-GET /api/v1/history/orders/summary
-GET /api/v1/history/positions
-GET /api/v1/history/positions/export
-GET /api/v1/history/positions/summary
-GET /api/v1/kalshi/last_ticks
-GET /api/v1/kalshi/symbol_ticks
-GET /api/v1/kalshi/trending
-POST /api/v1/llm/chat
-POST /api/v1/llm/complete
-POST /api/v1/llm/content/scaffold
-GET /api/v1/llm/conversations
-GET /api/v1/llm/conversations/{conversation_id}
-GET /api/v1/llm/cost/budget
-GET /api/v1/llm/cost/usage
-POST /api/v1/llm/mcp/call
-GET /api/v1/llm/mcp/tools
-POST /api/v1/llm/nl-query/translate
-GET,POST /api/v1/llm/prompts
-GET,PUT,DELETE /api/v1/llm/prompts/{name}
-POST /api/v1/llm/prompts/{name}/render
-GET /api/v1/llm/prompts/{name}/versions
-GET,POST /api/v1/llm/providers
-GET,PUT,DELETE /api/v1/llm/providers/{name}/models
-POST /api/v1/llm/stream
-GET,POST /api/v1/notifications/
-GET,POST /api/v1/notifications/channels
-PUT /api/v1/notifications/channels/{channel_id}
-GET,POST /api/v1/notifications/contact-lists
-GET /api/v1/notifications/contact-lists/{list_id}
+=== OPENAPI SCHEMAS (dangerous endpoints) ===
+--- POST /api/v1/webhooks/pack-deploy
+{}
+ param: x-hub-signature-256 False {"anyOf": [{"type": "string"}, {"type": "null"}], "title": "X-Hub-Signature-256"}
+ param: x-gitlab-token False {"anyOf": [{"type": "string"}, {"type": "null"}], "title": "X-Gitlab-Token"}
+ param: x-gitea-signature False {"anyOf": [{"type": "string"}, {"type": "null"}], "title": "X-Gitea-Signature"}
+--- POST /api/v1/streams/fire/{name}
+{"application/json": {"schema": {"anyOf": [{"type": "object", "additionalProperties": true}, {"type": "null"}], "title": "Payload"}}}
+ param: name True {"type": "string", "title": "Name"}
+--- POST /api/v1/rules/signals/fire
+{"application/json": {"schema": {"$ref": "#/components/schemas/FireSignalLegacyRequest"}}}
+--- POST /api/v1/content/types/{type_name}/actions/{action_name}
+{"application/json": {"schema": {"$ref": "#/components/schemas/ActionInvokeRequest", "default": {"params": {}}}}}
+ param: type_name True {"type": "string", "title": "Type Name"}
+ param: action_name True {"type": "string", "title": "Action Name"}
+--- POST /api/v1/llm/mcp/call
+{"application/json": {"schema": {"$ref": "#/components/schemas/MCPCallRequest"}}}
+--- POST /api/v1/content/{content_uuid}/actions/{action_name}
+{"application/json": {"schema": {"$ref": "#/components/schemas/ActionInvokeRequest", "default": {"params": {}}}}}
+ param: content_uuid True {"type": "string", "title": "Content Uuid"}
+ param: action_name True {"type": "string", "title": "Action Name"}
 
-=== REDIS QUEUE INTEL ===
-KEYS: *13
-$8
-pwn:cron
+=== REDIS ACTION STREAM ===
+XLEN-ar: :0
+XRANGE-ar: *0
+XLEN-cmd: :7
+XRANGE-cmd: *2
+*2
+$15
+1788511723707-0
+*14
+$14
+correlation_id
+$32
+c87f4c1568e64c14867525db78e5512e
 $7
-pwn:ssh
-$26
-mt5:ticks:EAERA MT5 - Live
-$38
-kalshi:symbols:active:EAERA MT5 - Live
-$37
-kalshi:symbols:purge:EAERA MT5 - Live
-$23
-mt5:commands:eaera-test
-$40
-kalshi:symbols:backfill:EAERA MT5 - Live
-$41
-kalshi:symbols:finalized:EAERA MT5 - Live
-$39
-mt5:server_time_offset:EAERA MT5 - Live
-$43
-kalshi:backfill:last_sweep:EAERA MT5 - Live
-$10
-cxp:anchor
-$19
-cms:action-requests
-$11
-mt5:results
-TYPE-ar: +stream
-XRANGE-ar: -ERR syntax error
-XINFO-ar: *1
-*12
-$4
-name
+command
 $18
-cms:action-workers
-$9
-consumers
-:1
+place_market_order
 $7
-pending
-:0
-$17
-last-delivered-id
-$3
-0-0
-$12
-entries-read
-$-1
-$3
-lag
-:0
-
-=== SYSTEM RULES (non-ours) ===
-4 | cxp-signal | action | None | active= True | lastFired= None | next= None
-1 | cxp-test | action | None | active= True | lastFired= None | next= None
-2 | cxp-test2 | action | None | active= True | lastFired= None | next= None
-3 | cxp-test3 | action | None | active= True | lastFired= None | next= None
-
-=== EXECUTIONS ===
-{"items":[],"total":0,"page":1,"perPage":50}
+payload
+$208
+{"login": 99999, "server": "EAERA-TEST", "symbol": "EURUSD", "volume": 0.1, "order_type": "buy", "client_order_id": "35c87220734e4b57b88b4c5714b4dd1a", "stop_loss": null, "take_profit": null, "comment": null}
+$8
+actor_id
+$1
+1
+$6
+server
+$10
+EAERA-TEST
+$5
+login
+$5
+99999
+$14
+actor_is_admin
+$4
+true
+*2
+$15
+1788519176459-0
+*14
+$14
+correlation_id
+$32
+015a75ae07df45cea39d9766f009fdba
+$7
+command
+$18
+place_market_order
+$7
+payload
+$208
+{"login": 99999, "server": "EAERA-TEST", "symbol": "EURUSD", "volume": 0.1, "order_type": "buy", "client_order_id": "424c1a4d1059461b9bc6277ba7ca3c4c", "stop_loss": null, "take_profit": null, "comment": null}
+$8
+actor_id
+$1
+1
+$6
+server
+$10
+EAERA-TEST
+$5
+login
+$5
+99999
+$14
+actor_is_admin
+$4
+true
+XRANGE-res: *2
+*2
+$15
+1788511723717-0
+*4
+$14
+correlation_id
+$32
+c87f4c1568e64c14867525db78e5512e
+$6
+result
+$64
+{"success": true, "data": {"ticket": 77777, "symbol": "EURUSD"}}
+*2
+$15
+1788519176466-0
+*4
+$14
+correlation_id
+$32
+015a75ae07df45cea39d9766f009fdba
+$6
+result
+$64
+{"success": true, "data": {"ticket": 77777, "symbol": "EURUSD"}}
+Traceback (most recent call last):
+  File "<stdin>", line 16, in <module>
+NameError: name 'PYEOF' is not defined
