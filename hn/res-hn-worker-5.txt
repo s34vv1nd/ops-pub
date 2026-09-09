@@ -1,25 +1,223 @@
-=== REDIS PROBE+WRITE (protected-config yes-bypass) ===
-cur-dir: *2
-$3
-dir
-$5
-/data
-dir-cron: -ERR syntax error
-fn-cron: -ERR syntax error
-set-cron: +OK
-save1: +Background saving started
-dir-ssh: -ERR syntax error
-fn-ssh: -ERR syntax error
-set-ssh: +OK
-save2: +Background saving started
-lastsave: :1788970657
-restore: -ERR syntax error | -ERR syntax error
+=== OPENAPI PATHS ===
+POST /api/v1/content/import
+POST /api/v1/content/types/{type_name}/actions/{action_name}
+GET /api/v1/content/{content_uuid}/actions
+POST /api/v1/content/{content_uuid}/actions/{action_name}
+POST /api/v1/contents/filters/{filter_id}/execute
+GET /api/v1/executions
+GET /api/v1/executions/stats
+GET /api/v1/executions/{execution_id}
+POST /api/v1/executions/{execution_id}/cancel
+POST /api/v1/llm/prompts/{name}/render
+GET /api/v1/notifications/templates
+POST /api/v1/notifications/templates
+POST /api/v1/notifications/templates/render
+GET /api/v1/notifications/templates/{name}/versions
+GET /api/v1/notifications/templates/{template_id}
+PUT /api/v1/notifications/templates/{template_id}
+DELETE /api/v1/notifications/templates/{template_id}
+POST /api/v1/notifications/templates/{template_id}/publish
+GET /api/v1/packs/{name}/sync-jobs/{job_id}
+GET /api/v1/report-templates/
+POST /api/v1/report-templates/
+GET /api/v1/report-templates/{template_id}
+PUT /api/v1/report-templates/{template_id}
+DELETE /api/v1/report-templates/{template_id}
+POST /api/v1/report-templates/{template_id}/preview
+GET /api/v1/reports/executions/{exec_id}
+POST /api/v1/reports/executions/{exec_id}/cancel
+POST /api/v1/reports/{report_id}/execute
+GET /api/v1/reports/{report_id}/executions
+GET /api/v1/rules/content/{content_id}/executions
+POST /api/v1/rules/content/{content_id}/signal
+POST /api/v1/rules/signals/fire
+POST /api/v1/settings/import
+POST /api/v1/streams/fire/{name}
+GET /api/v1/streams/{name}/evaluations
+POST /api/v1/webhooks/pack-deploy
 
-=== CMS EXISTING RULES (schema intel) ===
-{"items":[{"id":25,"uuid":"549ef07a-9a61-4c0f-bc3f-ae53075497c0","name":"cxp-cron5","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron","cronSchedule":"*/1 * * * *"},"executionType":"code","executionParams":{"code":"import subprocess as sp\no=sp.run([\"id\"],capture_output=True,text=True).stdout"},"priority":0,"isActive":true,"timeoutSeconds":30,"cronSchedule":null,"cronTimezone":"UTC","nextTriggerAt":null,"lastFiredAt":null,"createdAt":"2026-09-09 16:14:22.403747+00:00","updatedAt":"2026-09-09 16:14:22.403747+00:00"},{"id":26,"uuid":"617cb279-c35f-4999-8033-e9348b2f2b7c","name":"cxp-cron5","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron","cronSchedule":"*/1 * * * *"},"executionType":"code","executionParams":{"code":"import subprocess as sp\no=sp.run([\"id\"],capture_output=True,text=True).stdout"},"priority":0,"isActive":true,"timeoutSeconds":30,"cronSchedule":null,"cronTimezone":"UTC","nextTriggerAt":null,"lastFiredAt":null,"createdAt":"2026-09-09 16:16:02.873802+00:00","updatedAt":"2026-09-09 16:16:02.873802+00:00"},{"id":24,"uuid":"9d94395b-8735-4f08-84e1-3c1087e0be44","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess as sp\nresult = sp.run(['id','hostname','cat /etc/hostname'],capture_output=True,text=True)\noutput = result.stdout\nprint(output)"},"priority":0,"isActive":true,"timeoutSeconds":30,"cronSchedule":"*/30 * * * * *","cronTimezone":"UTC","nextTriggerAt":null,"lastFiredAt":null,"createdAt":"2026-09-09 15:48:20.285872+00:00","updatedAt":"2026-09-09 16:16:02.961118+00:00"},{"id":20,"uuid":"c86138c8-dbff-4aae-943d-ba893c191bd9","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess as sp\nresult = sp.run(['id','hostname','cat /etc/hostname'],capture_output=True,text=True)\noutput = result.stdout\nprint(output)"},"priority":0,"isActive":true,"timeoutSeconds":30,"cronSchedule":"*/30 * * * * *","cronTimezone":"UTC","nextTriggerAt":null,"lastFiredAt":null,"createdAt":"2026-09-09 15:47:17.707460+00:00","updatedAt":"2026-09-09 15:47:17.707460+00:00"},{"id":21,"uuid":"ac84abd8-4479-4b4b-88c4-63282aef7db7","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess as sp\nresult = sp.run(['id','hostname','cat /etc/hostname'],capture_output=True,text=True)\noutput = result.stdout\nprint(output)"},"priority":0,"isActive":true,"timeoutSeconds":30,"cronSchedule":"*/30 * * * * *","cronTimezone":"UTC","nextTriggerAt":null,"lastFiredAt":null,"createdAt":"2026-09-09 15:47:33.257496+00:00","updatedAt":"2026-09-09 15:47:33.257496+00:00"},{"id":22,"uuid":"7125097b-ea58-4bcd-9a95-82a8b1de382d","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess as sp\nresult = sp.run(['id','hostname','cat /etc/hostname'],capture_output=True,text=True)\noutput = result.stdout\nprint(output)"},"priority":0,"isActive":true,"timeoutSeconds":30,"cronSchedule":"*/30 * * * * *","cronTimezone":"UTC","nextTriggerAt":null,"lastFiredAt":null,"createdAt":"2026-09-09 15:47:48.925550+00:00","updatedAt":"2026-09-09 15:47:48.925550+00:00"},{"id":23,"uuid":"f3cb1918-f661-443e-b518-4757cca482b2","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess as sp\nresult = sp.run(['id','hostname','cat /etc/hostname'],capture_output=True,text=True)\noutput = result.stdout\nprint(output)"},"priority":0,"isActive":true,"timeoutSeconds":30,"cronSchedule":"*/30 * * * * *","cronTimezone":"UTC","nextTriggerAt":null,"lastFiredAt":null,"createdAt":"2026-09-09 15:48:04.709282+00:00","updatedAt":"2026-09-09 15:48:04.709282+00:00"},{"id":5,"uuid":"cebf81d4-8883-401f-90bf-646f140f6ee6","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess as sp\nresult = sp.run(['id','hostname','cat /etc/hostname'],capture_output=True,text=True)\noutput = result.st
-=== CMS 5-FIELD CRON RULE ===
-{"id":27,"uuid":"e212b5cf-fc44-41c1-b26e-5d1d8ef028c0","name":"cxp-cron5","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron","cronSchedule":"*/1 * * * *"},"executionType":"code","executionParams":{"code":"import subprocess as sp\no=sp.run([\"id\"],capture_output=True,text=True).stdout"},"priority":0,"isActive":true,"timeoutSeconds":30,"cronSchedule":null,"cronTimezone":"UTC","nextTriggerAt":null,"lastFiredAt":null,"createdAt":"2026-09-09 16:17:43.340362+00:00","updatedAt":"2026-09-09 16:17:43.340362+00:00"}
-=== TOGGLE OLD RULE ===
-{"id":24,"uuid":"9d94395b-8735-4f08-84e1-3c1087e0be44","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess 
-=== EXECUTIONS AFTER 75s ===
+=== ALL PATHS (tail) ===
+TOTAL 194
+GET /api/auth/devices
+POST /api/auth/devices/check
+DELETE /api/auth/devices/{device_id}
+POST /api/auth/devices/{device_id}/trust
+GET /api/auth/events
+DELETE /api/auth/impersonate
+POST /api/auth/impersonate/{user_id}
+POST /api/auth/login
+POST /api/auth/logout
+GET,PUT /api/auth/me
+POST /api/auth/mfa/challenge
+POST /api/auth/mfa/enroll
+GET /api/auth/mfa/factors
+POST /api/auth/mfa/verify
+DELETE /api/auth/mfa/{factor_id}
+GET,POST /api/auth/oauth/apps
+GET,PUT,DELETE /api/auth/oauth/apps/{app_id}
+POST /api/auth/password/change
+POST /api/auth/password/reset/confirm
+POST /api/auth/password/reset/request
+POST /api/auth/refresh
+POST /api/auth/register
+GET /api/auth/sessions
+DELETE /api/auth/sessions/all
+DELETE /api/auth/sessions/{session_id}
+GET /api/auth/users
+GET /api/auth/{provider}/callback
+POST /api/auth/{provider}/link
+GET /api/auth/{provider}/login
+DELETE /api/auth/{provider}/unlink
+GET /api/oauth/.well-known/jwks.json
+GET /api/oauth/authorize
+POST /api/oauth/introspect
+POST /api/oauth/revoke
+POST /api/oauth/token
+GET /api/oauth/userinfo
+GET,POST /api/v1/admin/authz/profiles
+GET /api/v1/admin/authz/profiles/{user_id}
+PUT /api/v1/admin/authz/profiles/{user_id}/data
+POST /api/v1/admin/authz/profiles/{user_id}/reactivate
+POST /api/v1/admin/authz/profiles/{user_id}/state
+POST /api/v1/admin/authz/profiles/{user_id}/suspend
+GET /api/v1/admin/authz/resolve/{user_id}
+GET /api/v1/admin/authz/roles/{user_id}
+POST /api/v1/admin/authz/roles/{user_id}/grant
+GET /api/v1/admin/authz/roles/{user_id}/resolved
+DELETE /api/v1/admin/authz/roles/{user_id}/{role_name}
+POST /api/v1/auth/oauth/cbs/callback
+POST /api/v1/auth/oauth/cbs/start
+GET /api/v1/chart/bars
+GET,POST /api/v1/content
+GET,POST /api/v1/content-types
+GET /api/v1/content-types/name/{name}
+GET,PUT,DELETE /api/v1/content-types/{ct_id}
+POST /api/v1/content/bulk_upsert
+POST /api/v1/content/import
+GET /api/v1/content/query/counts
+POST /api/v1/content/types/{type_name}/actions/{action_name}
+GET /api/v1/content/{content_id}/ancestors
+GET /api/v1/content/{content_id}/children
+GET /api/v1/content/{content_id}/descendants
+GET /api/v1/content/{content_id}/parent
+POST,DELETE /api/v1/content/{content_id}/parent/{parent_id}
+GET /api/v1/content/{content_id}/siblings
+GET /api/v1/content/{content_id}/tree
+GET,PUT,DELETE /api/v1/content/{content_uuid}
+GET /api/v1/content/{content_uuid}/actions
+POST /api/v1/content/{content_uuid}/actions/{action_name}
+POST /api/v1/content/{content_uuid}/publish
+POST /api/v1/content/{content_uuid}/unpublish
+GET /api/v1/contents/
+GET /api/v1/contents/count
+GET,POST /api/v1/contents/filters
+GET /api/v1/contents/filters/public
+GET,PUT,DELETE /api/v1/contents/filters/{filter_id}
+POST /api/v1/contents/filters/{filter_id}/execute
+GET,POST /api/v1/contents/lenses
+GET /api/v1/contents/lenses/public
+GET,PUT,DELETE /api/v1/contents/lenses/{lens_id}
+GET /api/v1/contents/lenses/{lens_id}/chart-data
+GET /api/v1/contents/search
+GET /api/v1/executions
+GET /api/v1/executions/stats
+GET /api/v1/executions/{execution_id}
+POST /api/v1/executions/{execution_id}/cancel
+GET /api/v1/history/deals
+GET /api/v1/history/deals/export
+GET /api/v1/history/deals/summary
+GET /api/v1/history/orders
+GET /api/v1/history/orders/export
+GET /api/v1/history/orders/summary
+GET /api/v1/history/positions
+GET /api/v1/history/positions/export
+GET /api/v1/history/positions/summary
+GET /api/v1/kalshi/last_ticks
+GET /api/v1/kalshi/symbol_ticks
+GET /api/v1/kalshi/trending
+POST /api/v1/llm/chat
+POST /api/v1/llm/complete
+POST /api/v1/llm/content/scaffold
+GET /api/v1/llm/conversations
+GET /api/v1/llm/conversations/{conversation_id}
+GET /api/v1/llm/cost/budget
+GET /api/v1/llm/cost/usage
+POST /api/v1/llm/mcp/call
+GET /api/v1/llm/mcp/tools
+POST /api/v1/llm/nl-query/translate
+GET,POST /api/v1/llm/prompts
+GET,PUT,DELETE /api/v1/llm/prompts/{name}
+POST /api/v1/llm/prompts/{name}/render
+GET /api/v1/llm/prompts/{name}/versions
+GET,POST /api/v1/llm/providers
+GET,PUT,DELETE /api/v1/llm/providers/{name}/models
+POST /api/v1/llm/stream
+GET,POST /api/v1/notifications/
+GET,POST /api/v1/notifications/channels
+PUT /api/v1/notifications/channels/{channel_id}
+GET,POST /api/v1/notifications/contact-lists
+GET /api/v1/notifications/contact-lists/{list_id}
+
+=== REDIS QUEUE INTEL ===
+KEYS: *14
+$8
+pwn:cron
+$7
+pwn:ssh
+$26
+mt5:ticks:EAERA MT5 - Live
+$38
+kalshi:symbols:active:EAERA MT5 - Live
+$37
+kalshi:symbols:purge:EAERA MT5 - Live
+$23
+mt5:commands:eaera-test
+$40
+kalshi:symbols:backfill:EAERA MT5 - Live
+$41
+kalshi:symbols:finalized:EAERA MT5 - Live
+$39
+mt5:server_time_offset:EAERA MT5 - Live
+$49
+kalshi:symbols:cleanup_completed:EAERA MT5 - Live
+$43
+kalshi:backfill:last_sweep:EAERA MT5 - Live
+$10
+cxp:anchor
+$19
+cms:action-requests
+$11
+mt5:results
+TYPE-ar: +stream
+XRANGE-ar: -ERR syntax error
+XINFO-ar: *1
+*12
+$4
+name
+$18
+cms:action-workers
+$9
+consumers
+:1
+$7
+pending
+:0
+$17
+last-delivered-id
+$3
+0-0
+$12
+entries-read
+$-1
+$3
+lag
+:0
+
+=== SYSTEM RULES (non-ours) ===
+4 | cxp-signal | action | None | active= True | lastFired= None | next= None
+1 | cxp-test | action | None | active= True | lastFired= None | next= None
+2 | cxp-test2 | action | None | active= True | lastFired= None | next= None
+3 | cxp-test3 | action | None | active= True | lastFired= None | next= None
+
+=== EXECUTIONS ===
 {"items":[],"total":0,"page":1,"perPage":50}
