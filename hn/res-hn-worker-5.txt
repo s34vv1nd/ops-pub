@@ -1,6 +1,6 @@
 === REGISTER ===
-{"error":"HTTPException","detail":"Email 'ops.maint2@eaera.io' is already registered"}
-HTTP:400
+{"error":"HTTPException","detail":{"error":"rate_limited","errorDescription":"Too many requests. Please try again later."}}
+HTTP:429
 === LOGIN ===
 jwt_len=0
 
