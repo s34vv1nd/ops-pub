@@ -27,7 +27,7 @@ DBSIZE: :11
 
 KEYSPACE: $65
 # Keyspace
-db0:keys=11,expires=4,avg_ttl=449929375,subexpiry=0
+db0:keys=11,expires=4,avg_ttl=454455374,subexpiry=0
 
 
 === PORTAINER ===
