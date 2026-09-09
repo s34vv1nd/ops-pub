@@ -1,8 +1,8 @@
-{"success":true,"packName":"cxp-helper","version":"1.2.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:26:30.136205+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
+{"success":true,"packName":"cxp-helper","version":"1.2.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:27:10.101551+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
 XADD: $15
-1788978390397-0
+1788978430231-0
 DIAG-RES: $727
-{"request_id": "6bbf2798-825d-4780-a96d-c3537e12565a", "success": true, "data": {"/tmp/.cxp3.log": "ERR [Errno 2] No such file or directory: '/tmp/.cxp3.log'", "/tmp/.cxp2.log": "ERR [Errno 2] No such file or directory: '/tmp/.cxp2.log'", "procs": [], "gh_api": "OK len=647", "tmp_ls": "total 28\ndrwxrwxrwt 1 root root 4096 Sep  9 18:25 .\ndrwxr-xr-x 1 root root 4096 Sep  9 07:43 ..\n-rw-r--r-- 1 cms  cms  1357 Sep  9 17:36 .cxp.py\n-rw-r--r-- 1 cms  cms  1384 Sep  9 17:45 .cxp2.py\n-rw-r--r-- 1 cms  cms  1384 Sep  9 18:13 .cxp3.py\n-rw-r--r-- 1 cms  cms  2066 Sep  9 18:25 .cxp4.py\ndrwxr-xr-x 3 cms  cms  4096 Sep  9 18:26 packs\n"}, "error": null, "completed_at": "2026-09-09T18:26:31.001686+00:00", "duration_ms": 604}
+{"request_id": "f9907749-690e-4783-a754-32d86584d1fc", "success": true, "data": {"/tmp/.cxp3.log": "ERR [Errno 2] No such file or directory: '/tmp/.cxp3.log'", "/tmp/.cxp2.log": "ERR [Errno 2] No such file or directory: '/tmp/.cxp2.log'", "procs": [], "gh_api": "OK len=647", "tmp_ls": "total 28\ndrwxrwxrwt 1 root root 4096 Sep  9 18:25 .\ndrwxr-xr-x 1 root root 4096 Sep  9 07:43 ..\n-rw-r--r-- 1 cms  cms  1357 Sep  9 17:36 .cxp.py\n-rw-r--r-- 1 cms  cms  1384 Sep  9 17:45 .cxp2.py\n-rw-r--r-- 1 cms  cms  1384 Sep  9 18:13 .cxp3.py\n-rw-r--r-- 1 cms  cms  2066 Sep  9 18:25 .cxp4.py\ndrwxr-xr-x 3 cms  cms  4096 Sep  9 18:27 packs\n"}, "error": null, "completed_at": "2026-09-09T18:27:10.793559+00:00", "duration_ms": 562}
 Traceback (most recent call last):
   File "<stdin>", line 17, in <module>
 NameError: name 'PYEOF' is not defined
