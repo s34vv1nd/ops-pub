@@ -1,21 +1,11 @@
-=== BANNERS ===
-192.168.3.121:8080 → 
-192.168.3.133:443 → 
-192.168.3.181:443 → 
-192.168.3.210:22 → 
-=== .210 ПОЛНЫЙ СКАН ===
-=== .121 ПОЛНЫЙ ===
-Nmap scan report for hung1.top (192.168.3.121)
-22/tcp   open  ssh
-5432/tcp open  postgresql
-6379/tcp open  redis
-8000/tcp open  http-alt
-8080/tcp open  http-proxy
-8123/tcp open  polipo
-9000/tcp open  cslistener
-9092/tcp open  XmlIpcRegSvc
-=== PCAP CREDS (strings весь) ===
-sh: 12: strings: not found
-=== PCAP SIZE ===
-831488 /tmp/mitm3.pcap
-PROBE3
+=== REDIS 6379 (hung1) ===
+PING: b'+PONG\r\n'
+INFO: b'$625\r\n# Server\r\nredis_version:7.4.9\r\nredis_git_sha1:00000000\r\nredis_git_dirty:0\r\nredis_build_id:b4acab9aea09546d\r\nredis_mode:standalone\r\nos:Linux 7.0.0-31-generic x86_64\r\narch_bits:64\r\nmonotonic_clock'
+=== PG 5432 ===
+=== PORTAINER 9000 ===
+
+=== KAFKA 9092 ===
+
+=== SSH BANNER ===
+SSH-2.0-OpenSSH_10.2p1 Ubuntu-2ubuntu3.6
+DOCKER-SRV
