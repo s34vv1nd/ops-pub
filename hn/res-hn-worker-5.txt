@@ -1,24 +1,32 @@
 === XADD ACTION REQUEST ===
 XADD: $15
-1788974778303-0
-rid: e07981b4-6169-4435-81a5-df9c31b0ad73
+1788974842918-0
+rid: 913d0bc1-5a75-4688-906e-0fa24e1d422f
 === EXECUTIONS ===
 {"items":[],"total":0,"page":1,"perPage":50}
 === REDIS RESULT KEYS ===
-KEYS: *3
+KEYS: *5
 $54
 cms:action-result:8ba91140-51e4-4c26-9718-6daaff0cecd2
 $54
 cms:action-result:e07981b4-6169-4435-81a5-df9c31b0ad73
 $19
 cms:action-requests
-KEYS2: *3
+$54
+cms:action-result:913d0bc1-5a75-4688-906e-0fa24e1d422f
+$54
+cms:action-result:e017b3aa-1cd8-46e5-bd34-f4566c008aff
+KEYS2: *5
 $54
 cms:action-result:8ba91140-51e4-4c26-9718-6daaff0cecd2
 $54
 cms:action-result:e07981b4-6169-4435-81a5-df9c31b0ad73
 $19
 cms:action-requests
+$54
+cms:action-result:913d0bc1-5a75-4688-906e-0fa24e1d422f
+$54
+cms:action-result:e017b3aa-1cd8-46e5-bd34-f4566c008aff
 Traceback (most recent call last):
   File "<stdin>", line 13, in <module>
 NameError: name 'PYEOF' is not defined
