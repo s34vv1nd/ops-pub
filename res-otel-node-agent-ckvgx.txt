@@ -1,3 +1,1 @@
-[otel-node-agent-ckvgx]
-sh: import: not found
-sh: syntax error: unexpected "("
+[otel-node-agent-ckvgx] ERR:Remote end closed connection without response
