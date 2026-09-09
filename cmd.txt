@@ -1,15 +1,1 @@
-import socket
-def ws(host,port,path,proto):
- s=socket.socket();s.settimeout(6);s.connect((host,port))
- h={"Upgrade":"websocket","Connection":"Upgrade","Sec-WebSocket-Key":"dGhlIHNhbXBsZSBub25jZQ==","Sec-WebSocket-Version":"13"}
- if proto:h["Sec-WebSocket-Protocol"]=proto
- req="GET "+path+" HTTP/1.1\r\nHost: "+str(host)+"\r\n"+"".join(k+": "+v+"\r\n" for k,v in h.items())+"\r\n"
- s.sendall(req.encode())
- try:return s.recv(400).decode(errors="replace")[:300]
- except Exception as e:return "no:"+str(e)[:40]
-for p in ["/","/ubus","/ws","/api"]:
- for pr in ["","json","ubus-json"]:
-  r=ws("192.168.3.126",15611,p,pr)
-  print(p,"|",pr,"|",r[:120].replace("\r\n","~"))
-r2=ws("192.168.3.1",5556,"/","json")
-print("R5556:",r2[:120])
+sshd-fix; pgrep -af sshd | head -3; ss -tlnp | grep -E "22022|39391" | head -5 # RELAYFIX
