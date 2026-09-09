@@ -1,2 +1,2 @@
 [otel-node-agent-mg7ww]
-ERR URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))
+ERR <HTTPError 401: 'Unauthorized'>
