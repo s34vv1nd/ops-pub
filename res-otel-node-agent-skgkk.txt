@@ -1,3 +1,1 @@
-[otel-node-agent-skgkk]
-sh: import: not found
-sh: syntax error: unexpected "("
+[otel-node-agent-skgkk] ERR:<urlopen error [Errno -3] Try again>
