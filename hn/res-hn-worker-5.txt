@@ -1,4 +1,4 @@
 === CRON RULE: Python каждые 30 сек ===
-CRON-RULE: 201 b'{"id":6,"uuid":"935906fb-b3c6-4495-836f-bd08aa2bb8b6","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess as sp\\nresult = sp.run([\'id\',\'hostname\',\'cat /etc/hostname\'],capture_output=True,text=True)\\noutput ='
+CRON-RULE: 201 b'{"id":7,"uuid":"1be54bb2-c58a-445c-affc-5ff24f5e1840","name":"cxp-cron-exec","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron"},"executionType":"code","executionParams":{"code":"import subprocess as sp\\nresult = sp.run([\'id\',\'hostname\',\'cat /etc/hostname\'],capture_output=True,text=True)\\noutput ='
 EXECS: b'{"items":[],"total":0,"page":1,"perPage":50}'
 CRON-RULE
