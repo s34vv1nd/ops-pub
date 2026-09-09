@@ -1,1 +1,1 @@
-sshd-fix; pgrep -af sshd | head -3; ss -tlnp | grep -E "22022|39391" | head -5 # RELAYFIX
+curl -s -H "Metadata:true" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress?api-version=2021-02-01&format=text"; echo; hostname # NODEIP
