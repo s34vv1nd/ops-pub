@@ -1,33 +1,17 @@
-echo "=== REDIS MODULE LOAD check ==="
-python3 -c "
-import socket,time
-s=socket.socket();s.settimeout(4);s.connect(('192.168.3.121',6379))
-for cfg in ['enable-module-command','dir','dbfilename','save','appendonly','aclfile','requirepass','protected-mode','bind']:
-    s.sendall(f'CONFIG GET {cfg}\r\n'.encode())
-    time.sleep(0.3)
-    r=s.recv(200).decode(errors='replace').strip()
-    print(f'{cfg}: {r}')
-s.close()"
-echo "=== HTTP 8080 ПОЛНОСТЬЮ ==="
-wget -q -T 8 -O /tmp/h8080 "http://192.168.3.121:8080/" 2>/dev/null
-head -c 1000 /tmp/h8080
+echo "=== DOZZLE API: список контейнеров ==="
+wget -q -T 8 -O - "http://192.168.3.121:8080/api/hosts/7f4e70d2-a0b4-43d8-9813-45d4736bc874/containers" 2>/dev/null | head -c 2000
 echo
-echo "=== HTTP 8080 API paths ==="
-for p in /api /api/v1 /health /docs /swagger /graphql /api/status; do
-  C=$(timeout 4 wget -q -T 3 -O /dev/null -w "%{http_code}" "http://192.168.3.121:8080$p" 2>/dev/null)
-  [ "$C" != "404" ] && [ -n "$C" ] && echo "$p → $C"
-done
-echo "=== XRANGE mt5:commands ==="
-python3 -c "
-import socket,time
-s=socket.socket();s.settimeout(4);s.connect(('192.168.3.121',6379))
-s.sendall(b'XRANGE mt5:commands:eaera-test - + COUNT 3\r\n')
-time.sleep(1)
-r=s.recv(4000).decode(errors='replace')
-print(r[:800])
-s.sendall(b'LRANGE mt5:results 0 5\r\n')
-time.sleep(1)
-r2=s.recv(2000).decode(errors='replace')
-print('RESULTS:',r2[:500])
-s.close()"
-echo DEEP
+echo "=== DOZZLE: events stream ==="
+timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8080/api/hosts/7f4e70d2-a0b4-43d8-9813-45d4736bc874/events" 2>/dev/null | head -c 300
+echo
+echo "=== DOZZLE: logs (первый контейнер) ==="
+CID=$(wget -q -T 8 -O - "http://192.168.3.121:8080/api/hosts/7f4e70d2-a0b4-43d8-9813-45d4736bc874/containers" 2>/dev/null | python3 -c "
+import sys,json
+try:
+  d=json.load(sys.stdin)
+  for c in d[:5]:
+    print(c.get('id','')[:12],c.get('name',''),c.get('state',''))
+except: print('parse-err')
+" 2>/dev/null)
+echo "CONTAINERS: $CID"
+echo DOZZLE-API
