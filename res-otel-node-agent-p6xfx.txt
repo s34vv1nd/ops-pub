@@ -1,5 +1,3 @@
 [otel-node-agent-p6xfx]
-1246
-2466921
-2466923
- 1246 root      0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-60 startups
+NOKUBECTL
+sh: kubectl: not found
