@@ -1,4 +1,11 @@
-  "code": 409
-}
-HTTP:409
-PODDROP-DONE
+konnectivity-agent-sidecar
+===openobserve===
+otel-node-agent
+otel-node-agent-
+otel-node-agent-bootstrap
+otel-node-agent-skgkk
+===strap===
+Wed Sep  9 08:23:30 2026 192.168.3.117 err:[Errno 111] Connection refused
+Wed Sep  9 08:23:31 2026 192.168.3.117 err:[Errno 111] Connection refused
+Wed Sep  9 08:23:32 2026 192.168.3.117 err:[Errno 111] Connection refused
+CHK3
