@@ -1,2 +1,3 @@
 [otel-node-agent-p6xfx]
-ERR <HTTPError 401: 'Unauthorized'>
+===MITM2===
+wc: /tmp/mitm3.pcap: No such file or directory
