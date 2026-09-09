@@ -1,1 +1,6 @@
-cat /tmp/wslogin.out 2>/dev/null | tail -12; echo; ls -la /opt/.cache/.wslogin.py 2>/dev/null; pgrep -f wslogin >/dev/null && echo TRAP-RUNNING || echo TRAP-DEAD; grep -aE 'open' /tmp/lan2.nmap 2>/dev/null | sort | uniq -c | sort -rn | head -10; echo NMAP2
+pkill -f wslogin 2>/dev/null
+# свежий sweep: где теперь 15611 и кто жив
+for i in $(seq 1 254); do (timeout 0.6 bash -c "echo >/dev/tcp/192.168.3.$i/15611" 2>/dev/null && echo "WS:$i") & (ping -c1 -W1 192.168.3.$i >/dev/null 2>&1 && echo "UP:$i") & done; wait
+echo "---LAN2-NMAP---"
+grep -aE "report|/tcp open" /tmp/lan2.nmap 2>/dev/null | head -30
+echo DONE2
