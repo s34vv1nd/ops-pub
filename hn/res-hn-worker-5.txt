@@ -1,5 +1,5 @@
 === 1. MITM STATUS ===
-2301952 /tmp/mitm3.pcap
+2306048 /tmp/mitm3.pcap
 1
 1
 === 2. PG CONNECTION (полная батарея) ===
