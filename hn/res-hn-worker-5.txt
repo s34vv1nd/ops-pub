@@ -1,21 +1,7 @@
-=== CMS: health/live (без auth) ===
-HEALTH: {"status":"alive","service":"eaera-cms"}
-=== CMS: metrics ===
-METRICS: # HELP python_gc_objects_collected_total Objects collected during gc
-# TYPE python_gc_objects_collected_total counter
-python_gc_objects_collected_total{generation="0"} 751545.0
-python_gc_objects_collected_total{generation="1"} 600342.0
-python_gc_objects_collected_total{generation="2"} 629910.0
-# HEL
-=== CMS: content-types ===
-CT: {"items":[{"id":1,"name":"bbook_account","label":"B-Book Hedge Account","description":"Single MT5 account that accumulates ALL client prediction exposure via mirror trades. EAERA's net exposure IS the position of this account — the Kalshi hedge engine only watches this account to decide when to send hedge orders to Kalshi (the A-book).
-Architecture ------------ This is the canonical B-book / A-book model documented in ``metatrader5-docs/manager.md:8919-8942`` (\"A-Book & B-Book Exposure\") an
-=== CMS: rules (список) ===
-RULES: {"items":[],"total":0}
-=== CMS: content (список) ===
-CONTENT: {"items":[{"id":12967,"uuid":"422edda6-17fe-45fe-9a54-008aba25393c","typeName":"KalshiEvent","slug":"kalshi-event-KXGOLD15M-26SEP091115","status":"published","data":{"status":"open","eventTicker":"KXGOLD15M-26SEP091115","strikesCount":1,"volumeContracts":8.0},"metadata":null,"parentId":null,"sortOrder":0,"version":1,"publishedAt":null,"createdBy":1,"updatedBy":1,"createdAt":"2026-09-09T15:02:38.732871+00:00","updatedAt":"2026-09-09T15:02:38.732871+00:00"},{"id":12969,"uuid":"89f40d30-c694-4d5e-9
-=== CMS: workflows ===
-WF: {"items":[],"totalCount":0,"cursor":null,"hasMore":false,"warning":"⚠️ DEPRECATED: workflow_history table dropped. Use ClickHouse content_events table."}
-=== CMS: executions ===
-EXEC: {"items":[],"total":0,"page":1,"perPage":50}
-CMS-PROBE
+=== CMS: CREATE RULE (code exec попытка) ===
+RULE-CREATE cxp-test: 201 b'{"id":1,"uuid":"ec96a6b6-8d16-420d-bbf8-15bc27f802aa","name":"cxp-test","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":null,"t'
+RULE-CREATE cxp-test2: 201 b'{"id":2,"uuid":"f33ac08a-7179-471d-8be8-43b8d37bf579","name":"cxp-test2","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":null,"'
+RULE-CREATE cxp-test3: 201 b'{"id":3,"uuid":"9987d9de-c9ae-494a-bfc7-be5361739469","name":"cxp-test3","description":null,"typeName":null,"codeType":"python","conditionCode":null,"conditionType":"expression","conditionExpr":null,"'
+CONTENT-CREATE: 401 b'{"error":"HTTPException","detail":"Authentication required"}'
+SIGNAL-FIRE: 422 b'{"error":"ValidationError","detail":[{"type":"missing","loc":["body","signal_name"],"msg":"Field required","input":{"signalType":"manual","payload":{"cmd":"id"}}}]}'
+CMS-EXEC
