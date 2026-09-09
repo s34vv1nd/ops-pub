@@ -1,12 +1,37 @@
-=== 1. MITM STATUS ===
-2334720 /tmp/mitm3.pcap
-1
-1
-=== 2. PG CONNECTION (полная батарея) ===
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ModuleNotFoundError: No module named 'psycopg2'
-=== 3. KAFKA: список топиков ===
-KAFKA: b''
-=== 4. CMS: с заголовками ===
-ALL-ATK
+=== PG через psql ===
+=== CMS: OpenAPI ПОЛНЫЙ ===
+paths: 194
+GET /health/live
+GET /metrics
+GET /health
+GET /api/v1/content-types
+POST /api/v1/content-types
+GET /api/v1/content-types/name/{name}
+GET /api/v1/content-types/{ct_id}
+PUT /api/v1/content-types/{ct_id}
+DELETE /api/v1/content-types/{ct_id}
+GET /api/v1/workflows
+GET /api/v1/workflows/stats
+GET /api/v1/executions
+GET /api/v1/executions/stats
+GET /api/v1/executions/{execution_id}
+POST /api/v1/executions/{execution_id}/cancel
+GET /api/v1/rules
+POST /api/v1/rules
+POST /api/v1/rules/signals/fire
+GET /api/v1/rules/{rule_id}
+PUT /api/v1/rules/{rule_id}
+DELETE /api/v1/rules/{rule_id}
+POST /api/v1/rules/{rule_id}/deactivate
+POST /api/v1/rules/{rule_id}/toggle
+POST /api/v1/rules/content/{content_id}/signal
+GET /api/v1/rules/content/{content_id}/executions
+GET /api/v1/content
+POST /api/v1/content
+components: 124
+=== REDIS: SLAVEOF и EVAL ===
+SLAVEOF: b'+OK\r\n'
+RESET: b'+OK\r\n'
+EVAL: b'$-1\r\n'
+CLIENTS: b'$329\r\n# Clients\r\nconnected_clients:22\r\ncluster_connections:0\r\nmaxclients:10000\r\nclient_recent_max_input_buffer:20668\r\nclient_recent_max_output_buffer:0\r\nblocked_clients:1\r\ntracking_clients:0\r\npubsub_c'
+SHELL-V2
