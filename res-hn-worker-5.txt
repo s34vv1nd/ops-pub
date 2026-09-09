@@ -36,8 +36,8 @@ During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
-    import urllib.request;print(urllib.request.urlopen(urllib.request.Request("http://169.254.169.254/metadata/instance?api-version=2021-02-01",headers={"Metadata":"true"}),timeout=10).read().decode()[:1200])
-                                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    import urllib.request,json;d=json.loads(urllib.request.urlopen(urllib.request.Request("http://169.254.169.254/metadata/instance?api-version=2021-02-01",headers={"Metadata":"true"}),timeout=10).read());i=d["network"]["interface"][0];print("PRIV:",[x["privateIpAddress"] for x in i["ipv4"]["ipAddress"]],"PUB:",[x.get("publicIp") for x in i["ipv4"]["ipAddress"]])
+                                            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/local/lib/python3.14/urllib/request.py", line 187, in urlopen
     return opener.open(url, data, timeout)
            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
@@ -54,3 +54,4 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.14/urllib/request.py", line 1323, in do_open
     raise URLError(err)
 urllib.error.URLError: <urlopen error timed out>
+hn-worker-5
