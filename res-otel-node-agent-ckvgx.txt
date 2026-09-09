@@ -1,3 +1,5 @@
 [otel-node-agent-ckvgx]
-ls: /tmp/hx.py: No such file or directory
-AGENT-ALIVE-19:20:54
+0/
+1/
+2/
+otel-node-agent-ckvgx
