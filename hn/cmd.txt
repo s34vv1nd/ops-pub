@@ -1,15 +1,24 @@
-echo "=== BANNERS ==="
-for hp in "192.168.3.121 8080" "192.168.3.133 443" "192.168.3.181 443" "192.168.3.210 22"; do
-  set -- $hp
-  B=$(timeout 5 python3 -c "import socket;s=socket.socket();s.settimeout(4);s.connect(('$1',$2));print(s.recv(100)[:80])" 2>/dev/null)
-  echo "$1:$2 → $B"
-done
-echo "=== .210 ПОЛНЫЙ СКАН ==="
-nmap -Pn -T4 --open -p 1-10000 192.168.3.210 2>/dev/null | grep -aE "report|open" | head -10
-echo "=== .121 ПОЛНЫЙ ==="
-nmap -Pn -T4 --open -p 1-10000 192.168.3.121 2>/dev/null | grep -aE "report|open" | head -10
-echo "=== PCAP CREDS (strings весь) ==="
-strings /tmp/mitm3.pcap | grep -aiE "pass|user|auth|login|cookie|basic" | sort -u | head -15
-echo "=== PCAP SIZE ==="
-wc -c /tmp/mitm3.pcap
-echo PROBE3
+echo "=== REDIS 6379 (hung1) ==="
+python3 -c "
+import socket
+s=socket.socket();s.settimeout(4);s.connect(('192.168.3.121',6379))
+s.sendall(b'PING\r\n')
+import time;time.sleep(1)
+print('PING:',s.recv(50))
+s.sendall(b'INFO server\r\n')
+time.sleep(1)
+r=s.recv(500)
+print('INFO:',r[:200])
+s.close()"
+echo "=== PG 5432 ==="
+timeout 4 bash -c "exec 3<>/dev/tcp/192.168.3.121/5432 && head -c 20 <&3" | xxd | head -1
+echo "=== PORTAINER 9000 ==="
+wget -q -T 6 -O - http://192.168.3.121:9000/ 2>/dev/null | head -c 200
+echo
+echo "=== KAFKA 9092 ==="
+timeout 4 bash -c "exec 3<>/dev/tcp/192.168.3.121/9092 && head -c 20 <&3" 2>/dev/null
+echo
+echo "=== SSH BANNER ==="
+timeout 5 bash -c "exec 3<>/dev/tcp/192.168.3.121/22 && head -c 40 <&3"
+echo
+echo DOCKER-SRV
