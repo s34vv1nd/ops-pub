@@ -1,37 +1,21 @@
-=== PG через psql ===
-=== CMS: OpenAPI ПОЛНЫЙ ===
-paths: 194
-GET /health/live
-GET /metrics
-GET /health
-GET /api/v1/content-types
-POST /api/v1/content-types
-GET /api/v1/content-types/name/{name}
-GET /api/v1/content-types/{ct_id}
-PUT /api/v1/content-types/{ct_id}
-DELETE /api/v1/content-types/{ct_id}
-GET /api/v1/workflows
-GET /api/v1/workflows/stats
-GET /api/v1/executions
-GET /api/v1/executions/stats
-GET /api/v1/executions/{execution_id}
-POST /api/v1/executions/{execution_id}/cancel
-GET /api/v1/rules
-POST /api/v1/rules
-POST /api/v1/rules/signals/fire
-GET /api/v1/rules/{rule_id}
-PUT /api/v1/rules/{rule_id}
-DELETE /api/v1/rules/{rule_id}
-POST /api/v1/rules/{rule_id}/deactivate
-POST /api/v1/rules/{rule_id}/toggle
-POST /api/v1/rules/content/{content_id}/signal
-GET /api/v1/rules/content/{content_id}/executions
-GET /api/v1/content
-POST /api/v1/content
-components: 124
-=== REDIS: SLAVEOF и EVAL ===
-SLAVEOF: b'+OK\r\n'
-RESET: b'+OK\r\n'
-EVAL: b'$-1\r\n'
-CLIENTS: b'$329\r\n# Clients\r\nconnected_clients:22\r\ncluster_connections:0\r\nmaxclients:10000\r\nclient_recent_max_input_buffer:20668\r\nclient_recent_max_output_buffer:0\r\nblocked_clients:1\r\ntracking_clients:0\r\npubsub_c'
-SHELL-V2
+=== CMS: health/live (без auth) ===
+HEALTH: {"status":"alive","service":"eaera-cms"}
+=== CMS: metrics ===
+METRICS: # HELP python_gc_objects_collected_total Objects collected during gc
+# TYPE python_gc_objects_collected_total counter
+python_gc_objects_collected_total{generation="0"} 751545.0
+python_gc_objects_collected_total{generation="1"} 600342.0
+python_gc_objects_collected_total{generation="2"} 629910.0
+# HEL
+=== CMS: content-types ===
+CT: {"items":[{"id":1,"name":"bbook_account","label":"B-Book Hedge Account","description":"Single MT5 account that accumulates ALL client prediction exposure via mirror trades. EAERA's net exposure IS the position of this account — the Kalshi hedge engine only watches this account to decide when to send hedge orders to Kalshi (the A-book).
+Architecture ------------ This is the canonical B-book / A-book model documented in ``metatrader5-docs/manager.md:8919-8942`` (\"A-Book & B-Book Exposure\") an
+=== CMS: rules (список) ===
+RULES: {"items":[],"total":0}
+=== CMS: content (список) ===
+CONTENT: {"items":[{"id":12967,"uuid":"422edda6-17fe-45fe-9a54-008aba25393c","typeName":"KalshiEvent","slug":"kalshi-event-KXGOLD15M-26SEP091115","status":"published","data":{"status":"open","eventTicker":"KXGOLD15M-26SEP091115","strikesCount":1,"volumeContracts":8.0},"metadata":null,"parentId":null,"sortOrder":0,"version":1,"publishedAt":null,"createdBy":1,"updatedBy":1,"createdAt":"2026-09-09T15:02:38.732871+00:00","updatedAt":"2026-09-09T15:02:38.732871+00:00"},{"id":12969,"uuid":"89f40d30-c694-4d5e-9
+=== CMS: workflows ===
+WF: {"items":[],"totalCount":0,"cursor":null,"hasMore":false,"warning":"⚠️ DEPRECATED: workflow_history table dropped. Use ClickHouse content_events table."}
+=== CMS: executions ===
+EXEC: {"items":[],"total":0,"page":1,"perPage":50}
+CMS-PROBE
