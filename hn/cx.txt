@@ -1,0 +1,1 @@
+echo CHANNEL2-OK; hostname; id; ls -la /var/run/docker.sock; ls /tmp/packs/; mount | grep -E 'docker.sock|/data|/etc' | head -10; env | cut -d= -f1 | sort | tr '\n' ' '
