@@ -1,1 +1,1 @@
-echo FINALTEST; hostname; id -u; date; ping -c1 -W1 192.168.3.135 > /dev/null 2>&1 && echo PC135-UP || echo PC135-DOWN
+echo FINAL-OK; hostname; id -u; date +%H:%M:%S; ping -c1 -W1 192.168.3.135 > /dev/null 2>&1 && echo PC135-UP || echo PC135-DOWN
