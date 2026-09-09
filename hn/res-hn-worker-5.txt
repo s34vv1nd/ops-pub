@@ -1,11 +1,12 @@
-=== MITM PCAP: ВСЕ СТРОКИ ===
-=== MITM: DNS запросы (куда ходят ПК) ===
-=== MITM: HTTP POST тела ===
-=== DOZZLE правильные пути ===
-/api/containers → 
-/api/hosts → 
-/api/docs → 
-/api/swagger → 
-/health → 
-/api/health → 
-CREDS-X
+=== 1. MITM STATUS ===
+2207744 /tmp/mitm3.pcap
+1
+1
+=== 2. PG CONNECTION (полная батарея) ===
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'psycopg2'
+=== 3. KAFKA: список топиков ===
+KAFKA: b''
+=== 4. CMS: с заголовками ===
+ALL-ATK
