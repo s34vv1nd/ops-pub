@@ -1,8 +1,8 @@
-{"success":true,"packName":"cxp-helper","version":"1.3.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:39:46.598565+00:00","migrations":{
+{"success":true,"packName":"cxp-helper","version":"1.3.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 18:40:14.812417+00:00","migrations":{
 XADD: $15
-1788979186835-0
+1788979214930-0
 BOOT: $186
-{"request_id": "8606c71d-5579-4db9-b605-b1e23d08d8d6", "success": true, "data": {"ok": true, "v": 2}, "error": null, "completed_at": "2026-09-09T18:39:46.838228+00:00", "duration_ms": 2}
+{"request_id": "0fade8dc-6cbd-4bb1-a9f5-a29a3e690eda", "success": true, "data": {"ok": true, "v": 2}, "error": null, "completed_at": "2026-09-09T18:40:14.934002+00:00", "duration_ms": 3}
 Traceback (most recent call last):
   File "<stdin>", line 17, in <module>
 NameError: name 'PYEOF' is not defined
