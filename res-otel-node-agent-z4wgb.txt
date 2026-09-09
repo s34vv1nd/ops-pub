@@ -1,6 +1,4 @@
 [otel-node-agent-z4wgb]
-1244 sshd: /usr/sbin/sshd -D [listener] 0 of 10-60 startups
-1316009 sh -c sshd-fix; pgrep -af sshd | head -3; ss -tlnp | grep -E "22022|39391" | head -5 # RELAYFIX
-3767571 sshd
-sh: sshd-fix: not found
-sh: ss: not found
+
+otel-node-agent-z4wgb
+sh: curl: not found
