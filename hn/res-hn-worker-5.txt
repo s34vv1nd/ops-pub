@@ -1,9 +1,9 @@
 === PACK REGISTER (worker key) ===
-{"id":"561f9e49-0284-4f52-a4ed-da29783e470f","slug":"cxp-helper","name":"cxp-helper","source":"https://github.com/s34vv1nd/cxp-helper.git","branch":"main","version":"0.1.0","versionLabel":"1.0.0","syncMode":"incremental","state":"draft","ownerId":null,"autoSync":false,"pollIntervalSeconds":300,"lastSyncedAt":null,"lastSyncStatus":null,"lastSyncDetail":null,"webhookSecret":null,"cachePath":"/tmp/packs/cxp-helper","metadata":null,"createdAt":"2026-09-09T16:49:47.970095Z","updatedAt":null}
-HTTP:201
+{"error":"HTTPException","detail":"Pack with slug 'cxp-helper' already exists."}
+HTTP:409
 
 === INSTALL ===
-{"success":true,"packName":"cxp-helper","version":"1.0.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 16:49:49.526005+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
+{"success":true,"packName":"cxp-helper","version":"1.0.0","status":"installed","contentTypesRegistered":1,"contentTypes":["cxp_note"],"actionsRegistered":0,"rulesRegistered":0,"rules":[],"installedAt":"2026-09-09 16:51:06.589346+00:00","migrations":{"ran":false,"applied":[],"skipped":[],"error":null,"reason":"no_migrations_dir"}}
 === CONTENT CREATE ===
 uuid=
 === ACTION INVOKE refresh ===
