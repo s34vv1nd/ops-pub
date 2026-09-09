@@ -21,11 +21,11 @@ cms:action-requests
 $11
 mt5:results
 
-DBSIZE: :10
+DBSIZE: :11
 
 KEYSPACE: $65
 # Keyspace
-db0:keys=10,expires=3,avg_ttl=404360324,subexpiry=0
+db0:keys=11,expires=4,avg_ttl=418212170,subexpiry=0
 
 
 === PORTAINER ===
