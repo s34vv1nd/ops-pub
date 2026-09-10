@@ -1,1 +1,1 @@
-[otel-node-agent-skgkk] ERR:<urlopen error [Errno 111] Connection refused>
+[otel-node-agent-skgkk] ERR:The read operation timed out
