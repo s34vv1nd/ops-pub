@@ -1,3 +1,1 @@
-[otel-node-agent-xz6c9]
-===MITM2===
-wc: /tmp/mitm3.pcap: No such file or directory
+[otel-node-agent-xz6c9] ERR:HTTP Error 504: Gateway Timeout
