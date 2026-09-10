@@ -1,4 +1,1 @@
 [otel-node-agent-skgkk]
-PCAPCHK
-0
-wc: /tmp/mitm3.pcap: No such file or directory
