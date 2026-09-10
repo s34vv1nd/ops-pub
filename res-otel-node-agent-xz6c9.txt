@@ -1,1 +1,3 @@
-[otel-node-agent-xz6c9] ERR:HTTP Error 504: Gateway Timeout
+[otel-node-agent-xz6c9]
+GPUCHK
+8
