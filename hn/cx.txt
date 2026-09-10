@@ -1,1 +1,1 @@
-date; echo V5-ALIVE; id; hostname; ls /proc | grep -cE '^[0-9]+$'
+date; echo V5-CHECK-$(hostname)
