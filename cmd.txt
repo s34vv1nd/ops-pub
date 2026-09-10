@@ -1,1 +1,1 @@
-echo GPUCHK; lspci 2>/dev/null | grep -iE 'nvidia|vga|3d' | head -3; ls /dev/nvidia* 2>/dev/null; which nvidia-smi john hashcat 2>/dev/null; nproc
+echo PCAPCHK; tcpdump -r /tmp/mitm3.pcap -A -s0 2>/dev/null | grep -ac "192.168.3.1"; tcpdump -r /tmp/mitm3.pcap -A -s0 2>/dev/null | grep -aiE "challenge|nonce|oui-rpc|login.*admin" | head -10; wc -c /tmp/mitm3.pcap
