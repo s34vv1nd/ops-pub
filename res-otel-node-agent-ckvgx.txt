@@ -1,1 +1,1 @@
-[otel-node-agent-ckvgx]
+[otel-node-agent-ckvgx] ERR:Remote end closed connection without response
