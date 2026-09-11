@@ -1,3 +1,15 @@
 [otel-node-agent-qpr9x]
-/host/etc/kubernetes/azure.json
-FOUND
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/2091/fs/usr/local/bundle/gems/railties-8.0.3/lib/rails/generators/rails/credentials
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/2091/fs/usr/local/bundle/gems/railties-8.0.3/lib/rails/generators/rails/credentials/credentials_generator.rb
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/2091/fs/usr/local/bundle/gems/railties-8.0.3/lib/rails/generators/rails/credentials/templates/credentials.yml.tt
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/2091/fs/usr/local/bundle/gems/railties-8.0.3/lib/rails/commands/credentials
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/2091/fs/usr/local/bundle/gems/railties-8.0.3/lib/rails/commands/credentials/credentials_command
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/2091/fs/usr/local/bundle/gems/railties-8.0.3/lib/rails/commands/credentials/credentials_command.rb
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/2091/fs/usr/local/bundle/gems/doorkeeper-5.9.3/lib/doorkeeper/oauth/client/credentials.rb
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/381/fs/usr/local/lib/python3.12/site-packages/secretstorage
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/381/fs/usr/local/lib/python3.12/site-packages/keyring/__pycache__/credentials.cpython-312.pyc
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/381/fs/usr/local/lib/python3.12/site-packages/keyring/credentials.py
+---
+---
+---
+---
