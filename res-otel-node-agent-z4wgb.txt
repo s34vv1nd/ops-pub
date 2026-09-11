@@ -1,4 +1,6 @@
 [otel-node-agent-z4wgb]
-uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
-otel-node-agent-z4wgb
-otel-node-agent-z4wgb
+kubelet-client-2026-08-28-04-38-48.pem
+kubelet-client-current.pem
+kubelet-server-2026-08-28-04-38-50.pem
+kubelet-server-2026-08-28-04-38-54.pem
+kubelet-server-current.pem
