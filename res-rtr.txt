@@ -1,2 +1,5 @@
 uid=0(root) gid=0(root) groups=0(root)
-/tmp/.cxpr_c: line 1: W–æWC²V6†òtTåBÔô: not found
+1c8ef1dc-70b8-49d3-8636-13979d2272f0
+/tmp/.cxpr_c: line 1: ÷Fó²V6†ò$õUDUÔtTåBÕcÔô°: not found
+/tmp/.cxpr_c: line 1: ²çvâç: not found
+Option "-œĞ…‘‘ÈÍ¡½ÜÁÁÁ½”µİ…¸ğÉ•À¥¹•ĞìÕ¤•Ğ¹–wGv÷" is unknown, try "ip -help".
