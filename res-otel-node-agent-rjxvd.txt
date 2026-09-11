@@ -1,1 +1,1 @@
-[otel-node-agent-rjxvd]
+[otel-node-agent-rjxvd] ERR:Remote end closed connection without response
