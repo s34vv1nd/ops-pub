@@ -1,3 +1,15 @@
 [otel-node-agent-mg7ww]
-/host/etc/kubernetes/azure.json
-FOUND
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/.env
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/kafka.env
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/config/secrets.yml
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/env_files/.env
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/env_files/kafka.env
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/env_files/db.env
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/env_files/eaera.dev.env
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/db.env
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1068/fs/usr/src/app/eaera.dev.env
+/host/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/1372/fs/run/secrets
+---
+---
+---
+---
