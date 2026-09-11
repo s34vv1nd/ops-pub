@@ -1,1 +1,1 @@
-[otel-node-agent-ts9gn]
+[otel-node-agent-ts9gn] ERR:HTTP Error 504: Gateway Timeout
