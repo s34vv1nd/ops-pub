@@ -1,4 +1,5 @@
 [otel-node-agent-xz6c9]
-uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
-otel-node-agent-xz6c9
-otel-node-agent-xz6c9
+kubelet-client-2026-08-28-04-37-26.pem
+kubelet-client-current.pem
+kubelet-server-2026-08-28-04-37-29.pem
+kubelet-server-current.pem
