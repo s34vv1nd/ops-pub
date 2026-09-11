@@ -1,6 +1,1 @@
-[otel-node-agent-ts9gn]
----
----
-kubelet-client-2026-08-22-04-47-12.pem
-kubelet-client-current.pem
-kubelet-server-2026-08-22-04-47-14.pem
+[otel-node-agent-ts9gn] ERR:Remote end closed connection without response
