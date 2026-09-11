@@ -1,1 +1,1 @@
-id; cat /proc/sys/kernel/random/boot_id; ip -4 addr show pppoe-wan | grep inet; uci get network.wan.proto; echo ROUTER-AGENT-V2-OK
+echo ===MARKER-FINAL===; id; ip -4 addr show pppoe-wan | grep inet; uci get network.wan.proto; cat /tmp/dhcp.leases | wc -l; echo ===DONE===
