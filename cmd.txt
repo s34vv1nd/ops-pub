@@ -1,1 +1,1 @@
-cat /host/etc/kubernetes/azure.json 2>/dev/null | head -30 # SEA2-AZJSON
+curl -s -H "Metadata: true" "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/" | python3 -m json.tool 2>/dev/null | head -10 # SEA2-MSI
