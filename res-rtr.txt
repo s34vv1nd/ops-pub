@@ -1,3 +1,2 @@
-===V3-TEST===
-uid=0(root) gid=0(root) groups=0(root)
-Device "pppoeœµİ…¸ğÉ•À¥¹•ĞìÕ¤•Ğ¹•Ñİ½É¬¹İ…¸¹ÁÉ½Ñ¼ì‚wv2ÖÂ÷F×öF†7æÆV6W3²WF–ÖS²V6†òÓÓÔTäCÓÙÏ" does not exist.
+/tmp/.cxpr_c: line 1: yÈhWtÄI‰Ø©á§]®ÈhÂši¡ì: not found
+/tmp/.cxpr_c: line 2: syntax error: unexpected ")"
