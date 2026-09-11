@@ -1,23 +1,31 @@
 [otel-node-agent-rjxvd]
-AZUREFILE_PROXY_ENDPOINT=unix:///csi/azurefile-proxy.sock
-AZURE_CREDENTIAL_FILE=/etc/kubernetes/azure.json
-AZURE_WI_WEBHOOK_WEBHOOK_SERVICE_PORT=tcp://10.0.237.225:443
-AZURE_WI_WEBHOOK_WEBHOOK_SERVICE_PORT_443_TCP=tcp://10.0.237.225:443
-AZURE_WI_WEBHOOK_WEBHOOK_SERVICE_PORT_443_TCP_ADDR=10.0.237.225
-AZURE_WI_WEBHOOK_WEBHOOK_SERVICE_PORT_443_TCP_PORT=443
-AZURE_WI_WEBHOOK_WEBHOOK_SERVICE_PORT_443_TCP_PROTO=tcp
-AZURE_WI_WEBHOOK_WEBHOOK_SERVICE_SERVICE_HOST=10.0.237.225
-AZURE_WI_WEBHOOK_WEBHOOK_SERVICE_SERVICE_PORT=443
-DRIVER_REG_SOCK_PATH=/var/lib/kubelet/plugins/disk.csi.azure.com/csi.sock
-DRIVER_REG_SOCK_PATH=/var/lib/kubelet/plugins/file.csi.azure.com/csi.sock
-KUBELET_NODE_LABELS=agentpool=backbone,kubernetes.azure.com/agentpool=backbone,agentpool=backbone,kubernetes.azure.com/agentpool=backbone,kubernetes.azure.com/cluster=MC_rg-eaera-sea_eaera-sea-2_southeastasia,kubernetes.azure.com/consolidated-additional-properties=85a907f5-a2b4-11f1-8304-b67fe898a22c,kubernetes.azure.com/kubelet-identity-client-id=75ef89e5-b2f6-492d-b321-338d0bc0b7a9,kubernetes.azure.com/localdns-state=disabled,kubernetes.azure.com/mode=user,kubernetes.azure.com/network-policy=none,kubernetes.azure.com/node-image-version=AKSUbuntu-2404gen2containerd-202608.14.0,kubernetes.azure.com/nodepool-type=VirtualMachineScaleSets,kubernetes.azure.com/os-sku=Ubuntu,kubernetes.azure.com/os-sku-effective=Ubuntu2404,kubernetes.azure.com/os-sku-requested=Ubuntu,kubernetes.azure.com/priority=regular,kubernetes.azure.com/role=agent,kubernetes.azure.com/sku-cpu=4,kubernetes.azure.com/sku-memory=32768,kubernetes.azure.com/storageprofile=managed,kubernetes.azure.com/storagetier=Premium_LRS,storageprofile=managed,storagetier=Premium_LRS,kubernetes.azure.com/kubelet-serving-ca=cluster
-MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/azure.slice/walinuxagent.service/memory.pressure
-MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/azurefile-proxy.service/memory.pressure
-NUXT_PUBLIC_APP_CLIENT_ID=225tQ1Pod0omPUEUaZml/7tj9ry4CxY2AUiZSQ9AAlE=
-NUXT_PUBLIC_APP_CLIENT_ID=GXKBhQOM8cnc0eNkz0FuZmZ32667mHSv945FiVEERxo=
-NUXT_PUBLIC_APP_CLIENT_ID=JiAM0MV7zWUPo6iysFxbZeBmft9EYrBHu24IRYeAJzQ=
-NUXT_PUBLIC_APP_CLIENT_ID=YHcGaGuneMJnlw3OseCkyN7RgfaaR58kTjoeHTJp62w
-NUXT_PUBLIC_APP_CLIENT_ID=jeqsyJIH7AxTVtVali5-QSOdVeTfV_mdIiP5EW2tTUY
-NUXT_PUBLIC_APP_CLIENT_ID=lDCKgHSLAiL7jaVDuQOtUIo6ynsVNKUwcIPRakfiKZw
----
----
+{
+    "cloud": "AzurePublicCloud",
+    "tenantId": "556bd7f1-c908-49e6-a91b-76ff0da5ff34",
+    "subscriptionId": "ca345c4a-2897-4c58-abce-a7598b1630cb",
+    "aadClientId": "msi",
+    "aadClientSecret": "msi",
+    "resourceGroup": "MC_rg-eaera-sea_eaera-sea-2_southeastasia",
+    "location": "southeastasia",
+    "vmType": "vmss",
+    "subnetName": "aks-subnet",
+    "securityGroupName": "aks-agentpool-39736539-nsg",
+    "vnetName": "aks-vnet-39736539",
+    "vnetResourceGroup": "",
+    "routeTableName": "aks-agentpool-39736539-routetable",
+    "primaryAvailabilitySetName": "",
+    "primaryScaleSetName": "aks-backbone-23860282-vmss",
+    "cloudProviderBackoffMode": "v2",
+    "cloudProviderBackoff": true,
+    "cloudProviderBackoffRetries": 6,
+    "cloudProviderBackoffDuration": 5,
+    "cloudProviderRateLimit": true,
+    "cloudProviderRateLimitQPS": 3,
+    "cloudProviderRateLimitBucket": 10,
+    "cloudProviderRateLimitQPSWrite": 1,
+    "cloudProviderRateLimitBucketWrite": 10,
+    "useManagedIdentityExtension": true,
+    "userAssignedIdentityID": "75ef89e5-b2f6-492d-b321-338d0bc0b7a9",
+    "useInstanceMetadata": true,
+    "loadBalancerSku": "standard",
+    "disableOutboundSNAT": false,
