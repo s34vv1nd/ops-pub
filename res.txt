@@ -1,1 +1,2 @@
-ERR:HTTP Error 409: Conflict
+/host/etc/kubernetes/azure.json
+FOUND
