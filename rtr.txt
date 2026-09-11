@@ -1,0 +1,1 @@
+id; hostname 2>/dev/null || cat /etc/banner 2>/dev/null | head -2; ip addr show pppoe-wan 2>/dev/null | grep inet; echo AGENT-OK
