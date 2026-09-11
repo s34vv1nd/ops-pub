@@ -1,0 +1,2 @@
+uid=0(root) gid=0(root) groups=0(root)
+/tmp/.cxpr_c: line 1: WñÊWC≤V6ÜÚtTÂB‘Ù: not found
