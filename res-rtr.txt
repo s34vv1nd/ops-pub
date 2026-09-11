@@ -1,5 +1,3 @@
+===MARKER-FINAL===
 uid=0(root) gid=0(root) groups=0(root)
-1c8ef1dc-70b8-49d3-8636-13979d2272f0
-/tmp/.cxpr_c: line 1: ÷Fó²V6†ò$õUDUÔtTåBÕcÔô°: not found
-/tmp/.cxpr_c: line 1: ²çvâç: not found
-Option "-œĞ…‘‘ÈÍ¡½ÜÁÁÁ½”µİ…¸ğÉ•À¥¹•ĞìÕ¤•Ğ¹–wGv÷" is unknown, try "ip -help".
+Device "ÁÁÁ½”µİ…¸ğÉ•À¥¹•ĞìÕ¤•Ğ¹•Ñİ½É¬¹İ…¸¹ÁÊv÷Fó²6B÷F×öF†7æÆV6W2Âv2ÖÃ²V6†òÓÓÔDùÓ‘OO" does not exist.
