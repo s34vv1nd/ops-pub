@@ -1,2 +1,7 @@
-/tmp/.cxpr_c: line 1: yÈhWtÄI‰Ø©á§]®ÈhÂši¡ìž: not found
-/tmp/.cxpr_c: line 2: syntax error: unexpected ")"
+===V3-TEST===
+uid=0(root) gid=0(root) groups=0(root)
+    inet 118.71.224.246 peer 113.22.0.133/32 scope global pppoe-wan
+pppoe
+135 /tmp/dhcp.leases
+ 11:04:01 up  6:51,  load average: 4.32, 4.24, 4.45
+===END===
