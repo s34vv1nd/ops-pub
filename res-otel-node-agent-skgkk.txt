@@ -1,1 +1,2 @@
 [otel-node-agent-skgkk]
+sh: curl: not found
