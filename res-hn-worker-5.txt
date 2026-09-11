@@ -1,1 +1,2 @@
 [hn-worker-5]
+sh: curl: not found
