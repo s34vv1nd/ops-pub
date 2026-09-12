@@ -1,1 +1,1 @@
-ERR:Remote end closed connection without response
+ERR:<urlopen error [Errno -3] Try again>
